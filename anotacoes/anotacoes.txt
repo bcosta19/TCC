@@ -1,0 +1,6 @@
+Formulação problema de alocação de salas de Formulação
+
+Exemplo: n salas de aula, m turmas e l horários
+
+Variáveis de decisão:
+  Xij -> 
