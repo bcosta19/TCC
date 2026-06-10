@@ -99,7 +99,7 @@ class NSBitFlip(object):
 
 
 pKP = ExampleKP()
-pKP.load("./pyoptframe-dev/demo/02_QuickstartKP_SA/knapsack-example.txt")
+pKP.load("../../pyoptframe-dev/demo/02_QuickstartKP_SA/knapsack-example.txt")
 
 #pKP.n = 5
 #pKP.w = [1, 2, 3, 7, 8]

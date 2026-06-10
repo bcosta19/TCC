@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Credenciais / sessão (NUNCA versionar)
+webscrap/uff_cookies.json
+
+# Saídas temporárias
+*.log
+.ipynb_checkpoints/
