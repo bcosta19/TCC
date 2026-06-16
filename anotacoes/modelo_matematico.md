@@ -68,26 +68,27 @@ Conjuntos derivados:
 
 ## 4. Variáveis de decisão
 
-$$
-x_{c,p}=\begin{cases}1 & \text{turma } c \text{ é ministrada por } p\\0&\text{c.c.}\end{cases}
+```math
+x_{c,p}=\begin{cases}1 & \text{turma } c \text{ é ministrada por } p\\ 0 & \text{c.c.}\end{cases}
 \qquad c\in\mathcal{C},\ p\in\mathcal{P}_c
-$$
+```
 
-$$
-y_{c,q}=\begin{cases}1 & \text{turma } c \text{ recebe o padrão de horário } q\\0&\text{c.c.}\end{cases}
+```math
+y_{c,q}=\begin{cases}1 & \text{turma } c \text{ recebe o padrão } q\\ 0 & \text{c.c.}\end{cases}
 \qquad c\in\mathcal{C},\ q\in\mathcal{Q}_c
-$$
+```
 
-$$
-z_{c,r}=\begin{cases}1 & \text{turma } c \text{ é alocada na sala } r\\0&\text{c.c.}\end{cases}
+```math
+z_{c,r}=\begin{cases}1 & \text{turma } c \text{ é alocada na sala } r\\ 0 & \text{c.c.}\end{cases}
 \qquad c\in\mathcal{C},\ r\in\mathcal{R}_c
-$$
+```
 
 Variável auxiliar de **ocupação em slot** (derivada, facilita escrever conflitos):
 
-$$
-u_{c,h} = \sum_{q\in\mathcal{Q}_c \,:\, h\in H_q} y_{c,q} \in\{0,1\}\qquad (\text{1 se } c \text{ tem aula no slot } h)
-$$
+```math
+u_{c,h} = \sum_{q\in\mathcal{Q}_c \,:\, h\in H_q} y_{c,q} \in\{0,1\}
+\qquad (\text{1 se } c \text{ tem aula no slot } h)
+```
 
 ---
 
@@ -95,48 +96,68 @@ $$
 
 **(H1) Atribuição única de professor.** Toda turma tem exatamente um professor habilitado:
 
-$$\sum_{p\in\mathcal{P}_c} x_{c,p} = 1 \qquad \forall c\in\mathcal{C}$$
+```math
+\sum_{p\in\mathcal{P}_c} x_{c,p} = 1 \qquad \forall c\in\mathcal{C}
+```
 
 **(H2) Atribuição única de horário.**
 
-$$\sum_{q\in\mathcal{Q}_c} y_{c,q} = 1 \qquad \forall c\in\mathcal{C}$$
+```math
+\sum_{q\in\mathcal{Q}_c} y_{c,q} = 1 \qquad \forall c\in\mathcal{C}
+```
 
 **(H3) Atribuição única de sala.**
 
-$$\sum_{r\in\mathcal{R}_c} z_{c,r} = 1 \qquad \forall c\in\mathcal{C}$$
+```math
+\sum_{r\in\mathcal{R}_c} z_{c,r} = 1 \qquad \forall c\in\mathcal{C}
+```
 
 **(H4) Horário fixo das externas** (prioridade máxima):
 
-$$y_{c,\bar{q}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{ext}}$$
+```math
+y_{c,\bar{q}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{ext}}
+```
 
 **(H5) Setor fixa os dias.** Implícita no domínio: $\mathcal{Q}_c$ só contém padrões com $\text{dias}(q)$ iguais aos dias do setor $s(c)$ (exceção das externas, já tratada em H4).
 
 **(H6) Sem conflito de professor.** Um professor não ministra duas turmas no mesmo slot:
 
-$$\sum_{c\in\mathcal{C}} x_{c,p}\, u_{c,h} \le 1 \qquad \forall p\in\mathcal{P},\ \forall h\in\mathcal{H}$$
+```math
+\sum_{c\in\mathcal{C}} x_{c,p}\, u_{c,h} \le 1 \qquad \forall p\in\mathcal{P},\ \forall h\in\mathcal{H}
+```
 
 **(H7) Sem conflito de sala.** Uma sala não recebe duas turmas no mesmo slot:
 
-$$\sum_{c\in\mathcal{C}} z_{c,r}\, u_{c,h} \le 1 \qquad \forall r\in\mathcal{R},\ \forall h\in\mathcal{H}$$
+```math
+\sum_{c\in\mathcal{C}} z_{c,r}\, u_{c,h} \le 1 \qquad \forall r\in\mathcal{R},\ \forall h\in\mathcal{H}
+```
 
 **(H8) Sem conflito de aluno.** Turmas do mesmo grupo curricular não coincidem em slot:
 
-$$\sum_{c\in\mathcal{C}_g} u_{c,h} \le 1 \qquad \forall g\in\mathcal{G},\ \forall h\in\mathcal{H}$$
+```math
+\sum_{c\in\mathcal{C}_g} u_{c,h} \le 1 \qquad \forall g\in\mathcal{G},\ \forall h\in\mathcal{H}
+```
 
 **(H9) Recurso/laboratório.** Turma que exige laboratório vai para sala compatível (já embutido em $\mathcal{R}_c$; explicitando):
 
-$$z_{c,r}=0 \quad \text{se } \rho_c=1 \text{ e } \ell_r=0 \qquad \forall c,\ \forall r$$
+```math
+z_{c,r}=0 \quad \text{se } \rho_c=1 \text{ e } \ell_r=0 \qquad \forall c,\ \forall r
+```
 
-**(H10) Capacidade da sala.**
+**(H10) Capacidade da sala.** A sala alocada comporta o tamanho da turma:
 
-$$\sum_{c\in\mathcal{C}} z_{c,r}\,u_{c,h}\cdot n_c \le \text{cap}_r \quad\text{para a turma ocupando } r \text{ em } h
-\;\Longleftrightarrow\; z_{c,r}=1 \Rightarrow n_c \le \text{cap}_r$$
-(forma linear simples: $z_{c,r}=0$ sempre que $n_c > \text{cap}_r$.)
+```math
+z_{c,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r \qquad \forall c\in\mathcal{C},\ \forall r\in\mathcal{R}_c
+```
 
-**(H11) Jornada legal — descanso entre dias.** Para todo professor $p$ e par de dias consecutivos $(d,d{+}1)$: se $p$ leciona na última faixa de $d$, não pode lecionar na primeira faixa de $d{+}1$ quando o intervalo $< \text{desc}_{\min}$. Em forma linear, para cada par de slots $(h,h')$ que viola o descanso:
+(forma linear simples: fixar $z_{c,r}=0$ sempre que $n_c > \text{cap}_r$.)
 
-$$\sum_{c} x_{c,p}u_{c,h} + \sum_{c} x_{c,p}u_{c,h'} \le 1
-\quad \forall p,\ \forall (h,h')\in \text{ViolaDescanso}$$
+**(H11) Jornada legal — descanso entre dias.** Para todo professor $p$ e par de dias consecutivos $(d,d{+}1)$: se $p$ leciona na última faixa de $d$, não pode lecionar na primeira faixa de $d{+}1$ quando o intervalo for menor que $\text{desc}_{\min}$. Em forma linear, para cada par de slots $(h,h')$ que viola o descanso:
+
+```math
+\sum_{c} x_{c,p}\,u_{c,h} + \sum_{c} x_{c,p}\,u_{c,h'} \le 1
+\qquad \forall p,\ \forall (h,h')\in \text{ViolaDescanso}
+```
 
 > **Nota:** H8, H10 e H11 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
 
@@ -146,33 +167,40 @@ $$\sum_{c} x_{c,p}u_{c,h} + \sum_{c} x_{c,p}u_{c,h'} \le 1
 
 Minimizar a penalidade total ponderada (preferências entram como bônus, i.e., penalidade negativa):
 
-$$
-\min\ Z = \underbrace{-\,w_{\text{pref}}\!\!\sum_{c}\sum_{p\in\mathcal{P}_c}\pi_p\,\text{pref}_{p,c}\,x_{c,p}}_{\text{(O1) preferência×prioridade}}
-\;+\; w_{\text{dias}}\,\Phi_{\text{dias}}
-\;+\; w_{\text{jan}}\,\Phi_{\text{janelas}}
-\;+\; w_{\text{cap}}\,\Phi_{\text{desperdício}}
-\;+\; w_{\text{dist}}\,\Phi_{\text{distância}}
-\;+\; w_{\text{rod}}\,\Phi_{\text{rodízio}}
-$$
+```math
+\min\ Z = \underbrace{-\,w_{\text{pref}}\sum_{c}\sum_{p\in\mathcal{P}_c}\pi_p\,\text{pref}_{p,c}\,x_{c,p}}_{\text{(O1) preferência} \times \text{prioridade}}
++ w_{\text{dias}}\,\Phi_{\text{dias}}
++ w_{\text{jan}}\,\Phi_{\text{jan}}
++ w_{\text{cap}}\,\Phi_{\text{cap}}
++ w_{\text{dist}}\,\Phi_{\text{dist}}
++ w_{\text{rod}}\,\Phi_{\text{rod}}
+```
 
 **(O1) Preferência ponderada pela prioridade.** Professores mais prioritários (antigos) atendidos primeiro em suas disciplinas preferidas — atende a chefia/professor.
 
 **(O2) Dias trabalhados — $\Phi_{\text{dias}}$.** Minimizar o nº de dias com aula por professor. Com auxiliar $t_{p,d}\in\{0,1\}$ (=1 se $p$ leciona no dia $d$):
 
-$$t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d;\qquad \Phi_{\text{dias}}=\sum_{p}\sum_{d} t_{p,d}$$
+```math
+t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum_{p}\sum_{d} t_{p,d}
+```
 
-**(O3) Janelas — $\Phi_{\text{janelas}}$.** Minimizar buracos (slots vagos entre duas aulas no mesmo dia) por professor: para cada $p,d$, contar slots ociosos entre a primeira e a última aula do dia.
+**(O3) Janelas — $\Phi_{\text{jan}}$.** Minimizar buracos (slots vagos entre duas aulas no mesmo dia) por professor: para cada $p,d$, contar slots ociosos entre a primeira e a última aula do dia.
 
-**(O4) Desperdício de capacidade — $\Phi_{\text{desperdício}}$.** Penalizar sala muito maior que a turma:
+**(O4) Desperdício de capacidade — $\Phi_{\text{cap}}$.** Penalizar sala muito maior que a turma:
 
-$$\Phi_{\text{desperdício}}=\sum_{c}\sum_{r\in\mathcal{R}_c} z_{c,r}\,(\text{cap}_r - n_c)$$
+```math
+\Phi_{\text{cap}}=\sum_{c}\sum_{r\in\mathcal{R}_c} z_{c,r}\,(\text{cap}_r - n_c)
+```
 
-**(O5) Distância percorrida pelos alunos — $\Phi_{\text{distância}}$** *(ideia original do trabalho)*. Para cada grupo curricular $g$ e cada par de slots **consecutivos** $(h,h')$ no mesmo dia em que $g$ tem aulas nas salas $r$ e $r'$, somar $\delta_{r,r'}$:
+**(O5) Distância percorrida pelos alunos — $\Phi_{\text{dist}}$** *(ideia original do trabalho)*. Para cada grupo curricular $g$ e cada par de slots **consecutivos** $(h,h')$ no mesmo dia em que $g$ tem aulas nas salas $r$ e $r'$, somar $\delta_{r,r'}$:
 
-$$\Phi_{\text{distância}}=\sum_{g}\sum_{(h,h')\,\text{consec.}}\;\sum_{c,c'\in\mathcal{C}_g}\sum_{r,r'} \delta_{r,r'}\;(z_{c,r}u_{c,h})(z_{c',r'}u_{c',h'})$$
+```math
+\Phi_{\text{dist}}=\sum_{g}\ \sum_{(h,h')\,\text{consec.}}\ \sum_{c,c'\in\mathcal{C}_g}\ \sum_{r,r'} \delta_{r,r'}\;(z_{c,r}\,u_{c,h})\,(z_{c',r'}\,u_{c',h'})
+```
+
 (termo quadrático; no protótipo é avaliado diretamente sobre a solução, sem linearizar.)
 
-**(O6) Rodízio par/ímpar — $\Phi_{\text{rodízio}}$.** Penalizar manter o mesmo professor na mesma disciplina em semestres de paridade diferente (incentiva rodízio), comparando com a atribuição do semestre anterior (parâmetro histórico).
+**(O6) Rodízio par/ímpar — $\Phi_{\text{rod}}$.** Penalizar manter o mesmo professor na mesma disciplina em semestres de paridade diferente (incentiva rodízio), comparando com a atribuição do semestre anterior (parâmetro histórico).
 
 > **Pesos $w_\bullet$:** calibrar com o orientador. Sugestão de partida: normalizar cada termo para $[0,1]$ e atribuir pesos por importância declarada. O termo de distância (O5) é o diferencial do trabalho e merece um estudo de *ablação* (com/sem) nos experimentos.
 
