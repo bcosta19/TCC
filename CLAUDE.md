@@ -33,4 +33,4 @@ A ideia original era minimizar a distância entre salas de aulas consecutivas (a
 
 ## Estado atual (jun/2026)
 
-Fase 1 do plano (formalização do modelo matemático) e Fase 2 (dados) em andamento. Bloqueio externo: aguardando a planilha de setores do orientador. Pendências de limpeza nos dados coletados estão em `dados/PENDENCIAS.md`.
+Fase 1 (formalização): primeiro rascunho do modelo matemático em `anotacoes/modelo_matematico.md` — UCTP curriculum-based + alocação de salas com distância; falta revisar hard×soft e pesos com o orientador. Fase 2 (dados) ainda por começar. Bloqueio externo: aguardando a planilha de setores do orientador. Pendências de limpeza nos dados coletados estão em `dados/PENDENCIAS.md`.
