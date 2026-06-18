@@ -10,3 +10,4 @@ webscrap/uff_cookies.json
 # Saídas temporárias
 *.log
 .ipynb_checkpoints/
+webscrap/_probe_turma.html

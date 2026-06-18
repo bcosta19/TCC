@@ -163,43 +163,42 @@ def parse_table(html: str, semestre_label: str) -> list[dict]:
     return records
 
 
-# ── 3. NOME COMPLETO VIA PÁGINA DE DETALHE ────────────────────────────────────
+# ── 3. DETALHE DA TURMA (professor + horário + vagas) ─────────────────────────
 
 SESSION_EXPIRED_MARKER = "__SESSION_EXPIRED__"
+
+# Dias da semana como aparecem no cabeçalho da grade de horário, e abreviação.
+ORDEM_DIAS = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+DIA_ABREV = {
+    "Segunda": "Seg", "Terça": "Ter", "Quarta": "Qua",
+    "Quinta": "Qui", "Sexta": "Sex", "Sábado": "Sab",
+}
+ORDEM_ABREV = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
+TIME_RE = re.compile(r"\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}")
 
 
 def is_session_expired(html: str) -> bool:
     return 'href="/graduacao/quadrodehorarios/sessions/new">Login' in html
 
 
-def fetch_full_names(turma_url: str, session: requests.Session) -> list[str]:
-    """
-    Busca nomes completos dos professores na página de detalhe da turma.
-    Tabela alvo: <table id="tabela-alteracao-professores-turma">
-    Retorna [SESSION_EXPIRED_MARKER] se a sessão tiver expirado.
-    Retorna [] se não encontrar a tabela.
-    """
-    if not turma_url:
-        return []
-    url = f"https://app.uff.br{turma_url}" if turma_url.startswith("/") else turma_url
-    try:
-        r = session.get(url, headers=HTTP_HEADERS, timeout=20)
-        r.raise_for_status()
-    except Exception:
-        return []
+def find_card(soup: BeautifulSoup, titulo: str) -> Tag | None:
+    """Localiza o <div class='card'> cujo <h5> contém o título dado."""
+    for h5 in soup.find_all("h5"):
+        if isinstance(h5, Tag) and titulo.lower() in h5.get_text(strip=True).lower():
+            card = h5.find_parent("div", class_="card")
+            if isinstance(card, Tag):
+                return card
+    return None
 
-    if is_session_expired(r.text):
-        return [SESSION_EXPIRED_MARKER]
 
-    soup = BeautifulSoup(r.text, "html.parser")
+def parse_docentes(soup: BeautifulSoup) -> list[str]:
+    """Nomes completos dos professores. Tabela: id='tabela-alteracao-professores-turma'."""
     tabela = soup.find("table", id="tabela-alteracao-professores-turma")
     if not isinstance(tabela, Tag):
         return []
-
     tbody = tabela.find("tbody")
     if not isinstance(tbody, Tag):
         return []
-
     nomes = []
     for row in tbody.find_all("tr"):
         if not isinstance(row, Tag):
@@ -212,48 +211,153 @@ def fetch_full_names(turma_url: str, session: requests.Session) -> list[str]:
     return nomes
 
 
+def parse_horario(soup: BeautifulSoup) -> dict:
+    """
+    Extrai os encontros (dia × faixa) da grade do card 'Horários da Turma'.
+    Retorna {'horario': 'Ter 09:00-11:00; Qui 09:00-11:00', 'padrao_dias': 'Ter-Qui'}.
+    Ignora as tabelas 'tabela-altera-horarios' (modal de edição).
+    """
+    vazio = {"horario": "", "padrao_dias": ""}
+    card = find_card(soup, "Horários da Turma")
+    if not isinstance(card, Tag):
+        return vazio
+
+    tabela = None
+    for t in card.find_all("table"):
+        if not isinstance(t, Tag):
+            continue
+        if "tabela-altera-horarios" not in (t.get("class") or []):
+            tabela = t
+            break
+    if not isinstance(tabela, Tag):
+        return vazio
+
+    linhas = tabela.find_all("tr")
+    if not linhas:
+        return vazio
+    cabecalho = [c.get_text(strip=True) for c in linhas[0].find_all(["th", "td"])]
+
+    encontros = []  # (dia_abrev, faixa)
+    for linha in linhas[1:]:
+        celulas = linha.find_all(["td", "th"])
+        for i, cel in enumerate(celulas):
+            if i >= len(cabecalho):
+                continue
+            m = TIME_RE.search(cel.get_text(" ", strip=True))
+            if m:
+                dia = DIA_ABREV.get(cabecalho[i], cabecalho[i])
+                encontros.append((dia, m.group().replace(" ", "")))
+    if not encontros:
+        return vazio
+
+    horario = "; ".join(f"{d} {f}" for d, f in encontros)
+    dias = sorted({d for d, _ in encontros},
+                  key=lambda d: ORDEM_ABREV.index(d) if d in ORDEM_ABREV else 99)
+    return {"horario": horario, "padrao_dias": "-".join(dias)}
+
+
+def parse_vagas(soup: BeautifulSoup) -> dict:
+    """
+    Soma vagas e inscritos da tabela do card 'Vagas Alocadas'.
+    Colunas: Curso | Vagas | Inscritos(Reg, Vest) | Excedentes | Candidatos(Reg, Vest).
+    Pode haver mais de uma linha (turma ofertada a vários cursos) — soma todas.
+    """
+    vazio = {"vagas": None, "inscritos": None}
+    card = find_card(soup, "Vagas Alocadas")
+    if not isinstance(card, Tag):
+        return vazio
+    tabela = card.find("table")
+    if not isinstance(tabela, Tag):
+        return vazio
+    corpo = tabela.find("tbody")
+    linhas = corpo.find_all("tr") if isinstance(corpo, Tag) else tabela.find_all("tr")
+
+    total_vagas = 0
+    total_inscr = 0
+    achou = False
+    for linha in linhas:
+        cels = [c.get_text(strip=True) for c in linha.find_all(["td", "th"])]
+        # linha de dados começa com o nome do curso e tem a vaga (int) na 2ª coluna
+        if len(cels) >= 2 and cels[1].isdigit():
+            total_vagas += int(cels[1])
+            total_inscr += sum(int(c) for c in cels[2:4] if c.isdigit())
+            achou = True
+    return {"vagas": total_vagas, "inscritos": total_inscr} if achou else vazio
+
+
+def fetch_turma_details(turma_url: str, session: requests.Session):
+    """
+    Busca, numa única requisição à página de detalhe da turma:
+    docentes (nomes completos), horário e vagas.
+    Retorna dict com chaves docentes/horario/padrao_dias/vagas/inscritos,
+    SESSION_EXPIRED_MARKER se a sessão expirou, ou {} em caso de falha.
+    """
+    if not turma_url:
+        return {}
+    url = f"https://app.uff.br{turma_url}" if turma_url.startswith("/") else turma_url
+    try:
+        r = session.get(url, headers=HTTP_HEADERS, timeout=20)
+        r.raise_for_status()
+    except Exception:
+        return {}
+
+    if is_session_expired(r.text):
+        return SESSION_EXPIRED_MARKER
+
+    soup = BeautifulSoup(r.text, "html.parser")
+    detalhes = {"docentes": parse_docentes(soup)}
+    detalhes.update(parse_horario(soup))
+    detalhes.update(parse_vagas(soup))
+    return detalhes
+
+
 def enrich_with_full_names(records: list[dict], session: requests.Session) -> list[dict]:
     """
-    Para cada turma_url única, busca os nomes completos dos professores.
-    Expande registros: um por (turma, professor).
+    Para cada turma_url única, busca na página de detalhe: nomes completos dos
+    professores, horário e vagas. Expande registros: um por (turma, professor).
     Se a sessão expirar (timeout de 20 min), usa o nome do tooltip como fallback.
     """
     unique_urls = {r["turma_url"] for r in records if r["turma_url"]}
     total = len(unique_urls)
-    print(f"\nBuscando nomes completos em {total} páginas de turma...")
+    print(f"\nBuscando detalhes (docentes, horário, vagas) em {total} páginas de turma...")
     print(f"(estimativa: ~{int(total * 0.3 / 60) + 1} min — sessão expira em 20 min)")
 
-    url_to_names: dict[str, list[str]] = {}
+    url_to_det: dict[str, dict] = {}
     session_ok = True
     for i, url in enumerate(unique_urls, 1):
         if i % 25 == 0 or i == total:
             print(f"  {i}/{total}")
         if not session_ok:
-            url_to_names[url] = []
+            url_to_det[url] = {}
             continue
-        nomes = fetch_full_names(url, session)
-        if nomes == [SESSION_EXPIRED_MARKER]:
+        det = fetch_turma_details(url, session)
+        if det == SESSION_EXPIRED_MARKER:
             print(f"\n  [AVISO] Sessão expirou na turma {i}/{total}.")
             print("  Usando nomes do tooltip para as turmas restantes.")
             session_ok = False
-            url_to_names[url] = []
+            url_to_det[url] = {}
         else:
-            url_to_names[url] = nomes
+            url_to_det[url] = det
         time.sleep(0.3)
 
     enriched = []
     for rec in records:
-        nomes = url_to_names.get(rec["turma_url"], [])
+        det = url_to_det.get(rec["turma_url"], {})
+        nomes = det.get("docentes") or []
         if not nomes:
             nomes = [n.strip() for n in rec["docente_tooltip"].split(",") if n.strip()]
         for nome in nomes:
             enriched.append({
-                "semestre":   rec["semestre"],
-                "codigo":     rec["codigo"],
-                "disciplina": rec["disciplina"],
-                "turma":      rec["turma"],
-                "turma_url":  rec["turma_url"],
-                "docente":    nome,
+                "semestre":    rec["semestre"],
+                "codigo":      rec["codigo"],
+                "disciplina":  rec["disciplina"],
+                "turma":       rec["turma"],
+                "turma_url":   rec["turma_url"],
+                "docente":     nome,
+                "horario":     det.get("horario", ""),
+                "padrao_dias": det.get("padrao_dias", ""),
+                "vagas":       det.get("vagas"),
+                "inscritos":   det.get("inscritos"),
             })
     return enriched
 
