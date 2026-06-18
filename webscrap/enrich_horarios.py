@@ -15,7 +15,8 @@ completo (a sessão idUFF expira em ~20 min).
 """
 
 import sys
-import time
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
 import requests
@@ -27,6 +28,24 @@ from scraper import (
 )
 
 CSV = "turmas_raw.csv"
+WORKERS = 8  # nº de requisições concorrentes (tarefa I/O-bound)
+
+# requests.Session não é thread-safe para compartilhar entre threads;
+# cada thread cria a sua, todas com os mesmos cookies de sessão.
+_local = threading.local()
+
+
+def _session(cookies: dict) -> requests.Session:
+    s = getattr(_local, "session", None)
+    if s is None:
+        s = requests.Session()
+        s.cookies.update(cookies)
+        _local.session = s
+    return s
+
+
+def _fetch(url: str, cookies: dict):
+    return url, fetch_turma_details(url, _session(cookies))
 
 
 def main():
@@ -41,23 +60,28 @@ def main():
     total = len(urls)
 
     cookies = load_or_login()
-    session = requests.Session()
-    session.cookies.update(cookies)
 
-    print(f"\nBuscando horário/vagas em {total} turmas únicas...")
-    print(f"(estimativa: ~{int(total * 0.3 / 60) + 1} min — sessão expira em 20 min)")
+    print(f"\nBuscando horário/vagas em {total} turmas únicas "
+          f"({WORKERS} em paralelo)...", flush=True)
 
     cache: dict[str, dict] = {}
-    for i, url in enumerate(urls, 1):
-        if i % 25 == 0 or i == total:
-            print(f"  {i}/{total}")
-        det = fetch_turma_details(url, session)
-        if det == SESSION_EXPIRED_MARKER:
-            print(f"\n[ERRO] Sessão expirou na turma {i}/{total}. "
-                  "Delete uff_cookies.json e rode de novo.")
-            break
-        cache[url] = det if isinstance(det, dict) else {}
-        time.sleep(0.3)
+    expirou = 0
+    feito = 0
+    with ThreadPoolExecutor(max_workers=WORKERS) as executor:
+        futuros = [executor.submit(_fetch, u, cookies) for u in urls]
+        for fut in as_completed(futuros):
+            url, det = fut.result()
+            feito += 1
+            if det == SESSION_EXPIRED_MARKER:
+                expirou += 1
+                cache[url] = {}
+            else:
+                cache[url] = det if isinstance(det, dict) else {}
+            if feito % 50 == 0 or feito == total:
+                print(f"  {feito}/{total}", flush=True)
+    if expirou:
+        print(f"\n[AVISO] Sessão expirou em {expirou} turma(s) — "
+              "rode de novo para completá-las.")
 
     def col(campo):
         return df["turma_url"].map(lambda u: cache.get(u, {}).get(campo))
