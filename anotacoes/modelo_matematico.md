@@ -14,13 +14,30 @@ A unidade a ser programada é a **turma** (uma oferta de uma disciplina num seme
 2. **em qual padrão de horário** (conjunto de encontros semanais);
 3. **em qual sala**.
 
-A estratégia do orientador reduz o espaço de busca fixando parte disso como **dado de entrada** (parâmetro), não como variável:
+A estratégia do orientador reduz o espaço de busca fixando parte disso como **dado de entrada** (parâmetro), não como variável. Para organizar o que é variável e o que é dado, cada turma é classificada por **dois eixos independentes**:
 
-- **Disciplinas externas** (cursadas por outros cursos, ex.: Estruturas de Dados) têm **horário fixo** e prioridade máxima → o padrão de horário delas é parâmetro.
-- **Setores** (algoritmos, redes, eng. de software, ...) fixam os **dias da semana** de cada turma → restringem o domínio da variável de horário.
-- O regime **par/ímpar** define, para cada disciplina obrigatória, um padrão de horário previsto por paridade de semestre.
+**Eixo 1 — responsabilidade (quem aloca):**
 
-Apresento abaixo o **modelo completo** (todas as decisões como variáveis) e, na Seção 7, como a estratégia do orientador o particiona em estágios para o protótipo.
+- $\mathcal{C}^{\text{IC}}$ — turmas **do próprio IC** (código `TCC*`). O IC decide professor e sala; o horário é variável (restrito por setor/paridade) ou fixo (disciplinas-serviço, abaixo).
+- $\mathcal{C}^{\text{out}}$ — turmas de **outros departamentos** cursadas por alunos do IC (código não-`TCC`; ex.: Cálculo/`GMA`, Administração Aplicada à Engenharia/`TEP`). **Professor e horário são dados de entrada** — não cabe ao IC alocá-las. Entram no modelo apenas como **ocupação fixa do horário do aluno** (restrição H8) e, se ocorrerem em salas do IC, como ocupação de sala (H7).
+
+**Eixo 2 — papel curricular (compõe os grupos $\mathcal{G}$ e diz o que tem encaixe livre):**
+
+- $\mathcal{C}^{\text{obr}}$ — obrigatórias de cada período;
+- $\mathcal{C}^{\text{opt}}$ — optativas (horário mais livre, quando são do IC).
+
+> Os eixos são **ortogonais**: existe optativa de outro departamento (Administração Aplicada à Engenharia $\in \mathcal{C}^{\text{out}}\cap\mathcal{C}^{\text{opt}}$) e obrigatória de outro departamento (Cálculo $\in \mathcal{C}^{\text{out}}\cap\mathcal{C}^{\text{obr}}$). O **departamento** sai automaticamente do prefixo do código (`TCC*` = IC); o **papel curricular** (obrigatória/optativa por período) vem da grade do curso — lista a receber.
+
+Atributo transversal — **horário fixo:**
+
+- $\mathcal{C}^{\text{fix}}\subseteq\mathcal{C}$ — turmas com padrão de horário **dado**: todas as de $\mathcal{C}^{\text{out}}$ **mais** as disciplinas-serviço do IC (ex.: Estruturas de Dados, oferecida a outros cursos com prioridade máxima). Para elas $y$ é parâmetro.
+
+Demais regras de domínio:
+
+- **Setores** (algoritmos, redes, eng. de software, …) fixam os **dias da semana** das turmas do IC → restringem o domínio da variável de horário.
+- O regime **par/ímpar** define, para cada obrigatória do IC, um padrão de horário previsto por paridade de semestre.
+
+Apresento abaixo o **modelo completo** (todas as decisões do IC como variáveis) e, na Seção 8, como essa estrutura o particiona em estágios para o protótipo.
 
 ---
 
@@ -40,12 +57,13 @@ Apresento abaixo o **modelo completo** (todas as decisões como variáveis) e, n
 
 Conjuntos derivados:
 - $H_q \subseteq \mathcal{H}$: slots ocupados pelo padrão $q$; $\text{dias}(q)\subseteq\mathcal{D}$: dias do padrão $q$.
-- $\mathcal{C}^{\text{obr}}, \mathcal{C}^{\text{opt}}, \mathcal{C}^{\text{ext}} \subseteq \mathcal{C}$: turmas obrigatórias, optativas e externas (partição).
-- $\mathcal{P}_c \subseteq \mathcal{P}$: professores **habilitados** a ministrar a disciplina da turma $c$ (definidos pela planilha de setores/afinidade).
-- $\mathcal{Q}_c \subseteq \mathcal{Q}$: padrões **admissíveis** para a turma $c$ (restritos pelos dias do setor de $c$; unitário/fixo se $c\in\mathcal{C}^{\text{ext}}$).
+- **Classificação das turmas** (Seção 1): por responsabilidade $\mathcal{C}=\mathcal{C}^{\text{IC}}\cup\mathcal{C}^{\text{out}}$ (disjuntos); por papel curricular $\mathcal{C}=\mathcal{C}^{\text{obr}}\cup\mathcal{C}^{\text{opt}}$ (disjuntos); e o atributo transversal $\mathcal{C}^{\text{fix}}\supseteq\mathcal{C}^{\text{out}}$ (horário dado).
+- $\mathcal{P}$: professores **do IC**; os de outros departamentos são exógenos e **não** pertencem a $\mathcal{P}$.
+- $\mathcal{P}_c \subseteq \mathcal{P}$: professores **habilitados** a ministrar a turma $c\in\mathcal{C}^{\text{IC}}$ (planilha de setores/afinidade).
+- $\mathcal{Q}_c \subseteq \mathcal{Q}$: padrões **admissíveis** para $c$ (restritos pelos dias do setor; **unitário** $=\{\bar q_c\}$ se $c\in\mathcal{C}^{\text{fix}}$).
 - $\mathcal{R}_c \subseteq \mathcal{R}$: salas compatíveis com os recursos exigidos por $c$.
-- $\mathcal{C}_g \subseteq \mathcal{C}$: turmas do grupo curricular $g$.
-- $s(c)\in\mathcal{S}$: setor da turma $c$.
+- $\mathcal{C}_g \subseteq \mathcal{C}$: turmas do grupo curricular $g$ — **inclui as de outros departamentos** ($\mathcal{C}^{\text{out}}$) que o período cursa (ex.: Cálculo), pois bloqueiam o horário do aluno.
+- $s(c)\in\mathcal{S}$: setor da turma $c$ (definido só para $c\in\mathcal{C}^{\text{IC}}$).
 
 ---
 
@@ -60,7 +78,8 @@ Conjuntos derivados:
 | $\text{pref}_{p,c} \in [0,1]$ | preferência do professor $p$ pela disciplina de $c$ (proxy: frequência histórica no webscrap) |
 | $\pi_p \in [0,1]$ | prioridade do professor $p$ (antiguidade/idade; maior = atendido primeiro) |
 | $\delta_{r,r'} \ge 0$ | distância física entre as salas $r$ e $r'$ (matriz de distâncias) |
-| $\bar{q}_c \in \mathcal{Q}$ | padrão de horário **previsto/fixo** de $c$ (par/ímpar; obrigatório se $c\in\mathcal{C}^{\text{ext}}$) |
+| $\bar{q}_c \in \mathcal{Q}$ | padrão de horário **previsto/fixo** de $c$ (par/ímpar; obrigatório se $c\in\mathcal{C}^{\text{fix}}$) |
+| $\bar{p}_c$ | professor **fixo** de $c$ (dado de entrada para $c\in\mathcal{C}^{\text{out}}$; exógeno ao IC) |
 | $\text{desc}_{\min}$ | descanso mínimo (em horas) entre o fim do trabalho de um dia e o início do dia seguinte |
 | $w_\bullet \ge 0$ | pesos dos termos da função objetivo (a calibrar) |
 
@@ -90,14 +109,16 @@ u_{c,h} = \sum_{q\in\mathcal{Q}_c \,:\, h\in H_q} y_{c,q} \in\{0,1\}
 \qquad (\text{1 se } c \text{ tem aula no slot } h)
 ```
 
+> **Domínios fixados.** Para $c\in\mathcal{C}^{\text{out}}$ (outros departamentos), professor e horário são parâmetros: $x_{c,\bar p_c}=1$ e $y_{c,\bar q_c}=1$, e $z$ **não se aplica** (a aula ocorre fora do IC, salvo indicação contrária) — essas turmas entram só como ocupação fixa via $u_{c,h}$. Para $c\in\mathcal{C}^{\text{fix}}\setminus\mathcal{C}^{\text{out}}$ (disciplinas-serviço do IC, ex.: Estruturas de Dados), apenas o horário é fixo ($y_{c,\bar q_c}=1$); professor ($x$) e sala ($z$) seguem sendo variáveis do IC.
+
 ---
 
 ## 5. Restrições fortes (hard)
 
-**(H1) Atribuição única de professor.** Toda turma tem exatamente um professor habilitado:
+**(H1) Atribuição única de professor.** Toda turma **do IC** tem exatamente um professor habilitado (as de outros departamentos já têm professor fixo — H4b):
 
 ```math
-\sum_{p\in\mathcal{P}_c} x_{c,p} = 1 \qquad \forall c\in\mathcal{C}
+\sum_{p\in\mathcal{P}_c} x_{c,p} = 1 \qquad \forall c\in\mathcal{C}^{\text{IC}}
 ```
 
 **(H2) Atribuição única de horário.**
@@ -106,33 +127,39 @@ u_{c,h} = \sum_{q\in\mathcal{Q}_c \,:\, h\in H_q} y_{c,q} \in\{0,1\}
 \sum_{q\in\mathcal{Q}_c} y_{c,q} = 1 \qquad \forall c\in\mathcal{C}
 ```
 
-**(H3) Atribuição única de sala.**
+**(H3) Atribuição única de sala** (turmas alocadas pelo IC):
 
 ```math
-\sum_{r\in\mathcal{R}_c} z_{c,r} = 1 \qquad \forall c\in\mathcal{C}
+\sum_{r\in\mathcal{R}_c} z_{c,r} = 1 \qquad \forall c\in\mathcal{C}^{\text{IC}}
 ```
 
-**(H4) Horário fixo das externas** (prioridade máxima):
+**(H4) Horário fixo** (disciplinas-serviço do IC + todas as de outros departamentos):
 
 ```math
-y_{c,\bar{q}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{ext}}
+y_{c,\bar{q}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{fix}}
 ```
 
-**(H5) Setor fixa os dias.** Implícita no domínio: $\mathcal{Q}_c$ só contém padrões com $\text{dias}(q)$ iguais aos dias do setor $s(c)$ (exceção das externas, já tratada em H4).
+**(H4b) Professor fixo das de outros departamentos** (o IC não as aloca):
 
-**(H6) Sem conflito de professor.** Um professor não ministra duas turmas no mesmo slot:
+```math
+x_{c,\bar{p}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{out}}
+```
+
+**(H5) Setor fixa os dias.** Implícita no domínio: $\mathcal{Q}_c$ só contém padrões com $\text{dias}(q)$ iguais aos dias do setor $s(c)$ (vale para $c\in\mathcal{C}^{\text{IC}}$ de horário variável; as de $\mathcal{C}^{\text{fix}}$ já têm horário dado por H4).
+
+**(H6) Sem conflito de professor.** Um professor do IC não ministra duas turmas no mesmo slot (como $\mathcal{P}$ são só professores do IC, o somatório ignora $\mathcal{C}^{\text{out}}$ — jornada de docente externo é problema do departamento dele):
 
 ```math
 \sum_{c\in\mathcal{C}} x_{c,p}\, u_{c,h} \le 1 \qquad \forall p\in\mathcal{P},\ \forall h\in\mathcal{H}
 ```
 
-**(H7) Sem conflito de sala.** Uma sala não recebe duas turmas no mesmo slot:
+**(H7) Sem conflito de sala.** Uma sala do IC não recebe duas turmas no mesmo slot (as de $\mathcal{C}^{\text{out}}$ não têm $z$, logo não entram — supõe-se que ocorrem fora do IC; se alguma usar sala do IC, entra com sala fixa $\bar r_c$):
 
 ```math
 \sum_{c\in\mathcal{C}} z_{c,r}\, u_{c,h} \le 1 \qquad \forall r\in\mathcal{R},\ \forall h\in\mathcal{H}
 ```
 
-**(H8) Sem conflito de aluno.** Turmas do mesmo grupo curricular não coincidem em slot:
+**(H8) Sem conflito de aluno.** Turmas do mesmo grupo curricular não coincidem em slot. **Aqui as de outros departamentos importam**: $\mathcal{C}_g$ inclui as $\mathcal{C}^{\text{out}}$ do período (com $u$ fixo por H4), de modo que o horário fixo do Cálculo bloqueia, de fato, os slots em que o IC pode pôr suas obrigatórias daquele período:
 
 ```math
 \sum_{c\in\mathcal{C}_g} u_{c,h} \le 1 \qquad \forall g\in\mathcal{G},\ \forall h\in\mathcal{H}
@@ -214,7 +241,8 @@ t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum
 | Coordenação (briga pelos alunos, quer vaga) | H8 (sem choque p/ aluno), H10 (vaga), O5 (deslocamento) |
 | Instituto de Computação (salas) | H3, H7, H9, H10, O4 |
 | Jornada legal do professor | H11, O2, O3 |
-| Prioridade máxima das externas | H4, H5 (exceção dos dias) |
+| Disciplinas-serviço do IC (horário prioritário, ex.: ED) | H4 (horário fixo), H5 |
+| Disciplinas de outros departamentos (exógenas) | H4 (horário), H4b (professor), H8 (bloqueio do aluno) |
 
 ---
 
@@ -222,11 +250,11 @@ t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum
 
 Para caber no prazo e refletir o fluxo real, o protótipo resolve em estágios acoplados, mas com **um único avaliador** $Z$ enxergando a solução inteira:
 
-1. **Fixar** externas (H4) e os dias por setor (H5);
-2. **Construtivo guloso**: atribuir professores ($x$) priorizando O1; depois encaixar optativas em $\mathcal{Q}_c$; depois salas ($z$) por melhor encaixe de capacidade/recurso;
-3. **Busca local / metaheurística** (SA → ILS/VNS) sobre vizinhanças que mexem em $x$, $y$ e $z$, guiada por $Z$ e pelas penalidades das restrições hard relaxáveis.
+1. **Fixar** o plano de fundo: professor+horário de $\mathcal{C}^{\text{out}}$ (H4b/H4) e horário das disciplinas-serviço $\mathcal{C}^{\text{fix}}$ (H4); aplicar os dias por setor (H5);
+2. **Construtivo guloso**: atribuir professores ($x$) das turmas do IC priorizando O1; depois encaixar optativas do IC em $\mathcal{Q}_c$; depois salas ($z$) por melhor encaixe de capacidade/recurso;
+3. **Busca local / metaheurística** (SA → ILS/VNS) sobre vizinhanças que mexem em $x$, $y$ e $z$ das turmas do IC, guiada por $Z$ e pelas penalidades das restrições hard relaxáveis.
 
-**Representação da solução (OptFrame):** para cada turma $c$, a tripla $(\text{prof}_c,\ \text{pad}_c,\ \text{sala}_c)$; turmas externas têm $\text{pad}_c$ imutável.
+**Representação da solução (OptFrame):** para cada turma $c\in\mathcal{C}^{\text{IC}}$, a tripla $(\text{prof}_c,\ \text{pad}_c,\ \text{sala}_c)$ — com $\text{pad}_c$ imutável se $c\in\mathcal{C}^{\text{fix}}$. As turmas de $\mathcal{C}^{\text{out}}$ ficam como **plano de fundo fixo** (professor + horário dados), só para checar H8.
 
 **Vizinhanças (moves):**
 - trocar professor entre duas turmas / realocar professor de uma turma;
@@ -239,8 +267,10 @@ Para caber no prazo e refletir o fluxo real, o protótipo resolve em estágios a
 
 ## 9. Pendências para fechar o modelo
 
-- [ ] Definir o conjunto exato de faixas $\mathcal{B}$ e padrões $\mathcal{Q}$ (grade de horários real da UFF, incluindo 11–13h e noite 18h).
+- [ ] Definir o conjunto exato de faixas $\mathcal{B}$ e padrões $\mathcal{Q}$ (grade de horários real da UFF, incluindo 11–13h e noite 18h). **Em andamento:** webscrap já extrai horário/vagas por turma; tabular a distribuição real dos padrões.
 - [ ] Receber a planilha de setores → define $\mathcal{S}$, $\mathcal{P}_c$ e os dias de cada setor.
-- [ ] Definir $\mathcal{G}$ (grupos curriculares por período) a partir da grade do curso → necessário para H8 e O5.
+- [ ] Receber a **lista de obrigatórias × optativas** por período → define $\mathcal{C}^{\text{obr}}/\mathcal{C}^{\text{opt}}$ e compõe os grupos $\mathcal{G}$. (A divisão IC × outro departamento já sai automaticamente do prefixo do código: `TCC*` = IC.)
+- [ ] Definir $\mathcal{G}$ (grupos curriculares por período) a partir da grade do curso, **incluindo as disciplinas de outros departamentos** que cada período cursa → necessário para H8 e O5.
+- [ ] Confirmar com o orientador se alguma disciplina de $\mathcal{C}^{\text{out}}$ ocorre em **sala do IC** (se sim, entra em H7 com sala fixa $\bar r_c$).
 - [ ] Obter posições/distâncias das salas ($\delta_{r,r'}$) → necessário para O5.
 - [ ] Decidir hard × soft de H8, H10, H11 e calibrar pesos $w_\bullet$ com o orientador.
