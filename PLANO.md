@@ -14,6 +14,8 @@ O problema real é uma variante do **University Course Timetabling Problem (UCTP
 2. **Encaixe das optativas** (horário livre) na grade;
 3. **Alocação de salas** (capacidade, recursos/laboratórios, e **distância entre salas de aulas consecutivas** — a ideia original do trabalho, mantida como critério de qualidade).
 
+Duas diretrizes do orientador (23/06/2026) ampliam o horizonte: o planejamento é **anual** — todo professor do IC deve ministrar **no mínimo 3 obrigatórias por ano** (H12), o que acopla os semestres ímpar e par —, e há **duas grades curriculares**, **CC e SI**, do mesmo departamento e sob as mesmas regras, com disciplinas compartilhadas entre elas (turma única cursada por alunos dos dois cursos). Formalização completa em `anotacoes/modelo_matematico.md`.
+
 Recomendação: tratar como **problema em estágios acoplados** no protótipo (horários majoritariamente fixos → professores → optativas → salas), com a metaheurística otimizando uma função objetivo ponderada que enxerga tudo. Isso é defensável no texto (decomposição clássica de timetabling) e viável no prazo.
 
 ### Restrições fortes (hard)
@@ -22,7 +24,8 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - Sem choque de sala (mesma sala, mesmo horário);
 - Pedidos de recurso atendidos (turma que precisa de laboratório vai para laboratório);
 - Jornada legal do professor: descanso mínimo entre o fim de um dia e o início do outro (caso "aula até 22h + aula às 7h");
-- Matérias do mesmo período da grade curricular não podem se chocar (aluno precisa conseguir cursar o período completo).
+- Matérias do mesmo período da grade curricular não podem se chocar (aluno precisa conseguir cursar o período completo) — vale para as duas grades (CC e SI);
+- Carga anual: cada professor do IC ministra **no mínimo 3 obrigatórias por ano** (H12, soma dos dois semestres).
 
 ### Critérios de qualidade (soft / função objetivo)
 - Preferência do professor pela matéria (frequência histórica do webscrap como proxy), ponderada pela prioridade do professor (antiguidade);
@@ -47,7 +50,8 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - [ ] Cobrar/receber a **planilha de setores** e demais itens de `dados/PENDENCIAS.md`.
 - [ ] Limpar o webscrap (filtrar humanísticas, separar disciplinas do IC) e consolidar a matriz professor × disciplina de preferências.
 - [ ] Estender o scraper para capturar **vagas e horários das turmas** (as `turma_url` já estão no CSV) — dá tamanhos de turma reais e a grade real como baseline.
-- [ ] Definir um **formato de instância** (JSON) com: turmas, professores, setores, salas (capacidade/recursos/posição), horários fixos, optativas, preferências, prioridades, grade curricular por período.
+- [ ] Coletar a **grade curricular de SI** (obter idcurso/idcurriculo de SI em Niterói; parametrizar `webscrap/scraper.py`, que hoje fixa curso 31/currículo 3092 de CC) e mapear a **interseção CC∩SI** (disciplinas compartilhadas).
+- [ ] Definir um **formato de instância** (JSON) com: turmas (com paridade $\sigma(c)$ e pertinência por grade CC/SI), professores, setores, salas (capacidade/recursos/posição), horários fixos, optativas, preferências, prioridades, grade curricular por período **das duas grades**.
 - [ ] Gerar 3 níveis de instância: **toy** (validação manual), **real reduzida** (1 semestre, só IC) e **real completa**. O que faltar de dado real, sintetizar de forma plausível e documentar (o orientador liberou: "modelar próximo da realidade", sem compromisso com uso imediato).
 
 ### Fase 3 — Protótipo com pyoptframe (julho–agosto/2026)
@@ -63,6 +67,7 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - [ ] Ajuste de parâmetros (grid simples; irace se der tempo).
 - [ ] **Baseline forte**: comparar a solução da metaheurística com a **grade real da UFF** nos mesmos critérios — argumento central do trabalho.
 - [ ] Cenário de ablação da ideia original: com e sem o critério de distância entre salas, medir o trade-off.
+- [ ] **Experimentos das grades (E1–E3)**: E1 (otimiza CC, congela, depois SI), E2 (simétrico), E3 (conjunto com pesos iguais; E3' com pesos ajustados) — medir o "custo de ir depois" e o efeito do tamanho da interseção CC∩SI (Seção 9 do modelo matemático).
 - [ ] (Opcional, se houver tempo) modelo MIP em instância pequena para limite inferior/validação.
 
 ### Fase 5 — Escrita (escrever junto, fechar em outubro–novembro/2026)
@@ -85,6 +90,7 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 
 ## Riscos e mitigações
 
-- **Dados não chegarem** (planilha de setores etc.) → sintetizar dados plausíveis e documentar; o orientador explicitou que aderência perfeita à prática não é requisito.
+- **Dados não chegarem** (planilha de setores, grade de SI etc.) → sintetizar dados plausíveis e documentar; o orientador explicitou que aderência perfeita à prática não é requisito.
+- **H12 inviabilizar instâncias** (oferta anual de obrigatórias do IC menor que 3 por professor) → prever folga/relaxação soft de contingência; validar com o orientador.
 - **Escopo grande demais** → o corte mínimo defensável é: professores + salas com horários fixos dados (sem otimizar horário). Optativas e rodízio são as primeiras features a cortar se apertar.
 - **pyoptframe limitar algo** → manter avaliador e moves em Python puro permite trocar o orquestrador (ex.: ILS manual) sem reescrever o modelo.

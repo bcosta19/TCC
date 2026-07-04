@@ -57,9 +57,18 @@
    - Número de dias trabalhados;
    - Horas de descanso entre jornadas;
    - Janelas sem aula no dia (minimizar);
-   - Questões legais de jornada de trabalho.
+   - Questões legais de jornada de trabalho;
+   - Carga anual: obrigação de ministrar **no mínimo 3 disciplinas obrigatórias por ano** (restrição do departamento, não preferência — ver diretrizes de 23/06/2026 abaixo).
 
-## Estado atual (09/06/2026)
+## Diretrizes novas (23/06/2026)
+
+1. **Carga anual de obrigatórias**: todo professor do IC tem a obrigação de ministrar **no mínimo 3 disciplinas obrigatórias por ano** (forma de mínimo ≥ 3 confirmada pelo orientador). Acopla os semestres ímpar e par num **horizonte anual** de planejamento — no modelo, restrição forte H12.
+2. **Duas grades curriculares (CC e SI)**: as disciplinas de computação compõem dois currículos — Ciência da Computação e Sistemas de Informação. **Mesmo departamento, mesmas regras** (professores, setores, salas, horários fixos, par/ímpar); a única diferença é em qual período cada disciplina é cursada. Disciplina presente nas duas grades é **uma única turma compartilhada** (mesmo professor/sala/horário), cursada por alunos dos dois cursos.
+
+Ambas incorporadas ao `modelo_matematico.md` (horizonte anual, conjuntos por grade, H12, função objetivo por currículo e experimentos E1–E3).
+
+## Estado atual (atualizado em 04/07/2026)
 
 - Webscrap concluído: turmas e docentes de 2023/1 a 2025/2 do quadro de horários da UFF (curso 31 — Ciência da Computação, Niterói), com contagem professor × disciplina como proxy de preferência.
 - Pendência conhecida: filtrar as optativas humanísticas que vieram junto na extração.
+- 04/07/2026: diretrizes de 23/06 (carga anual + grades CC/SI) aplicadas à modelagem. Pendências novas de dados: grade curricular de SI por período e mapa das disciplinas compartilhadas CC∩SI (o webscrap cobriu só CC).

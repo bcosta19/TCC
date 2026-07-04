@@ -1,14 +1,14 @@
 # Modelo matemático — alocação de horários e salas (IC/UFF)
 
-> Rascunho da formalização (Fase 1 do `PLANO.md`). Notação em LaTeX para reaproveitar direto na monografia e no artigo. **Revisar com o orientador**, em especial: o que é restrição forte (hard) × fraca (soft), e os pesos $w_\bullet$ da função objetivo.
+> Rascunho da formalização (Fase 1 do `PLANO.md`). Notação em LaTeX para reaproveitar direto na monografia e no artigo. **Revisar com o orientador**, em especial: o que é restrição forte (hard) × fraca (soft), e os pesos $w_\bullet$ da função objetivo (incluindo os pesos por grade $w^{\text{CC}}/w^{\text{SI}}$).
 
-O problema é uma variante do **University Course Timetabling Problem (UCTP)**, na vertente *curriculum-based course timetabling* (referência: ITC-2007, track 3), acrescida de **alocação de salas com distância** e das regras específicas do IC/UFF (setores por dia, horários fixos por semestre par/ímpar, jornada legal do professor).
+O problema é uma variante do **University Course Timetabling Problem (UCTP)**, na vertente *curriculum-based course timetabling* (referência: ITC-2007, track 3), acrescida de **alocação de salas com distância** e das regras específicas do IC/UFF (setores por dia, horários fixos por semestre par/ímpar, jornada legal do professor, carga anual mínima de obrigatórias). O planejamento cobre **duas grades curriculares** — Ciência da Computação (CC) e Sistemas de Informação (SI) —, ambas do mesmo departamento e sob as mesmas regras; a única diferença entre elas é em qual período cada disciplina é cursada.
 
 ---
 
 ## 1. Decisão de modelagem
 
-A unidade a ser programada é a **turma** (uma oferta de uma disciplina num semestre). Cada turma precisa de três decisões acopladas:
+A unidade de **planejamento** é o **ano letivo** (semestres ímpar e par juntos): a carga anual de obrigatórias (H12) e o rodízio par/ímpar (O6) acoplam os dois semestres, então otimizá-los separadamente perderia exatamente essas restrições. A unidade a ser **programada** segue sendo a **turma** (uma oferta de uma disciplina num semestre; a paridade $\sigma(c)$, Seção 2, diz em qual dos dois semestres do ano ela ocorre). Cada turma precisa de três decisões acopladas:
 
 1. **qual professor** a ministra;
 2. **em qual padrão de horário** (conjunto de encontros semanais);
@@ -45,7 +45,7 @@ Apresento abaixo o **modelo completo** (todas as decisões do IC como variáveis
 
 | Símbolo | Descrição |
 |---|---|
-| $\mathcal{C}$ | turmas a ofertar no semestre ($c$) |
+| $\mathcal{C}$ | turmas a ofertar no **ano letivo** ($c$) — os dois semestres, ímpar e par |
 | $\mathcal{P}$ | professores ($p$) |
 | $\mathcal{R}$ | salas ($r$) |
 | $\mathcal{D}$ | dias letivos da semana ($d$): seg…sáb |
@@ -53,17 +53,23 @@ Apresento abaixo o **modelo completo** (todas as decisões do IC como variáveis
 | $\mathcal{H}=\mathcal{D}\times\mathcal{B}$ | *slots* de horário ($h$) |
 | $\mathcal{Q}$ | padrões de horário ($q$): cada padrão é um conjunto de slots semanais, ex.: $\{\text{ter-}b,\ \text{qui-}b\}$ (2 encontros/semana) |
 | $\mathcal{S}$ | setores/áreas do departamento ($s$): algoritmos, redes, eng. software, … |
-| $\mathcal{G}$ | grupos curriculares ($g$): conjunto de turmas que um aluno de um período/ênfase cursa em conjunto |
+| $\mathcal{K}$ | grades curriculares ($k$): $\{\text{CC},\text{SI}\}$ — mesmo departamento e mesmas regras; diferem apenas em qual período cada disciplina é cursada |
+| $\mathcal{G}$ | grupos curriculares ($g$): conjunto de turmas que um aluno de um período/ênfase cursa em conjunto; cada grupo pertence a uma grade: $\mathcal{G}=\mathcal{G}^{\text{CC}}\cup\mathcal{G}^{\text{SI}}$ |
 
 Conjuntos derivados:
 - $H_q \subseteq \mathcal{H}$: slots ocupados pelo padrão $q$; $\text{dias}(q)\subseteq\mathcal{D}$: dias do padrão $q$.
 - **Classificação das turmas** (Seção 1): por responsabilidade $\mathcal{C}=\mathcal{C}^{\text{IC}}\cup\mathcal{C}^{\text{out}}$ (disjuntos); por papel curricular $\mathcal{C}=\mathcal{C}^{\text{obr}}\cup\mathcal{C}^{\text{opt}}$ (disjuntos); e o atributo transversal $\mathcal{C}^{\text{fix}}\supseteq\mathcal{C}^{\text{out}}$ (horário dado).
+- $\sigma(c)\in\{\text{ímpar},\text{par}\}$: **paridade** (semestre do ano) da turma $c$. Semestres não interagem em slots: toda restrição/critério indexado por slot $h$ (H6–H8, H11, O2, O3, O5) vale **separadamente por semestre**, com as somas restritas às turmas da paridade correspondente — as fórmulas são escritas para um semestre genérico para não carregar a notação. Apenas H12 e O6 **atravessam** os semestres (por isso o horizonte é anual).
 - $\mathcal{P}$: professores **do IC**; os de outros departamentos são exógenos e **não** pertencem a $\mathcal{P}$.
 - $\mathcal{P}_c \subseteq \mathcal{P}$: professores **habilitados** a ministrar a turma $c\in\mathcal{C}^{\text{IC}}$ (planilha de setores/afinidade).
 - $\mathcal{Q}_c \subseteq \mathcal{Q}$: padrões **admissíveis** para $c$ (restritos pelos dias do setor; **unitário** $=\{\bar q_c\}$ se $c\in\mathcal{C}^{\text{fix}}$).
 - $\mathcal{R}_c \subseteq \mathcal{R}$: salas compatíveis com os recursos exigidos por $c$.
 - $\mathcal{C}_g \subseteq \mathcal{C}$: turmas do grupo curricular $g$ — **inclui as de outros departamentos** ($\mathcal{C}^{\text{out}}$) que o período cursa (ex.: Cálculo), pois bloqueiam o horário do aluno.
+- $k(g)\in\mathcal{K}$: grade do grupo $g$. Cada grupo contém turmas de **uma única paridade** (o período $n$ de uma grade ocorre num semestre determinado do ano).
+- $\mathcal{C}^{k}\subseteq\mathcal{C}$: turmas presentes na grade $k$. Disciplina presente nas duas grades é **uma única turma compartilhada** (mesmo professor/sala/horário), $c\in\mathcal{C}^{\text{CC}}\cap\mathcal{C}^{\text{SI}}$, cursada por alunos dos dois cursos — ela aparece em grupos das duas grades (ex.: período 3 de CC e período 5 de SI). Também usado para congelar uma grade como plano de fundo nos experimentos (Seção 9).
 - $s(c)\in\mathcal{S}$: setor da turma $c$ (definido só para $c\in\mathcal{C}^{\text{IC}}$).
+
+> **Recursos únicos, restrições inalteradas:** professores ($\mathcal{P}$), setores ($\mathcal{S}$) e salas ($\mathcal{R}$) são **compartilhados** entre as grades (mesmo departamento) — não se duplicam por grade. Por isso **H8 e O5 não mudam de forma** com as duas grades: elas já somam sobre todo $g\in\mathcal{G}$; o que muda é que $\mathcal{G}$ agora contém os grupos das duas grades.
 
 ---
 
@@ -82,6 +88,7 @@ Conjuntos derivados:
 | $\bar{p}_c$ | professor **fixo** de $c$ (dado de entrada para $c\in\mathcal{C}^{\text{out}}$; exógeno ao IC) |
 | $\text{desc}_{\min}$ | descanso mínimo (em horas) entre o fim do trabalho de um dia e o início do dia seguinte |
 | $w_\bullet \ge 0$ | pesos dos termos da função objetivo (a calibrar) |
+| $w^{k} \ge 0$ | peso da grade $k\in\mathcal{K}$ nos termos por currículo de $Z$: $w^{\text{CC}}, w^{\text{SI}}$ — iguais = equidade entre os cursos; ajustados = compensar a grade prejudicada (Seções 6 e 9) |
 
 ---
 
@@ -186,22 +193,42 @@ z_{c,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r \qquad \forall c\in\mathcal{C},\ 
 \qquad \forall p,\ \forall (h,h')\in \text{ViolaDescanso}
 ```
 
-> **Nota:** H8, H10 e H11 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
+**(H12) Carga mínima anual de obrigatórias.** Todo professor do IC ministra **ao menos 3** turmas obrigatórias do IC ao longo do ano (forma de mínimo confirmada pelo orientador). A soma percorre as turmas dos **dois semestres** — é, junto com O6, o que obriga o horizonte anual:
+
+```math
+\sum_{c\,\in\,\mathcal{C}^{\text{IC}}\cap\,\mathcal{C}^{\text{obr}}} x_{c,p}\ \ge\ 3
+\qquad \forall p\in\mathcal{P}
+```
+
+**Viabilidade:** exige $|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|$ no ano; caso contrário a instância é inviável. **Interação com O1/O6:** obrigar 3 obrigatórias por professor consome a folga usada para atender preferências (O1) e rodízio (O6) — tensão real entre departamento e professores, sem termo novo em $Z$ (por ser hard).
+
+> **Nota:** H8, H10, H11 e H12 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala); a carga anual (H12) encarna o conflito departamento × professor e é a candidata mais provável a precisar de folga, se a oferta de obrigatórias não comportar 3 por professor.
 
 ---
 
 ## 6. Função objetivo (critérios soft)
 
-Minimizar a penalidade total ponderada (preferências entram como bônus, i.e., penalidade negativa):
+Minimizar a penalidade total ponderada (preferências entram como bônus, i.e., penalidade negativa). Com as duas grades, $Z$ se organiza em **termos compartilhados** — centrados em professor/sala, calculados uma única vez sobre todas as turmas (O1, O2, O3, O4, O6) — e **termos por currículo** — os que dependem dos períodos de cada grade (O5 e, se H8 for relaxada para soft, um choque de aluno $\Phi^{k}_{\text{aluno}}$):
 
 ```math
-\min\ Z = \underbrace{-\,w_{\text{pref}}\sum_{c}\sum_{p\in\mathcal{P}_c}\pi_p\,\text{pref}_{p,c}\,x_{c,p}}_{\text{(O1) preferência} \times \text{prioridade}}
+\min\ Z \;=\; Z_{\text{compart}} \;+\; \sum_{k\in\mathcal{K}} w^{k}\,Z^{k}_{\text{curr}}
+```
+
+```math
+Z_{\text{compart}} = \underbrace{-\,w_{\text{pref}}\sum_{c}\sum_{p\in\mathcal{P}_c}\pi_p\,\text{pref}_{p,c}\,x_{c,p}}_{\text{(O1) preferência} \times \text{prioridade}}
 + w_{\text{dias}}\,\Phi_{\text{dias}}
 + w_{\text{jan}}\,\Phi_{\text{jan}}
 + w_{\text{cap}}\,\Phi_{\text{cap}}
-+ w_{\text{dist}}\,\Phi_{\text{dist}}
 + w_{\text{rod}}\,\Phi_{\text{rod}}
 ```
+
+```math
+Z^{k}_{\text{curr}} = w_{\text{dist}}\,\Phi^{k}_{\text{dist}}
+\qquad k\in\mathcal{K}
+\quad\bigl(+\; w_{\text{aluno}}\,\Phi^{k}_{\text{aluno}}\ \text{se H8 for relaxada para soft}\bigr)
+```
+
+Com $w^{\text{CC}}=w^{\text{SI}}=1$, $Z$ equivale à soma simples dos critérios O1–O6; os pesos por grade existem para o estudo de equidade entre os cursos (Seção 9).
 
 **(O1) Preferência ponderada pela prioridade.** Professores mais prioritários (antigos) atendidos primeiro em suas disciplinas preferidas — atende a chefia/professor.
 
@@ -219,17 +246,17 @@ t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum
 \Phi_{\text{cap}}=\sum_{c}\sum_{r\in\mathcal{R}_c} z_{c,r}\,(\text{cap}_r - n_c)
 ```
 
-**(O5) Distância percorrida pelos alunos — $\Phi_{\text{dist}}$** *(ideia original do trabalho)*. Para cada grupo curricular $g$ e cada par de slots **consecutivos** $(h,h')$ no mesmo dia em que $g$ tem aulas nas salas $r$ e $r'$, somar $\delta_{r,r'}$:
+**(O5) Distância percorrida pelos alunos — $\Phi^{k}_{\text{dist}}$** *(ideia original do trabalho)*. Para cada grupo curricular $g$ **da grade $k$** e cada par de slots **consecutivos** $(h,h')$ no mesmo dia em que $g$ tem aulas nas salas $r$ e $r'$, somar $\delta_{r,r'}$:
 
 ```math
-\Phi_{\text{dist}}=\sum_{g}\ \sum_{(h,h')\,\text{consec.}}\ \sum_{c,c'\in\mathcal{C}_g}\ \sum_{r,r'} \delta_{r,r'}\;(z_{c,r}\,u_{c,h})\,(z_{c',r'}\,u_{c',h'})
+\Phi^{k}_{\text{dist}}=\sum_{g\in\mathcal{G}^{k}}\ \sum_{(h,h')\,\text{consec.}}\ \sum_{c,c'\in\mathcal{C}_g}\ \sum_{r,r'} \delta_{r,r'}\;(z_{c,r}\,u_{c,h})\,(z_{c',r'}\,u_{c',h'})
 ```
 
-(termo quadrático; no protótipo é avaliado diretamente sobre a solução, sem linearizar.)
+(termo quadrático; no protótipo é avaliado diretamente sobre a solução, sem linearizar. É o único critério que depende da grade — por isso $Z^{k}_{\text{curr}}$ o carrega por currículo, permitindo medir e ponderar CC e SI separadamente.)
 
-**(O6) Rodízio par/ímpar — $\Phi_{\text{rod}}$.** Penalizar manter o mesmo professor na mesma disciplina em semestres de paridade diferente (incentiva rodízio), comparando com a atribuição do semestre anterior (parâmetro histórico).
+**(O6) Rodízio par/ímpar — $\Phi_{\text{rod}}$.** Penalizar manter o mesmo professor na mesma disciplina em semestres de paridade diferente (incentiva rodízio). Com o horizonte anual, a comparação é entre as atribuições dos **dois semestres do próprio ano** (ambas variáveis do modelo) e com a do ano anterior (parâmetro histórico) — junto com H12, é o critério que atravessa os semestres.
 
-> **Pesos $w_\bullet$:** calibrar com o orientador. Sugestão de partida: normalizar cada termo para $[0,1]$ e atribuir pesos por importância declarada. O termo de distância (O5) é o diferencial do trabalho e merece um estudo de *ablação* (com/sem) nos experimentos.
+> **Pesos $w_\bullet$:** calibrar com o orientador. Sugestão de partida: normalizar cada termo para $[0,1]$ e atribuir pesos por importância declarada. O termo de distância (O5) é o diferencial do trabalho e merece um estudo de *ablação* (com/sem) nos experimentos. Os pesos por grade $w^{\text{CC}}/w^{\text{SI}}$ partem **iguais** (equidade) e podem ser ajustados a partir da assimetria observada em E1/E2 (Seção 9).
 
 ---
 
@@ -243,6 +270,8 @@ t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum
 | Jornada legal do professor | H11, O2, O3 |
 | Disciplinas-serviço do IC (horário prioritário, ex.: ED) | H4 (horário fixo), H5 |
 | Disciplinas de outros departamentos (exógenas) | H4 (horário), H4b (professor), H8 (bloqueio do aluno) |
+| Coordenações de CC e SI (disputam professores/salas/slots compartilhados) | $\mathcal{G}^{k}$ em H8, $\Phi^{k}_{\text{dist}}$ (O5), pesos $w^{k}$, experimentos E1–E3 (Seção 9) |
+| Departamento — carga docente anual | H12 (mínimo de 3 obrigatórias/ano por professor) |
 
 ---
 
@@ -261,16 +290,34 @@ Para caber no prazo e refletir o fluxo real, o protótipo resolve em estágios a
 - mover optativa para outro padrão admissível;
 - trocar sala de uma turma / trocar salas entre duas turmas.
 
-**Avaliador decomposto** por termo (O1–O6 + penalidades de H6–H11 relaxadas), para relatório por critério e para *delta-evaluation* eficiente dos moves.
+**Avaliador decomposto** por termo (O1–O6 + penalidades de H6–H12 relaxadas), para relatório por critério e para *delta-evaluation* eficiente dos moves.
+
+> **Reuso nos experimentos por grade (Seção 9):** congelar uma grade como plano de fundo para otimizar a outra usa **o mesmo mecanismo** de plano de fundo fixo do estágio 1: as turmas da grade congelada entram como ocupação fixa de professor/sala/horário (via H6/H7), tal como $\mathcal{C}^{\text{out}}$/$\mathcal{C}^{\text{fix}}$. E o avaliador decomposto já entrega as métricas por grade ($Z^{\text{CC}}$ vs. $Z^{\text{SI}}$) sem trabalho extra.
 
 ---
 
-## 9. Pendências para fechar o modelo
+## 9. Estudo experimental do acoplamento entre grades (E1–E3)
+
+CC e SI disputam professores, salas e slots compartilhados — é a materialização do conflito entre stakeholders (duas coordenações sobre o mesmo departamento). Três experimentos comparam **ordens de otimização** das grades:
+
+- **E1 (CC → SI):** otimiza considerando só $\mathcal{G}^{\text{CC}}$; congela as turmas de $\mathcal{C}^{\text{CC}}$ (compartilhadas **e** exclusivas de CC) como plano de fundo fixo; depois otimiza as turmas exclusivas de SI sujeitas a $\mathcal{G}^{\text{SI}}$ e ao plano de fundo já ocupado (professores/salas via H6/H7). Minimiza $Z_{\text{compart}} + Z^{\text{CC}}_{\text{curr}}$ na 1ª etapa e $Z_{\text{compart}} + Z^{\text{SI}}_{\text{curr}}$ na 2ª.
+- **E2 (SI → CC):** simétrico a E1.
+- **E3 (conjunto):** modelo único com $\mathcal{G}^{\text{CC}}\cup\mathcal{G}^{\text{SI}}$ ativos, minimizando $Z = Z_{\text{compart}} + w^{\text{CC}}Z^{\text{CC}}_{\text{curr}} + w^{\text{SI}}Z^{\text{SI}}_{\text{curr}}$ com **pesos iguais** (equidade); num **E3'**, pesos ajustados a partir da assimetria observada em E1/E2 (compensar o curso que sai pior quando vai por último).
+
+**Métricas:** decompor $Z$ em $Z^{\text{CC}}$ e $Z^{\text{SI}}$ por critério; medir o **"custo de ir depois"** (assimetria E1 vs. E2); comparar E3 (otimização global) contra os sequenciais (lexicográfico-guloso) — a expectativa é que E3 equilibre melhor os dois cursos.
+
+**Viabilidade:** custo marginal de implementação **baixo** — reusa (i) o mecanismo de plano de fundo fixo de $\mathcal{C}^{\text{fix}}$ (Seção 8) e (ii) a decomposição do avaliador por critério. **Ressalva:** com turmas compartilhadas, no sequencial as turmas de $\mathcal{C}^{\text{CC}}\cap\mathcal{C}^{\text{SI}}$ ficam 100% determinadas pela 1ª grade — o 2º curso só otimiza suas exclusivas; se a interseção for grande, o 2º estágio tem pouca liberdade. Isso é um **resultado a medir** (tamanho da interseção × assimetria), não um defeito do método.
+
+---
+
+## 10. Pendências para fechar o modelo
 
 - [ ] Definir o conjunto exato de faixas $\mathcal{B}$ e padrões $\mathcal{Q}$ (grade de horários real da UFF, incluindo 11–13h e noite 18h). **Em andamento:** webscrap já extrai horário/vagas por turma; tabular a distribuição real dos padrões.
 - [ ] Receber a planilha de setores → define $\mathcal{S}$, $\mathcal{P}_c$ e os dias de cada setor.
 - [ ] Receber a **lista de obrigatórias × optativas** por período → define $\mathcal{C}^{\text{obr}}/\mathcal{C}^{\text{opt}}$ e compõe os grupos $\mathcal{G}$. (A divisão IC × outro departamento já sai automaticamente do prefixo do código: `TCC*` = IC.)
-- [ ] Definir $\mathcal{G}$ (grupos curriculares por período) a partir da grade do curso, **incluindo as disciplinas de outros departamentos** que cada período cursa → necessário para H8 e O5.
+- [ ] Definir $\mathcal{G}$ (grupos curriculares por período, **para as duas grades**) a partir da grade de cada curso, **incluindo as disciplinas de outros departamentos** que cada período cursa → necessário para H8 e O5.
+- [ ] Receber a **grade de SI por período** → define $\mathcal{G}^{\text{SI}}$ e $\mathcal{C}^{\text{SI}}$ — e mapear a **interseção CC∩SI** (quais turmas são compartilhadas; o tamanho dela condiciona os experimentos E1/E2 da Seção 9).
 - [ ] Confirmar com o orientador se alguma disciplina de $\mathcal{C}^{\text{out}}$ ocorre em **sala do IC** (se sim, entra em H7 com sala fixa $\bar r_c$).
 - [ ] Obter posições/distâncias das salas ($\delta_{r,r'}$) → necessário para O5.
-- [ ] Decidir hard × soft de H8, H10, H11 e calibrar pesos $w_\bullet$ com o orientador.
+- [ ] Decidir hard × soft de H8, H10, H11 e calibrar pesos $w_\bullet$ (incluindo $w^{\text{CC}}/w^{\text{SI}}$) com o orientador.
+- [ ] Validar com o orientador a contingência de **H12** (mínimo ≥ 3, já confirmado): se a oferta de obrigatórias não comportar $3\,|\mathcal{P}|$ no ano, cabe folga/relaxação para soft?
