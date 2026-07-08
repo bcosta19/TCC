@@ -26,7 +26,7 @@ Nem tudo isso é variável. A estratégia de horários fixos transforma boa part
 
 Os eixos são ortogonais: existe obrigatória de outro departamento (Cálculo) e optativa de outro departamento (Administração Aplicada à Engenharia). O departamento de origem sai do prefixo do código (`TCC*` = IC); o papel curricular vem da grade de cada curso.
 
-Transversal aos dois eixos há o atributo de **horário fixo**: $`\mathcal{C}^{\text{fix}}`$ reúne todas as turmas de $`\mathcal{C}^{\text{out}}`$ e mais as disciplinas-serviço do IC (Estruturas de Dados é o caso típico — atende outros cursos e por isso tem prioridade máxima). Para essas turmas o horário é parâmetro, não variável.
+Transversal aos dois eixos há o atributo de **horário fixo**: $`\mathcal{C}^{\text{fix}}`$ reúne todas as turmas de $`\mathcal{C}^{\text{out}}`$ e mais as disciplinas-serviço do IC (as disciplinas de programação são o caso típico — atendem outros cursos e por isso têm prioridade máxima). Para essas turmas o horário é parâmetro, não variável.
 
 Completam as regras de domínio os **setores** (algoritmos, redes, engenharia de software, …), que fixam os dias da semana das turmas do IC e assim reduzem o domínio da variável de horário, e o regime **par/ímpar**, que define para cada obrigatória o padrão de horário previsto conforme a paridade do semestre.
 
@@ -254,7 +254,7 @@ Os papéis envolvidos na montagem do horário — e os conflitos entre eles — 
 | Instituto de Computação (administra as salas) | H3, H7, H9, H10, O4 |
 | Departamento (carga docente anual) | H12 (mínimo de 3 obrigatórias/ano por professor) |
 | Jornada legal do professor | H11, O2, O3 |
-| Disciplinas-serviço do IC (horário prioritário, ex.: Estruturas de Dados) | H4 (horário fixo), H5 |
+| Disciplinas-serviço do IC (horário prioritário, ex.: disciplinas de programação) | H4 (horário fixo), H5 |
 | Disciplinas de outros departamentos (exógenas) | H4 (horário), H4b (professor), H8 (bloqueio do aluno) |
 
 ## 9. Estratégia de resolução e o estudo das duas grades
