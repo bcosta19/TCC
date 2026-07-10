@@ -91,6 +91,6 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 ## Riscos e mitigações
 
 - **Dados não chegarem** (planilha de setores, grade de SI etc.) → sintetizar dados plausíveis e documentar; o orientador explicitou que aderência perfeita à prática não é requisito.
-- **H12 inviabilizar instâncias** (oferta anual de obrigatórias do IC menor que 3 por professor) → prever folga/relaxação soft de contingência; validar com o orientador.
+- **H12 apertar a alocação** (obrigar 3 obrigatórias/professor consome a folga usada por O1/O6) → H12 fica **hard, sem folga de contingência**: a oferta de obrigatórias é fixada pelas grades de CC/SI, não é o recurso escasso (no quadro 2023–2025, ~117–134 turmas/ano de ~45 disciplinas regulares contra ~40 permanentes ≈ 3 obrigatórias/prof/ano). Ver §6/H12 de `anotacoes/modelo_matematico_orientador.md`.
 - **Escopo grande demais** → o corte mínimo defensável é: professores + salas com horários fixos dados (sem otimizar horário). Optativas e rodízio são as primeiras features a cortar se apertar.
 - **pyoptframe limitar algo** → manter avaliador e moves em Python puro permite trocar o orquestrador (ex.: ILS manual) sem reescrever o modelo.

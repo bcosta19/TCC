@@ -186,9 +186,13 @@ z_{c,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r \qquad \forall c\in\mathcal{C},\ 
 \qquad \forall p\in\mathcal{P}
 ```
 
-A restrição só é satisfazível se $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano. Ela também aperta o resto do modelo: obrigar três obrigatórias por professor consome a folga que atenderia preferências (O1) e rodízio (O6). Essa tensão entre departamento e professores é real e desejada — e não gera termo novo na função objetivo, por ser restrição forte.
+A restrição só é satisfazível se $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano — condição estrutural do IC, e não uma incógnita: quem fixa a oferta de obrigatórias são as grades de CC e SI, que obrigam a ofertar todas as suas disciplinas obrigatórias todo ano, independentemente de quem as ministra. Obrigatória, portanto, não é o recurso escasso; o gargalo é o tempo do professor, não a existência da disciplina. Um professor sem *nenhuma* obrigatória para ministrar significaria obrigatória da grade sem docente — o que não ocorre. Por isso H12 permanece **forte, sem relaxação de contingência**.
 
-> H8, H10, H11 e H12 podem ser relaxadas para *soft* (penalização) caso inviabilizem as instâncias reais — é uma das decisões em aberto (Seção 10). A capacidade (H10) concentra o conflito chefia × coordenação × instituto (turma grande × vaga × sala); a carga anual (H12) é a candidata mais provável a precisar de folga.
+Os números do quadro de horários de 2023–2025 confirmam a ordem de grandeza. O IC ofertou em média ~134 turmas de graduação por ano, das quais ~117 são de suas ~45 disciplinas de oferta regular — o núcleo de obrigatórias. Contra um corpo docente permanente da ordem de 40 professores (os que reaparecem em ao menos quatro dos seis semestres coletados; os demais são substitutos/visitantes, que cobrem só ~22 turmas/ano), isso dá cerca de **três turmas de obrigatória por professor por ano** — exatamente o piso de H12 —, e mais quando se conta a grade completa de CC+SI e as disciplinas com várias turmas por semestre (as de programação chegam a 3–4). O cenário "oferta anual de obrigatórias $`<3\,|\mathcal{P}|`$" exigiria o departamento ofertar menos obrigatórias do que os currículos determinam, o que a grade não permite.
+
+H12 também aperta o resto do modelo: obrigar três obrigatórias por professor consome a folga que atenderia preferências (O1) e rodízio (O6). Essa tensão entre departamento e professores é real e desejada — e não gera termo novo na função objetivo, por ser restrição forte.
+
+> H8, H10 e H11 podem ser relaxadas para *soft* (penalização) caso inviabilizem as instâncias reais — é uma das decisões em aberto (Seção 10). A capacidade (H10) concentra o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
 
 ## 7. Função objetivo (critérios de qualidade)
 
@@ -277,7 +281,7 @@ Uma ressalva: nos experimentos sequenciais, as turmas compartilhadas ficam intei
 
 ## 10. Pontos em aberto
 
-1. **Hard × soft.** H8 (choque do aluno), H10 (capacidade) e H11 (descanso) estão como restrições fortes; se inviabilizarem as instâncias reais, a proposta é relaxá-las com penalização na função objetivo. A mesma pergunta vale para H12: se a oferta anual de obrigatórias do IC ficar abaixo de $`3\,|\mathcal{P}|`$, não existe solução viável — nesse caso, admite-se folga?
+1. **Hard × soft.** H8 (choque do aluno), H10 (capacidade) e H11 (descanso) estão como restrições fortes; se inviabilizarem as instâncias reais, a proposta é relaxá-las com penalização na função objetivo. H12 (carga anual) fica de fora dessa dúvida: permanece forte, porque a oferta de obrigatórias é fixada pelas grades e não é o recurso escasso (Seção 6, H12).
 2. **Pesos.** Calibração dos $`w_\bullet`$ (proposta: normalizar cada termo em $`[0,1]`$ e atribuir importâncias) e dos pesos por grade $`w^{\text{CC}}/w^{\text{SI}}`$, que começam iguais.
 3. **Dados que faltam.** Planilha de setores (define $`\mathcal{S}`$, $`\mathcal{P}_c`$ e os dias de cada setor); grade de SI por período (define $`\mathcal{G}^{\text{SI}}`$ e a interseção CC∩SI); lista de obrigatórias × optativas por período; salas com capacidade, recursos e localização (para a matriz $`\delta_{r,r'}`$); e a grade de horários real para fechar as faixas $`\mathcal{B}`$ e os padrões $`\mathcal{Q}`$.
 4. **Caso particular.** Alguma disciplina de outro departamento ocorre em sala do IC? Se sim, ela entra em H7 com sala fixa.

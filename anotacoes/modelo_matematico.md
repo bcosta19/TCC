@@ -200,9 +200,9 @@ z_{c,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r \qquad \forall c\in\mathcal{C},\ 
 \qquad \forall p\in\mathcal{P}
 ```
 
-**Viabilidade:** exige $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano; caso contrário a instância é inviável. **Interação com O1/O6:** obrigar 3 obrigatórias por professor consome a folga usada para atender preferências (O1) e rodízio (O6) — tensão real entre departamento e professores, sem termo novo em $`Z`$ (por ser hard).
+**Viabilidade:** exige $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano — condição estrutural do IC, e não uma incógnita: a oferta de obrigatórias é fixada pelas grades de CC e SI, que obrigam a ofertar todas as suas obrigatórias todo ano, independentemente de quem as ministra. Obrigatória não é o recurso escasso; o gargalo é o tempo do professor. No quadro de 2023–2025 o IC ofertou ~134 turmas de graduação/ano, ~117 delas de suas ~45 disciplinas de oferta regular, contra um corpo permanente da ordem de 40 professores (os que reaparecem em ≥4 dos 6 semestres coletados) — cerca de 3 obrigatórias/professor/ano, o próprio piso de H12. Por isso **H12 fica hard, sem folga de contingência**. **Interação com O1/O6:** obrigar 3 obrigatórias por professor consome a folga usada para atender preferências (O1) e rodízio (O6) — tensão real entre departamento e professores, sem termo novo em $`Z`$ (por ser hard).
 
-> **Nota:** H8, H10, H11 e H12 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala); a carga anual (H12) encarna o conflito departamento × professor e é a candidata mais provável a precisar de folga, se a oferta de obrigatórias não comportar 3 por professor.
+> **Nota:** H8, H10 e H11 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
 
 ---
 
@@ -290,7 +290,7 @@ Para caber no prazo e refletir o fluxo real, o protótipo resolve em estágios a
 - mover optativa para outro padrão admissível;
 - trocar sala de uma turma / trocar salas entre duas turmas.
 
-**Avaliador decomposto** por termo (O1–O6 + penalidades de H6–H12 relaxadas), para relatório por critério e para *delta-evaluation* eficiente dos moves.
+**Avaliador decomposto** por termo (O1–O6 + penalidades das restrições relaxadas, caso H8/H10/H11 virem soft), para relatório por critério e para *delta-evaluation* eficiente dos moves.
 
 > **Reuso nos experimentos por grade (Seção 9):** congelar uma grade como plano de fundo para otimizar a outra usa **o mesmo mecanismo** de plano de fundo fixo do estágio 1: as turmas da grade congelada entram como ocupação fixa de professor/sala/horário (via H6/H7), tal como $`\mathcal{C}^{\text{out}}`$/$`\mathcal{C}^{\text{fix}}`$. E o avaliador decomposto já entrega as métricas por grade ($`Z^{\text{CC}}`$ vs. $`Z^{\text{SI}}`$) sem trabalho extra.
 
@@ -320,4 +320,4 @@ CC e SI disputam professores, salas e slots compartilhados — é a materializa�
 - [ ] Confirmar com o orientador se alguma disciplina de $`\mathcal{C}^{\text{out}}`$ ocorre em **sala do IC** (se sim, entra em H7 com sala fixa $`\bar r_c`$).
 - [ ] Obter posições/distâncias das salas ($`\delta_{r,r'}`$) → necessário para O5.
 - [ ] Decidir hard × soft de H8, H10, H11 e calibrar pesos $`w_\bullet`$ (incluindo $`w^{\text{CC}}/w^{\text{SI}}`$) com o orientador.
-- [ ] Validar com o orientador a contingência de **H12** (mínimo ≥ 3, já confirmado): se a oferta de obrigatórias não comportar $`3\,|\mathcal{P}|`$ no ano, cabe folga/relaxação para soft?
+- [ ] **H12** (mínimo ≥ 3, já confirmado) fica **hard sem folga**: a oferta de obrigatórias é fixada pelas grades, não é o recurso escasso (ver Viabilidade em H12). Resta confirmar com o orientador o número real de professores permanentes ($`|\mathcal{P}|`$) e a lista de obrigatórias por período para fechar $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|`$.
