@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-Contexto para o Claude Code ao trabalhar neste repositório.
+Contexto para agentes de IA (Claude Code, opencode, etc.) ao trabalhar neste repositório.
 
 ## O projeto
 
@@ -26,10 +26,22 @@ A ideia original era minimizar a distância entre salas de aulas consecutivas (a
 ## Convenções
 
 - Tudo em **português (pt-BR)**: comunicação, documentos, mensagens de commit.
-- Commits **sem** trailer `Co-Authored-By: Claude` — a autoria é exclusivamente do aluno.
+- Commits **sem** trailer `Co-Authored-By:` de nenhum agente — a autoria é exclusivamente do aluno.
 - Commits diretos na `main` (repositório pessoal, sem PRs).
 - Mover arquivos versionados sempre com `git mv`.
 - Python 3.10; dependências usadas até agora: pandas, requests, beautifulsoup4, playwright, plotext, rich, numpy, optframe.
+
+## Escopo de uso dos agentes de IA — política
+
+Os agentes de IA são usados **apenas** para:
+
+- **Programação**: sugestões de código, refatoração e debugging.
+- **Organização de arquivos**: estrutura de pastas, nomes e `.gitignore`.
+- **Clarificação de textos**: revisão de português e checagem de consistência entre documentos.
+
+Os agentes **não** decidem: modelagem matemática, interpretação de diretrizes do orientador, formulação de restrições/função objetivo, escolha de métodos experimentais nem a redação substantiva da monografia. Toda saída é revisada e editada pelo aluno antes de ser versionada.
+
+**Restrições adicionais**: nenhum cookie de sessão (`uff_cookies.json`), senha ou dado pessoal é colado em prompts. Logs de sessão de IA (`anotacoes/contexto_sessao_*.md`) **não são versionados** — registre decisões em arquivos do projeto, não em logs. Veja a seção "Uso de inteligência artificial" do `README.md` para a versão pública desta política (que também vai para os agradecimentos da monografia).
 
 ## Estado atual (jun/2026)
 
