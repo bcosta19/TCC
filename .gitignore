@@ -1,5 +1,6 @@
 # Python
 __pycache__/
+**/__pycache__/
 *.pyc
 .venv/
 venv/
@@ -11,3 +12,22 @@ webscrap/uff_cookies.json
 *.log
 .ipynb_checkpoints/
 webscrap/_probe_turma.html
+
+# Saídas geradas pelos scripts (recriáveis)
+/dados/processados/instancia_*.json
+/dados/processados/solucao_*.json
+/dados/processados/*/instancia_*.json
+/dados/processados/*/solucao_*.json
+
+# Artefatos de ferramentas de IA (sessões, contexto, cache)
+anotacoes/contexto_sessao_*.md
+.codex/
+.agents/
+.opencode/
+.claude/
+.aider*
+
+# Clones de terceiros (já referenciados como submódulos git; não
+# versionar conteúdo interno)
+optframe/
+pyoptframe-dev/
