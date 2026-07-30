@@ -1,0 +1,13 @@
+turma_id,semestre,codigo,disciplina,curso,periodo,professor,setor,encontros_sem_sala,candidatos_historicos,status,decisao
+2025-1-TCC00311-B1,2025-1,TCC00311,PROJETO FINAL II,31,,_Simone_,PROJ.FINAL,sabado 14:00-18:00,,pendente_confirmacao,não preencher automaticamente
+2025-2-GCI00116-,2025-2,GCI00116,ÉTICA,SI,SI-P4,ChristianoGCI,,quinta 18:00-22:00,302,externa_sem_sala,não preencher automaticamente
+2025-2-GCI00126-,2025-2,GCI00126,REPRESENTAÇÃO DA INFORMAÇÃO,SI,SI-P5,ChristianoGCI,,sexta 18:00-22:00,302,externa_sem_sala,não preencher automaticamente
+2025-2-TCC00225-A1,2025-2,TCC00225,ENGENHARIA DE SOFTWARE,83,SI-P5,Rebeca,ENG.SOFT.,segunda 18:00-20:00; quarta 18:00-20:00,217,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00241-A1,2025-2,TCC00241,Ementa Variável I -  TÓPICOS EM COMPUTAÇÃO X - Tópicos em Computação X,83,SI-P6,Andre Renato,,terca 18:00-20:00; quinta 18:00-20:00,,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00311-B1,2025-2,TCC00311,PROJETO FINAL II,31,,Troy,PROJ.FINAL.II,sabado 14:00-18:00,,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00318-A1,2025-2,TCC00318,PESQUISA OPERACIONAL,31,CC-P7,Yuri,ALG.CPX.,sexta 09:00-13:00,217,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00335-A1,2025-2,TCC00335,PROJETO DE BANCO DE DADOS,83,SI-P5,Marcos Bedo,B.D.,segunda 20:00-22:00; quarta 20:00-22:00,"215, L302",pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00336-A1,2025-2,TCC00336,BANCO DE DADOS NÃO CONVENCIONAIS,83,SI-P6,Daniel,B.D.,segunda 20:00-22:00; quarta 20:00-22:00,321,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00337-A1,2025-2,TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,83,SI-P5,Daniela,IHC,quinta 18:00-22:00,206,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00361-A1,2025-2,TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,83,SI-P6,Heleno,ENG.SOFT.,sabado 18:00-22:00,L306,pendente_confirmacao,não preencher automaticamente
+2025-2-TCC00362-A1,2025-2,TCC00362,SISTEMAS DISTRIBUÍDOS PARA SISTEMAS DE INFORMAÇÃO,83,SI-P5,Flavia Delicato,ARQ.SO.,terca 18:00-22:00,204,pendente_confirmacao,não preencher automaticamente

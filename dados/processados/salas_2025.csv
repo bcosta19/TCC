@@ -1,0 +1,21 @@
+id,laboratorio,predio,andar,numero,lado,recursos,capacidade_estimada,capacidade_fonte
+202,False,principal,2,202,0,,52,max(CAP) das turmas observadas na sala
+204,False,principal,2,204,0,,93,max(CAP) das turmas observadas na sala
+206,False,principal,2,206,0,,68,max(CAP) das turmas observadas na sala
+213,False,principal,2,213,1,,79,max(CAP) das turmas observadas na sala
+215,False,principal,2,215,1,,79,max(CAP) das turmas observadas na sala
+217,False,principal,2,217,1,,68,max(CAP) das turmas observadas na sala
+302,False,principal,3,302,0,,55,max(CAP) das turmas observadas na sala
+306,False,principal,3,306,0,,42,max(CAP) das turmas observadas na sala
+308,False,principal,3,308,0,,50,max(CAP) das turmas observadas na sala
+313,False,principal,3,313,1,,42,max(CAP) das turmas observadas na sala
+317,False,principal,3,317,1,,43,max(CAP) das turmas observadas na sala
+319,False,principal,3,319,1,,50,max(CAP) das turmas observadas na sala
+321,False,principal,3,321,1,,61,max(CAP) das turmas observadas na sala
+404B,False,principal,4,404,0,,93,max(CAP) das turmas observadas na sala
+L302,True,laboratorio,3,302,0,laboratorio,79,max(CAP) das turmas observadas na sala
+L303,True,laboratorio,3,303,1,laboratorio,45,max(CAP) das turmas observadas na sala
+L304,True,laboratorio,3,304,0,laboratorio,45,max(CAP) das turmas observadas na sala
+L305,True,laboratorio,3,305,1,laboratorio,55,max(CAP) das turmas observadas na sala
+L306,True,laboratorio,3,306,0,laboratorio,93,max(CAP) das turmas observadas na sala
+L307,True,laboratorio,3,307,1,laboratorio,50,max(CAP) das turmas observadas na sala

@@ -1,0 +1,33 @@
+{
+  "perfil": "cc_si",
+  "turmas": 154,
+  "encontros": 279,
+  "salas": 20,
+  "laboratorios": [
+    "L302",
+    "L303",
+    "L304",
+    "L305",
+    "L306",
+    "L307"
+  ],
+  "turmas_com_laboratorio_inferido": 42,
+  "turmas_com_recurso_desconhecido": 1,
+  "ids_duplicados": [],
+  "turmas_sem_encontro": [],
+  "encontros_sem_turma": [],
+  "horarios_invalidos": 0,
+  "encontros_sem_sala": 16,
+  "salas_desconhecidas": [],
+  "turmas_sem_professor": [],
+  "turmas_sem_setor": [
+    "2025-1-TCC00242-A1",
+    "2025-1-TCC00212-A1",
+    "2025-1-GCI00126-",
+    "2025-1-GCI00116-",
+    "2025-2-TCC00241-A1",
+    "2025-2-TCC00230-A1",
+    "2025-2-GCI00126-",
+    "2025-2-GCI00116-"
+  ]
+}

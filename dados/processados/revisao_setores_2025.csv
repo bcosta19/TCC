@@ -1,0 +1,9 @@
+turma_id,semestre,codigo,disciplina,curso,periodo,professor,classificacao,decisao
+2025-1-TCC00242-A1,2025-1,TCC00242,Ementa Variável I / Graduação - Introdução à programação funcional - TCC0024X TÓPICOS EM COMPUTAÇÃO X,83,SI-P6,Mauricio,optativa_ou_ementa_variavel,setor não aplicável; não restringir dias por setor
+2025-1-TCC00212-A1,2025-1,TCC00212,Ementa Variável II / EMPREENDEDORISMO,83,SI-P7,Daniela,optativa_ou_ementa_variavel,setor não aplicável; não restringir dias por setor
+2025-1-GCI00126-,2025-1,GCI00126,REPRESENTAÇÃO DA INFORMAÇÃO,SI,SI-P5,ChristianoGCI,externa,setor não aplicável; não restringir dias por setor
+2025-1-GCI00116-,2025-1,GCI00116,ÉTICA,SI,SI-P4,ChristianoGCI,externa,setor não aplicável; não restringir dias por setor
+2025-2-TCC00241-A1,2025-2,TCC00241,Ementa Variável I -  TÓPICOS EM COMPUTAÇÃO X - Tópicos em Computação X,83,SI-P6,Andre Renato,optativa_ou_ementa_variavel,setor não aplicável; não restringir dias por setor
+2025-2-TCC00230-A1,2025-2,TCC00230,Ementa Variável II -  TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO,83,SI-P7,Raphael Machado,optativa_ou_ementa_variavel,setor não aplicável; não restringir dias por setor
+2025-2-GCI00126-,2025-2,GCI00126,REPRESENTAÇÃO DA INFORMAÇÃO,SI,SI-P5,ChristianoGCI,externa,setor não aplicável; não restringir dias por setor
+2025-2-GCI00116-,2025-2,GCI00116,ÉTICA,SI,SI-P4,ChristianoGCI,externa,setor não aplicável; não restringir dias por setor

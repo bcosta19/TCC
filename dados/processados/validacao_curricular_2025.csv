@@ -1,0 +1,11 @@
+semestre,grupo,dia,inicio,fim,disciplinas,confirmado_na_grade,decisao
+2025-1,CC|5,quarta,11:00,13:00,"TCC00226, TCC00312",True,manter como hard
+2025-1,CC|5,segunda,11:00,13:00,"TCC00226, TCC00312",True,manter como hard
+2025-1,SI|1,quinta,18:00,20:00,"TCC00332, TCC00354",True,manter como hard
+2025-1,SI|1,quinta,20:00,22:00,"TCC00332, TCC00354",True,manter como hard
+2025-1,SI|1,terca,18:00,20:00,"TCC00332, TCC00354",True,manter como hard
+2025-1,SI|1,terca,20:00,22:00,"TCC00332, TCC00354",True,manter como hard
+2025-2,SI|1,quinta,18:00,20:00,"TCC00332, TCC00354",True,manter como hard
+2025-2,SI|1,quinta,20:00,22:00,"TCC00332, TCC00354",True,manter como hard
+2025-2,SI|1,terca,18:00,20:00,"TCC00332, TCC00354",True,manter como hard
+2025-2,SI|1,terca,20:00,22:00,"TCC00332, TCC00354",True,manter como hard

@@ -1,0 +1,61 @@
+{
+  "arquivo_origem": "dados/brutos/QH-2025-1-2.xlsx",
+  "abas_processadas": [
+    "QH-2025-1",
+    "QH-2025-2",
+    "CH Docente"
+  ],
+  "turmas": 235,
+  "horarios": 429,
+  "por_semestre": {
+    "2025-1": 124,
+    "2025-2": 111
+  },
+  "por_origem": {
+    "IC": 223,
+    "externa": 12
+  },
+  "por_setor": {
+    "ESTR.PROG.": 36,
+    "PROG.BAS.": 33,
+    "ENG.SOFT.": 28,
+    "ARQ.SO.": 22,
+    "SEM_SETOR": 21,
+    "COMP.NUM.": 18,
+    "B.D.": 14,
+    "ALG.CPX.": 13,
+    "GER.SIST.TI": 12,
+    "REDES": 10,
+    "PGC-OB-BAS": 8,
+    "COMP.VIS.JOGOS": 6,
+    "LING.TEOR.": 6,
+    "IHC": 4,
+    "IA": 2,
+    "PROJ.FINAL": 1,
+    "PROJ.FINAL.II": 1
+  },
+  "salas": [
+    "202",
+    "204",
+    "206",
+    "213",
+    "215",
+    "217",
+    "302",
+    "304",
+    "306",
+    "308",
+    "313",
+    "317",
+    "319",
+    "321",
+    "404B",
+    "L302",
+    "L303",
+    "L304",
+    "L305",
+    "L306",
+    "L307"
+  ],
+  "disciplinas": 85
+}

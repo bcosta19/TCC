@@ -1,0 +1,33 @@
+{
+  "salas_sem_informacao": {
+    "quantidade_turmas": 12,
+    "decisao": "não preencher automaticamente; manter sala nula e candidatos históricos apenas como apoio"
+  },
+  "setores_ausentes": {
+    "quantidade_turmas": 8,
+    "decisao": "externas e optativas/ementas variáveis não recebem restrição de setor nesta versão"
+  },
+  "conflitos_curriculares": {
+    "quantidade": 10,
+    "confirmados_na_grade": 10,
+    "decisao": "conflitos confirmados permanecem hard"
+  },
+  "capacidade_salas": {
+    "quantidade_salas": 20,
+    "laboratorios": [
+      "L302",
+      "L303",
+      "L304",
+      "L305",
+      "L306",
+      "L307"
+    ],
+    "decisao": "aceitar max(CAP) observado como capacidade provisória para testes; substituir por dado oficial depois"
+  },
+  "recursos_laboratorio": {
+    "turmas_com_laboratorio": 42,
+    "encontros_com_laboratorio": 59,
+    "turmas_com_recurso_desconhecido": 1,
+    "decisao": "tratar L... como laboratório em prédio separado e aplicar compatibilidade estrita por encontro; confirmar os casos desconhecidos"
+  }
+}
