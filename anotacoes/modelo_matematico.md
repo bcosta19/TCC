@@ -12,7 +12,7 @@ A unidade de **planejamento** é o **ano letivo** (semestres ímpar e par juntos
 
 1. **qual professor** a ministra;
 2. **em qual padrão de horário** (conjunto de encontros semanais);
-3. **em qual sala**.
+3. **em qual sala cada encontro ocorre**.
 
 A estratégia do orientador reduz o espaço de busca fixando parte disso como **dado de entrada** (parâmetro), não como variável. Para organizar o que é variável e o que é dado, cada turma é classificada por **dois eixos independentes**:
 
@@ -55,6 +55,7 @@ Apresento abaixo o **modelo completo** (todas as decisões do IC como variáveis
 | $`\mathcal{S}`$ | setores/áreas do departamento ($`s`$): algoritmos, redes, eng. software, … |
 | $`\mathcal{K}`$ | grades curriculares ($`k`$): $`\{\text{CC},\text{SI}\}`$ — mesmo departamento e mesmas regras; diferem apenas em qual período cada disciplina é cursada |
 | $`\mathcal{G}`$ | grupos curriculares ($`g`$): conjunto de turmas que um aluno de um período/ênfase cursa em conjunto; cada grupo pertence a uma grade: $`\mathcal{G}=\mathcal{G}^{\text{CC}}\cup\mathcal{G}^{\text{SI}}`$ |
+| $`\mathcal{M}_c`$ | encontros semanais da turma $`c`$; cada $`m`$ possui dia, início e fim e pode ter sala/recurso próprio |
 
 Conjuntos derivados:
 - $`H_q \subseteq \mathcal{H}`$: slots ocupados pelo padrão $`q`$; $`\text{dias}(q)\subseteq\mathcal{D}`$: dias do padrão $`q`$.
@@ -63,7 +64,7 @@ Conjuntos derivados:
 - $`\mathcal{P}`$: professores **do IC**; os de outros departamentos são exógenos e **não** pertencem a $`\mathcal{P}`$.
 - $`\mathcal{P}_c \subseteq \mathcal{P}`$: professores **habilitados** a ministrar a turma $`c\in\mathcal{C}^{\text{IC}}`$ (planilha de setores/afinidade).
 - $`\mathcal{Q}_c \subseteq \mathcal{Q}`$: padrões **admissíveis** para $`c`$ (restritos pelos dias do setor; **unitário** $`=\{\bar q_c\}`$ se $`c\in\mathcal{C}^{\text{fix}}`$).
-- $`\mathcal{R}_c \subseteq \mathcal{R}`$: salas compatíveis com os recursos exigidos por $`c`$.
+- $`\mathcal{R}_{c,m} \subseteq \mathcal{R}`$: salas compatíveis com os recursos exigidos pelo encontro $`m\in\mathcal{M}_c`$. A sala não é mais necessariamente igual em todos os encontros da turma.
 - $`\mathcal{C}_g \subseteq \mathcal{C}`$: turmas do grupo curricular $`g`$ — **inclui as de outros departamentos** ($`\mathcal{C}^{\text{out}}`$) que o período cursa (ex.: Cálculo), pois bloqueiam o horário do aluno.
 - $`k(g)\in\mathcal{K}`$: grade do grupo $`g`$. Cada grupo contém turmas de **uma única paridade** (o período $`n`$ de uma grade ocorre num semestre determinado do ano).
 - $`\mathcal{C}^{k}\subseteq\mathcal{C}`$: turmas presentes na grade $`k`$. Disciplina presente nas duas grades é **uma única turma compartilhada** (mesmo professor/sala/horário), $`c\in\mathcal{C}^{\text{CC}}\cap\mathcal{C}^{\text{SI}}`$, cursada por alunos dos dois cursos — ela aparece em grupos das duas grades (ex.: período 3 de CC e período 5 de SI). Também usado para congelar uma grade como plano de fundo nos experimentos (Seção 9).
@@ -79,11 +80,12 @@ Conjuntos derivados:
 |---|---|
 | $`n_c \in \mathbb{Z}_+`$ | nº de vagas (tamanho) da turma $`c`$ |
 | $`\text{cap}_r \in \mathbb{Z}_+`$ | capacidade da sala $`r`$ |
-| $`\rho_{c} \in \{0,1\}`$ | turma $`c`$ exige laboratório/recurso especial |
+| $`\rho_{c,m} \in \{0,1\}`$ ou desconhecido | encontro $`m`$ da turma $`c`$ exige laboratório/recurso especial; no protótipo é inferido pela sala histórica e pelo código da disciplina |
 | $`\ell_r \in \{0,1\}`$ | sala $`r`$ é laboratório (e quais recursos possui) |
+| $`b_r`$ | prédio da sala $`r`$; prefixo `L` indica prédio dos laboratórios |
 | $`\text{pref}_{p,c} \in [0,1]`$ | preferência do professor $`p`$ pela disciplina de $`c`$ (proxy: frequência histórica no webscrap) |
 | $`\pi_p \in [0,1]`$ | prioridade do professor $`p`$ (antiguidade/idade; maior = atendido primeiro) |
-| $`\delta_{r,r'} \ge 0`$ | distância física entre as salas $`r`$ e $`r'`$ (matriz de distâncias) |
+| $`\delta_{r,r'} \ge 0`$ | distância estimada entre as salas $`r`$ e $`r'`$; entre prédios usa custo de troca de prédio + diferença de andar |
 | $`\bar{q}_c \in \mathcal{Q}`$ | padrão de horário **previsto/fixo** de $`c`$ (par/ímpar; obrigatório se $`c\in\mathcal{C}^{\text{fix}}`$) |
 | $`\bar{p}_c`$ | professor **fixo** de $`c`$ (dado de entrada para $`c\in\mathcal{C}^{\text{out}}`$; exógeno ao IC) |
 | $`\text{desc}_{\min}`$ | descanso mínimo (em horas) entre o fim do trabalho de um dia e o início do dia seguinte |
@@ -105,9 +107,14 @@ y_{c,q}=\begin{cases}1 & \text{turma } c \text{ recebe o padrão } q\\ 0 & \text
 ```
 
 ```math
-z_{c,r}=\begin{cases}1 & \text{turma } c \text{ é alocada na sala } r\\ 0 & \text{c.c.}\end{cases}
-\qquad c\in\mathcal{C},\ r\in\mathcal{R}_c
+z_{c,m,r}=\begin{cases}1 & \text{o encontro } m\in\mathcal{M}_c \text{ ocorre na sala } r\\ 0 & \text{c.c.}\end{cases}
+\qquad c\in\mathcal{C},\ m\in\mathcal{M}_c, r\in\mathcal{R}_{c,m}
 ```
+
+> **Granularidade da sala.** A planilha mostra turmas com encontros em sala
+> comum e laboratório (por exemplo, uma aula teórica e outra prática). Por
+> isso a implementação e a formalização usam $`z_{c,m,r}`$, e não uma única
+> sala $`z_{c,m,r}`$ por encontro.
 
 Variável auxiliar de **ocupação em slot** (derivada, facilita escrever conflitos):
 
@@ -134,10 +141,10 @@ u_{c,h} = \sum_{q\in\mathcal{Q}_c \,:\, h\in H_q} y_{c,q} \in\{0,1\}
 \sum_{q\in\mathcal{Q}_c} y_{c,q} = 1 \qquad \forall c\in\mathcal{C}
 ```
 
-**(H3) Atribuição única de sala** (turmas alocadas pelo IC):
+**(H3) Atribuição única de sala por encontro** (turmas alocadas pelo IC):
 
 ```math
-\sum_{r\in\mathcal{R}_c} z_{c,r} = 1 \qquad \forall c\in\mathcal{C}^{\text{IC}}
+\sum_{r\in\mathcal{R}_{c,m}} z_{c,m,r} = 1 \qquad \forall c\in\mathcal{C}^{\text{IC}},\ \forall m\in\mathcal{M}_c
 ```
 
 **(H4) Horário fixo** (disciplinas-serviço do IC + todas as de outros departamentos):
@@ -160,10 +167,11 @@ x_{c,\bar{p}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{out}}
 \sum_{c\in\mathcal{C}} x_{c,p}\, u_{c,h} \le 1 \qquad \forall p\in\mathcal{P},\ \forall h\in\mathcal{H}
 ```
 
-**(H7) Sem conflito de sala.** Uma sala do IC não recebe duas turmas no mesmo slot (as de $`\mathcal{C}^{\text{out}}`$ não têm $`z`$, logo não entram — supõe-se que ocorrem fora do IC; se alguma usar sala do IC, entra com sala fixa $`\bar r_c`$):
+**(H7) Sem conflito de sala.** Uma sala do IC não recebe duas turmas no mesmo slot (as de $`\mathcal{C}^{\text{out}}`$ não têm $`z`$, logo não entram — supõe-se que ocorrem fora do IC; se alguma usar sala do IC, entra com sala fixa $`\bar r_{c,m}`$):
 
 ```math
-\sum_{c\in\mathcal{C}} z_{c,r}\, u_{c,h} \le 1 \qquad \forall r\in\mathcal{R},\ \forall h\in\mathcal{H}
+\sum_{c\in\mathcal{C}}\sum_{m\in\mathcal{M}_c:\,h(m)=h} z_{c,m,r} \le 1
+\qquad \forall r\in\mathcal{R},\ \forall h\in\mathcal{H}
 ```
 
 **(H8) Sem conflito de aluno.** Turmas do mesmo grupo curricular não coincidem em slot. **Aqui as de outros departamentos importam**: $`\mathcal{C}_g`$ inclui as $`\mathcal{C}^{\text{out}}`$ do período (com $`u`$ fixo por H4), de modo que o horário fixo do Cálculo bloqueia, de fato, os slots em que o IC pode pôr suas obrigatórias daquele período:
@@ -172,19 +180,32 @@ x_{c,\bar{p}_c} = 1 \qquad \forall c\in\mathcal{C}^{\text{out}}
 \sum_{c\in\mathcal{C}_g} u_{c,h} \le 1 \qquad \forall g\in\mathcal{G},\ \forall h\in\mathcal{H}
 ```
 
-**(H9) Recurso/laboratório.** Turma que exige laboratório vai para sala compatível (já embutido em $`\mathcal{R}_c`$; explicitando):
+**(H9) Recurso/laboratório.** Cada encontro que exige laboratório vai para sala compatível (já embutido em $`\mathcal{R}_{c,m}`$; explicitando):
 
 ```math
-z_{c,r}=0 \quad \text{se } \rho_c=1 \text{ e } \ell_r=0 \qquad \forall c,\ \forall r
+z_{c,m,r}=0 \quad \text{se } \rho_{c,m}=1 \text{ e } \ell_r=0
+\qquad \forall c,\ \forall m,\ \forall r
 ```
+
+No protótipo, a compatibilidade é estrita para evitar que uma turma sem
+recurso consuma uma sala de laboratório sem necessidade:
+
+```math
+z_{c,m,r}=0 \quad \text{se } \rho_{c,m}=0 \text{ e } \ell_r=1
+\qquad \forall c,\ \forall m,\ \forall r
+```
+
+Quando $`\rho_{c,m}`$ é desconhecido, o registro é mantido como pendência de
+dados e não recebe uma exigência inventada.
 
 **(H10) Capacidade da sala.** A sala alocada comporta o tamanho da turma:
 
 ```math
-z_{c,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r \qquad \forall c\in\mathcal{C},\ \forall r\in\mathcal{R}_c
+z_{c,m,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r
+\qquad \forall c\in\mathcal{C},\ \forall m\in\mathcal{M}_c,\ \forall r\in\mathcal{R}_{c,m}
 ```
 
-(forma linear simples: fixar $`z_{c,r}=0`$ sempre que $`n_c > \text{cap}_r`$.)
+(forma linear simples: fixar $`z_{c,m,r}=0`$ sempre que $`n_c > \text{cap}_r`$.)
 
 **(H11) Jornada legal — descanso entre dias.** Para todo professor $`p`$ e par de dias consecutivos $`(d,d{+}1)`$: se $`p`$ leciona na última faixa de $`d`$, não pode lecionar na primeira faixa de $`d{+}1`$ quando o intervalo for menor que $`\text{desc}_{\min}`$. Em forma linear, para cada par de slots $`(h,h')`$ que viola o descanso:
 
@@ -243,13 +264,15 @@ t_{p,d} \ge x_{c,p}\,u_{c,h}\quad \forall h\in d; \qquad \Phi_{\text{dias}}=\sum
 **(O4) Desperdício de capacidade — $`\Phi_{\text{cap}}`$.** Penalizar sala muito maior que a turma:
 
 ```math
-\Phi_{\text{cap}}=\sum_{c}\sum_{r\in\mathcal{R}_c} z_{c,r}\,(\text{cap}_r - n_c)
+\Phi_{\text{cap}}=\sum_{c}\sum_{m\in\mathcal{M}_c}\sum_{r\in\mathcal{R}_{c,m}}
+z_{c,m,r}\,(\text{cap}_r - n_c)
 ```
 
 **(O5) Distância percorrida pelos alunos — $`\Phi^{k}_{\text{dist}}`$** *(ideia original do trabalho)*. Para cada grupo curricular $`g`$ **da grade $`k`$** e cada par de slots **consecutivos** $`(h,h')`$ no mesmo dia em que $`g`$ tem aulas nas salas $`r`$ e $`r'`$, somar $`\delta_{r,r'}`$:
 
 ```math
-\Phi^{k}_{\text{dist}}=\sum_{g\in\mathcal{G}^{k}}\ \sum_{(h,h')\,\text{consec.}}\ \sum_{c,c'\in\mathcal{C}_g}\ \sum_{r,r'} \delta_{r,r'}\;(z_{c,r}\,u_{c,h})\,(z_{c',r'}\,u_{c',h'})
+\Phi^{k}_{\text{dist}}=\sum_{g\in\mathcal{G}^{k}}\ \sum_{(h,h')\,\text{consec.}}\ \sum_{c,c'\in\mathcal{C}_g}\ \sum_{m:\,h(m)=h}\sum_{m':\,h(m')=h'}\sum_{r,r'}
+\delta_{r,r'}\;z_{c,m,r}\,z_{c',m',r'}
 ```
 
 (termo quadrático; no protótipo é avaliado diretamente sobre a solução, sem linearizar. É o único critério que depende da grade — por isso $`Z^{k}_{\text{curr}}`$ o carrega por currículo, permitindo medir e ponderar CC e SI separadamente.)

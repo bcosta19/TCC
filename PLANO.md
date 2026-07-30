@@ -56,7 +56,7 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 
 ### Fase 3 — Protótipo com pyoptframe (julho–agosto/2026)
 - [ ] Estruturar `src/` como pacote: `model/` (entidades + leitura de instância), `eval/` (avaliador com decomposição por critério), `moves/` (vizinhanças), `solve/` (metaheurísticas).
-- [ ] **Representação da solução**: por turma → (professor, slots de horário, sala); horários fixos ficam imutáveis na representação.
+- [ ] **Representação da solução**: por turma → (professor, slots de horário, sala por encontro); horários fixos ficam imutáveis na representação e salas `L...` permanecem compatíveis com encontros de laboratório.
 - [ ] **Construtivo guloso**: aloca primeiro as externas/fixas, depois obrigatórias por setor nos dias do setor, depois optativas, depois salas por melhor encaixe.
 - [ ] **Vizinhanças (moves)**: trocar professor entre duas turmas; realocar professor de turma; mover optativa de slot; trocar sala de turma; trocar salas entre duas turmas.
 - [ ] **Metaheurísticas via OptFrame**: começar com Simulated Annealing (já há experiência nos protótipos), depois ILS e/ou VNS. Comparar 2–3 — isso estrutura a seção experimental.
