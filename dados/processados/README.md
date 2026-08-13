@@ -17,11 +17,22 @@ python3 scripts/extract_qh_2025.py
 - `carga_docente_2025.csv` — aba `CH Docente` exportada para CSV.
 - `salas_2025.csv` — salas usadas, indicação provisória de laboratório e
   capacidade estimada a partir do maior `CAP` observado; salas `L...` são
-  marcadas como laboratório e prédio separado.
-- `distancias_salas_2025.csv` — matriz de distância discreta estimada.
+  marcadas como laboratório.
 - `recursos_turmas_2025.csv` — exigência de laboratório inferida por turma.
 - `recursos_encontros_2025.csv` — exigência de laboratório inferida por
   encontro semanal, preservando disciplinas que alternam sala comum e lab.
+- `preferencias_2025.csv` — frequência histórica professor×disciplina
+  normalizada por código, usada como proxy de preferência nos testes.
+- `professores_por_setor_2025.csv` — professores observados em cada setor no
+  QH 2025, usado como proxy não oficial de habilitação por setor.
+- `dominios_professores_turmas_2025.csv` — domínio de candidatos por turma,
+  derivado do setor da disciplina e das alocações observadas em 2025.
+- `dias_por_setor_2025.csv` — padrões de dias observados por setor, semestre e
+  assinatura de encontros, usado para domínios provisórios de horários.
+- `auditoria_h12_professores_2025.csv` — comparação entre o universo H12 atual
+  da instância e a aba `CH Docente`.
+- `relatorio_experimento_nao_oficial_2025.md` — resultados e validações da
+  rodada não oficial da instância CC/SI.
 - `resumo_2025.json` — contagens e valores observados na extração.
 
 ## Resultado atual
@@ -38,6 +49,9 @@ python3 scripts/extract_qh_2025.py
 ## Observações
 
 - A coluna `Setor` já existe na planilha e foi preservada; não foi inferida.
+- Os domínios de professor e de dias por setor são inferidos a partir do
+  histórico observado em 2025. Eles servem para testes não oficiais e precisam
+  ser substituídos ou validados pela tabela oficial do orientador.
 - A coluna `ALOCAÇÃO` foi preservada como o nome abreviado usado na planilha.
 - A origem foi classificada inicialmente como `IC` para códigos `TCC` e
   `externa` para os demais códigos. Essa regra deverá ser revisada para cursos
@@ -47,9 +61,11 @@ python3 scripts/extract_qh_2025.py
 - A capacidade da sala é uma estimativa: `max(CAP)` das turmas observadas nela.
   Ela é útil para testes, mas deve ser substituída pela capacidade física oficial
   quando disponível.
-- O prefixo `L` é tratado como laboratório e outro prédio. A distância entre
-  prédios usa custo provisório `3 + diferença de andar`; a distância horizontal
-  é ignorada. Por exemplo, `308 -> L307 = 3`.
+- A classificação provisória de obrigatória usa `CH_OB`; H12 exige três
+  obrigatórias por professor no horizonte anual.
+- A prioridade dos professores é neutra (`1.0`) apenas nas instâncias de teste;
+  a lista validada pelo orientador ainda está pendente.
+- O prefixo `L` é tratado como indicação provisória de laboratório.
 - A exigência de laboratório é inferida primeiro pela sala observada e, para
   códigos que só aparecem em laboratórios, propagada aos encontros sem sala.
   Códigos que alternam sala comum e laboratório permanecem com requisito por
@@ -72,8 +88,11 @@ python3 scripts/evaluate_json.py dados/processados/instancia_2025_cc_si.json
 python3 scripts/solve_schedule_2025.py --iterations 1000 --seed 2025
 python3 scripts/evaluate_json.py dados/processados/solucao_horarios_sa_2025.json
 python3 scripts/report_schedule_solver_run.py
+python3 scripts/run_experimento_nao_oficial_2025.py
 ```
 
 O solver atual mantém externas e projetos finais fixos, e permite movimentos
-de horário e sala nas turmas internas. Os domínios, capacidades e distâncias
+de horário e sala nas turmas internas. Há também um SA experimental de
+professores; por padrão ele usa o domínio histórico por setor e só deve usar
+domínio irrestrito em teste de estresse explícito. Os domínios e capacidades
 ainda são provisórios e devem ser substituídos por dados oficiais.

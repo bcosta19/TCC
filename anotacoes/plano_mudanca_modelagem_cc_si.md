@@ -3,7 +3,10 @@
 > Rascunho de trabalho de 23/06/2026, com as duas diretrizes novas do
 > orientador. Aplicado em 04/07/2026 — as mudanças 1–5 foram feitas nos quatro
 > documentos. H12 ficou como mínimo ≥ 3 (não exatamente 3). Mantenho aqui só
-> para lembrar o porquê.
+> para lembrar o porquê. **Registro histórico:** as referências ao antigo O5
+> e à ablação de distância foram superadas pela decisão de 10/08/2026 de
+> retirar esse critério do escopo. A numeração O1–O6 abaixo é a numeração
+> histórica anterior à remoção; no modelo atual o rodízio passou a ser O5.
 
 ## Contexto
 
@@ -125,7 +128,7 @@ Registrar as duas diretrizes novas e atualizar o estado atual.
 - Visão: registrar horizonte anual e duas grades.
 - Fase 2: tarefa de coletar a grade de SI e mapear interseção; formato de
   instância passa a carregar `σ(c)` e pertinência por grade.
-- Fase 4: E1/E2/E3 ao lado da ablação do critério de distância.
+- Fase 4: E1/E2/E3 sem ablação de distância, pois esse critério saiu do escopo em 10/08/2026.
 - Riscos: H12 pode inviabilizar a instância → prever folga/soft de
   contingência.
 

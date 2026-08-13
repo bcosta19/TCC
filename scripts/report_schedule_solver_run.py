@@ -85,9 +85,10 @@ def main() -> None:
         f"| Conflitos curriculares | {initial_eval['hard']['conflitos_curriculares']} | {best_eval['hard']['conflitos_curriculares']} |",
         f"| Recursos incompatíveis | {initial_eval['hard']['recursos_incompativeis']} | {best_eval['hard']['recursos_incompativeis']} |",
         f"| Descanso insuficiente | {initial_eval['hard']['descanso_insuficiente']} | {best_eval['hard']['descanso_insuficiente']} |",
+        f"| Professores abaixo de H12 | {initial_eval['hard']['carga_anual_insuficiente']} | {best_eval['hard']['carga_anual_insuficiente']} |",
         f"| Janelas | {initial_eval['soft']['janelas']} | {best_eval['soft']['janelas']} |",
         f"| Desperdício estimado | {initial_eval['soft']['desperdicio_capacidade']} | {best_eval['soft']['desperdicio_capacidade']} |",
-        f"| Distância estimada | {initial_eval['soft']['distancia']} | {best_eval['soft']['distancia']} |",
+        f"| Preferência priorizada | {initial_eval['soft'].get('preferencia_priorizada', 0)} | {best_eval['soft'].get('preferencia_priorizada', 0)} |",
         "",
         f"Foram alteradas **{len(changed)} turmas**: **{schedule_only}** tiveram horário alterado e **{room_only}** tiveram sala alterada. Alterações em turmas marcadas como fixas: **{fixed_changed}**.",
         "",
@@ -109,9 +110,9 @@ def main() -> None:
         "",
         "A busca respeita a distinção entre salas comuns e laboratórios e eliminou os conflitos de sala. Os conflitos hard restantes são curriculares; nenhum conflito de professor, capacidade, recurso ou descanso permaneceu.",
         "",
-        "O aumento de janelas, desperdício e distância mostra o compromisso entre viabilidade e qualidade: nesta execução o peso das restrições hard dominou a função objetivo. Os domínios de horário ainda são provisórios e foram gerados a partir dos horários históricos observados.",
+        "O aumento de janelas e desperdício mostra o compromisso entre viabilidade e qualidade: nesta execução o peso das restrições hard dominou a função objetivo. Os domínios de horário ainda são provisórios e foram gerados a partir dos horários históricos observados.",
         "",
-        "Capacidades e distâncias continuam estimadas; a distância usa custo 3 para troca de prédio mais diferença de andar. A solução serve como primeiro teste reprodutível da pipeline, não como grade oficial pronta para publicação.",
+        "As capacidades continuam estimadas. A solução serve como primeiro teste reprodutível da pipeline, não como grade oficial pronta para publicação.",
     ]
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(OUT)

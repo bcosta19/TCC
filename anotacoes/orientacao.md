@@ -7,7 +7,7 @@
 - **Tema**: metaheurísticas aplicadas ao problema de alocação de salas de aula e horários no contexto da UFF (Instituto de Computação).
 - **Ferramenta**: pyoptframe (OptFrame com bindings Python).
 - Não se preocupar com utilidade prática imediata do sistema; o objetivo é **modelar algo próximo da realidade**, útil para trabalhos futuros.
-- Ideia original do trabalho: **minimizar a distância entre salas de horários consecutivos** para os alunos andarem menos. O problema se mostrou maior, mas a ideia deve ser mantida como critério/extensão se possível.
+- A ideia original era **minimizar a distância entre salas de horários consecutivos**. Em 10/08/2026, aluno e orientador decidiram retirar esse critério do escopo; localização de salas e deslocamento deixam de compor os dados, o modelo e os experimentos.
 - Entrega futura: TCC (monografia) + versão em **formato de artigo**.
 
 ## Os três papéis (stakeholders) e seus conflitos
@@ -67,8 +67,9 @@
 
 Ambas incorporadas ao `modelo_matematico.md` (horizonte anual, conjuntos por grade, H12, função objetivo por currículo e experimentos E1–E3).
 
-## Estado atual (atualizado em 04/07/2026)
+## Estado atual (atualizado em 10/08/2026)
 
 - Webscrap concluído: turmas e docentes de 2023/1 a 2025/2 do quadro de horários da UFF (curso 31 — Ciência da Computação, Niterói), com contagem professor × disciplina como proxy de preferência.
 - Pendência conhecida: filtrar as optativas humanísticas que vieram junto na extração.
 - 04/07/2026: diretrizes de 23/06 (carga anual + grades CC/SI) aplicadas à modelagem. Pendências novas de dados: grade curricular de SI por período e mapa das disciplinas compartilhadas CC∩SI (o webscrap cobriu só CC).
+- 10/08/2026: critério de distância entre salas retirado por decisão conjunta do aluno e do orientador; alocação de salas permanece baseada em conflitos, capacidade e recursos.

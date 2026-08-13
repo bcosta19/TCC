@@ -13,6 +13,7 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
     payload = json.loads(path.read_text(encoding="utf-8"))
     classes = payload.get("classes", [])
     rooms = payload.get("rooms", [])
+    priorities = payload.get("prioridades_professores", {})
 
     class_rows = []
     meeting_rows = []
@@ -27,9 +28,15 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
             "turma": item.get("turma", ""),
             "setor": item.get("setor") or "",
             "alocacao": item.get("professor") or "",
+            "origem": item.get("origem", ""),
             "capacidade": item.get("capacidade_turma") or "",
             "exige_laboratorio": item.get("exige_laboratorio"),
             "recursos_requeridos": item.get("recursos_requeridos") or [],
+            "obrigatoria": item.get("obrigatoria", False),
+            "preferencia": (item.get("preferencias_professores") or {}).get(
+                item.get("professor", "")
+            ),
+            "prioridade": priorities.get(item.get("professor", "")),
         })
         for meeting in item.get("encontros", []):
             required_lab = meeting.get("requer_laboratorio")
@@ -58,8 +65,15 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
             "laboratorio": room.get("laboratorio", False),
             "predio": room.get("predio", ""),
         })
+    classes_frame = pd.DataFrame(class_rows).fillna("")
+    classes_frame.attrs["min_obrigatorias_ano"] = payload.get("min_obrigatorias_ano", 3)
+    classes_frame.attrs["professores_ic"] = sorted({
+        str(teacher.get("name", ""))
+        for teacher in payload.get("teachers", [])
+        if str(teacher.get("name", ""))
+    })
     return (
-        pd.DataFrame(class_rows).fillna(""),
+        classes_frame,
         pd.DataFrame(meeting_rows).fillna(""),
         pd.DataFrame(room_rows).fillna(""),
     )

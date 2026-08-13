@@ -1,0 +1,384 @@
+codigo,professor,contagem,max_codigo,preferencia
+GAN00140,Aldo Amilcar Bazan Pacoricona,2,4,0.5
+GAN00140,Ana Maria Luz Fassarella do Amaral,1,4,0.25
+GAN00140,Bely Rodriguez Morales,4,4,1.0
+GAN00140,Bruno,1,4,0.25
+GAN00140,Carlos Manuel Guzman Jimenez,1,4,0.25
+GAN00140,Cecilia de Souza Fernandez,1,4,0.25
+GAN00140,Claudia Ossanai,4,4,1.0
+GAN00140,Danilo Vilela Avelar,3,4,0.75
+GAN00140,Helton de Oliveira da Silva Leal,1,4,0.25
+GAN00140,Isabel Lugao Rios,1,4,0.25
+GAN00140,Jones Colombo,1,4,0.25
+GAN00140,Jose Koiller,2,4,0.5
+GAN00140,Luiz Alberto Viana da Silva,1,4,0.25
+GAN00140,Luiz Fernando de Souza Passos,1,4,0.25
+GAN00140,Miguel Angel Orrillo Cumpa,1,4,0.25
+GAN00140,Miriam Del Milagro Abdon,1,4,0.25
+GAN00140,Nancy de Souza Cardim,1,4,0.25
+GAN00140,Paula Murgel Veloso,1,4,0.25
+GAN00140,Paulo Henrique Cabido Gusmao,1,4,0.25
+GAN00140,Renata Pereira de Freitas,2,4,0.5
+GAN00140,Ricardo,1,4,0.25
+GAN00140,Sergio Jose Xavier de Mendonca,1,4,0.25
+GAN00140,Slobodan Tanushevski,3,4,0.75
+GAN00140,Thiago Lourenco Pires,2,4,0.5
+GAN00140,Vinicius Mendes Couto Pereira,2,4,0.5
+GAN00140,Xuan Zhang,2,4,0.5
+GAN00166,Jorge Petrucio Viana,5,5,1.0
+GAN00166,Renata Pereira de Freitas,3,5,0.6
+GAN00166,Slobodan Tanushevski,2,5,0.4
+GAN00166,Taisa Lopes Martins,2,5,0.4
+GAN00167,Helton de Oliveira da Silva Leal,1,4,0.25
+GAN00167,Jones Colombo,4,4,1.0
+GAN00167,Jorge Petrucio Viana,4,4,1.0
+GAN00167,Jose Koiller,3,4,0.75
+GAN00167,Sem alocado,1,4,0.25
+GAN00167,Taisa Lopes Martins,1,4,0.25
+GAN00167,Yuri,4,4,1.0
+GCI00126,Linair Maria Campos,1,3,0.3333333333333333
+GCI00126,Rosana Portugal Tavares de Moraes,3,3,1.0
+GCI00141,Christiano,1,2,0.5
+GCI00141,Nilson Theobald Barbosa,2,2,1.0
+GET00177,Anderson de Oliveira Calixto,5,5,1.0
+GET00177,Estelina Serrano de Marins Capistrano,3,5,0.6
+GET00177,Jaime Antonio Utria Valdes,2,5,0.4
+GET00177,Jose Murilo Ferraz Saraiva,5,5,1.0
+GET00177,Keila Mara Cassiano,1,5,0.2
+GET00177,Luz Amanda Melgar Santander,3,5,0.6
+GET00177,Marcio Watanabe Alves de Souza,5,5,1.0
+GET00177,Maria Cristina Bessa Moreira,3,5,0.6
+GET00177,Nubia Karla de Oliveira Almeida,1,5,0.2
+GET00177,Rodrigo,1,5,0.2
+GET00177,Valentin Sisko,1,5,0.2
+GFI00158,Anna Maria Nobrega Chame,2,7,0.2857142857142857
+GFI00158,Caio Vaz Pereira de Brito,3,7,0.42857142857142855
+GFI00158,Gabriel Bié Alves,2,7,0.2857142857142857
+GFI00158,Jurgen Fritz Stilck,3,7,0.42857142857142855
+GFI00158,Lindolff Thadeu Carneiro,3,7,0.42857142857142855
+GFI00158,Marcel Nogueira de Oliveira,4,7,0.5714285714285714
+GFI00158,Marcio Argollo Ferreira de Menezes,1,7,0.14285714285714285
+GFI00158,Marcio Jorge Teles da Costa,1,7,0.14285714285714285
+GFI00158,Maria Emilia Xavier Guimaraes Lopes,3,7,0.42857142857142855
+GFI00158,Nuno Miguel Melo Crokidakis Peregrino,2,7,0.2857142857142857
+GFI00158,Rodrigo,7,7,1.0
+GFI00158,Thiago Albuquerque de Assis,2,7,0.2857142857142857
+GFI00158,Viviane Angelico Pereira Alfradique,4,7,0.5714285714285714
+GFI00159,Daniel,2,4,0.5
+GFI00159,Evandro Vidor Lins de Mello,4,4,1.0
+GFI00159,Gabriel Soares Rocha,2,4,0.5
+GFI00159,Marco,1,4,0.25
+GFI00159,Newton Luiz Pires Mansur,2,4,0.5
+GFI00159,Nuno Miguel Melo Crokidakis Peregrino,1,4,0.25
+GFI00161,Andreia Mendonca Saguia,2,14,0.14285714285714285
+GFI00161,Carlos Eduardo Rodrigues de Souza,1,14,0.07142857142857142
+GFI00161,Carlos Enrique Navia Ojeda,14,14,1.0
+GFI00161,Djalma Rosa Mendes Junior,3,14,0.21428571428571427
+GFI00161,Evandro Vidor Lins de Mello,7,14,0.5
+GFI00161,Gabriel Bié Alves,5,14,0.35714285714285715
+GFI00161,Gildo de Holanda Cavalcanti,1,14,0.07142857142857142
+GFI00161,Glauco Santos Maciel,3,14,0.21428571428571427
+GFI00161,Joao Florencio Junior,2,14,0.14285714285714285
+GFI00161,Lucas Raimundo Rodrigues,2,14,0.14285714285714285
+GFI00161,Marcel Nogueira de Oliveira,3,14,0.21428571428571427
+GFI00161,Marcio Jorge Teles da Costa,2,14,0.14285714285714285
+GFI00161,Patricia Pinto Abrantes,2,14,0.14285714285714285
+GFI00161,Roberto Linares,1,14,0.07142857142857142
+GFI00161,Stephane Serge Yves Jerome Soriano,1,14,0.07142857142857142
+GFI00161,Tarik,1,14,0.07142857142857142
+GFI00161,Tarik Pereira Cysne,3,14,0.21428571428571427
+GFI00161,Thiago Rodrigues de Oliveira,1,14,0.07142857142857142
+GFI00162,Andreia Mendonca Saguia,1,3,0.3333333333333333
+GFI00162,Daniel,3,3,1.0
+GFI00162,Marcio Argollo Ferreira de Menezes,1,3,0.3333333333333333
+GFI00162,Pedro,2,3,0.6666666666666666
+GGM00137,Abigail Silva Duarte Folha,3,7,0.42857142857142855
+GGM00137,Alex Correa Abreu,1,7,0.14285714285714285
+GGM00137,Andrey Soldatenkov,2,7,0.2857142857142857
+GGM00137,Cristhabel Janeth Casanova Vasquez,2,7,0.2857142857142857
+GGM00137,Fabio,1,7,0.14285714285714285
+GGM00137,Helton de Oliveira da Silva Leal,1,7,0.14285714285714285
+GGM00137,Jiagang Yang,5,7,0.7142857142857143
+GGM00137,Joao Helder Olmedo Rodrigues,3,7,0.42857142857142855
+GGM00137,Joao Paulo Lindquist Figueredo,1,7,0.14285714285714285
+GGM00137,Jose Roberto Linhares de Mattos,7,7,1.0
+GGM00137,Leandro Colau Merlo,2,7,0.2857142857142857
+GGM00137,Leonardo Novaes Mesquita Damasceno,3,7,0.42857142857142855
+GGM00137,Luiz Manoel Silva de Figueiredo,1,7,0.14285714285714285
+GGM00137,Matias Luis Del Hoyo,2,7,0.2857142857142857
+GGM00137,Raquel,1,7,0.14285714285714285
+GGM00137,Sally Andria Vieira da Silva,1,7,0.14285714285714285
+GGM00137,Viviana Lorena Vargas Grajales,1,7,0.14285714285714285
+GGM00137,Zhou Cong,2,7,0.2857142857142857
+GLC00292,Bruno,6,6,1.0
+GLC00292,Daniel,3,6,0.5
+GLC00292,Gildete da Silva Amorim Mendes Francisco,3,6,0.5
+GLC00292,Mariana da Cunha Teixeira de Souza,2,6,0.3333333333333333
+GLC00292,Tathianna Prado Dawes,5,6,0.8333333333333334
+GLC00292,Tatiane Militao de Sa,2,6,0.3333333333333333
+GMA00154,Adriana Victoria da Luz Angeloni,3,5,0.6
+GMA00154,Ana Maria Chaparro Castaneda,2,5,0.4
+GMA00154,Andres Koropecki,5,5,1.0
+GMA00154,Antonio Nigro,3,5,0.6
+GMA00154,Cristiane Ramos Ribeiro Argento,3,5,0.6
+GMA00154,Denise de Oliveira Pinto,1,5,0.2
+GMA00154,Dennis Leonardo Becerra Hernandez,1,5,0.2
+GMA00154,Emilia Carolina Santana Teixeira Alves,1,5,0.2
+GMA00154,Gabriela Alexandra Estevez Jacinto,1,5,0.2
+GMA00154,Javier Nicolas Gargiulo Acea,2,5,0.4
+GMA00154,Joao Miranda Carnevale,1,5,0.2
+GMA00154,Josefa Genyle do Nascimento Santana,1,5,0.2
+GMA00154,Juan Bautista Limaco Ferrel,1,5,0.2
+GMA00154,Leonardo Navarro de Carvalho,1,5,0.2
+GMA00154,Luciana,1,5,0.2
+GMA00154,Luna Lima e Silva,3,5,0.6
+GMA00154,Magda Kimico Kaibara Dutra,1,5,0.2
+GMA00154,Marco,2,5,0.4
+GMA00154,Maria Luiza Oliveira Santos,2,5,0.4
+GMA00154,Mario,4,5,0.8
+GMA00154,Mauricio,2,5,0.4
+GMA00154,Olivier Pierre Thom,2,5,0.4
+GMA00154,Omar Javier Solano Albornoz,2,5,0.4
+GMA00154,Paula Balseiro,2,5,0.4
+GMA00154,Paula Monteiro Baptista,1,5,0.2
+GMA00154,Plinio Guillel Pino Murillo,1,5,0.2
+GMA00154,Raquel,1,5,0.2
+GMA00154,Rodrigo,1,5,0.2
+GMA00154,Samuel Pacitti Gentil,1,5,0.2
+GMA00154,Sem alocado,2,5,0.4
+GMA00154,Sergio de Moura Almaraz,1,5,0.2
+GMA00154,Shangjie Yang,2,5,0.4
+GMA00154,Vinicius de França Araujo,2,5,0.4
+GMA00154,Wodson Mendson Ferreira Oliveira,1,5,0.2
+GMA00155,Ageu Barbosa Freire,1,7,0.14285714285714285
+GMA00155,Andres Koropecki,1,7,0.14285714285714285
+GMA00155,Artem Raibekas,2,7,0.2857142857142857
+GMA00155,Begona Alarcon Cotillas,4,7,0.5714285714285714
+GMA00155,Cassio Iago Santos Marinho,1,7,0.14285714285714285
+GMA00155,Cheng Xu,4,7,0.5714285714285714
+GMA00155,Denise de Oliveira Pinto,4,7,0.5714285714285714
+GMA00155,Dennis Leonardo Becerra Hernandez,1,7,0.14285714285714285
+GMA00155,Emilia Carolina Santana Teixeira Alves,1,7,0.14285714285714285
+GMA00155,Marco,1,7,0.14285714285714285
+GMA00155,Maria Luiza Oliveira Santos,1,7,0.14285714285714285
+GMA00155,Mayara Duarte de Arauj0 Caldas,1,7,0.14285714285714285
+GMA00155,Pablo Andres Guarino Quinones,3,7,0.42857142857142855
+GMA00155,Pablo Gutierrez Barrientos,7,7,1.0
+GMA00155,Peter Edward Hazard,1,7,0.14285714285714285
+GMA00155,Sem alocado,1,7,0.14285714285714285
+GMA00155,Sergio Mariano Licanic,7,7,1.0
+GMA00155,William Osnayder Clavijo Esquivel,2,7,0.2857142857142857
+GSI00433,Anne Caroline Silva de Sousa,2,2,1.0
+GSI00433,Francisco de Assis Palharini,1,2,0.5
+GSI00433,Gabriela Siqueira Salomao,1,2,0.5
+GSI00433,Hugo Leonardo Povoa Sandall,2,2,1.0
+GSI00433,Maudeth Py Braga,1,2,0.5
+GSO00101,Flavia Mateus Rios,1,1,1.0
+SDV00143,Carla Appollinario de Castro,1,4,0.25
+SDV00143,Clarisse Stephan Farhat Jorge,4,4,1.0
+SDV00143,Marcella da Costa Moreira de Paiva,1,4,0.25
+STA00168,Americo da Costa Ramos Filho,3,3,1.0
+STA00168,Ana Maria Lana Ramos,1,3,0.3333333333333333
+STA00168,Fernando de Oliveira Vieira,2,3,0.6666666666666666
+STA00191,Elaine Ribeiro Sigette,6,6,1.0
+STA00267,Americo da Costa Ramos Filho,1,1,1.0
+STA00267,Carla Guimaraes Ferreira,1,1,1.0
+STA00267,Mariana Marinho da Costa Lima Peixoto,1,1,1.0
+STA00267,Suzanny Barreto da Silva,1,1,1.0
+STA00267,Thais Soares Kronemberger,1,1,1.0
+TCC00194,Helena,2,2,1.0
+TCC00195,Igor Machado,1,1,1.0
+TCC00196,Igor Machado,1,2,0.5
+TCC00196,Yuri,2,2,1.0
+TCC00200,Marcos Bedo,2,2,1.0
+TCC00200,Plastino,1,2,0.5
+TCC00202,Esteban,2,2,1.0
+TCC00203,Aura,1,1,1.0
+TCC00205,Mario,2,2,1.0
+TCC00212,Daniela,2,2,1.0
+TCC00226,Carlos Ribeiro,8,8,1.0
+TCC00226,Leo Cruz,1,8,0.125
+TCC00230,Raphael Machado,1,1,1.0
+TCC00234,Lucia,4,4,1.0
+TCC00241,Andre Renato,1,1,1.0
+TCC00241,Leandro Fernandes,1,1,1.0
+TCC00241,Luis Felipe,1,1,1.0
+TCC00241,Ueverton,1,1,1.0
+TCC00242,Andre Brabo,1,2,0.5
+TCC00242,Esteban,2,2,1.0
+TCC00242,Luis Felipe,1,2,0.5
+TCC00242,Mauricio,1,2,0.5
+TCC00242,Ueverton,1,2,0.5
+TCC00243,Marcos Bedo,1,1,1.0
+TCC00243,Pedro,1,1,1.0
+TCC00244,Daniel,1,2,0.5
+TCC00244,Vanessa,2,2,1.0
+TCC00245,Daniel,2,2,1.0
+TCC00245,Vanessa,1,2,0.5
+TCC00247,Luciana,1,1,1.0
+TCC00250,Leo Murta,1,3,0.3333333333333333
+TCC00250,Vania,3,3,1.0
+TCC00251,Heleno,1,1,1.0
+TCC00251,Troy,1,1,1.0
+TCC00253,Flavia Bernardini,1,2,0.5
+TCC00253,Patrick,2,2,1.0
+TCC00254,Kowada,1,1,1.0
+TCC00255,Marcelo Fornazin,1,1,1.0
+TCC00259,Aline Paes,3,3,1.0
+TCC00259,Mariza,2,3,0.6666666666666666
+TCC00260,Aline Paes,1,2,0.5
+TCC00260,Flavia Bernardini,2,2,1.0
+TCC00260,Flavio Seixas,1,2,0.5
+TCC00260,Leandro Santiago,1,2,0.5
+TCC00260,Taiane,1,2,0.5
+TCC00261,Anselmo,1,1,1.0
+TCC00261,Flavio Seixas,1,1,1.0
+TCC00261,Leandro Santiago,1,1,1.0
+TCC00261,Luiz Fernando Bez,1,1,1.0
+TCC00261,Mariza,1,1,1.0
+TCC00261,Satoru,1,1,1.0
+TCC00262,Isabel Leite Cafezeiro,3,3,1.0
+TCC00265,Luciana,1,1,1.0
+TCC00267,Igor Machado,1,1,1.0
+TCC00271,Bruno,1,4,0.25
+TCC00271,Patrick,4,4,1.0
+TCC00274,Celio,5,5,1.0
+TCC00274,Guto,1,5,0.2
+TCC00275,Flavia Delicato,2,2,1.0
+TCC00276,Guto,1,1,1.0
+TCC00280,Jose Raphael,3,3,1.0
+TCC00281,Debora,1,1,1.0
+TCC00283,Ricardo,1,1,1.0
+TCC00284,Fabio,5,5,1.0
+TCC00284,Loana,1,5,0.2
+TCC00284,Ueverton,1,5,0.2
+TCC00285,Christiano,1,3,0.3333333333333333
+TCC00285,Loana,1,3,0.3333333333333333
+TCC00285,Luis Felipe,3,3,1.0
+TCC00285,Martinhon,2,3,0.6666666666666666
+TCC00285,Raquel,1,3,0.3333333333333333
+TCC00285,Ueverton,1,3,0.3333333333333333
+TCC00286,Cristina Boeres,1,6,0.16666666666666666
+TCC00286,Leandro Santiago,1,6,0.16666666666666666
+TCC00286,Simone,4,6,0.6666666666666666
+TCC00286,Vinod,6,6,1.0
+TCC00287,Luiz Andre,2,3,0.6666666666666666
+TCC00287,Rodrigo,3,3,1.0
+TCC00287,Vanessa,1,3,0.3333333333333333
+TCC00288,Daniel,1,5,0.2
+TCC00288,Luiz Andre,5,5,1.0
+TCC00288,Rodrigo,1,5,0.2
+TCC00289,Bruno,3,3,1.0
+TCC00289,Christiano,1,3,0.3333333333333333
+TCC00289,Flavia Bernardini,2,3,0.6666666666666666
+TCC00289,Kowada,1,3,0.3333333333333333
+TCC00290,Jose Raphael,6,6,1.0
+TCC00291,Anselmo,1,3,0.3333333333333333
+TCC00291,Aura,1,3,0.3333333333333333
+TCC00291,Esteban,1,3,0.3333333333333333
+TCC00291,Marcos Lage,3,3,1.0
+TCC00292,Leo Murta,3,3,1.0
+TCC00292,Troy,3,3,1.0
+TCC00293,Leo Murta,5,5,1.0
+TCC00293,Troy,1,5,0.2
+TCC00296,Aline Nascimento,2,6,0.3333333333333333
+TCC00296,Cristina Boeres,3,6,0.5
+TCC00296,Debora,1,6,0.16666666666666666
+TCC00296,Taiane,1,6,0.16666666666666666
+TCC00296,Vinod,6,6,1.0
+TCC00297,Aline Paes,1,2,0.5
+TCC00297,Flavia Bernardini,2,2,1.0
+TCC00297,Mariza,2,2,1.0
+TCC00297,Taiane,1,2,0.5
+TCC00298,Daniela,3,3,1.0
+TCC00298,Luciana,3,3,1.0
+TCC00300,Leandro Santiago,10,10,1.0
+TCC00301,Esteban,12,12,1.0
+TCC00304,Bruno,5,5,1.0
+TCC00304,Christiano,2,5,0.4
+TCC00305,Bruno,2,3,0.6666666666666666
+TCC00305,Christiano,1,3,0.3333333333333333
+TCC00305,Luis Felipe,3,3,1.0
+TCC00305,Mario,1,3,0.3333333333333333
+TCC00306,Andre Brabo,2,2,1.0
+TCC00306,Luiz Fernando Bez,2,2,1.0
+TCC00306,Pedro,2,2,1.0
+TCC00306,Ricardo,1,2,0.5
+TCC00307,Andre Brabo,2,4,0.5
+TCC00307,Ricardo,4,4,1.0
+TCC00308,Anselmo,2,2,1.0
+TCC00308,Christiano,1,2,0.5
+TCC00308,Dante,2,2,1.0
+TCC00308,Igor Machado,2,2,1.0
+TCC00308,Kowada,2,2,1.0
+TCC00308,Leandro Fernandes,1,2,0.5
+TCC00308,Loana,1,2,0.5
+TCC00308,Mario,1,2,0.5
+TCC00308,Simone,1,2,0.5
+TCC00308,Viterbo,1,2,0.5
+TCC00308,Yuri,1,2,0.5
+TCC00312,Carlos Ribeiro,1,3,0.3333333333333333
+TCC00312,Troy,3,3,1.0
+TCC00312,Vania,3,3,1.0
+TCC00313,Celio,5,5,1.0
+TCC00313,Flavia Delicato,1,5,0.2
+TCC00314,Celio,1,4,0.25
+TCC00314,Debora,4,4,1.0
+TCC00314,Igor Moraes,1,4,0.25
+TCC00315,Flavia Delicato,6,6,1.0
+TCC00316,Cristina Boeres,6,6,1.0
+TCC00317,Mario,2,2,1.0
+TCC00318,Igor Machado,2,3,0.6666666666666666
+TCC00318,Luiz Fernando Bez,1,3,0.3333333333333333
+TCC00318,Satoru,3,3,1.0
+TCC00318,Yuri,2,3,0.6666666666666666
+TCC00324,Luciana,2,2,1.0
+TCC00324,Marcelo Fornazin,2,2,1.0
+TCC00328,Anselmo,6,6,1.0
+TCC00328,Carlos Ribeiro,3,6,0.5
+TCC00328,Flavia Bernardini,2,6,0.3333333333333333
+TCC00328,Igor Machado,1,6,0.16666666666666666
+TCC00328,Luiz Andre,2,6,0.3333333333333333
+TCC00328,Rebeca,2,6,0.3333333333333333
+TCC00330,Flavio Seixas,2,2,1.0
+TCC00330,Rodrigo,2,2,1.0
+TCC00341,Igor Machado,1,2,0.5
+TCC00341,Igor Moraes,1,2,0.5
+TCC00341,Kowada,2,2,1.0
+TCC00341,Raphael Machado,2,2,1.0
+TCC00344,Lucia,6,6,1.0
+TCC00346,Andre Renato,2,10,0.2
+TCC00346,Joao Pimentel,2,10,0.2
+TCC00346,Kowada,2,10,0.2
+TCC00346,Leandro Fernandes,6,10,0.6
+TCC00346,Luiz Claudio Frederico Fernandez,1,10,0.1
+TCC00346,Mario,10,10,1.0
+TCC00346,Mauricio,2,10,0.2
+TCC00346,Paulo Roberto Mann Marques Junior,1,10,0.1
+TCC00347,Aline Nascimento,4,4,1.0
+TCC00347,Aline Paes,4,4,1.0
+TCC00347,Lauro,1,4,0.25
+TCC00347,Patrick,3,4,0.75
+TCC00347,Rosseti,4,4,1.0
+TCC00347,Yuri,1,4,0.25
+TCC00348,Christiano,1,6,0.16666666666666666
+TCC00348,Kowada,1,6,0.16666666666666666
+TCC00348,Martinhon,1,6,0.16666666666666666
+TCC00348,Rosseti,6,6,1.0
+TCC00348,Vanessa,2,6,0.3333333333333333
+TCC00349,Guto,7,7,1.0
+TCC00350,Kowada,2,2,1.0
+TEC00209,Luis Gustavo Zelaya Cruz,12,12,1.0
+TEP00108,Anna Sophia Piacenza Moraes,2,12,0.16666666666666666
+TEP00108,Luiz Carlos Brasil de Brito Mello,5,12,0.4166666666666667
+TEP00108,Marco,6,12,0.5
+TEP00108,Valdecy Pereira,12,12,1.0
+TEP00109,Antonio Carlos Magalhaes da Silva,2,6,0.3333333333333333
+TEP00109,Marco,6,6,1.0
+TEP00110,Silvia dos Reis Alcantara Duarte,24,24,1.0
+TEP00111,Jose Rodrigues de Farias Filho,6,6,1.0
+TEP00111,Ruben Huamanchumo Gutierrez,6,6,1.0
+TET00319,Alexandre Santos de La Vega,3,3,1.0
+TET00347,Alexandre Santos de La Vega,6,6,1.0
+TET00347,Marco,6,6,1.0
+TET00347,Taiane,2,6,0.3333333333333333

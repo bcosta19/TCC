@@ -65,8 +65,9 @@ def main() -> None:
         f"| Conflitos de sala | {initial_eval['hard']['conflitos_sala']} | {best_eval['hard']['conflitos_sala']} |",
         f"| Conflitos curriculares | {initial_eval['hard']['conflitos_curriculares']} | {best_eval['hard']['conflitos_curriculares']} |",
         f"| Recursos incompatíveis | {initial_eval['hard']['recursos_incompativeis']} | {best_eval['hard']['recursos_incompativeis']} |",
+        f"| Professores abaixo de H12 | {initial_eval['hard']['carga_anual_insuficiente']} | {best_eval['hard']['carga_anual_insuficiente']} |",
         f"| Desperdício estimado | {initial_eval['soft']['desperdicio_capacidade']} | {best_eval['soft']['desperdicio_capacidade']} |",
-        f"| Distância estimada | {initial_eval['soft']['distancia']} | {best_eval['soft']['distancia']} |",
+        f"| Preferência priorizada | {initial_eval['soft'].get('preferencia_priorizada', 0)} | {best_eval['soft'].get('preferencia_priorizada', 0)} |",
         "",
         f"Foram alterados **{len(changes)} encontros** na melhor solução encontrada; a comparação é feita por dia e horário para preservar turmas que usam sala comum e laboratório na mesma semana.",
         "",
@@ -83,7 +84,7 @@ def main() -> None:
         "",
         "A busca conseguiu reduzir os conflitos de sala sem alterar professores ou horários, mantendo a compatibilidade entre aulas de laboratório e salas `L...`.",
         "Os conflitos curriculares permaneceram porque esta versão do solver não libera horários.",
-        "As capacidades são estimadas; a distância diferencia prédios e laboratórios, mas ainda não é uma medição física.",
+        "As capacidades ainda são estimadas e devem ser substituídas por dados oficiais.",
     ]
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(OUT)

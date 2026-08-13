@@ -6,15 +6,15 @@ Perfil avaliado: cursos CC (`31`) e SI (`83`), mais disciplinas com período cur
 
 - Turmas: **154**
 - Encontros semanais: **279**
-- Violações hard: **23**
+- Violações hard: **51**
 - Conflitos de sala: **13 ocorrências excedentes em 12 grupos**
 - Conflitos de professor: **0**
 - Conflitos curriculares: **10**
 - Recursos incompatíveis (laboratório/sala comum): **0**
+- Professores abaixo do mínimo anual H12: **28**
 - Dias-professor: **213**
 - Janelas: **28**
 - Desperdício de capacidade estimado: **2172.0 vagas**
-- Distância estimada: **171 unidades**
 - Repetições de professor entre semestres: **27**
 
 ## Conflitos de sala
@@ -211,5 +211,5 @@ A classificação considera disciplinas de um mesmo curso e período ocupando o 
 3. Excluir definitivamente pós-graduação e outros cursos da instância CC/SI antes dos experimentos.
 4. Adicionar capacidades das salas para ativar H10/O4.
 5. Substituir a capacidade estimada por capacidades físicas oficiais quando disponíveis.
-6. Substituir a matriz de distância estimada por medições ou coordenadas se forem obtidas.
-7. Confirmar as exigências de laboratório inferidas por encontro; o prefixo `L` é tratado como laboratório e prédio separado.
+6. Confirmar as exigências de laboratório inferidas por encontro; o prefixo `L` é tratado como laboratório.
+7. Substituir a prioridade neutra e a classificação CH_OB por dados validados antes dos experimentos oficiais.

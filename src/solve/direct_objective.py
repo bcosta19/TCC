@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 
-from src.eval.rooms import estimated_room_distance, is_lab_room
+from src.eval.rooms import is_lab_room
 
 
 DAY_ORDER = {"segunda": 0, "terca": 1, "quarta": 2, "quinta": 3, "sexta": 4, "sabado": 5}
@@ -51,7 +51,32 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     seen_class_rooms = set()
     teacher_days = set()
     teacher_day_slots: dict[tuple, list[tuple[int, int]]] = defaultdict(list)
-    curriculum_rooms: dict[tuple, dict[tuple[int, int], set[str]]] = defaultdict(lambda: defaultdict(set))
+    obligatory_by_teacher: dict[str, int] = defaultdict(int)
+    ic_teachers: set[str] = {
+        str(teacher.get("name", ""))
+        for teacher in payload.get("teachers", [])
+        if str(teacher.get("name", ""))
+    }
+    preference_bonus = 0.0
+    preference_observations = 0
+
+    priorities = payload.get("prioridades_professores", {})
+    for item in classes:
+        code = str(item.get("codigo", ""))
+        is_internal = item.get("origem") == "IC" or code.startswith("TCC")
+        teacher = str(item.get("professor", "") or "")
+        if not is_internal or not teacher:
+            continue
+        ic_teachers.add(teacher)
+        if bool(item.get("obrigatoria", False)):
+            obligatory_by_teacher[teacher] += 1
+        preference = (item.get("preferencias_professores") or {}).get(teacher)
+        priority = priorities.get(teacher)
+        preference_number = _number(preference)
+        priority_number = _number(priority)
+        if preference_number is not None and priority_number is not None:
+            preference_bonus -= preference_number * priority_number
+            preference_observations += 1
 
     for item, meeting in meetings:
         semester = item.get("semestre", "")
@@ -89,8 +114,6 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         group = period_group(item)
         if group and group.endswith(tuple(f"|{i}" for i in range(1, 9))):
             curriculum_slots[(semester, group, day, start, end)].add(str(item.get("codigo", "")))
-            if room:
-                curriculum_rooms[(semester, group, day)][(start_min, end_min)].add(room)
 
     room_conflicts = sum(max(0, value - 1) for value in room_keys.values())
     teacher_conflicts = sum(max(0, value - 1) for value in teacher_keys.values())
@@ -126,24 +149,6 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         if odd and even and odd[0] == even[0]:
             rotation += 1
 
-    distance = 0
-    for slots in curriculum_rooms.values():
-        ordered = sorted(
-            slots.items(),
-            key=lambda pair: (pair[0][0], pair[0][1]),
-        )
-        for ((_, end), previous_rooms), ((next_start, _), next_rooms) in zip(ordered, ordered[1:]):
-            if next_start < end:
-                continue
-            values = [
-                estimated_room_distance(a, b)
-                for a in previous_rooms
-                for b in next_rooms
-            ]
-            values = [value for value in values if value is not None]
-            if values:
-                distance += min(values)
-
     hard = {
         "conflitos_sala": room_conflicts,
         "conflitos_professor": teacher_conflicts,
@@ -151,14 +156,19 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         "capacidade_insuficiente": room_capacity_violations,
         "recursos_incompativeis": resource_violations,
         "descanso_insuficiente": rest_violations,
+        "carga_anual_insuficiente": sum(
+            count < int(payload.get("min_obrigatorias_ano", 3))
+            for count in (obligatory_by_teacher.get(teacher, 0) for teacher in ic_teachers)
+        ),
     }
     soft = {
         "dias_trabalhados": len(teacher_days),
         "janelas": windows,
         "desperdicio_capacidade": capacity_waste,
         "rodizio_semestre": rotation,
-        "distancia": distance,
     }
+    if preference_observations:
+        soft["preferencia_priorizada"] = preference_bonus
     hard_count = sum(hard.values())
     score = hard_count * 1_000_000 + sum(soft.values())
     return {"score": score, "hard_violations": hard_count, "hard": hard, "soft": soft}

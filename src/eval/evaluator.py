@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from .rooms import estimated_room_distance, is_lab_room
+from .rooms import is_lab_room
 from .instance_io import load_instance_json
 from .resources import infer_lab_requirement, lab_evidence_by_code
 
@@ -51,6 +51,7 @@ class QHEvaluator:
     def __init__(self, turmas: pd.DataFrame, horarios: pd.DataFrame, rooms: pd.DataFrame | None = None):
         self.turmas = turmas.copy()
         self.horarios = horarios.copy()
+        self.min_obrigatorias_ano = int(self.turmas.attrs.get("min_obrigatorias_ano", 3))
         self.room_capacity = {}
         if rooms is not None and not rooms.empty and "id" in rooms and "capacidade_estimada" in rooms:
             self.room_capacity = dict(
@@ -94,7 +95,9 @@ class QHEvaluator:
             return None
         return value.split("-P", 1)[0] + "-P" + value.split("-P", 1)[1].split("-", 1)[0]
 
-    def evaluate(self, min_rest_hours: int = 11) -> Evaluation:
+    def evaluate(self, min_rest_hours: int = 11, min_obrigatorias_ano: int | None = None) -> Evaluation:
+        if min_obrigatorias_ano is not None:
+            self.min_obrigatorias_ano = int(min_obrigatorias_ano)
         t = self.turmas.set_index("id", drop=False)
         h = self.horarios.copy()
         h["alocacao"] = h["turma_id"].map(t["alocacao"]).fillna("")
@@ -116,21 +119,24 @@ class QHEvaluator:
             "capacidade_insuficiente": self._capacity_violations(h),
             "recursos_incompativeis": self._resource_violations(h),
             "descanso_insuficiente": self._rest_violations(h, min_rest_hours),
+            "carga_anual_insuficiente": self._annual_load_violations(t),
         }
         soft = {
             "dias_trabalhados": self._working_days(h),
             "janelas": self._windows(h),
             "desperdicio_capacidade": self._capacity_waste(h),
             "rodizio_semestre": self._rotation_penalty(t),
-            "distancia": self._estimated_distance(h),
         }
+        preference_score = self._preference_score(t)
+        if preference_score is not None:
+            soft["preferencia_priorizada"] = preference_score
         metadata = {
             "turmas": int(len(t)),
             "encontros": int(len(h)),
             "professores": int(t.loc[t["alocacao"].ne(""), "alocacao"].nunique()),
             "salas": int(h["sala"].replace("", pd.NA).dropna().nunique()),
             "laboratorios": sorted(room for room in self.room_capacity if is_lab_room(room)),
-            "distancia_status": "estimada por prédio, andar e paridade; troca de prédio = 3 + diferença de andar; não é distância física medida",
+            "min_obrigatorias_ano": self.min_obrigatorias_ano,
         }
         return Evaluation(hard, soft, metadata)
 
@@ -213,34 +219,40 @@ class QHEvaluator:
                 total += 1
         return total
 
-    def _estimated_distance(self, h: pd.DataFrame) -> int:
-        """Soma transições entre disciplinas consecutivas de cada grupo curricular."""
-        frame = h.copy()
-        frame["grupo"] = frame["curso"].astype(str) + "|" + frame["periodo"].map(self._period_key).fillna("")
-        frame = frame[frame["grupo"].str.endswith(tuple(f"-P{i}" for i in range(1, 9)))]
-        frame = frame[frame["sala"].fillna("").ne("")]
-        frame = frame.drop_duplicates(["semestre", "grupo", "codigo", "dia", "inicio", "fim", "sala"])
-        total = 0
-        for _, group in frame.groupby(["semestre", "grupo", "dia"]):
-            # Uma disciplina paralela pode ter mais de uma sala; mantemos todas
-            # e usamos a menor transição possível entre as duas ofertas.
-            slots = []
-            for (start, end), slot in group.groupby(["inicio_min", "fim_min"]):
-                rooms = [str(x) for x in slot["sala"].unique() if str(x)]
-                slots.append((int(start), int(end), rooms))
-            slots.sort()
-            for previous, following in zip(slots, slots[1:]):
-                if following[0] < previous[1]:
-                    continue
-                distances = [
-                    estimated_room_distance(a, b)
-                    for a in previous[2]
-                    for b in following[2]
-                ]
-                distances = [d for d in distances if d is not None]
-                if distances:
-                    total += min(distances)
-        return int(total)
+    def _annual_load_violations(self, t: pd.DataFrame) -> int:
+        """Conta professores do IC abaixo do mínimo anual de obrigatórias."""
+        if "origem" in t.columns:
+            internal = t[t["origem"].astype(str).eq("IC")].copy()
+        else:
+            internal = t[t["codigo"].astype(str).str.startswith("TCC")].copy()
+        internal = internal[internal["alocacao"].fillna("").ne("")]
+        if "obrigatoria" in internal.columns:
+            obligatory = internal["obrigatoria"].map(self._as_bool).fillna(False)
+        elif "ch_ob" in internal.columns:
+            obligatory = pd.to_numeric(internal["ch_ob"], errors="coerce").fillna(0).gt(0)
+        else:
+            return 0
+        counts = obligatory.groupby(internal["alocacao"]).sum()
+        teacher_universe = self.turmas.attrs.get("professores_ic", [])
+        if teacher_universe:
+            counts = counts.reindex(sorted(set(teacher_universe)), fill_value=0)
+        return int((counts < self.min_obrigatorias_ano).sum())
+
+    def _preference_score(self, t: pd.DataFrame) -> float | None:
+        """Retorna bônus negativo de preferência quando a instância o fornece."""
+        required = {"preferencia", "prioridade", "alocacao"}
+        if not required.issubset(t.columns):
+            return None
+        values = t.copy()
+        if "origem" in values.columns:
+            values = values[values["origem"].astype(str).eq("IC")]
+        values["preferencia"] = pd.to_numeric(values["preferencia"], errors="coerce")
+        values["prioridade"] = pd.to_numeric(values["prioridade"], errors="coerce")
+        values = values[values["alocacao"].fillna("").ne("")]
+        values = values.dropna(subset=["preferencia", "prioridade"])
+        if values.empty:
+            return None
+        return float(-(values["preferencia"] * values["prioridade"]).sum())
 
 
 def evaluate_directory(directory: str | Path, profile: str = "cc_si") -> Evaluation:

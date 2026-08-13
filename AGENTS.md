@@ -6,7 +6,7 @@ Contexto para agentes de IA (Claude Code, opencode, etc.) ao trabalhar neste rep
 
 TCC de Ciência da Computação (UFF) sobre **metaheurísticas aplicadas à alocação de horários e salas de aula** no Instituto de Computação da UFF, implementado com **pyoptframe**. Defesa prevista para o fim de 2026/2 (~nov/dez). Além da monografia, haverá uma versão em **formato de artigo** (modelo em `modelo_artigo/`).
 
-A ideia original era minimizar a distância entre salas de aulas consecutivas (alunos andarem menos). O escopo cresceu para um problema de timetabling completo, mas **esse critério de distância deve ser mantido como diferencial/extensão** do trabalho.
+A ideia original era minimizar a distância entre salas de aulas consecutivas. Em 10/08/2026, aluno e orientador decidiram **retirar esse critério do escopo**. O trabalho permanece um problema de *timetabling* completo com atribuição de professores, horários e salas.
 
 ## Documentos-chave (ler antes de mexer em qualquer coisa)
 
@@ -43,6 +43,6 @@ Os agentes **não** decidem: modelagem matemática, interpretação de diretrize
 
 **Restrições adicionais**: nenhum cookie de sessão (`uff_cookies.json`), senha ou dado pessoal é colado em prompts. Logs de sessão de IA (`anotacoes/contexto_sessao_*.md`) **não são versionados** — registre decisões em arquivos do projeto, não em logs. Veja a seção "Uso de inteligência artificial" do `README.md` para a versão pública desta política (que também vai para os agradecimentos da monografia).
 
-## Estado atual (jun/2026)
+## Estado atual (ago/2026)
 
-Fase 1 (formalização): primeiro rascunho do modelo matemático em `anotacoes/modelo_matematico.md` — UCTP curriculum-based + alocação de salas com distância; falta revisar hard×soft e pesos com o orientador. Fase 2 (dados) ainda por começar. Bloqueio externo: aguardando a planilha de setores do orientador. Pendências de limpeza nos dados coletados estão em `dados/PENDENCIAS.md`.
+Fase 1 (formalização): modelo matemático em `anotacoes/modelo_matematico.md` — UCTP *curriculum-based* + alocação de salas, sem critério de distância; ainda falta revisar hard×soft e pesos com o orientador. A pipeline inicial de dados e os protótipos de avaliação/solução estão em desenvolvimento. Pendências estão em `dados/PENDENCIAS.md`.

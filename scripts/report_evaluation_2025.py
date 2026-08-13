@@ -66,10 +66,10 @@ def main() -> None:
         f"- Conflitos de professor: **{evaluator.hard['conflitos_professor']}**",
         f"- Conflitos curriculares: **{evaluator.hard['conflitos_curriculares']}**",
         f"- Recursos incompatíveis (laboratório/sala comum): **{evaluator.hard['recursos_incompativeis']}**",
+        f"- Professores abaixo do mínimo anual H12: **{evaluator.hard['carga_anual_insuficiente']}**",
         f"- Dias-professor: **{evaluator.soft['dias_trabalhados']}**",
         f"- Janelas: **{evaluator.soft['janelas']}**",
         f"- Desperdício de capacidade estimado: **{evaluator.soft['desperdicio_capacidade']} vagas**",
-        f"- Distância estimada: **{evaluator.soft['distancia']} unidades**",
         f"- Repetições de professor entre semestres: **{evaluator.soft['rodizio_semestre']}**",
         "",
         "## Conflitos de sala",
@@ -113,8 +113,8 @@ def main() -> None:
         "3. Excluir definitivamente pós-graduação e outros cursos da instância CC/SI antes dos experimentos.",
         "4. Adicionar capacidades das salas para ativar H10/O4.",
         "5. Substituir a capacidade estimada por capacidades físicas oficiais quando disponíveis.",
-        "6. Substituir a matriz de distância estimada por medições ou coordenadas se forem obtidas.",
-        "7. Confirmar as exigências de laboratório inferidas por encontro; o prefixo `L` é tratado como laboratório e prédio separado.",
+        "6. Confirmar as exigências de laboratório inferidas por encontro; o prefixo `L` é tratado como laboratório.",
+        "7. Substituir a prioridade neutra e a classificação CH_OB por dados validados antes dos experimentos oficiais.",
     ]
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(OUT)

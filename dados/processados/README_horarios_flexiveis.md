@@ -9,7 +9,8 @@ Regra atual:
 - projetos finais ficam fixos;
 - turmas internas com período curricular ficam flexíveis;
 - padrões candidatos são retirados dos horários observados no mesmo semestre;
-- o setor restringe os dias candidatos aos dias observados para aquele setor.
+- o setor restringe os candidatos aos padrões de dias observados para aquele
+  setor, semestre e assinatura de encontros;
 - a exigência de laboratório é preservada por encontro; uma sala `L...` só é
   candidata para encontros marcados como laboratório, e salas comuns não são
   trocadas por laboratórios.
@@ -18,5 +19,5 @@ Essa regra é adequada para o primeiro experimento de horários, mas ainda é um
 aproximação. A disponibilidade real dos professores e os horários oficiais
 devem substituir esses domínios posteriormente.
 
-As salas `L...` também são consideradas outro prédio. A distância provisória
-entre prédios é `3 + diferença de andar`, sem componente horizontal.
+As salas `L...` são tratadas como laboratórios para preservar a compatibilidade
+de recursos durante os movimentos.

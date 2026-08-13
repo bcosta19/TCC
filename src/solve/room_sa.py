@@ -15,13 +15,15 @@ from pathlib import Path
 import pandas as pd
 
 from src.eval.evaluator import QHEvaluator
-from src.eval.rooms import estimated_room_distance, is_lab_room
+from src.eval.rooms import is_lab_room
 
 
 def frames_from_payload(payload: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     class_rows = []
     meeting_rows = []
+    priorities = payload.get("prioridades_professores", {})
     for item in payload.get("classes", []):
+        professor = item.get("professor") or ""
         class_rows.append({
             "id": item.get("id", ""),
             "semestre": item.get("semestre", ""),
@@ -31,8 +33,12 @@ def frames_from_payload(payload: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.D
             "disciplina": item.get("disciplina", ""),
             "turma": item.get("turma", ""),
             "setor": item.get("setor") or "",
-            "alocacao": item.get("professor") or "",
+            "alocacao": professor,
+            "origem": item.get("origem", ""),
             "capacidade": item.get("capacidade_turma") or "",
+            "obrigatoria": item.get("obrigatoria", False),
+            "preferencia": (item.get("preferencias_professores") or {}).get(professor),
+            "prioridade": priorities.get(professor),
             "exige_laboratorio": item.get("exige_laboratorio"),
             "recursos_requeridos": item.get("recursos_requeridos") or [],
         })
@@ -60,7 +66,14 @@ def frames_from_payload(payload: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.D
         }
         for room in payload.get("rooms", [])
     ])
-    return pd.DataFrame(class_rows).fillna(""), pd.DataFrame(meeting_rows).fillna(""), rooms.fillna("")
+    classes = pd.DataFrame(class_rows).fillna("")
+    classes.attrs["min_obrigatorias_ano"] = payload.get("min_obrigatorias_ano", 3)
+    classes.attrs["professores_ic"] = sorted({
+        str(teacher.get("name", ""))
+        for teacher in payload.get("teachers", [])
+        if str(teacher.get("name", ""))
+    })
+    return classes, pd.DataFrame(meeting_rows).fillna(""), rooms.fillna("")
 
 
 def evaluate_payload(payload: dict):
@@ -127,7 +140,7 @@ class RoomObjective:
     def __init__(self, payload: dict):
         initial = evaluate_payload(payload)
         self.static_hard = sum(value for key, value in initial.hard.items() if key not in {"conflitos_sala", "capacidade_insuficiente", "recursos_incompativeis"})
-        self.static_soft = sum(value for key, value in initial.soft.items() if key not in {"desperdicio_capacidade", "distancia"} and value is not None)
+        self.static_soft = sum(value for key, value in initial.soft.items() if key != "desperdicio_capacidade" and value is not None)
         self.room_capacity = {
             str(room.get("id")): room.get("capacidade_estimada")
             for room in payload.get("rooms", [])
@@ -140,29 +153,15 @@ class RoomObjective:
         except (TypeError, ValueError):
             return None
 
-    @staticmethod
-    def _period_group(item: dict) -> str | None:
-        period = str(item.get("periodo", ""))
-        if "-P" not in period:
-            return None
-        course = str(item.get("curso", ""))
-        if course == "31":
-            course = "CC"
-        elif course == "83":
-            course = "SI"
-        return f"{course}|{period.split('-P', 1)[1].split('-', 1)[0]}"
-
     def dynamic(self, payload: dict) -> dict:
         occupied = {}
         capacity_violations = 0
         resource_violations = 0
         capacity_waste = 0.0
-        groups = {}
 
         for item in payload.get("classes", []):
             class_capacity = self._number(item.get("capacidade_turma"))
             seen_class_rooms = set()
-            group_key = self._period_group(item)
             for meeting in item.get("encontros", []):
                 room = str(meeting.get("sala", ""))
                 if room:
@@ -184,36 +183,12 @@ class RoomObjective:
                         if room_key not in seen_class_rooms:
                             capacity_waste += max(0.0, room_capacity - class_capacity)
                             seen_class_rooms.add(room_key)
-                    if group_key:
-                        time_key = (meeting.get("inicio", ""), meeting.get("fim", ""))
-                        group_slot = groups.setdefault((item.get("semestre", ""), group_key, meeting.get("dia", "")), {})
-                        group_slot.setdefault(time_key, set()).add(room)
-
         room_conflicts = sum(max(0, count - 1) for count in occupied.values())
-        distance = 0
-        for slots in groups.values():
-            ordered = sorted(
-                slots.items(),
-                key=lambda pair: (_time_to_minutes(pair[0][0]), _time_to_minutes(pair[0][1])),
-            )
-            for ((start, end), previous_rooms), ((next_start, _next_end), next_rooms) in zip(ordered, ordered[1:]):
-                end_minutes = _time_to_minutes(end)
-                if _time_to_minutes(next_start) < end_minutes:
-                    continue
-                distances = [
-                    estimated_room_distance(a, b)
-                    for a in previous_rooms
-                    for b in next_rooms
-                ]
-                distances = [value for value in distances if value is not None]
-                if distances:
-                    distance += min(distances)
         return {
             "room_conflicts": room_conflicts,
             "capacity_violations": capacity_violations,
             "resource_violations": resource_violations,
             "capacity_waste": capacity_waste,
-            "distance": distance,
         }
 
     def score(self, payload: dict) -> float:
@@ -224,13 +199,8 @@ class RoomObjective:
             + dynamic["capacity_violations"]
             + dynamic["resource_violations"]
         )
-        soft = self.static_soft + dynamic["capacity_waste"] + dynamic["distance"]
+        soft = self.static_soft + dynamic["capacity_waste"]
         return hard * 1_000_000 + soft
-
-
-def _time_to_minutes(value: str) -> int:
-    hour, minute = str(value).split(":")
-    return int(hour) * 60 + int(minute)
 
 
 def solve(payload: dict, iterations: int = 3000, seed: int = 2025, initial_temperature: float = 100_000.0) -> tuple[dict, dict]:

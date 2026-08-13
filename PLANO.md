@@ -2,7 +2,7 @@
 
 **Tema**: Metaheurísticas aplicadas à alocação de horários e salas de aula no Instituto de Computação da UFF, com pyoptframe.
 
-**Data deste plano**: 09/06/2026. Premissa de defesa ao final de 2026/2 (~novembro/dezembro). Detalhes das diretrizes do orientador em `anotacoes/orientacao.md`.
+**Data deste plano**: 09/06/2026; atualizado em 10/08/2026 para retirar o critério de distância entre salas. Premissa de defesa ao final de 2026/2 (~novembro/dezembro). Detalhes das diretrizes do orientador em `anotacoes/orientacao.md`.
 
 ---
 
@@ -12,7 +12,7 @@ O problema real é uma variante do **University Course Timetabling Problem (UCTP
 
 1. **Atribuição de professores às turmas** (respeitando setores, preferências, prioridade, rodízio e jornada);
 2. **Encaixe das optativas** (horário livre) na grade;
-3. **Alocação de salas** (capacidade, recursos/laboratórios, e **distância entre salas de aulas consecutivas** — a ideia original do trabalho, mantida como critério de qualidade).
+3. **Alocação de salas** (capacidade e recursos/laboratórios).
 
 Duas diretrizes do orientador (23/06/2026) ampliam o horizonte: o planejamento é **anual** — todo professor do IC deve ministrar **no mínimo 3 obrigatórias por ano** (H12), o que acopla os semestres ímpar e par —, e há **duas grades curriculares**, **CC e SI**, do mesmo departamento e sob as mesmas regras, com disciplinas compartilhadas entre elas (turma única cursada por alunos dos dois cursos). Formalização completa em `anotacoes/modelo_matematico.md`.
 
@@ -33,7 +33,6 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - Minimizar janelas (buracos) no dia do professor;
 - Aderência das matérias do setor aos dias do setor (algoritmos ter/qui etc.);
 - Capacidade da sala vs. tamanho da turma (penalizar falta de vaga e desperdício);
-- **Distância percorrida pelos alunos entre aulas consecutivas** (ideia original — exige matriz de distância entre salas e a grade curricular por período);
 - Rodízio de professores entre semestres par/ímpar.
 
 ---
@@ -47,11 +46,11 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - [ ] Validar a formalização com o orientador (especialmente pesos dos critérios e o que é hard vs. soft).
 
 ### Fase 2 — Dados e instâncias (junho–julho/2026)
-- [ ] Cobrar/receber a **planilha de setores** e demais itens de `dados/PENDENCIAS.md`.
+- [ ] Validar a **tabela oficial de setores** e demais itens de `dados/PENDENCIAS.md`; a QH 2025 já permite um proxy histórico, mas ainda falta setor → professores habilitados → matérias → dias oficiais.
 - [ ] Limpar o webscrap (filtrar humanísticas, separar disciplinas do IC) e consolidar a matriz professor × disciplina de preferências.
 - [ ] Estender o scraper para capturar **vagas e horários das turmas** (as `turma_url` já estão no CSV) — dá tamanhos de turma reais e a grade real como baseline.
 - [ ] Coletar a **grade curricular de SI** (obter idcurso/idcurriculo de SI em Niterói; parametrizar `webscrap/scraper.py`, que hoje fixa curso 31/currículo 3092 de CC) e mapear a **interseção CC∩SI** (disciplinas compartilhadas).
-- [ ] Definir um **formato de instância** (JSON) com: turmas (com paridade $\sigma(c)$ e pertinência por grade CC/SI), professores, setores, salas (capacidade/recursos/posição), horários fixos, optativas, preferências, prioridades, grade curricular por período **das duas grades**.
+- [ ] Definir um **formato de instância** (JSON) com: turmas (com paridade $\sigma(c)$ e pertinência por grade CC/SI), professores, setores, salas (capacidade/recursos), horários fixos, optativas, preferências, prioridades, grade curricular por período **das duas grades**.
 - [ ] Gerar 3 níveis de instância: **toy** (validação manual), **real reduzida** (1 semestre, só IC) e **real completa**. O que faltar de dado real, sintetizar de forma plausível e documentar (o orientador liberou: "modelar próximo da realidade", sem compromisso com uso imediato).
 
 ### Fase 3 — Protótipo com pyoptframe (julho–agosto/2026)
@@ -66,7 +65,6 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - [ ] Protocolo: N execuções por configuração (seeds distintas), tempo limite fixo, comparação por critério e agregado.
 - [ ] Ajuste de parâmetros (grid simples; irace se der tempo).
 - [ ] **Baseline forte**: comparar a solução da metaheurística com a **grade real da UFF** nos mesmos critérios — argumento central do trabalho.
-- [ ] Cenário de ablação da ideia original: com e sem o critério de distância entre salas, medir o trade-off.
 - [ ] **Experimentos das grades (E1–E3)**: E1 (otimiza CC, congela, depois SI), E2 (simétrico), E3 (conjunto com pesos iguais; E3' com pesos ajustados) — medir o "custo de ir depois" e o efeito do tamanho da interseção CC∩SI (Seção 9 do modelo matemático).
 - [ ] (Opcional, se houver tempo) modelo MIP em instância pequena para limite inferior/validação.
 
@@ -84,13 +82,13 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 | Junho/2026 | Modelo formal + dados limpos + formato de instância |
 | Julho/2026 | Instâncias prontas + protótipo v0 (construtivo + SA na instância toy) |
 | Agosto/2026 | Vizinhanças completas + ILS/VNS rodando na instância real |
-| Setembro/2026 | Experimentos + ablação do critério de distância |
+| Setembro/2026 | Experimentos com as instâncias e configurações definidas |
 | Outubro/2026 | Monografia completa em revisão |
 | Novembro/2026 | Artigo + preparação da defesa |
 
 ## Riscos e mitigações
 
 - **Dados não chegarem** (planilha de setores, grade de SI etc.) → sintetizar dados plausíveis e documentar; o orientador explicitou que aderência perfeita à prática não é requisito.
-- **H12 apertar a alocação** (obrigar 3 obrigatórias/professor consome a folga usada por O1/O6) → H12 fica **hard, sem folga de contingência**: a oferta de obrigatórias é fixada pelas grades de CC/SI, não é o recurso escasso (no quadro 2023–2025, ~117–134 turmas/ano de ~45 disciplinas regulares contra ~40 permanentes ≈ 3 obrigatórias/prof/ano). Ver §6/H12 de `anotacoes/modelo_matematico_orientador.md`.
+- **H12 apertar a alocação** (obrigar 3 obrigatórias/professor consome a folga usada por O1/O5) → H12 fica **hard, sem folga de contingência**: a oferta de obrigatórias é fixada pelas grades de CC/SI, não é o recurso escasso (no quadro 2023–2025, ~117–134 turmas/ano de ~45 disciplinas regulares contra ~40 permanentes ≈ 3 obrigatórias/prof/ano). Ver §6/H12 de `anotacoes/modelo_matematico_orientador.md`.
 - **Escopo grande demais** → o corte mínimo defensável é: professores + salas com horários fixos dados (sem otimizar horário). Optativas e rodízio são as primeiras features a cortar se apertar.
 - **pyoptframe limitar algo** → manter avaliador e moves em Python puro permite trocar o orquestrador (ex.: ILS manual) sem reescrever o modelo.

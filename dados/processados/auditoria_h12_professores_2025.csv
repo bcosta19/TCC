@@ -1,0 +1,77 @@
+docente,nome_planilha,incluido_universo_h12_atual,obrigatorias_instancia_atual,minimo_h12_provisorio,abaixo_minimo_se_incluido,ch_ob_2025_1,ch_ob_2025_2,ch_anual,ch_ref_min,cargo_afastamento,cred_pos,outros_abatimentos,observacao
+ALEXANDRE PLASTINO DE CARVALHO,Plastino,False,0,3,True,0.0,0.0,0.0,0.0,Coord. Pós,2025-12-31,,universo H12 a validar com orientador
+ALINE DE PAULA NASCIMENTO,Aline Nascimento,True,5,3,False,12.0,12.0,24.0,12.0,,,,universo H12 a validar com orientador
+ALINE MARINS PAES CARVALHO,Aline Paes,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+ANDRE MAUES BRABO PEREIRA,Andre Brabo,True,1,3,True,0.0,4.0,8.0,0.0,Chefia Depto.,2025-12-31,,universo H12 a validar com orientador
+ANDRE RENATO,Andre Renato,True,5,3,False,12.0,12.0,24.0,12.0,,,,universo H12 a validar com orientador
+ANSELMO ANTUNES MONTENEGRO,Anselmo,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+ANTONIO AUGUSTO DE ARAGAO ROCHA,Guto,True,2,3,True,8.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+AURA CONCI,Aura,True,1,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+BRUNO LOPES VIEIRA,Bruno,True,2,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+CARLOS ALBERTO DE JESUS MARTINHON,Martinhon,True,3,3,False,12.0,12.0,24.0,12.0,,,,universo H12 a validar com orientador
+"CARLOS ALBERTO SOARES RIBEIRO, 20H",Carlos Ribeiro,True,3,3,False,8.0,8.0,16.0,8.0,,,X,universo H12 a validar com orientador
+CELIO VINICIUS NEVES DE ALBUQUERQUE,Celio,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+CHRISTIANO DE OLIVEIRA BRAGA,Christiano,True,2,3,True,12.0,12.0,24.0,12.0,,,,universo H12 a validar com orientador
+DANIEL CARDOSO MORAES DE OLIVEIRA,Daniel,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+DANIELA GORSKI TREVISAN,Daniela,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+DANTE CORBUCCI FILHO,Dante,False,0,3,True,12.0,0.0,12.0,12.0,,,,universo H12 a validar com orientador
+DEBORA CHRISTINA MUCHALUAT SAADE,Debora,False,0,3,True,0.0,0.0,0.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+ESTEBAN WALTER GONZALEZ CLUA,Esteban,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+EUGENE FRANCIS VINOD REBELLO,Vinod,True,4,3,False,8.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+FABIO PROTTI,Fabio,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+FLAVIA COIMBRA DELICATO,Flavia Delicato,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+FLAVIA CRISTINA BERNARDINI,Flavia Bernardini,True,2,3,True,0.0,8.0,8.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+FLAVIO LUIZ SEIXAS,Flavio Seixas,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+HELENA CRISTINA DA GAMA LEITAO,Helena,False,0,3,True,12.0,8.0,20.0,12.0,,,,universo H12 a validar com orientador
+IGOR MACHADO COELHO,Igor Machado,True,2,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+IGOR MONTEIRO MORAES,Igor Moraes,True,2,3,True,4.0,4.0,8.0,0.0,Coord. CEDERJ,2025-12-31,,universo H12 a validar com orientador
+ISABEL CRISTINA MELLO ROSSETI,Rosseti,True,4,3,False,8.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+JOÃO FELIPE NICOLACI PIMENTEL,Joao Pimentel,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+JOHN REED,John,False,0,3,True,8.0,8.0,16.0,8.0,,,X,universo H12 a validar com orientador
+JOSÉ RAPHAEL BOKEHI,Jose Raphael,True,3,3,False,6.0,6.0,16.0,8.0,,,,universo H12 a validar com orientador
+JOSÉ VITERBO FILHO,Viterbo,True,1,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LAURO EDUARDO KOZOVITS,Lauro,False,0,3,True,8.0,8.0,16.0,8.0,,,X,universo H12 a validar com orientador
+LEANDRO AUGUSTO FRATA FERNANDES,Leandro Fernandes,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LEANDRO SANTIAGO DE ARAUJO,Leandro Santiago,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LEONARDO CRUZ DA COSTA,Leo Cruz,True,6,3,False,12.0,12.0,24.0,12.0,,,,universo H12 a validar com orientador
+LEONARDO GRESTA PAULINO MURTA,Leo Murta,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LOANA TITO NOGUEIRA,Loana,True,1,3,True,8.0,8.0,16.0,8.0,,,,universo H12 a validar com orientador
+LUCIA MARIA DE ASSUMPCAO DRUMMOND,Lucia,True,2,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LUCIANA CARDOSO DE CASTRO SALGADO,Luciana,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LUIS ANTONIO BRASIL KOWADA,Kowada,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LUIS FELIPE IGNACIO CUNHA,Luis Felipe,True,1,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LUIZ ANDRE PORTES PAES LEME,Luiz Andre,True,3,3,False,8.0,12.0,20.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+LUIZ BEZ,Luiz Bez,True,1,3,True,8.0,4.0,16.0,8.0,,,X,universo H12 a validar com orientador
+LUIZ SATORU OCHI,Satoru,False,0,3,True,0.0,0.0,4.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+MARCELO FORNAZIN,Marcelo Fornazin,True,2,3,True,0.0,8.0,8.0,8.0,,,X,universo H12 a validar com orientador
+MARCO ANTONIO MONTEIRO SILVA RAMOS,Marco,False,0,3,True,0.0,0.0,0.0,0.0,Direção IC,,,universo H12 a validar com orientador
+MARCOS DE OLIVEIRA LAGE FERREIRA,Marcos Lage,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+MARCOS VINICIUS NAVES BEDO,Marcos Bedo,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+MARIA CRISTINA SILVA BOERES,Cristina Boeres,True,4,3,False,8.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+MARIO ROBERTO FOLHADELA BENEVIDES,Mario,True,2,3,True,8.0,8.0,20.0,12.0,,,,universo H12 a validar com orientador
+MARIZA FERRO,Mariza,True,2,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+PATRICK BARBOSA MORATORI,Patrick,True,4,3,False,8.0,8.0,20.0,12.0,,,,universo H12 a validar com orientador
+PAULO DE FIGUEIREDO PIRES *,Paulo Pires,False,0,3,True,0.0,0.0,0.0,0.0,Afastamento,,,universo H12 a validar com orientador
+PEDRO CORTEZ FETTER LOPES,Pedro,True,1,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+RAPHAEL CARLOS SANTOS MACHADO,Raphael Machado,True,2,3,True,0.0,8.0,8.0,0.0,Afastamento,2025-12-31,X,universo H12 a validar com orientador
+RAPHAEL PEREIRA DE OLIVEIRA GUERRA,Raphael Guerra,True,2,3,True,4.0,4.0,8.0,0.0,Coord. SI,,,universo H12 a validar com orientador
+RAQUEL DE SOUZA FRANCISCO BRAVO,Raquel,True,1,3,True,4.0,0.0,4.0,0.0,Coord. CC,,,universo H12 a validar com orientador
+REBECA,Rebeca,True,4,3,False,8.0,8.0,16.0,8.0,,,,universo H12 a validar com orientador
+RICARDO LEIDERMAN,Ricardo,True,1,3,True,8.0,4.0,12.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+RODRIGO SALVADOR MONTEIRO,Rodrigo,True,3,3,False,8.0,8.0,16.0,8.0,,,,universo H12 a validar com orientador
+SIMONE DE LIMA MARTINS,Simone,False,0,3,True,0.0,0.0,0.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+TAIANE COELHO RAMOS,Taiane,True,2,3,True,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+TROY COSTA KOHWALTER,Troy,True,3,3,False,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+UEVERTON DOS SANTOS SOUZA,Ueverton,False,0,3,True,0.0,0.0,0.0,0.0,Afastamento,2025-12-31,,universo H12 a validar com orientador
+VANESSA BRAGANHOLO MURTA,Vanessa,False,0,3,True,4.0,8.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+VANIA DE OLIVEIRA NEVES,Vania,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+YURI ABITBOL DE MENEZES FROTA,Yuri,True,3,3,False,8.0,4.0,16.0,8.0,,2025-12-31,,universo H12 a validar com orientador
+Heleno Campos,Heleno,True,4,3,False,8.0,8.0,16.0,0.0,até 15/01/2026,,,universo H12 a validar com orientador
+Ana Carolina,Ana Carolina,False,0,3,True,0.0,8.0,8.0,12.0,,,,universo H12 a validar com orientador
+Mauricio da Silva Pires,Mauricio,True,3,3,False,8.0,8.0,16.0,12.0,,,,universo H12 a validar com orientador
+Andre Silveira,Andre Silveira,False,0,3,True,,8.0,8.0,,,,,universo H12 a validar com orientador
+,SOMA,False,0,3,True,422.0,426.0,852.0,500.0,,,CH,universo H12 a validar com orientador
+,~ Turmas 4h,False,0,3,True,105.5,106.5,216.0,125.0,,,TURMA (4 cred),universo H12 a validar com orientador
+,CHECK,False,0,3,True,,,0.0,,,,,universo H12 a validar com orientador
+,CH AVG,False,0,3,True,,,,,,,,universo H12 a validar com orientador
+,_Simone_,True,0,3,True,,,,,,,,"professor aparece na instancia, mas nao foi pareado na aba CH Docente"
