@@ -1,0 +1,94 @@
+{
+  "escopo": "extração integral dos PDFs de 2026; o recorte CC/SI é auditado separadamente",
+  "turmas": 262,
+  "encontros": 482,
+  "salas_observadas": 22,
+  "ids_duplicados": [],
+  "turmas_sem_encontro": [
+    "2026-1-TCC00311-A1",
+    "2026-2-TCC00311-B1",
+    "2026-2-TCC00326-H2"
+  ],
+  "encontros_sem_turma": [],
+  "horarios_invalidos": 0,
+  "horarios_com_fim_nao_posterior": 0,
+  "encontros_sem_sala": 2,
+  "turmas_sem_codigo": 18,
+  "turmas_com_multiplos_professores": 4,
+  "turmas_incompletas": [
+    "2026-1-TCC00311-A1",
+    "2026-1-TCC00326-J1",
+    "2026-2-TCC00311-B1"
+  ],
+  "turmas_canceladas": [
+    "2026-2-TCC00326-H2"
+  ],
+  "normalizacoes_docentes_nao_verificadas": [
+    "Julio Stacchini",
+    "Miguel",
+    "Thiago"
+  ],
+  "candidatos_conflito_sala": 6,
+  "candidatos_conflito_professor": 4,
+  "padroes_anuais": {
+    "chaves_codigo_turma_comuns": 89,
+    "mesmo_padrao_dias_horarios": 56,
+    "padrao_dias_horarios_diferente": 33,
+    "mesmo_padrao_dias_horarios_salas": 18,
+    "observacao": "comparação descritiva das alocações observadas; não define horários fixos"
+  },
+  "classificacao_curricular": {
+    "fonte_disponivel": true,
+    "ofertas_nos_curriculos": 179,
+    "vinculos_pdf_web": 180,
+    "fonte": "dados/grade_cc.md; dados/grade_si.md; páginas públicas das turmas"
+  },
+  "classificacao_curricular_proxy": {
+    "fonte_disponivel": true,
+    "fonte": "dados/processados/turmas_2025.csv",
+    "natureza": "proxy histórico; não substitui a classificação curricular de 2026",
+    "codigos_2026_com_correspondencia": 61,
+    "codigos_2026_sem_correspondencia": [
+      "CGI00004",
+      "TCC00194",
+      "TCC00195",
+      "TCC00196",
+      "TCC00200",
+      "TCC00203",
+      "TCC00205",
+      "TCC00234",
+      "TCC00237",
+      "TCC00243",
+      "TCC00244",
+      "TCC00245",
+      "TCC00250",
+      "TCC00251",
+      "TCC00252",
+      "TCC00253",
+      "TCC00259",
+      "TCC00260",
+      "TCC00265",
+      "TCC00271",
+      "TCC00280",
+      "TCC00319",
+      "TCC00320",
+      "TCC00325",
+      "TCC00326",
+      "TCC00367",
+      "TCC00371",
+      "TIC10001",
+      "TIC10002",
+      "TIC10003",
+      "TIC10005"
+    ],
+    "turmas_2026_com_codigo_correspondente": 156,
+    "turmas_2026_sem_codigo_correspondente": 88
+  },
+  "h12": {
+    "calculavel": false,
+    "motivos": [
+      "o universo oficial de docentes submetidos à regra não está definido",
+      "há alocações múltiplas que exigem regra explícita de contagem"
+    ]
+  }
+}

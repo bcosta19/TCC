@@ -1,0 +1,30 @@
+\section{Introdução}
+\label{sec:introducao}
+
+A elaboração de quadros de horários e a alocação de salas em instituições de ensino superior constituem problemas de otimização combinatória estudados na literatura de \textit{educational timetabling}. No caso universitário, esse conjunto de problemas é usualmente denominado \textit{University Course Timetabling Problem} (UCTP) \cite{schaerf1999survey,lewis2008survey}. Mesmo formulações simplificadas contêm problemas NP-difíceis como casos particulares, além de combinarem restrições de viabilidade e critérios de qualidade distintos.
+
+No Instituto de Computação da Universidade Federal Fluminense (IC/UFF), a modelagem considerada neste trabalho envolve três papéis institucionais. A chefia de departamento e a coordenação participam da distribuição de encargos e da organização dos horários; a coordenação também representa a necessidade dos alunos de cursar as disciplinas previstas sem choques; e o Instituto administra as salas e recebe demandas de capacidade e recursos. Esses papéis compartilham recursos, mas avaliam a solução sob perspectivas diferentes.
+
+O problema considerado inclui padrões de horário por semestre par e ímpar, agrupamento de disciplinas em setores associados a dias da semana, horários fixos para disciplinas prioritárias ou externas e critérios referentes a preferências docentes, quantidade de dias com aula, janelas e descanso entre jornadas. Também são consideradas uma carga anual mínima de três disciplinas obrigatórias por professor e as grades de Ciência da Computação (CC) e Sistemas de Informação (SI), inclusive as turmas compartilhadas. \pendente{inserir a fonte institucional das regras de carga anual, prioridade e descanso, além de delimitar o universo de docentes abrangidos.}
+
+A combinação dessas decisões motiva o uso de métodos computacionais de apoio à elaboração e à avaliação dos quadros de horários. O propósito do trabalho é construir e avaliar um modelo próximo da realidade observada, documentando as hipóteses adotadas e a origem dos dados utilizados.
+
+\subsection{Objetivos}
+\label{subsec:objetivos}
+
+O objetivo geral deste trabalho é modelar o problema integrado de atribuição de professores, horários e salas de aula no IC/UFF e investigar o uso de metaheurísticas por meio do \textit{pyoptframe} para a geração e a avaliação de soluções.
+
+Os objetivos específicos são:
+\begin{enumerate}
+    \item formalizar o problema com base no \textit{Curriculum-Based Course Timetabling} (CB-CTT), adaptando-o à atribuição de professores, ao horizonte anual e às regras do IC/UFF;
+    \item estruturar uma pipeline de dados a partir dos quadros de horários, das grades curriculares e de outros dados institucionais disponíveis;
+    \item implementar a representação da solução, o avaliador e os movimentos de sala, horário e professor;
+    \item implementar e comparar as metaheurísticas selecionadas por meio do \textit{pyoptframe};
+    \item executar um protocolo com múltiplas sementes e comparar as soluções com um baseline histórico avaliado pelos mesmos critérios;
+    \item estudar o efeito da ordem de planejamento das grades de CC e SI por meio dos cenários E1, E2 e E3 descritos na Seção~\ref{sec:experimentos}.
+\end{enumerate}
+
+\subsection{Organização do Trabalho}
+\label{subsec:organizacao}
+
+O restante deste texto está organizado da seguinte forma. A Seção~\ref{sec:fundamentacao} apresenta a fundamentação sobre timetabling, metaheurísticas e OptFrame. A Seção~\ref{sec:modelagem} formaliza o problema. A Seção~\ref{sec:proposta_solucao} descreve a arquitetura computacional, a representação, o avaliador e os movimentos. A Seção~\ref{sec:experimentos} apresenta as instâncias, o protocolo experimental, os cenários de comparação e os resultados. Por fim, a Seção~\ref{sec:conclusao} reúne as conclusões e possibilidades de trabalhos futuros.

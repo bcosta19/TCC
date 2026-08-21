@@ -1,0 +1,246 @@
+curso,codigo_curso,codigo,disciplina,tipo,periodo,grupo,ch,fonte
+CC,31,GAN00167,Matemática Discreta,obrigatoria,1,CC-P1,60,dados/grade_cc.md
+CC,31,GGM00137,Fundamentos de Cálculo e Geometria,obrigatoria,1,CC-P1,60,dados/grade_cc.md
+CC,31,TCC00296,Fundamentos de Arquiteturas de Computadores,obrigatoria,1,CC-P1,64,dados/grade_cc.md
+CC,31,TCC00308,Programação de Computadores I,obrigatoria,1,CC-P1,64,dados/grade_cc.md
+CC,31,TCC00346,Laboratório de Resolução de Problemas,obrigatoria,1,CC-P1,32,dados/grade_cc.md
+CC,31,GAN00140,Álgebra Linear,obrigatoria,2,CC-P2,60,dados/grade_cc.md
+CC,31,GMA00154,Cálculo 1,obrigatoria,2,CC-P2,60,dados/grade_cc.md
+CC,31,TCC00301,Laboratório de Programação de Jogos,obrigatoria,2,CC-P2,32,dados/grade_cc.md
+CC,31,TCC00347,Programação Estruturada,obrigatoria,2,CC-P2,64,dados/grade_cc.md
+CC,31,TET00347,Circuitos Digitais para Ciência da Computação,obrigatoria,2,CC-P2,68,dados/grade_cc.md
+CC,31,GAN00166,Lógica para a Ciência da Computação,obrigatoria,3,CC-P3,60,dados/grade_cc.md
+CC,31,GFI00158,Física I,obrigatoria,3,CC-P3,68,dados/grade_cc.md
+CC,31,GMA00155,Cálculo 2,obrigatoria,3,CC-P3,60,dados/grade_cc.md
+CC,31,TCC00286,Arquiteturas de Computadores,obrigatoria,3,CC-P3,64,dados/grade_cc.md
+CC,31,TCC00328,Programação Orientada a Objetos,obrigatoria,3,CC-P3,68,dados/grade_cc.md
+CC,31,TCC00348,Estruturas de Dados e seus Algoritmos,obrigatoria,3,CC-P3,64,dados/grade_cc.md
+CC,31,GET00177,Estatística Básica,obrigatoria,4,CC-P4,60,dados/grade_cc.md
+CC,31,TCC00287,Banco de Dados I,obrigatoria,4,CC-P4,64,dados/grade_cc.md
+CC,31,TCC00292,Engenharia de Software I,obrigatoria,4,CC-P4,64,dados/grade_cc.md
+CC,31,TCC00304,Linguagens de Programação,obrigatoria,4,CC-P4,64,dados/grade_cc.md
+CC,31,TCC00306,Métodos Numéricos,obrigatoria,4,CC-P4,64,dados/grade_cc.md
+CC,31,TCC00316,Sistemas Operacionais,obrigatoria,4,CC-P4,64,dados/grade_cc.md
+CC,31,TCC00226,Desenvolvimento Web,obrigatoria,5,CC-P5,68,dados/grade_cc.md
+CC,31,TCC00285,Análise e Projeto de Algoritmos,obrigatoria,5,CC-P5,64,dados/grade_cc.md
+CC,31,TCC00288,Banco de Dados II,obrigatoria,5,CC-P5,64,dados/grade_cc.md
+CC,31,TCC00312,Projeto de Software,obrigatoria,5,CC-P5,64,dados/grade_cc.md
+CC,31,TCC00313,Redes de Computadores I,obrigatoria,5,CC-P5,64,dados/grade_cc.md
+CC,31,TCC00349,Avaliação de Desempenho,obrigatoria,5,CC-P5,64,dados/grade_cc.md
+CC,31,TCC00284,Algoritmos em Grafos,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00291,Computação Gráfica,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00293,Engenharia de Software II,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00305,Linguagens Formais e Teoria da Computação,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00307,Programação Científica,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00314,Redes de Computadores II,obrigatoria,6,CC-P6,64,dados/grade_cc.md
+CC,31,TCC00289,Compiladores,obrigatoria,7,CC-P7,64,dados/grade_cc.md
+CC,31,TCC00297,Inteligência Artificial,obrigatoria,7,CC-P7,64,dados/grade_cc.md
+CC,31,TCC00298,Interface Homem-Máquina,obrigatoria,7,CC-P7,64,dados/grade_cc.md
+CC,31,TCC00315,Sistemas Distribuídos,obrigatoria,7,CC-P7,64,dados/grade_cc.md
+CC,31,TCC00318,Pesquisa Operacional,obrigatoria,7,CC-P7,64,dados/grade_cc.md
+CC,31,TCC00344,Laboratório de Programação Paralela I,obrigatoria,7,CC-P7,60,dados/grade_cc.md
+CC,31,TCC00351,Projeto Final I-A,obrigatoria,7,CC-P7,90,dados/grade_cc.md
+CC,31,TCC00290,Computação e Sociedade,obrigatoria,8,CC-P8,32,dados/grade_cc.md
+CC,31,TCC00352,Projeto Final II-A,obrigatoria,8,CC-P8,90,dados/grade_cc.md
+CC,31,GCI00126,Representação da Informação,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,GCI00141,Laboratório de Tratamento e Recuperação da Informação,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,GET00206,Inferência 1,optativa,,CC-OPT,90,dados/grade_cc.md
+CC,31,GET00209,Introdução à Estatística,optativa,,CC-OPT,90,dados/grade_cc.md
+CC,31,GET00212,Probabilidade 1,optativa,,CC-OPT,90,dados/grade_cc.md
+CC,31,GET00213,Probabilidade 2,optativa,,CC-OPT,90,dados/grade_cc.md
+CC,31,GFI00159,Física II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,GFI00161,Física Experimental I,optativa,,CC-OPT,30,dados/grade_cc.md
+CC,31,GFI00162,Física Experimental II,optativa,,CC-OPT,30,dados/grade_cc.md
+CC,31,GLC00292,Libras I,optativa,,CC-OPT,30,dados/grade_cc.md
+CC,31,GSI00433,Comportamento Organizacional,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,GSO00096,Sociologia da Comunicação,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,GSO00101,Sociologia das Relações Raciais,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,GSO00109,Sociologia do Trabalho,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,GSO00111,Sociologia da Pós-Modernidade,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,SDV00061,Direito e Informática,optativa,,CC-OPT,30,dados/grade_cc.md
+CC,31,SDV00143,Propriedade Intelectual,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,STA00141,Modelos de Gestão,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,STA00168,Desenvolvimento de Pessoas,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,STA00191,Inteligência de Negócios,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,STA00267,Modelos de Gestão Contemporânea,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,STE00037,Administração Estratégica Contemporânea,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,STE00038,Modelos de Gestão Contemporânea,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TCC00193,Algoritmos Randômicos e Aproximativos,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00194,Biologia Computacional,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00195,Metaheurísticas,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00196,Otimização Combinatória,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00197,Algoritmos Distribuídos,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00198,Arquiteturas Avançadas,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00199,Laboratório de Banco de Dados,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00200,Mineração de Dados,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00201,Teoria das Categorias,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00202,"Visualização, Simulação e Jogos Digitais",optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00203,Processamento de Imagens,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00205,Linguagens de Programação em Lógica,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00209,Laboratório de Sistemas Distribuídos,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00211,Metodologia da Pesquisa Científica,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00212,Empreendedorismo,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00217,Introdução aos Microcontroladores,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TCC00220,Administração de Sistemas de Informação,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00229,Tópicos Especiais em Gestão do Conhecimento,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00230,Tópicos Especiais em Segurança da Informação,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00233,Técnicas de Projeto e Implementação de Sistemas II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00234,Tópicos em Arquiteturas de Computadores I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00235,Tópicos em Arquiteturas de Computadores II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00236,Tópicos em Arquiteturas de Computadores III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00237,Tópicos em Automação I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00238,Tópicos em Automação II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00239,Tópicos em Automação III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00241,Tópicos em Computação I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00242,Tópicos em Computação II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00243,Tópicos em Computação III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00244,Tópicos em Banco de Dados I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00245,Tópicos em Banco de Dados II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00246,Tópicos em Banco de Dados III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00247,Tópicos em Compiladores I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00248,Tópicos em Compiladores II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00249,Tópicos em Compiladores III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00250,Tópicos em Engenharia de Software I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00251,Tópicos em Engenharia de Software II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00252,Tópicos em Engenharia de Software III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00253,Tópicos Especiais em Sistemas de Programação I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00254,Tópicos Especiais em Sistemas de Programação II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00255,Tópicos Especiais em Sistemas de Programação III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00256,Tópicos Especiais em Sistemas de Programação IV,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00257,Tópicos Especiais em Sistemas de Programação V,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00258,Tópicos Especiais em Sistemas de Programação VI,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00259,Tópicos em Inteligência Artificial I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00260,Tópicos em Inteligência Artificial II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00261,Tópicos em Inteligência Artificial III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00262,Tópicos em Informática na Educação I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00263,Tópicos em Informática na Educação II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00264,Tópicos em Informática na Educação III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00265,Tópicos em Interface Homem-Máquina I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00266,Tópicos em Interface Homem-Máquina II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00267,Tópicos em Interface Homem-Máquina III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00268,Tópicos em Multimídia I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00269,Tópicos em Multimídia II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00270,Tópicos em Multimídia III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00271,Tópicos em Linguagem de Programação I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00272,Tópicos em Linguagem de Programação II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00273,Tópicos em Linguagem de Programação III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00274,Tópicos em Redes de Computadores I,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00275,Tópicos em Redes de Computadores II,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00276,Tópicos em Redes de Computadores III,optativa,,CC-OPT,68,dados/grade_cc.md
+CC,31,TCC00280,Computação e Meio Ambiente,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TCC00300,Laboratório de Programação de Dispositivos Móveis,optativa,,CC-OPT,32,dados/grade_cc.md
+CC,31,TCC00301,Laboratório de Programação de Jogos,optativa,,CC-OPT,32,dados/grade_cc.md
+CC,31,TCC00303,Laboratório de Programação Web,optativa,,CC-OPT,32,dados/grade_cc.md
+CC,31,TCC00320,Introdução a Projeto de Banco de Dados,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TEP00006,Empreendedorismo,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TEP00108,Administração Aplicada à Engenharia,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TEP00111,Gerenciamento de Projetos I,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,TEP00124,Ciência e Tecnologia,optativa,,CC-OPT,60,dados/grade_cc.md
+CC,31,CGI00006,Construção de Página Web,optativa,,CC-OPT,40,dados/grade_cc.md
+SI,83,TCC00332,Fundamentos de Sistemas de Informação,obrigatoria,1,SI-P1,68,dados/grade_si.md
+SI,83,TCC00355,Laboratório de Resolução de Problemas,obrigatoria,1,SI-P1,68,dados/grade_si.md
+SI,83,TCC00354,Fundamentos Matemáticos para Computação,obrigatoria,1,SI-P1,68,dados/grade_si.md
+SI,83,TCC00366,Programação de Computadores I,obrigatoria,1,SI-P1,64,dados/grade_si.md
+SI,83,CGI00004,Seminários em Sistemas de Informação,obrigatoria,1,SI-P1,20,dados/grade_si.md
+SI,83,GAN00144,Complementos de Matemática Aplicada,obrigatoria,2,SI-P2,60,dados/grade_si.md
+SI,83,GSI00433,Comportamento Organizacional,obrigatoria,2,SI-P2,68,dados/grade_si.md
+SI,83,TCC00356,Programação de Computadores II,obrigatoria,2,SI-P2,68,dados/grade_si.md
+SI,83,STA00267,Modelos de Gestão Contemporânea,obrigatoria,2,SI-P2,68,dados/grade_si.md
+SI,83,GET00116,Fundamentos de Estatística Aplicada,obrigatoria,3,SI-P3,60,dados/grade_si.md
+SI,83,SDV00143,Propriedade Intelectual,obrigatoria,3,SI-P3,68,dados/grade_si.md
+SI,83,TCC00331,Estruturas de Dados para Sistemas de Informação,obrigatoria,3,SI-P3,68,dados/grade_si.md
+SI,83,TCC00358,Sistemas Computacionais,obrigatoria,3,SI-P3,68,dados/grade_si.md
+SI,83,STA00168,Desenvolvimento de Pessoas,obrigatoria,4,SI-P4,60,dados/grade_si.md
+SI,83,TCC00334,Princípios de Banco de Dados,obrigatoria,4,SI-P4,68,dados/grade_si.md
+SI,83,GCI00116,Ética e Informação,obrigatoria,4,SI-P4,60,dados/grade_si.md
+SI,83,TCC00357,Programação Orientada a Objetos I,obrigatoria,4,SI-P4,68,dados/grade_si.md
+SI,83,TCC00359,Redes de Computadores,obrigatoria,4,SI-P4,68,dados/grade_si.md
+SI,83,GCI00126,Representação da Informação,obrigatoria,5,SI-P5,60,dados/grade_si.md
+SI,83,TCC00335,Projeto de Banco de Dados para Sistemas de Informação,obrigatoria,5,SI-P5,68,dados/grade_si.md
+SI,83,TCC00337,Introdução à Interação Humano-Computador,obrigatoria,5,SI-P5,68,dados/grade_si.md
+SI,83,TCC00225,Engenharia de Software,obrigatoria,5,SI-P5,68,dados/grade_si.md
+SI,83,TCC00362,Sistemas Distribuídos para Sistemas de Informação,obrigatoria,5,SI-P5,68,dados/grade_si.md
+SI,83,TCC00360,Visualização de Dados,obrigatoria,6,SI-P6,68,dados/grade_si.md
+SI,83,TCC00336,Bancos de Dados Não Convencionais,obrigatoria,6,SI-P6,68,dados/grade_si.md
+SI,83,TCC00361,Introdução ao Desenvolvimento Web,obrigatoria,6,SI-P6,68,dados/grade_si.md
+SI,83,TCC00338,Projeto de Software,obrigatoria,6,SI-P6,68,dados/grade_si.md
+SI,83,TCC00330,Modelagem de Processos de Negócios,obrigatoria,7,SI-P7,68,dados/grade_si.md
+SI,83,TCC00364,Desenvolvimento Web Avançado,obrigatoria,7,SI-P7,68,dados/grade_si.md
+SI,83,TCC00363,Gerência de Projetos e Manutenção de Software,obrigatoria,7,SI-P7,68,dados/grade_si.md
+SI,83,TCC00341,Segurança da Informação,obrigatoria,7,SI-P7,68,dados/grade_si.md
+SI,83,CGI00002,Projeto de Aplicação I,obrigatoria,7,SI-P7,180,dados/grade_si.md
+SI,83,STA00191,Inteligência de Negócios,obrigatoria,8,SI-P8,60,dados/grade_si.md
+SI,83,TCC00222,Computação e Sociedade para Sistemas de Informação,obrigatoria,8,SI-P8,68,dados/grade_si.md
+SI,83,TCC00324,Governança em Tecnologia da Informação,obrigatoria,8,SI-P8,68,dados/grade_si.md
+SI,83,TCC00365,Qualidade e Teste de Software,obrigatoria,8,SI-P8,68,dados/grade_si.md
+SI,83,CGI00003,Projeto de Aplicação II,obrigatoria,8,SI-P8,180,dados/grade_si.md
+SI,83,CGI00005,Atividades Complementares II,optativa,,SI-OPT,240,dados/grade_si.md
+SI,83,GLC00292,Libras I,optativa,,SI-OPT,30,dados/grade_si.md
+SI,83,STA00145,Administração Estratégica,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,STA00216,Negociação,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TCC00167,Análise e Projetos de Algoritmos,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00170,Linguagens de Programação,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00176,Algoritmos em Grafos,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00178,Linguagens Formais e Teoria da Computação,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00182,Inteligência Artificial,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00183,Compiladores,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00187,Sistemas Distribuídos,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00211,Metodologia da Pesquisa Científica,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00212,Empreendedorismo,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00217,Introdução aos Microcontroladores,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TCC00229,Tópicos Especiais em Gestão do Conhecimento,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00230,Tópicos Especiais em Segurança da Informação,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00231,Tópicos Especiais em Gerência de Redes,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00234,Tópicos em Arquiteturas de Computadores I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00235,Tópicos em Arquiteturas de Computadores II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00236,Tópicos em Arquiteturas de Computadores III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00237,Tópicos em Automação I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00238,Tópicos em Automação II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00239,Tópicos em Automação III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00240,Tópicos em Ciência da Computação,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00241,Tópicos em Ciência da Computação I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00242,Tópicos em Ciência da Computação II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00243,Tópicos em Ciência da Computação III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00244,Tópicos em Banco de Dados I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00245,Tópicos em Banco de Dados II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00246,Tópicos em Banco de Dados III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00247,Tópicos em Compiladores I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00248,Tópicos em Compiladores II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00249,Tópicos em Compiladores III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00250,Tópicos em Engenharia de Software I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00251,Tópicos em Engenharia de Software II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00252,Tópicos em Engenharia de Software III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00253,Tópicos Especiais em Sistemas de Programação I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00254,Tópicos Especiais em Sistemas de Programação II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00255,Tópicos Especiais em Sistemas de Programação III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00256,Tópicos Especiais em Sistemas de Programação IV,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00257,Tópicos Especiais em Sistemas de Programação V,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00258,Tópicos Especiais em Sistemas de Programação VI,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00259,Tópicos em Inteligência Artificial I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00260,Tópicos em Inteligência Artificial II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00261,Tópicos em Inteligência Artificial III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00262,Tópicos em Informática na Educação I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00263,Tópicos em Informática na Educação II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00264,Tópicos em Informática na Educação III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00265,Tópicos em Interface Homem-Máquina I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00266,Tópicos em Interface Homem-Máquina II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00267,Tópicos em Interface Homem-Máquina III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00268,Tópicos em Multimídia I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00269,Tópicos em Multimídia II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00270,Tópicos em Multimídia III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00271,Tópicos em Linguagem de Programação I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00272,Tópicos em Linguagem de Programação II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00273,Tópicos em Linguagem de Programação III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00274,Tópicos em Redes de Computadores I,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00275,Tópicos em Redes de Computadores II,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00276,Tópicos em Redes de Computadores III,optativa,,SI-OPT,68,dados/grade_si.md
+SI,83,TCC00280,Computação e Meio Ambiente,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TCC00300,Laboratório de Programação de Dispositivos Móveis,optativa,,SI-OPT,32,dados/grade_si.md
+SI,83,TCC00301,Laboratório de Programação de Jogos,optativa,,SI-OPT,32,dados/grade_si.md
+SI,83,TCC00303,Laboratório de Programação Web,optativa,,SI-OPT,32,dados/grade_si.md
+SI,83,TCC00320,Introdução a Projeto de Banco de Dados,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TEP00006,Empreendedorismo,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TEP00108,Administração Aplicada à Engenharia,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TEP00111,Gerenciamento de Projetos I,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,TEP00124,Ciência e Tecnologia,optativa,,SI-OPT,60,dados/grade_si.md
+SI,83,CGI00006,Construção de Página Web,optativa,,SI-OPT,40,dados/grade_si.md

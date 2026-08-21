@@ -1,0 +1,10 @@
+pandas
+requests
+beautifulsoup4
+openpyxl
+numpy
+plotext
+rich
+
+# Necessário apenas para o login interativo do scraper:
+playwright

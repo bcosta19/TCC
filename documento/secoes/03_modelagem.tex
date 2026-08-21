@@ -1,0 +1,183 @@
+\section{Modelagem Matemática do Problema}
+\label{sec:modelagem}
+
+Esta seção formaliza o problema de atribuição de professores, horários e salas considerado no trabalho. As decisões ainda não fechadas são indicadas por marcadores explícitos para posterior preenchimento.
+
+\subsection{Premissas e decisões de modelagem}
+\label{subsec:premissas_modelagem}
+
+O problema é tratado como uma variante de CB-CTT. A formulação de referência já inclui a atribuição de períodos e salas; as principais adaptações consideradas aqui são a atribuição de professores, as regras de setores e horários fixos, a alocação de sala por encontro e o horizonte anual.
+
+O horizonte reúne os semestres ímpar e par porque a carga anual de obrigatórias e o rodízio relacionam decisões dos dois semestres. Restrições de conflito por horário são verificadas separadamente em cada semestre.
+
+O modelo considera as grades de CC e SI. Professores e salas são recursos compartilhados. Uma disciplina comum às duas grades pode corresponder a uma turma única compartilhada. \pendente{inserir o mapeamento definitivo das turmas compartilhadas entre CC e SI.}
+
+As turmas são classificadas por dois eixos:
+\begin{enumerate}
+    \item \textbf{responsabilidade}: turmas do IC ($\mathcal{C}^{\mathrm{IC}}$), cujas atribuições são decisões do modelo, e turmas de outros departamentos ($\mathcal{C}^{\mathrm{out}}$), tratadas como ocupações exógenas;
+    \item \textbf{papel curricular}: obrigatórias ($\mathcal{C}^{\mathrm{obr}}$) e optativas ($\mathcal{C}^{\mathrm{opt}}$).
+\end{enumerate}
+
+O subconjunto $\mathcal{C}^{\mathrm{fix}}$ reúne turmas com horário dado, incluindo as externas e as disciplinas do IC que tenham prioridade ou padrão fixo confirmado.
+
+\subsection{Conjuntos e parâmetros}
+\label{subsec:conjuntos_parametros}
+
+\begin{itemize}
+    \item $\mathcal{C}$: turmas ofertadas no horizonte anual, indexadas por $c$;
+    \item $\mathcal{P}$: professores do IC, indexados por $p$;
+    \item $\mathcal{P}^{\mathrm{H12}}\subseteq\mathcal{P}$: docentes sujeitos à carga anual H12; \pendente{definir a composição de $\mathcal{P}^{\mathrm{H12}}$;}
+    \item $\mathcal{R}$: salas consideradas, indexadas por $r$;
+    \item $\mathcal{D}$: dias letivos da semana;
+    \item $\mathcal{H}$: slots de horário, indexados por $h$;
+    \item $\mathcal{Q}$: padrões semanais de horário, indexados por $q$, com slots $H_q\subseteq\mathcal{H}$;
+    \item $\mathcal{S}$: setores do departamento;
+    \item $\mathcal{K}=\{\mathrm{CC},\mathrm{SI}\}$: grades curriculares;
+    \item $\mathcal{G}$: grupos curriculares; cada grupo está associado a uma grade e a um semestre;
+    \item $\mathcal{M}_c$: encontros semanais da turma $c$.
+\end{itemize}
+
+Mapeamentos e domínios:
+\begin{itemize}
+    \item $\sigma(c)\in\{\text{ímpar},\text{par}\}$: semestre da turma;
+    \item $\mathcal{P}_c\subseteq\mathcal{P}$: professores habilitados para $c\in\mathcal{C}^{\mathrm{IC}}$;
+    \item $\mathcal{Q}_c\subseteq\mathcal{Q}$: padrões admissíveis para $c$;
+    \item $\mathcal{R}_{c,m}\subseteq\mathcal{R}$: salas admissíveis para o encontro $m$;
+    \item $\mathcal{C}_g\subseteq\mathcal{C}$: turmas pertencentes ao grupo curricular $g$;
+    \item $a_{c,m,h,q}\in\{0,1\}$: indica se o encontro $m$ ocupa o slot $h$ quando o padrão $q$ é escolhido.
+\end{itemize}
+
+Parâmetros principais:
+\begin{itemize}
+    \item $n_c$: número de vagas da turma;
+    \item $\operatorname{cap}_r$: capacidade da sala;
+    \item $\rho_{c,m}$: indicador de exigência de laboratório ou recurso especial;
+    \item $\ell_r$: indicador de sala compatível com laboratório ou recurso;
+    \item $\operatorname{pref}_{p,c}\in[0,1]$: preferência de $p$ pela disciplina de $c$;
+    \item $\pi_p\in[0,1]$: prioridade de $p$;
+    \item $\bar q_c$: padrão fixo de $c\in\mathcal{C}^{\mathrm{fix}}$;
+    \item $\bar p_c$: professor exógeno de $c\in\mathcal{C}^{\mathrm{out}}$; não é variável do IC;
+    \item $\operatorname{desc}_{\min}$: descanso mínimo entre jornadas;
+    \item $w_{\mathrm{pref}},w_{\mathrm{dias}},w_{\mathrm{jan}},w_{\mathrm{cap}},w_{\mathrm{rod}}\geq0$: pesos da função objetivo; \pendente{definir os valores dos pesos.}
+\end{itemize}
+
+\subsection{Variáveis de decisão}
+\label{subsec:variaveis}
+
+Para turmas do IC:
+\begin{align}
+    x_{c,p} &= \begin{cases}1,&\text{se }c\text{ é atribuída a }p,\\0,&\text{caso contrário,}\end{cases}
+    &&c\in\mathcal{C}^{\mathrm{IC}},\ p\in\mathcal{P}_c,\\
+    y_{c,q} &= \begin{cases}1,&\text{se }c\text{ recebe o padrão }q,\\0,&\text{caso contrário,}\end{cases}
+    &&c\in\mathcal{C},\ q\in\mathcal{Q}_c,\\
+    z_{c,m,r} &= \begin{cases}1,&\text{se o encontro }m\text{ de }c\text{ usa }r,\\0,&\text{caso contrário,}\end{cases}
+    &&c\in\mathcal{C}^{\mathrm{IC}},\ m\in\mathcal{M}_c,\ r\in\mathcal{R}_{c,m}.
+\end{align}
+
+A ocupação da turma e do encontro em um slot é dada por:
+\begin{align}
+    u_{c,h} &= \sum_{q\in\mathcal{Q}_c:\,h\in H_q} y_{c,q},\\
+    v_{c,m,h} &= \sum_{q\in\mathcal{Q}_c} a_{c,m,h,q}y_{c,q}.
+\end{align}
+
+Para turmas externas, professor e horário são parâmetros. Essas turmas entram nas verificações curriculares como ocupações fixas, sem criar variáveis de professor externo no conjunto $\mathcal{P}$.
+
+\subsection{Restrições fortes propostas}
+\label{subsec:restricoes_hard}
+
+\paragraph{(H1) Professor único.}
+\begin{equation}
+    \sum_{p\in\mathcal{P}_c}x_{c,p}=1,
+    \qquad \forall c\in\mathcal{C}^{\mathrm{IC}}.
+\end{equation}
+
+\paragraph{(H2) Padrão único de horário.}
+\begin{equation}
+    \sum_{q\in\mathcal{Q}_c}y_{c,q}=1,
+    \qquad \forall c\in\mathcal{C}.
+\end{equation}
+
+\paragraph{(H3) Sala única por encontro.}
+\begin{equation}
+    \sum_{r\in\mathcal{R}_{c,m}}z_{c,m,r}=1,
+    \qquad \forall c\in\mathcal{C}^{\mathrm{IC}},\ m\in\mathcal{M}_c.
+\end{equation}
+
+\paragraph{(H4) Horário fixo.}
+\begin{equation}
+    y_{c,\bar q_c}=1,
+    \qquad \forall c\in\mathcal{C}^{\mathrm{fix}}.
+\end{equation}
+O professor das turmas externas é o parâmetro $\bar p_c$ e não participa de $x$.
+
+\paragraph{(H5) Domínio de setor.} Para uma turma do IC com horário variável, $\mathcal{Q}_c$ contém apenas os padrões compatíveis com os dias autorizados para seu setor. \pendente{preencher os domínios com os dias e habilitações definitivos dos setores.}
+
+\paragraph{(H6) Ausência de choque de professor.}
+\begin{equation}
+    \sum_{c\in\mathcal{C}^{\mathrm{IC}}:\,\sigma(c)=\sigma}x_{c,p}u_{c,h}\leq1,
+    \quad \forall p\in\mathcal{P},\ h\in\mathcal{H},\ \sigma\in\{\text{ímpar},\text{par}\}.
+\end{equation}
+
+\paragraph{(H7) Ausência de choque de sala.}
+\begin{equation}
+    \sum_{c\in\mathcal{C}^{\mathrm{IC}}:\,\sigma(c)=\sigma}
+    \sum_{m\in\mathcal{M}_c}z_{c,m,r}v_{c,m,h}\leq1,
+    \quad \forall r,h,\sigma.
+\end{equation}
+
+\paragraph{(H8) Ausência de choque curricular.}
+\begin{equation}
+    \sum_{c\in\mathcal{C}_g}u_{c,h}\leq1,
+    \qquad \forall g\in\mathcal{G},\ h\in\mathcal{H}.
+\end{equation}
+Cada $g$ contém somente turmas do mesmo semestre. Turmas externas com horário fixo também participam de $\mathcal{C}_g$ quando pertencem ao período.
+
+\paragraph{(H9) Compatibilidade de recursos.}
+\begin{equation}
+    z_{c,m,r}=0\quad\text{se }\rho_{c,m}=1\text{ e }\ell_r=0.
+\end{equation}
+\pendente{definir se encontros sem exigência de laboratório podem ocupar laboratórios ou se essa utilização deve ser proibida ou penalizada.}
+
+\paragraph{(H10) Capacidade.}
+\begin{equation}
+    z_{c,m,r}=0\quad\text{sempre que }n_c>\operatorname{cap}_r.
+\end{equation}
+
+\paragraph{(H11) Descanso entre jornadas.} Para cada semestre $\sigma$ e cada par $(h,h')$ de dias consecutivos que viole o descanso mínimo:
+\begin{equation}
+    \sum_{c\in\mathcal{C}^{\mathrm{IC}}:\,\sigma(c)=\sigma}x_{c,p}u_{c,h}
+    +\sum_{c\in\mathcal{C}^{\mathrm{IC}}:\,\sigma(c)=\sigma}x_{c,p}u_{c,h'}\leq1,
+    \quad \forall p\in\mathcal{P}.
+\end{equation}
+
+\paragraph{(H12) Carga anual mínima.}
+\begin{equation}
+    \sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}^{\mathrm{obr}}}x_{c,p}\geq3,
+    \qquad \forall p\in\mathcal{P}^{\mathrm{H12}}.
+\end{equation}
+A restrição utiliza o mínimo anual de três obrigatórias. \pendente{definir a composição de $\mathcal{P}^{\mathrm{H12}}$ e registrar a fonte e a unidade de contagem da regra.}
+
+\paragraph{Observação sobre linearização.} As expressões H6, H7 e H11 usam produtos de variáveis binárias para apresentar a lógica de forma compacta. Caso a formulação seja convertida em um modelo linear inteiro, serão necessárias variáveis auxiliares e restrições de ligação. Essa linearização não faz parte do protótipo metaheurístico atual.
+
+\subsection{Função objetivo proposta}
+\label{subsec:funcao_objetivo}
+
+A função objetivo conceitual é:
+\begin{equation}
+\min Z=-w_{\mathrm{pref}}\Phi_{\mathrm{pref}}
++w_{\mathrm{dias}}\Phi_{\mathrm{dias}}
++w_{\mathrm{jan}}\Phi_{\mathrm{jan}}
++w_{\mathrm{cap}}\Phi_{\mathrm{cap}}
++w_{\mathrm{rod}}\Phi_{\mathrm{rod}}.
+\end{equation}
+
+Seus componentes são:
+\begin{itemize}
+    \item $\Phi_{\mathrm{pref}}=\sum_{c,p}\pi_p\operatorname{pref}_{p,c}x_{c,p}$: atendimento de preferências ponderado pela prioridade;
+    \item $\Phi_{\mathrm{dias}}$: número de combinações professor--semestre--dia com pelo menos uma aula;
+    \item $\Phi_{\mathrm{jan}}$: quantidade de slots ociosos entre aulas do mesmo professor no mesmo dia;
+    \item $\Phi_{\mathrm{cap}}=\sum_{c,m,r}z_{c,m,r}(\operatorname{cap}_r-n_c)$: desperdício de capacidade, quando H10 é satisfeita;
+    \item $\Phi_{\mathrm{rod}}$: repetição do professor na mesma disciplina entre os dois semestres do ano. Uma comparação com anos anteriores poderá ser acrescentada quando os dados e a regra de rodízio forem definidos.
+\end{itemize}
+
+Na configuração inicial de implementação, os critérios suaves são somados com peso unitário e as violações fortes recebem penalidade de $10^6$. \pendente{definir a classificação final de H8, H10, H11 e H12 e substituir os pesos de validação pelos valores usados nos experimentos.}

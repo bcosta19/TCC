@@ -1,0 +1,73 @@
+\section{Fundamentação Teórica}
+\label{sec:fundamentacao}
+
+Esta seção apresenta os conceitos necessários para situar a proposta: problemas de timetabling educacional, a formulação CB-CTT, metaheurísticas de trajetória e o framework OptFrame.
+
+\subsection{Problemas de Timetabling Educacional}
+\label{subsec:timetabling_teoria}
+
+O termo \textit{timetabling} designa a atribuição de eventos a períodos e, conforme a formulação, a outros recursos, sujeita a restrições de viabilidade e critérios de qualidade. Schaerf \cite{schaerf1999survey} organiza os problemas educacionais em três categorias principais:
+\begin{enumerate}
+    \item \textbf{\textit{School Timetabling}}: atribuição periódica de aulas a professores e turmas escolares;
+    \item \textbf{\textit{Exam Timetabling}}: agendamento de exames, com conflitos definidos principalmente pelos estudantes que realizam as provas;
+    \item \textbf{\textit{University Course Timetabling}}: agendamento periódico de aulas universitárias, considerando professores, grupos de estudantes, períodos e salas.
+\end{enumerate}
+
+As definições e restrições exatas variam entre instituições. Por isso, UCTP designa uma família de problemas, e não uma única formulação universal \cite{lewis2008survey,babaei2015survey}.
+
+\subsubsection{Curriculum-Based Course Timetabling}
+
+Duas formulações recorrentes diferem pela origem dos conflitos discentes:
+\begin{itemize}
+    \item no \textit{Post-Enrolment Course Timetabling}, os conflitos são derivados das matrículas ou escolhas individuais dos estudantes;
+    \item no \textit{Curriculum-Based Course Timetabling} (CB-CTT), os conflitos são definidos por \textit{curricula}, isto é, grupos de disciplinas cujos alunos se sobrepõem.
+\end{itemize}
+
+A trilha 3 da ITC-2007 consolidou uma formulação de referência para CB-CTT \cite{digaspero2007itc}. Nela, uma solução atribui a cada aula um período e uma sala. Entre as restrições fortes estão indisponibilidades, conflitos de professor ou currículo e ocupação exclusiva de sala. A capacidade da sala, o número mínimo de dias, a compactação curricular e a estabilidade de sala aparecem como critérios suaves. Uma visão posterior da literatura de CB-CTT é apresentada por Bettinelli et al. \cite{bettinelli2015overview}.
+
+O presente trabalho usa o CB-CTT como referência, mas não o reproduz literalmente. Em particular, a atribuição do professor é uma decisão do modelo do IC/UFF, enquanto no benchmark da ITC-2007 o professor já pertence ao curso. Os grupos curriculares de CC e SI são construídos a partir das disciplinas que devem ser cursáveis em conjunto em cada período. \pendente{completar o mapeamento dos grupos curriculares e das turmas compartilhadas.}
+
+\subsubsection{Complexidade Computacional}
+
+Uma versão simplificada do problema de horários contém o problema de coloração de vértices. Considere um grafo de conflitos $G=(V,E)$, no qual cada vértice representa um evento e cada aresta indica que dois eventos não podem ocorrer simultaneamente. Associar um dos $K$ períodos a cada evento equivale a obter uma $K$-coloração:
+\begin{equation}
+    c(u) \neq c(v), \qquad \forall (u,v)\in E.
+\end{equation}
+Como decidir a existência de uma $K$-coloração é NP-completo para $K\geq 3$ \cite{garey1979computers}, essa versão de decisão pode ser reduzida ao problema de horários. Consequentemente, as formulações de otimização que a generalizam são NP-difíceis. Restrições adicionais de salas, recursos e preferências não eliminam essa dificuldade.
+
+\subsection{Metaheurísticas de Otimização Combinatória}
+\label{subsec:metaheuristicas_teoria}
+
+Métodos exatos podem ser apropriados para determinadas formulações e tamanhos de instância, mas podem enfrentar dificuldades de escala em problemas combinatórios grandes. Metaheurísticas oferecem outra estratégia: explorar o espaço de soluções sem garantir otimalidade, buscando soluções de boa qualidade dentro do orçamento computacional disponível \cite{talbi2009metaheuristics}.
+
+Seja $\mathcal{S}$ o espaço de soluções e $F:\mathcal{S}\rightarrow\mathbb{R}$ uma função de avaliação a minimizar. Uma estrutura de vizinhança $N$ associa a cada solução $s$ um conjunto de soluções alcançáveis por movimentos elementares.
+
+\subsubsection{Simulated Annealing}
+
+O \textit{Simulated Annealing} (SA), proposto por Kirkpatrick, Gelatt e Vecchi \cite{kirkpatrick1983optimization}, admite ocasionalmente movimentos de piora para reduzir a chance de aprisionamento precoce em ótimos locais. Para uma solução atual $s$ e uma vizinha $s'$, define-se:
+\begin{equation}
+    \Delta = F(s')-F(s).
+\end{equation}
+Movimentos com $\Delta\leq 0$ são aceitos. Quando $\Delta>0$, a aceitação ocorre com probabilidade:
+\begin{equation}
+    P(\text{aceitação})=\exp\left(-\frac{\Delta}{T}\right),
+\end{equation}
+onde $T>0$ é a temperatura. A temperatura é reduzida ao longo da execução. Esquemas geométricos, lineares e adaptativos são possibilidades distintas; a escolha e seus parâmetros devem ser declarados no protocolo experimental. À medida que a temperatura diminui, também diminui a probabilidade de aceitar uma piora de magnitude fixa.
+
+\subsubsection{Iterated Local Search e Variable Neighborhood Search}
+
+O \textit{Iterated Local Search} (ILS) alterna busca local, perturbação e um critério de aceitação para explorar diferentes ótimos locais \cite{lourenco2003iterated}. O \textit{Variable Neighborhood Search} (VNS) explora sistematicamente mais de uma estrutura de vizinhança, usando mudanças de vizinhança para combinar intensificação e diversificação \cite{hansen2001variable}.
+
+\subsection{OptFrame e pyoptframe}
+\label{subsec:optframe_teoria}
+
+O OptFrame é um framework para o desenvolvimento de métodos de otimização combinatória com componentes reutilizáveis \cite{coelho2010optframe,coelho2020microbenchmark}. Entre esses componentes estão a representação da solução, o método construtivo, o avaliador, os movimentos, as estruturas de vizinhança e os métodos de busca. O \textit{pyoptframe} fornece bindings Python para o núcleo do OptFrame \cite{pyoptframe2026}.
+
+A separação entre componentes permite alterar uma metaheurística ou uma vizinhança sem incorporar ao algoritmo genérico todos os detalhes do problema. Essa propriedade motiva o uso do framework neste trabalho e permite que representação, avaliação e movimentos sejam testados separadamente antes de sua composição nos métodos de busca.
+
+\subsection{Regras institucionais consideradas}
+\label{subsec:diretrizes_institucionais}
+
+A modelagem considera regras locais de carga anual mínima de obrigatórias, prioridade entre professores, horários associados a setores e descanso entre jornadas. Essas regras complementam as restrições usuais de timetabling e afetam tanto os domínios das variáveis quanto a avaliação das soluções.
+
+\pendente{inserir a referência normativa aplicável e definir formalmente: o universo de docentes da carga anual; a unidade de contagem da carga mínima; o critério de prioridade; e o intervalo mínimo de descanso.}

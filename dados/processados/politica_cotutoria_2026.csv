@@ -1,0 +1,3 @@
+turma_id,professores,politica_h12,professor_responsavel,observacao,fonte
+2026-2-TCC00285-A1,Martinhon;Raquel,,,"Alocação dupla observada no PDF; valores permitidos: integral_para_cada_docente, fracionada, contar_para_um_responsavel, nao_contabilizar_em_h12",dados/brutos/QH-2026-2.pdf; dados/processados/turmas_2026_cc_si.csv
+2026-2-TCC00354-A1,Martinhon;Raquel,,,"Alocação dupla observada no PDF; valores permitidos: integral_para_cada_docente, fracionada, contar_para_um_responsavel, nao_contabilizar_em_h12",dados/brutos/QH-2026-2.pdf; dados/processados/turmas_2026_cc_si.csv

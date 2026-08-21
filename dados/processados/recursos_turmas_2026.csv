@@ -1,0 +1,259 @@
+turma_id,semestre,codigo,disciplina,usa_laboratorio_observado,recursos_observados,observacao_fontes,exige_laboratorio,recursos_requeridos,requisito_fonte
+2026-1-TCC00284-A1,2026-1,TCC00284,ALGORITMOS EM GRAFOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00285-A1,2026-1,TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00285-B1,2026-1,TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00286-A1,2026-1,TCC00286,ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00349-A1,2026-1,TCC00349,AVALIAÇÃO DE DESEMPENHO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00287-A1,2026-1,TCC00287,BANCO DE DADOS I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00288-A1,2026-1,TCC00288,BANCO DE DADOS II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00336-A1,2026-1,TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00336-Z1,2026-1,TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00289-A1,2026-1,TCC00289,COMPILADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00290-A1,2026-1,TCC00290,COMPUTAÇÃO E SOCIEDADE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00222-A1,2026-1,TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00291-A1,2026-1,TCC00291,COMPUTAÇÃO GRÁFICA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00226-A1,2026-1,TCC00226,DESENVOLVIMENTO WEB,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00225-A1,2026-1,TCC00225,ENGENHARIA DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00292-A1,2026-1,TCC00292,ENGENHARIA DE SOFTWARE I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00293-A1,2026-1,TCC00293,ENGENHARIA DE SOFTWARE II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00348-A1,2026-1,TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00348-B1,2026-1,TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00331-A1,2026-1,TCC00331,ESTRUTURAS DE DADOS PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00331-B1,2026-1,TCC00331,ESTRUTURAS DE DADOS PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00371-A1,2026-1,TCC00371,ÉTICA EM INT. ARTIFICIAL E CIÊNCIA DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00296-A1,2026-1,TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00296-B1,2026-1,TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00332-A1,2026-1,TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00332-B1,2026-1,TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00354-A1,2026-1,TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00354-B1,2026-1,TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00363-A1,2026-1,TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00324-A1,2026-1,TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00297-A1,2026-1,TCC00297,INTELIGÊNCIA ARTIFICIAL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00298-A1,2026-1,TCC00298,INTERFACE HOMEM-MÁQUINA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00337-A1,2026-1,TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00361-A1,2026-1,TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00301-AA,2026-1,TCC00301,LABORATÓRIO DE PROGRAMAÇÃO DE JOGOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00301-BA,2026-1,TCC00301,LABORATÓRIO DE PROGRAMAÇÃO DE JOGOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00344-AA,2026-1,TCC00344,LABORATÓRIO DE PROGRAMAÇÃO PARALELA I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00346-AA,2026-1,TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00346-BA,2026-1,TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00355-EA,2026-1,TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00355-FA,2026-1,TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00304-A1,2026-1,TCC00304,LINGUAGENS DE PROGRAMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00305-A1,2026-1,TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00306-A1,2026-1,TCC00306,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00330-A1,2026-1,TCC00330,MODELAGEM DE PROCESSOS DE NEGÓCIOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00318-A1,2026-1,TCC00318,PESQUISA OPERACIONAL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00368-A1,2026-1,TCC00368,PESQUISA OPERACIONAL PARA SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00334-A1,2026-1,TCC00334,PRINCÍPIOS DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00307-B1A1,2026-1,TCC00307,PROGRAMAÇÃO CIENTÍFICA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00366-A1,2026-1,TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00366-B1,2026-1,TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00308-A1,2026-1,TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00308-B1,2026-1,TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00356-A1,2026-1,TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00356-B1,2026-1,TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00347-X1,2026-1,TCC00347,PROGRAMAÇÃO ESTRUTURADA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00347-A1,2026-1,TCC00347,PROGRAMAÇÃO ESTRUTURADA,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00347-B1,2026-1,TCC00347,PROGRAMAÇÃO ESTRUTURADA,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00328-A1,2026-1,TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00328-B1,2026-1,TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00357-A1,2026-1,TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00335-A1,2026-1,TCC00335,PROJETO DE BANCO DE DADOS PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00312-A1,2026-1,TCC00312,PROJETO DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00338-A1,2026-1,TCC00338,PROJETO DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00365-A1,2026-1,TCC00365,QUALIDADE E TESTE DE SOFTWARE,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00359-A1,2026-1,TCC00359,REDES DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00359-Z1,2026-1,TCC00359,REDES DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00313-A1,2026-1,TCC00313,REDES DE COMPUTADORES I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00314-A1,2026-1,TCC00314,REDES DE COMPUTADORES II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00341-A1,2026-1,TCC00341,SEGURANÇA DA INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-CGI00004-A1,2026-1,CGI00004,SEMINÁRIOS EM SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00358-A1,2026-1,TCC00358,SISTEMAS COMPUTACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00358-B1,2026-1,TCC00358,SISTEMAS COMPUTACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00315-A1,2026-1,TCC00315,SISTEMAS DISTRIBUÍDOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00362-A1,2026-1,TCC00362,SISTEMAS DISTRIBUÍDOS PARA SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00316-A1,2026-1,TCC00316,SISTEMAS OPERACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00242-A1,2026-1,TCC00242,TÓPICOS EM COMPUTAÇÃO II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00253-A1,2026-1,TCC00253,TÓPICOS ESPECIAIS EM SISTEMAS DE PROGRAMAÇÃO I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00360-A1,2026-1,TCC00360,VISUALIZAÇÃO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00205-A1,2026-1,TCC00205,LINGUAGENS DE PROGRAMAÇÃO EM LÓGICA Pós: Lógica,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-001-SEM-TURMA,2026-1,,Pós: Algebra Linear Computacional,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TIC10001-SEM-TURMA,2026-1,TIC10001,Pós: Análise e Síntese de Algoritmos,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TIC10002-SEM-TURMA,2026-1,TIC10002,Pós: Estrutura de Dados e Algoritmos,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TIC10003-SEM-TURMA,2026-1,TIC10003,Pós: Sistemas de Computação,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TIC10005-SEM-TURMA,2026-1,TIC10005,Pós: Tratamento de Incertezas,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00319-A1,2026-1,TCC00319,ESTRUTURAS DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00319-B1,2026-1,TCC00319,ESTRUTURAS DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00320-A1,2026-1,TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00320-B1,2026-1,TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00328-C1,2026-1,TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-A1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-B1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-C1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-D1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-E1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-F1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00325-G1,2026-1,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-D1,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-D2,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-E1,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-F1,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-F2,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-F3,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-G1,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-G2,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-G3,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-G4,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-H1,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-H2,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-H3,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-H4,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00326-J2,2026-1,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00280-A1,2026-1,TCC00280,COMPUTAÇÃO E MEIO AMBIENTE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00195-A1,2026-1,TCC00195,METAHEURÍSTICAS Pós: Inteligência Computacional,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-002-SEM-TURMA,2026-1,,Pós: Aprendizado Profundo e Física Computacional,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-003-SEM-TURMA,2026-1,,Pós: Ciência Aberta,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-004-SEM-TURMA,2026-1,,Pós: Desenvolvimento de jogos e realidade virtual,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-005-SEM-TURMA,2026-1,,Pós: Métodos Computacionais para a Propagação de Ondas,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-006-SEM-TURMA,2026-1,,Pós: Otimização em Grafos,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-007-SEM-TURMA,2026-1,,Pós: Redes de Computadores,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-008-SEM-TURMA,2026-1,,Pós: UX Design - Aplicando IA no Processo Criativo Centrado no Humano,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-SEM-CODIGO-009-SEM-TURMA,2026-1,,Pós: Visualização de Dados,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00244-A1,2026-1,TCC00244,TÓPICOS EM BANCO DE DADOS I Pós: eScience,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00241-A1,2026-1,TCC00241,TÓPICOS EM COMPUTAÇÃO I Pós: Visão Computacional,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00250-A1,2026-1,TCC00250,TÓPICOS EM ENGENHARIA DE SOFWARE I Pós: Game Analytics,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00251-A1,2026-1,TCC00251,TÓPICOS EM ENGENHARIA DE SOFWARE II Pós: Controle de Versão,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00259-A1,2026-1,TCC00259,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL I Aprendizado Profundo,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00260-A1,2026-1,TCC00260,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL II Pós: Aprendizado de Máquina,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00271-A1,2026-1,TCC00271,TÓPICOS EM LINGUAGEM DE PROGRAMAÇÃO I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-1-TCC00230-A1,2026-1,TCC00230,TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO Pós: Criptografia,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00265-SEM-TURMA,2026-2,TCC00265,TÓPICOS EM INTERFACE HOMEM MÁQUINA (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00284-A1,2026-2,TCC00284,ALGORITMOS EM GRAFOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00203-SEM-TURMA,2026-2,TCC00203,ANÁLISE / PROCESSAMENTO DE IMAGENS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-001-SEM-TURMA,2026-2,,ANÁLISE COMPUTACIONAL DE SISTEMAS DE POTÊNCIA (GRAD. E PÓS),,,sala_ausente_no_pdf,,,não disponível nos PDFs
+2026-2-TCC00285-A1,2026-2,TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00285-X1,2026-2,TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TIC10001-SEM-TURMA,2026-2,TIC10001,ANÁLISE E SÍNTESE DE ALGORITMOS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00286-A1,2026-2,TCC00286,ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00286-B1,2026-2,TCC00286,ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00349-A1,2026-2,TCC00349,AVALIAÇÃO DE DESEMPENHO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00287-A1,2026-2,TCC00287,BANCO DE DADOS I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00288-A1,2026-2,TCC00288,BANCO DE DADOS II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00336-A1,2026-2,TCC00336,BANCO DE DADOS NÃO CONVENCIONAIS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00194-SEM-TURMA,2026-2,TCC00194,BIOLOGIA COMPUTACIONAL (OPTATIVA),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00289-A1,2026-2,TCC00289,COMPILADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00290-A1,2026-2,TCC00290,COMPUTAÇÃO E SOCIEDADE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00222-A1,2026-2,TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00291-A1,2026-2,TCC00291,COMPUTAÇÃO GRÁFICA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-002-SEM-TURMA,2026-2,,COMPUTAÇÃO MÓVEL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00226-A1,2026-2,TCC00226,DESENVOLVIMENTO WEB,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00225-A1,2026-2,TCC00225,ENGENHARIA DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00292-A1,2026-2,TCC00292,ENGENHARIA DE SOFTWARE I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00293-A1,2026-2,TCC00293,ENGENHARIA DE SOFTWARE II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TIC10002-SEM-TURMA,2026-2,TIC10002,ESTRUTURA DE DADOS E ALGORITMOS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00319-S1,2026-2,TCC00319,ESTRUTURAS DE DADOS (p/ Eng. de Telecom.),True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00319-T1,2026-2,TCC00319,ESTRUTURAS DE DADOS (p/ Eng. Elétrica),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00348-A1,2026-2,TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00348-B1,2026-2,TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00331-A1,2026-2,TCC00331,ESTRUTURAS DE DADOS PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00331-B1,2026-2,TCC00331,ESTRUTURAS DE DADOS PARA SI,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00371-A1,2026-2,TCC00371,ÉTICA EM INT. ARTIFICIAL E CIÊNCIA DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-003-SEM-TURMA,2026-2,,ÉTICA EM INTELIGÊNCIA ARTIFICIAL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00296-A1,2026-2,TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00296-B1,2026-2,TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00332-A1,2026-2,TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00332-B1,2026-2,TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00354-A1,2026-2,TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00354-B1,2026-2,TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00363-A1,2026-2,TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00324-A1,2026-2,TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00297-A1,2026-2,TCC00297,INTELIGÊNCIA ARTIFICIAL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-004-SEM-TURMA,2026-2,,INTELIGÊNCIA COMPUTACIONAL (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00298-A1,2026-2,TCC00298,INTERFACE HOMEM MAQUINA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00337-A1,2026-2,TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00320-S1,2026-2,TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00320-T1,2026-2,TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00361-A1,2026-2,TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00301-A-A/B-A,2026-2,TCC00301,LAB. DE PROGRAMAÇÃO DE JOGOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00344-A1,2026-2,TCC00344,LAB. DE PROGRAMAÇÃO PARALELA,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00346-A-A/C-A,2026-2,TCC00346,LAB. DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00355-E-A,2026-2,TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00355-F-A,2026-2,TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00304-A1,2026-2,TCC00304,LINGUAGENS DE PROGRAMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00305-A1,2026-2,TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00305-X1,2026-2,TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-005-SEM-TURMA,2026-2,,LÓGICA (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-A1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-B1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-C1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-D1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-E1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-F1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00325-G1,2026-2,TCC00325,MÉTODOS NUMÉRICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00306-A1,2026-2,TCC00306,METODOS NUMERICOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00200-SEM-TURMA,2026-2,TCC00200,MINERAÇÃO DE DADOS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00330-A1,2026-2,TCC00330,MODELAGEM DE PROCESSO DE NEGÓCIOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00368-A1,2026-2,TCC00368,P.O. PARA S.I. (WEB AVANC.),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00318-A1,2026-2,TCC00318,PESQUISA OPERACIONAL,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00334-A1,2026-2,TCC00334,PRINCIPIO DE BANCO DE DADOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00328-A1,2026-2,TCC00328,PROG. ORIENTADA A OBJETOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00328-B1,2026-2,TCC00328,PROG. ORIENTADA A OBJETOS,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00328-S1,2026-2,TCC00328,PROG. ORIENTADA A OBJETOS (Tele),True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00357-A1,2026-2,TCC00357,PROG. ORIENTADA A OBJETOS I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00307-A1,2026-2,TCC00307,PROGRAMAÇÃO CIENTÍFICA,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-D1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-D2,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-D3,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-E1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-E2,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-F1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-F2,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-F3,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-G1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-G2,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-G3,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-H1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-H3,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-J1,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-J2,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00326-J3,2026-2,TCC00326,PROGRAMAÇÃO DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00308-A1,2026-2,TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00366-A1,2026-2,TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00308-B1,2026-2,TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00366-B1,2026-2,TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00356-A1,2026-2,TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00356-B1,2026-2,TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00347-A1,2026-2,TCC00347,PROGRAMAÇÃO ESTRUTURADA,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00347-B1,2026-2,TCC00347,PROGRAMAÇÃO ESTRUTURADA,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00196-SEM-TURMA,2026-2,TCC00196,PROGRAMAÇÃO LINEAR INTEIRA - OTIMIZAÇÃO COMBINATÓRIA (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00335-A1,2026-2,TCC00335,PROJETO DE BANCO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00312-A1,2026-2,TCC00312,PROJETO DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00338-A1,2026-2,TCC00338,PROJETO DE SOFTWARE,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00365-A1,2026-2,TCC00365,QUALIDADE E TESTE DE SOFTWARE,True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00359-A1,2026-2,TCC00359,REDES DE COMPUTADORES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00313-A1,2026-2,TCC00313,REDES DE COMPUTADORES I,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00314-A1,2026-2,TCC00314,REDES DE COMPUTADORES II,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-006-SEM-TURMA,2026-2,,SEMINÁRIOS DE S.I.,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00341-A1,2026-2,TCC00341,SEGURANÇA DA INFORMAÇÃO,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00358-A1,2026-2,TCC00358,SISTEMAS COMPUTACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00358-B1,2026-2,TCC00358,SISTEMAS COMPUTACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00315-A1,2026-2,TCC00315,SISTEMAS DISTRIBUÍDOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-007-SEM-TURMA,2026-2,,SISTEMAS DISTRIBUÍDOS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00362-A1,2026-2,TCC00362,SISTEMAS DISTRIBUÍDOS PARA SI,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00316-A1,2026-2,TCC00316,SISTEMAS OPERACIONAIS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-008-SEM-TURMA,2026-2,,TÓPICOS ARQUITETURA DE SISTEMAS PARA INFERÊNCIA DDE LLMs LOCAIS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-SEM-CODIGO-009-SEM-TURMA,2026-2,,TÓPICOS AVANÇADOS (DESAPRENDIZADO DE MÁQUINAS) (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00234-SEM-TURMA,2026-2,TCC00234,TÓPICOS EM ARQUITETURAS DE COMPUTADORES I (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00237-A1,2026-2,TCC00237,TÓPICOS EM AUTOMAÇÃO I - ROBÓTICA E VEÍCULOS AUTÔNOMOS (GRAD. E PÓS),True,laboratorio,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00245-SEM-TURMA,2026-2,TCC00245,TÓPICOS EM BANCO DE DADOS II - RASTREABILIDADE E GOVERNANÇA DE DADOS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00241-A1,2026-2,TCC00241,TÓPICOS EM COMPUTAÇÃO I - GRAFOS E SUAS APLICAÇÕES,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00242-SEM-TURMA,2026-2,TCC00242,TÓPICOS EM COMPUTAÇÃO II - ÁLGEBRA LINEAR COMPUTACIONAL (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00243-SEM-TURMA,2026-2,TCC00243,TÓPICOS EM COMPUTAÇÃO III - ALGORITMOS E COMPLEXIDADE DE PROBLEMAS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00252-SEM-TURMA,2026-2,TCC00252,TÓPICOS EM ENG DE SOFTWARE III - IA GENERATIVA (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00259-SEM-TURMA,2026-2,TCC00259,TÓPICOS EM IA I - APRENDIZADO PROFUNDO (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00367-SEM-TURMA,2026-2,TCC00367,TÓPICOS INTRODUÇÃO AO APREND DE MÁQUINA P/ SAÚDE (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00271-SEM-TURMA,2026-2,TCC00271,TÓPICOSS EM LINGUAGEM DE PROGRAMAÇÃO I - LÓGICA NEBULOSA (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TIC10005-SEM-TURMA,2026-2,TIC10005,TRATAMENTO DE INCERTEZAS (GRAD. E PÓS),False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs
+2026-2-TCC00360-A1,2026-2,TCC00360,VISUALIZAÇÃO DE DADOS,False,,tipo_da_sala_inferido_exclusivamente_do_prefixo_observado,,,não disponível nos PDFs

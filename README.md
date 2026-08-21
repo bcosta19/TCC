@@ -1,37 +1,124 @@
-# TCC — Alocação de horários e salas com metaheurísticas (UFF/IC)
+# TCC — Alocação de professores, horários e salas no IC/UFF
 
-Trabalho de Conclusão de Curso sobre a aplicação de metaheurísticas (via [pyoptframe](https://github.com/optframe/pyoptframe-dev)) ao problema de alocação de horários e salas de aula no Instituto de Computação da UFF.
+Trabalho de Conclusão de Curso em Ciência da Computação na Universidade
+Federal Fluminense sobre metaheurísticas aplicadas ao problema integrado de
+atribuição de professores, horários e salas de aula.
 
-**Comece por aqui**: [`PLANO.md`](PLANO.md) (plano de execução) e [`anotacoes/orientacao.md`](anotacoes/orientacao.md) (diretrizes do orientador).
+O problema é modelado como uma variante de *Curriculum-Based Course
+Timetabling* para as grades de Ciência da Computação (CC) e Sistemas de
+Informação (SI). O critério de distância entre salas não faz parte do escopo
+atual.
 
-## Uso de inteligência artificial
+## Estado atual
 
-Uso assistido de ferramentas de IA generativa (Claude, via Claude Code) **apenas para**:
+- A modelagem matemática está em revisão, com restrições e pesos ainda
+  dependentes de validação do orientador.
+- A pipeline de 2026 extrai e audita os quadros de 2026/1 e 2026/2 e integra
+  as grades de CC e SI.
+- O recorte observado de 2026 contém 180 turmas físicas, 329 encontros, 61
+  docentes observados e 22 salas.
+- A instância de 2026 ainda não está liberada para experimentos: capacidades,
+  recursos, setores, habilitações e o universo da regra H12 precisam de
+  validação humana.
+- Avaliadores e protótipos de *Simulated Annealing* foram implementados em
+  Python e validados inicialmente com dados de 2025.
+- A integração dos componentes com
+  [pyoptframe](https://github.com/optframe/pyoptframe-dev) e o protocolo
+  experimental comparativo ainda estão em desenvolvimento.
 
-- **Programação**: sugestões de código, refatoração, debugging e esqueleto de scripts;
-- **Organização de arquivos**: estruturação de pastas, nomes de arquivos, `.gitignore`;
-- **Clarificação de textos**: revisão de português, padronização de formatação e checagem de consistência entre documentos.
-
-Não delego à IA: decisões de modelagem, interpretação de diretrizes do orientador, formulação matemática, escolha de métodos e a redação substantiva. Todo conteúdo é revisto e editado por mim antes de ser versionado ou usado na monografia.
-
-**Questões éticas**: nenhuma senha, cookie de sessão ou dado pessoal entra em prompt de IA. As conversas de desenvolvimento não são versionadas (logs de sessão ficam fora do repositório). Commits não contêm o trailer `Co-Authored-By: Claude` — a autoria do trabalho é exclusivamente minha. Esta nota também será incluída nos agradecimentos da monografia.
+Veja o [plano de execução](PLANO.md), as
+[diretrizes do orientador](anotacoes/orientacao.md) e as
+[pendências de dados](dados/PENDENCIAS.md).
 
 ## Estrutura
 
-| Pasta | Conteúdo |
+| Caminho | Conteúdo |
 |---|---|
-| `anotacoes/` | Anotações de orientação e estudo |
-| `dados/` | Dados do problema — ver `dados/PENDENCIAS.md` para o que falta obter |
-| `webscrap/` | Scraper do quadro de horários da UFF + dados extraídos (2023/1–2025/2) |
-| `prototipos/` | Protótipos de estudo do OptFrame (mochila com SA, alocação de salas toy) |
-| `modelo_artigo/` | Modelo LaTeX oficial de TCC/artigo do curso + tutorial |
-| `referencias/` | Bibliografia em PDF e TCC de exemplo |
-| `optframe/` | Clone do OptFrame C++ (terceiro) |
-| `pyoptframe-dev/` | Clone do pyoptframe (terceiro) — demos úteis em `demo/` |
-| `src/` | (futuro) implementação do solver do TCC |
+| `documento/` | Fonte LaTeX da monografia e capítulos |
+| `src/` | Modelo, avaliadores e solvers |
+| `scripts/` | Extração, construção, auditoria e experimentos |
+| `tests/` | Testes automatizados do pipeline e dos avaliadores |
+| `dados/brutos/` | Fontes institucionais preservadas como recebidas |
+| `dados/processados/` | Tabelas normalizadas, revisões humanas e relatórios |
+| `webscrap/` | Coleta do Quadro de Horários e preferências históricas |
+| `prototipos/` | Exemplos de estudo isolados do OptFrame |
+| `anotacoes/` | Modelagem, literatura e registros de orientação |
+| `referencias/` | Bibliografia e instruções para fontes locais |
+| `modelo_artigo/` | Pacote original do modelo oficial do curso |
 
-## Webscrap
+Os CSVs em `dados/processados/` são preservados quando constituem entradas,
+evidências de auditoria ou tabelas que exigem validação humana. Instâncias e
+soluções JSON recriáveis são ignoradas pelo Git.
 
-Pipeline em `webscrap/`: `scraper.py` (coleta — requer login no idUFF) → `fix_names.py` (normaliza nomes de docentes) → `visualizar.py` (exploração no terminal). Saídas: `turmas_raw.csv` e `preferencias_professores.xlsx`.
+## Ambiente de desenvolvimento
 
-> `uff_cookies.json` contém cookies de sessão e **não é versionado** (`.gitignore`).
+O projeto usa Python 3.10. A partir da raiz:
+
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+O Playwright é necessário somente para abrir o login interativo do idUFF.
+Quando esse fluxo for usado, instale também o navegador local:
+
+```bash
+playwright install chromium
+```
+
+Os protótipos em `prototipos/` dependem adicionalmente de uma instalação
+compatível do pyoptframe. Os repositórios de terceiros não são incorporados a
+este repositório.
+
+## Pipeline de dados de 2026
+
+A execução offline reutiliza as fontes já coletadas:
+
+```bash
+python scripts/run_pipeline_2026.py --offline
+```
+
+Para atualizar também as páginas públicas do Quadro de Horários:
+
+```bash
+python scripts/run_pipeline_2026.py --refresh-web
+```
+
+O resultado permanece marcado como não pronto enquanto houver decisões
+humanas pendentes. O relatório operacional está em
+[`dados/processados/PENDENCIAS_VALIDACAO_2026.md`](dados/processados/PENDENCIAS_VALIDACAO_2026.md).
+
+## Testes
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Os resultados preliminares de 2025 verificam o comportamento do software e
+não constituem a comparação experimental final do TCC.
+
+## Documento
+
+A monografia é compilada a partir de `documento/main.tex`. Consulte
+[`documento/README.md`](documento/README.md) para a convenção das fontes e
+saídas. PDFs compilados devem ser publicados como versões de revisão ou
+entrega, em vez de misturados às fontes.
+
+## Dados sensíveis e arquivos locais
+
+O scraper pode usar `webscrap/uff_cookies.json` para uma sessão idUFF. Esse
+arquivo nunca deve ser versionado. Ambientes virtuais, logs, PDFs de consulta,
+saídas geradas e artefatos de ferramentas de IA também permanecem locais.
+
+## Uso de inteligência artificial
+
+Ferramentas de IA generativa são usadas apenas como apoio a programação,
+organização de arquivos e clarificação textual. Não são delegadas decisões de
+modelagem, interpretação das diretrizes do orientador, escolha de métodos
+experimentais ou redação substantiva. Todo conteúdo é revisto pelo autor antes
+de ser incorporado ao trabalho.
+
+Credenciais, cookies, dados pessoais e registros de sessões de IA não são
+incluídos no repositório. A autoria dos commits e do trabalho é exclusivamente
+do aluno.

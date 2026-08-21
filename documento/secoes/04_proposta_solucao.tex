@@ -1,0 +1,88 @@
+\section{Proposta de Solução e Implementação}
+\label{sec:proposta_solucao}
+
+A solução é organizada em componentes de representação, avaliação, vizinhança e busca. Os componentes possuem implementações iniciais em Python, usadas para verificar seu comportamento de forma isolada. \pendente{concluir o registro desses componentes no pyoptframe e atualizar esta seção com a arquitetura integrada.}
+
+\subsection{Representação e organização}
+\label{subsec:arquitetura}
+
+A instância é armazenada em JSON. Cada turma contém, entre outros campos, o professor atual, os encontros semanais, as salas, a classificação curricular e, quando disponíveis, os domínios de professores e horários. Durante a avaliação, esses dados são convertidos em tabelas de turmas e encontros.
+
+O código está dividido principalmente em:
+\begin{itemize}
+    \item \texttt{src/eval/}: leitura da instância, inferência de recursos, tratamento de salas, preferências e avaliador de referência;
+    \item \texttt{src/solve/}: avaliador leve e implementações manuais de SA para salas, salas e horários, e professores.
+\end{itemize}
+
+Horários marcados como fixos não pertencem à lista de turmas flexíveis do solver de horários. Os domínios usados na implementação inicial foram derivados do histórico de 2025. \pendente{substituir os domínios inferidos pelos dados definitivos de setores e habilitações.}
+
+\subsection{Avaliadores}
+\label{subsec:avaliador}
+
+O avaliador de referência, implementado em \texttt{src/eval/evaluator.py}, usa pandas e produz uma decomposição por critério. Ele contabiliza atualmente:
+\begin{itemize}
+    \item conflitos de sala, professor e grupo curricular;
+    \item capacidade insuficiente e incompatibilidade de laboratório;
+    \item descanso insuficiente e professores abaixo do mínimo H12;
+    \item dias trabalhados, janelas, desperdício de capacidade, rodízio e preferência ponderada.
+\end{itemize}
+
+As condições estruturais H1--H5 são tratadas principalmente pela construção da instância e pelos domínios dos movimentos. \pendente{adicionar contadores independentes para as condições estruturais ainda não cobertas, incluindo encontros sem sala em H3.}
+
+Para reduzir o custo causado pelas operações de pandas durante a busca, \path{src/solve/direct_objective.py} implementa a mesma avaliação diretamente sobre o JSON. Esse avaliador é mais leve, mas ainda recalcula a solução completa a cada movimento; não se trata de uma avaliação delta. Testes automatizados verificam a equivalência entre os dois avaliadores para os casos cobertos.
+
+O score usado na configuração inicial é:
+\begin{equation}
+    F(s)=10^6\,V_{\mathrm{hard}}(s)+\sum_j\Phi_j(s),
+\end{equation}
+onde $V_{\mathrm{hard}}$ é a soma dos sete contadores fortes implementados e os critérios suaves disponíveis entram com peso unitário. Essa escala serve para testar a prioridade das violações fortes, mas não corresponde aos pesos finais da modelagem.
+
+\subsection{Movimentos implementados}
+\label{subsec:vizinhancas}
+
+Foram implementados três tipos de alteração:
+\begin{enumerate}
+    \item \textbf{sala}: altera a sala de um encontro para outra candidata compatível com a capacidade disponível e a classificação de laboratório;
+    \item \textbf{horário}: substitui os encontros de uma turma flexível por outro padrão pertencente ao domínio histórico da turma;
+    \item \textbf{professor}: realoca uma turma para outro nome presente no domínio histórico de professores observado para seu setor.
+\end{enumerate}
+
+\pendente{implementar a troca simultânea de professores, a troca de salas entre turmas e a composição dos três tipos de decisão em uma mesma busca.}
+
+\subsection{Implementação inicial de Simulated Annealing}
+\label{subsec:sa_solver}
+
+Os solvers atuais implementam o SA diretamente em Python. Eles partem da alocação histórica contida na instância, usam um número fixo de iterações e reduzem linearmente a temperatura:
+\begin{equation}
+    T(i)=\max\left\{1,T_0\left(1-\frac{i}{N}\right)\right\},
+\end{equation}
+onde $N$ é o total de iterações. O solver conjunto de salas e horários escolhe um movimento de horário com probabilidade $0{,}6$ e um movimento de sala com probabilidade $0{,}4$. O solver de professores executa apenas realocações individuais.
+
+O fluxo comum é apresentado no Algoritmo~\ref{alg:sa_atual}.
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwIn{Instância $I$, temperatura $T_0$, iterações $N$ e semente}
+\KwOut{Melhor solução encontrada segundo $F$}
+$s\gets\text{cópia da alocação inicial de }I$\;
+$s^*\gets s$\;
+\For{$i\gets0$ \textbf{até} $N-1$}{
+    sortear um movimento permitido e aplicá-lo provisoriamente\;
+    $\Delta\gets F(s')-F(s)$\;
+    $T\gets\max\{1,T_0(1-i/N)\}$\;
+    \eIf{$\Delta\leq0$ \textbf{ou} $\operatorname{Random}(0,1)<\exp(-\Delta/T)$}{
+        $s\gets s'$ e atualizar $s^*$ se necessário\;
+    }{
+        desfazer o movimento\;
+    }
+}
+\Return{$s^*$}\;
+\caption{Estrutura da implementação inicial de SA}
+\label{alg:sa_atual}
+\end{algorithm}
+
+O algoritmo retorna a melhor solução segundo o score, que pode continuar inviável quando nenhuma solução viável é alcançada durante a execução.
+
+\subsection{Integração com pyoptframe}
+
+A implementação no \textit{pyoptframe} utiliza um construtivo, um avaliador e as estruturas de vizinhança correspondentes como componentes registrados no motor do framework. \pendente{implementar a integração, indicar as classes e identificadores empregados e descrever a configuração de SA, ILS e/ou VNS efetivamente comparada.}

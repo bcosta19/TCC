@@ -1,0 +1,116 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{geometry}
+\geometry{top=3cm,bottom=2cm,left=3cm,right=2cm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+\usepackage[ruled,vlined,linesnumbered,portuguese]{algorithm2e}
+\usepackage{cite}
+
+% Marcador temporário para trechos que dependem de dados, implementação ou decisão.
+% Remover todas as ocorrências antes da versão final.
+\newcommand{\pendente}[1]{\textbf{[PENDENTE: #1]}}
+
+\begin{document}
+
+% --- ELEMENTOS PRÉ-TEXTUAIS ---
+
+\begin{titlepage}
+\begin{center}
+    {\large \textbf{UNIVERSIDADE FEDERAL FLUMINENSE}}\\[0.2cm]
+    {\large \textbf{INSTITUTO DE COMPUTAÇÃO}}\\[0.2cm]
+    {\large \textbf{DEPARTAMENTO DE CIÊNCIA DA COMPUTAÇÃO}}\\[4cm]
+
+    {\large \textbf{NOME DO ALUNO}}\\[3.5cm]
+
+    {\Large \textbf{Metaheurísticas Aplicadas à Alocação de Horários e Salas de Aula no Instituto de Computação da UFF}}\\[4cm]
+
+    \vfill
+
+    {\large Niterói}\\[0.2cm]
+    {\large 2026}
+\end{center}
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\large \textbf{NOME DO ALUNO}}\\[3cm]
+    {\Large \textbf{Metaheurísticas Aplicadas à Alocação de Horários e Salas de Aula no Instituto de Computação da UFF}}\\[3cm]
+\end{center}
+
+\vspace{2cm}
+\hfill
+\begin{minipage}{0.5\textwidth}
+    Trabalho de Conclusão de Curso submetido ao Departamento de Ciência da Computação da Universidade Federal Fluminense como requisito parcial para a obtenção do título de Bacharel em Ciência da Computação.\\[0.5cm]
+    \textbf{Orientador:} Prof. Dr. Igor Machado Coelho
+\end{minipage}
+
+\vfill
+
+\begin{center}
+    {\large Niterói}\\[0.2cm]
+    {\large 2026}
+\end{center}
+
+\newpage
+
+% --- RESUMO E ABSTRACT ---
+
+\begin{center}
+    \textbf{\large Resumo}
+\end{center}
+\vspace{0.5cm}
+
+A elaboração de quadros de horários universitários envolve decisões combinatórias sobre turmas, professores, períodos e salas, sujeitas a restrições de viabilidade e critérios de qualidade potencialmente conflitantes. Este trabalho aborda o problema de atribuição de professores, horários e salas no Instituto de Computação da Universidade Federal Fluminense (IC/UFF). O modelo considera um horizonte anual, as grades curriculares de Ciência da Computação e Sistemas de Informação, turmas compartilhadas e a alocação de sala por encontro. A abordagem computacional prevê componentes de representação, avaliação e vizinhança e o emprego de metaheurísticas por meio do \textit{pyoptframe}. Uma pipeline de dados foi construída a partir dos quadros de horários e das grades curriculares. \pendente{completar o resumo com as instâncias definitivas, os algoritmos comparados e os principais resultados experimentais.}
+
+\vspace{0.5cm}
+\noindent \textbf{Palavras-chave}: Timetabling Universitário, Metaheurísticas, OptFrame, Alocação de Salas, Otimização Combinatória.
+
+\vspace{1.5cm}
+
+\begin{center}
+    \textbf{\large Abstract}
+\end{center}
+\vspace{0.5cm}
+
+University course timetabling involves combinatorial decisions concerning classes, instructors, periods, and rooms, subject to feasibility constraints and potentially conflicting quality criteria. This work addresses the assignment of instructors, times, and rooms at the Institute of Computing of Fluminense Federal University (IC/UFF). The model considers an annual planning horizon, the Computer Science and Information Systems curricula, shared classes, and room assignment per class meeting. The computational approach is designed around representation, evaluation, and neighborhood components and the use of metaheuristics through \textit{pyoptframe}. A data pipeline was built from historical timetables and curriculum data. \textbf{[PENDING: complete the abstract with the final instances, compared algorithms, and main experimental results.]}
+
+\vspace{0.5cm}
+\noindent \textbf{Keywords}: University Course Timetabling, Metaheuristics, OptFrame, Room Allocation, Combinatorial Optimization.
+
+\newpage
+\tableofcontents
+\newpage
+
+% --- CORPO DO TRABALHO ---
+
+\input{secoes/01_introducao}
+\input{secoes/02_fundamentacao}
+\input{secoes/03_modelagem}
+\input{secoes/04_proposta_solucao}
+\input{secoes/05_experimentos_planejamento}
+\input{secoes/06_conclusao}
+
+% --- REFERÊNCIAS BIBLIOGRÁFICAS ---
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{../referencias/referencias}
+
+\end{document}

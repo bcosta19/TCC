@@ -103,10 +103,16 @@ def solve_file(
     iterations: int = 5000,
     seed: int = 2025,
     allow_unrestricted: bool = False,
+    allow_incomplete: bool = False,
 ) -> dict:
     input_path = Path(input_path)
     output_path = Path(output_path)
     payload = json.loads(input_path.read_text(encoding="utf-8"))
+    if not allow_incomplete and payload.get("pronta_para_experimento") is False:
+        raise ValueError(
+            "a instância está marcada com pronta_para_experimento=false; "
+            "consulte a auditoria de dados ou utilize o verificador de prontidão antes de executar experimentos"
+        )
     best, metadata = solve(
         payload,
         iterations=iterations,

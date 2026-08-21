@@ -1,4 +1,102 @@
-# Dados processados da planilha QH 2025
+# Dados processados
+
+## Quadros de horários de 2026
+
+Fontes:
+
+- `dados/brutos/QH-2026-1.pdf` e `dados/brutos/QH-2026-2.pdf` — professor,
+  horário e sala observados;
+- `dados/grade_cc.md` e `dados/grade_si.md` — vínculo curricular, período e
+  obrigatoriedade;
+- páginas públicas do Quadro de Horários — `turma_url`, vagas e inscritos por
+  curso, coletadas em `webscrap/turmas_2026_raw.csv`.
+
+Pipeline reproduzível:
+
+```bash
+# Execução completa da cadeia 2026 (offline):
+python3 scripts/run_pipeline_2026.py --offline
+
+# Ou passo a passo:
+python3 scripts/extract_qh_2026.py
+python3 scripts/build_curriculum_mapping_2026.py
+python3 scripts/match_qh_web_2026.py
+python3 scripts/audit_instance_2026.py
+python3 scripts/build_instance_2026.py
+python3 scripts/build_instance_2026_cc_si.py
+python3 scripts/audit_instance_2026_cc_si.py
+python3 scripts/build_review_tables_2026.py
+python3 scripts/check_readiness_2026.py --profile baseline
+```
+
+### Tabelas de Revisão e Validação Humana
+
+Consulte o relatório operacional em `PENDENCIAS_VALIDACAO_2026.md`.
+
+- `revisao_vinculos_2026.csv` — auditoria dos 19 vínculos PDF × Web não triviais ou divergentes;
+- `revisao_classificacao_curricular_2026.csv` — revisão de classificação de `TCC00368` e `TCC00371`;
+- `universo_h12_2026.csv` — mapeamento dos docentes para a restrição de carga anual mínima H12;
+- `politica_cotutoria_2026.csv` — tratamento de cotutorias (`TCC00285` e `TCC00354`);
+- `cadastro_salas_2026.csv` — cadastro das 22 salas observadas com capacidade mínima observada;
+- `revisao_recursos_disciplinas_2026.csv` — exigência de laboratório e recursos especiais;
+- `revisao_horarios_fixos_2026.csv` — turmas externas e flexibilidade de horários;
+- `revisao_setores_2026.csv` — setores departamentais e dias da semana oficiais;
+- `revisao_habilitacao_docente_2026.csv` — habilitação docente por disciplina;
+- `revisao_prioridades_docentes_2026.csv` — prioridades docentes;
+- `revisao_turmas_externas_2026.csv` — mapeamento de ofertas públicas não vinculadas ao PDF do IC.
+
+
+### Extração integral dos PDFs
+
+- `turmas_2026.csv` e `horarios_2026.csv` — 262 linhas de oferta e 482
+  encontros, incluindo pós-graduação e serviço;
+- `normalizacao_docentes_2026.csv` e `revisao_turmas_2026.csv` — auditoria de
+  nomes e registros incompletos;
+- `auditoria_2026.md` — qualidade do quadro integral;
+- `salas_2026.csv`, `recursos_turmas_2026.csv` e
+  `recursos_encontros_2026.csv` — uso observado de salas/laboratórios, sem
+  convertê-lo automaticamente em requisito.
+
+### Currículos e turmas compartilhadas
+
+- `curriculos_cc_si.csv` — normalização das duas grades;
+- `intersecao_curriculos_cc_si.csv` — 64 códigos presentes nas duas grades;
+- `classificacao_curricular_2026.csv` — classificação das linhas dos PDFs por
+  código, período e obrigatoriedade;
+- `vagas_turmas_2026.csv` — vínculo PDF × página pública, com vagas e inscritos
+  discriminados por curso;
+- `classificacao_curricular_proxy_2026.csv` — comparação histórica com 2025,
+  mantida separada e não usada como fonte curricular principal.
+
+A interseção por código não duplica a oferta: uma turma compartilhada mantém
+um único professor, horário e sala, com vínculos para os dois currículos. A
+alocação observada de vagas para CC e SI é preservada em indicador separado.
+
+### Recorte CC/SI resultante
+
+- 180 turmas com vagas conhecidas;
+- 329 encontros semanais;
+- 61 docentes observados;
+- 22 salas observadas;
+- 149 turmas classificadas como obrigatórias;
+- 25 turmas compartilhadas pela interseção curricular;
+- 55 turmas com vagas simultaneamente alocadas a CC e SI;
+- duas linhas compactadas nos PDFs expandidas em suas seções AA/BA.
+
+Arquivos: `turmas_2026_cc_si.csv`, `horarios_2026_cc_si.csv`,
+`salas_2026_cc_si.csv` e `auditoria_2026_cc_si.md`.
+
+`instancia_2026_cc_si.json` é recriável e ignorada pelo Git. Ela continua com
+`pronta_para_experimento=false`, pois ainda faltam capacidades físicas das
+salas, universo H12 e tratamento explícito das duas alocações docentes
+múltiplas. Quatro turmas (`TCC00368` e `TCC00371`, nos dois semestres) são
+retornadas pelos filtros curriculares atuais, mas não aparecem nas grades
+Markdown e permanecem sem grupo de período.
+
+Horários, salas e professores observados constituem o baseline de 2026; não
+são automaticamente domínios fixos do solver.
+
+## Planilha QH 2025
 
 Fonte: `dados/brutos/QH-2025-1-2.xlsx`.
 

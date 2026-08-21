@@ -106,10 +106,21 @@ def solve(payload: dict, iterations: int = 1000, seed: int = 2025, initial_tempe
     return best, metadata
 
 
-def solve_file(input_path: str | Path, output_path: str | Path, iterations: int = 1000, seed: int = 2025):
+def solve_file(
+    input_path: str | Path,
+    output_path: str | Path,
+    iterations: int = 1000,
+    seed: int = 2025,
+    allow_incomplete: bool = False,
+):
     input_path = Path(input_path)
     output_path = Path(output_path)
     payload = json.loads(input_path.read_text(encoding="utf-8"))
+    if not allow_incomplete and payload.get("pronta_para_experimento") is False:
+        raise ValueError(
+            "a instância está marcada com pronta_para_experimento=false; "
+            "consulte a auditoria de dados ou utilize o verificador de prontidão antes de executar experimentos"
+        )
     best, metadata = solve(payload, iterations=iterations, seed=seed)
     best["solution"] = metadata
     output_path.parent.mkdir(parents=True, exist_ok=True)

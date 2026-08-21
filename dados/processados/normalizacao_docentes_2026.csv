@@ -1,0 +1,139 @@
+nome_original,nome_normalizado,metodo,verificada,ocorrencias,semestres
+ALINE NASCIMENTO,Aline Nascimento,alias_exato,True,3,2026-1
+Aline Nascimento,Aline Nascimento,alias_exato,True,3,2026-2
+Aline Paes,Aline Paes,alias_exato,True,2,2026-2
+ANA CAROLINA,Ana Carolina,alias_exato,True,2,2026-1
+Ana Carolina,Ana Carolina,alias_exato,True,2,2026-2
+Andre Brabo,Andre Brabo,alias_exato,True,2,2026-2
+ANDRE MAUES,Andre Brabo,tokens_univocos,True,2,2026-1
+ANDRÉ MAUES,Andre Brabo,tokens_univocos,True,1,2026-1
+ANDRE RENATO,Andre Renato,alias_exato,True,3,2026-1
+Andre Renato,Andre Renato,alias_exato,True,3,2026-2
+ANDRÉ SILVEIRA,Andre Silveira,alias_exato,True,2,2026-1
+André Silveira,Andre Silveira,alias_exato,True,2,2026-2
+Anselmo,Anselmo,alias_exato,True,2,2026-2
+ANSELMO ANTUNES,Anselmo,tokens_univocos,True,1,2026-1
+ANTONIO AUGUSTO,Guto,tokens_univocos,True,2,2026-1
+Aura,Aura,alias_exato,True,2,2026-2
+AURA CONCI,Aura,nome_completo_exato,True,2,2026-1
+Bruno,Bruno,alias_exato,True,2,2026-2
+BRUNO LOPES,Bruno,tokens_univocos,True,1,2026-1
+BRUNO LOPES VIEIRA,Bruno,nome_completo_exato,True,1,2026-1
+CARLOS ALBERTO SOARES,Carlos Ribeiro,tokens_univocos,True,1,2026-1
+CARLOS MARTINHON,Martinhon,tokens_univocos,True,3,2026-1
+CARLOS RIBEIRO,Carlos Ribeiro,alias_exato,True,1,2026-1
+Carlos Ribeiro,Carlos Ribeiro,alias_exato,True,2,2026-2
+Célio,Celio,alias_exato,True,3,2026-2
+CELIO VINICIUS,Celio,tokens_univocos,True,2,2026-1
+CHRISTIANO BRAGA,Christiano,tokens_univocos,True,3,2026-1
+Cristina Boeres,Cristina Boeres,alias_exato,True,2,2026-2
+Daniel,Daniel,alias_exato,True,3,2026-2
+DANIEL CARDOSO,Daniel,tokens_univocos,True,2,2026-1
+Daniela,Daniela,alias_exato,True,2,2026-2
+DANIELA TREVISAN,Daniela,tokens_univocos,True,2,2026-1
+Esteban,Esteban,alias_exato,True,2,2026-2
+ESTEBAN CLUA,Esteban,tokens_univocos,True,3,2026-1
+EUGENE FRANCIS VINOD,Vinod,tokens_univocos,True,1,2026-1
+EUGENE VINOD,Vinod,tokens_univocos,True,1,2026-1
+Fabio,Fabio,alias_exato,True,2,2026-2
+FABIO PROTTI,Fabio,nome_completo_exato,True,1,2026-1
+FÁBIO PROTTI,Fabio,nome_completo_exato,True,1,2026-1
+Flavia Bernardini,Flavia Bernardini,alias_exato,True,2,2026-2
+FLAVIA DELICATO,Flavia Delicato,alias_exato,True,2,2026-1
+Flavia Delicato,Flavia Delicato,alias_exato,True,2,2026-2
+FLAVIO SEIXAS,Flavio Seixas,alias_exato,True,2,2026-1
+Flavio Seixas,Flavio Seixas,alias_exato,True,2,2026-2
+Fornazin,Marcelo Fornazin,tokens_univocos,True,2,2026-2
+Guto,Guto,alias_exato,True,2,2026-2
+HELENA,Helena,alias_exato,True,3,2026-1
+Helena,Helena,alias_exato,True,3,2026-2
+IGOR COELHO,Igor Machado,tokens_univocos,True,2,2026-1
+Igor Machado,Igor Machado,alias_exato,True,2,2026-2
+IGOR MONTEIRO,Igor Moraes,tokens_univocos,True,2,2026-1
+Igor Moraes,Igor Moraes,alias_exato,True,1,2026-2
+ISABEL ROSSETI,Rosseti,tokens_univocos,True,2,2026-1
+Isabel Rosseti,Rosseti,tokens_univocos,True,2,2026-2
+J. Raphael,Jose Raphael,tokens_univocos,True,1,2026-2
+JOÃO PIMENTEL,Joao Pimentel,alias_exato,True,2,2026-1
+JOHN REED,John,nome_completo_exato,True,2,2026-1
+JOSE RAPHAEL,Jose Raphael,alias_exato,True,1,2026-1
+José Raphael,Jose Raphael,alias_exato,True,1,2026-2
+JOSE RAPHAEL BOKEHI,Jose Raphael,nome_completo_exato,True,1,2026-1
+JOSE VITERBO,Viterbo,tokens_univocos,True,1,2026-1
+Julio Stacchini,Julio Stacchini,sem_correspondencia_univoca,False,1,2026-2
+Kowada,Kowada,alias_exato,True,2,2026-2
+LAURO,Lauro,alias_exato,True,2,2026-1
+Lauro,Lauro,alias_exato,True,2,2026-2
+LEANDRO FERNANDES,Leandro Fernandes,alias_exato,True,3,2026-1
+Leandro Fernandes,Leandro Fernandes,alias_exato,True,2,2026-2
+Leo Cruz,Leo Cruz,alias_exato,True,3,2026-2
+Leo Murta,Leo Murta,alias_exato,True,2,2026-2
+LEONARDO CRUZ,Leo Cruz,tokens_univocos,True,3,2026-1
+LEONARDO GRESTA MURTA,Leo Murta,tokens_univocos,True,1,2026-1
+LEONARDO MURTA,Leo Murta,tokens_univocos,True,1,2026-1
+Loana,Loana,alias_exato,True,3,2026-2
+LOANA TITO,Loana,tokens_univocos,True,1,2026-1
+LOANA TITO NOGUEIRA,Loana,nome_completo_exato,True,1,2026-1
+LUCIA DRUMMOND,Lucia,tokens_univocos,True,1,2026-1
+LÚCIA DRUMMOND,Lucia,tokens_univocos,True,1,2026-1
+Lúcia Drummond,Lucia,tokens_univocos,True,2,2026-2
+Luciana,Luciana,alias_exato,True,1,2026-2
+LUCIANA SALGADO,Luciana,tokens_univocos,True,2,2026-1
+Luciana Salgado,Luciana,tokens_univocos,True,1,2026-2
+LUIS FELIPE,Luis Felipe,alias_exato,True,2,2026-1
+LUÍS FELIPE,Luis Felipe,alias_exato,True,1,2026-1
+Luis Felipe,Luis Felipe,alias_exato,True,2,2026-2
+LUIS KOWADA,Kowada,tokens_univocos,True,2,2026-1
+LUIZ ANDRE,Luiz Andre,alias_exato,True,2,2026-1
+Luiz André,Luiz Andre,alias_exato,True,3,2026-2
+LUIZ BEZ,Luiz Bez,alias_exato,True,1,2026-1
+Luiz Bez,Luiz Bez,alias_exato,True,2,2026-2
+LUIZ SATORU,Satoru,tokens_univocos,True,2,2026-1
+MARCELO FORNAZIN,Marcelo Fornazin,alias_exato,True,2,2026-1
+MARCOS BEDO,Marcos Bedo,alias_exato,True,2,2026-1
+Marcos Bedo,Marcos Bedo,alias_exato,True,2,2026-2
+MARCOS LAGE,Marcos Lage,alias_exato,True,2,2026-1
+Marcos Lage,Marcos Lage,alias_exato,True,2,2026-2
+MARIA BOERES,Cristina Boeres,tokens_univocos,True,2,2026-1
+Mario,Mario,alias_exato,True,2,2026-2
+MARIO BENEVIDES,Mario,tokens_univocos,True,2,2026-1
+Mariza,Mariza,alias_exato,True,2,2026-2
+MARIZA FERRO,Mariza,nome_completo_exato,True,2,2026-1
+Martinhon,Martinhon,alias_exato,True,4,2026-2
+MAURICIO PIRES,Mauricio,tokens_univocos,True,2,2026-1
+Miguel,Miguel,sem_correspondencia_univoca,False,2,2026-2
+PATRICK,Patrick,alias_exato,True,3,2026-1
+Patrick,Patrick,alias_exato,True,3,2026-2
+PAULO PIRES,Paulo Pires,alias_exato,True,2,2026-1
+Paulo Pires,Paulo Pires,alias_exato,True,2,2026-2
+Pedro,Pedro,alias_exato,True,2,2026-2
+PEDRO CORTEZ,Pedro,tokens_univocos,True,2,2026-1
+RAPHAEL GUERRA,Raphael Guerra,alias_exato,True,2,2026-1
+Raphael Guerra,Raphael Guerra,alias_exato,True,2,2026-2
+RAPHAEL MACHADO,Raphael Machado,alias_exato,True,2,2026-1
+Raphael Machado,Raphael Machado,alias_exato,True,2,2026-2
+Raquel,Raquel,alias_exato,True,2,2026-2
+RAQUEL BRAVO,Raquel,tokens_univocos,True,1,2026-1
+REBECA,Rebeca,alias_exato,True,2,2026-1
+Rebeca,Rebeca,alias_exato,True,2,2026-2
+REBECA CAMPOS MOTTA,Rebeca,tokens_univocos,True,1,2026-1
+Ricardo,Ricardo,alias_exato,True,2,2026-2
+RICARDO LEIDERMAN,Ricardo,nome_completo_exato,True,2,2026-1
+Rodrigo,Rodrigo,alias_exato,True,2,2026-2
+RODRIGO SALVADOR,Rodrigo,tokens_univocos,True,2,2026-1
+Satoru,Satoru,alias_exato,True,2,2026-2
+Taiane,Taiane,alias_exato,True,2,2026-2
+TAIANE COELHO,Taiane,tokens_univocos,True,2,2026-1
+Thiago,Thiago,sem_correspondencia_univoca,False,2,2026-2
+TROY,Troy,alias_exato,True,2,2026-1
+Troy,Troy,alias_exato,True,2,2026-2
+TROY COSTA KOHWALTER,Troy,nome_completo_exato,True,1,2026-1
+Vanessa,Vanessa,alias_exato,True,2,2026-2
+VANESSA BRAGANHOLO,Vanessa,tokens_univocos,True,2,2026-1
+Vânia,Vania,alias_exato,True,2,2026-2
+VANIA NEVES,Vania,tokens_univocos,True,2,2026-1
+Vinod,Vinod,alias_exato,True,2,2026-2
+Viterbo,Viterbo,alias_exato,True,1,2026-2
+Yuri,Yuri,alias_exato,True,2,2026-2
+YURI ABITBOL,Yuri,tokens_univocos,True,1,2026-1
+YURI ABITBOL DE MENEZES,Yuri,tokens_univocos,True,1,2026-1

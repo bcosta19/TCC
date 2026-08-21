@@ -1,0 +1,62 @@
+{
+  "arquivos_origem": [
+    "dados/brutos/QH-2026-1.pdf",
+    "dados/brutos/QH-2026-2.pdf"
+  ],
+  "metodo_extracao": "pdftotext -bbox-layout",
+  "turmas": 262,
+  "turmas_com_codigo": 244,
+  "turmas_sem_codigo": 18,
+  "encontros": 482,
+  "codigos_distintos": 92,
+  "salas": [
+    "202",
+    "204",
+    "206",
+    "213",
+    "215",
+    "217",
+    "302",
+    "304",
+    "306",
+    "308",
+    "313",
+    "315",
+    "317",
+    "319",
+    "321",
+    "404B",
+    "L302",
+    "L303",
+    "L304",
+    "L305",
+    "L306",
+    "L307"
+  ],
+  "por_semestre": {
+    "2026-1": {
+      "turmas": 132,
+      "turmas_com_codigo": 123,
+      "turmas_sem_codigo": 9,
+      "encontros": 243,
+      "ativas": 130,
+      "incompletas": 2,
+      "canceladas": 0
+    },
+    "2026-2": {
+      "turmas": 130,
+      "turmas_com_codigo": 121,
+      "turmas_sem_codigo": 9,
+      "encontros": 239,
+      "ativas": 128,
+      "incompletas": 1,
+      "canceladas": 1
+    }
+  },
+  "normalizacoes_docentes_nao_verificadas": 3,
+  "observacoes": [
+    "As contagens incluem graduação, pós-graduação, disciplinas de serviço e registros sem código.",
+    "Curso, período curricular, obrigatoriedade, setor, vagas e capacidades não constam nos PDFs.",
+    "Horários, salas e professores são alocações observadas, não parâmetros fixos do solver."
+  ]
+}

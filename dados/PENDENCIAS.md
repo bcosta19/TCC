@@ -6,27 +6,40 @@
 - `dados/processados/` — instâncias limpas no formato de entrada do solver.
 - Os dados do webscrap permanecem em `webscrap/` (pipeline autocontido); versões limpas vão para `dados/processados/`.
 
-## Checklist de dados a obter
+## Checklist de dados a obter (Validação Humana 2026)
 
-- [ ] **Tabela oficial de setores/áreas** do departamento — setor → professores habilitados → matérias → dias oficiais. A planilha QH 2025 já contém a coluna `Setor` por disciplina e permite gerar um proxy histórico, mas não substitui essa tabela validada.
-- [ ] **Lista de matérias externas** com horários fixos (não mudam, alta prioridade).
-- [ ] **Grade de horários prevista** das matérias por semestre par e ímpar (a "solução vigente" — também serve de baseline).
-- [ ] **Salas do IC**: identificação, capacidade, recursos (laboratório, projetor etc.).
+Consulte o relatório operacional detalhado em:
+`dados/processados/PENDENCIAS_VALIDACAO_2026.md`
+
+- [ ] **Tabela oficial de setores/áreas** do departamento — setor → professores habilitados → matérias → dias oficiais (`revisao_setores_2026.csv` e `revisao_habilitacao_docente_2026.csv`).
+- [ ] **Lista de matérias externas com horários fixos** — `revisao_horarios_fixos_2026.csv` e `revisao_turmas_externas_2026.csv`.
+- [x] **Baseline anual observado de horários, professores e salas em 2026** — extraído de `QH-2026-1.pdf` e `QH-2026-2.pdf`; ver `dados/processados/auditoria_2026.md`.
+- [ ] **Grade de horários fixos permitidos** por semestre par e ímpar — `revisao_horarios_fixos_2026.csv`.
+- [ ] **Salas do IC**: identificação, capacidade física oficial, recursos (laboratório, projetor etc.) — `cadastro_salas_2026.csv` e `revisao_recursos_disciplinas_2026.csv`.
 - [ ] **Optativas pretendidas** por professor (horário livre).
-- [ ] **Lista de prioridade dos professores** (idade/antiguidade) ou critério para construí-la.
-- [ ] **Vagas/tamanho das turmas** (pode ser extraível das páginas de turma do quadro de horários — `turma_url` já está no CSV).
-- [ ] **Grade curricular por período** de cada curso — **CC e SI** (quais matérias o aluno do período X cursa juntas) — necessário para evitar choques para o aluno.
-- [ ] **Grade de SI**: descobrir **idcurso/idcurriculo de Sistemas de Informação** (Niterói) no quadro de horários — hoje só a grade de CC foi coletada.
-- [ ] **Mapa de disciplinas compartilhadas CC∩SI** (disciplina nas duas grades = uma única turma para os dois cursos) — o tamanho da interseção condiciona os experimentos E1/E2 do modelo.
+- [ ] **Lista de prioridade dos professores** (idade/antiguidade) — `revisao_prioridades_docentes_2026.csv`.
+- [x] **Vagas/tamanho das turmas de 2026** — extraídas das páginas públicas de detalhe e preservadas por curso em `webscrap/turmas_2026_raw.csv`; as 180 turmas vinculadas ao recorte CC/SI têm vagas e inscritos conhecidos.
+- [x] **Grade curricular por período de CC e SI** — fontes em `dados/grade_cc.md` e `dados/grade_si.md`, normalizadas em `curriculos_cc_si.csv`.
+- [x] **Identificadores de SI no Quadro de Horários** — filtro interno `idcurso=263`, `idcurriculo=3473`, currículo acadêmico `83.01.003`.
+- [x] **Mapa de disciplinas compartilhadas CC∩SI** — interseção por código em `intersecao_curriculos_cc_si.csv`: 64 códigos; a oferta física não é duplicada na instância.
 
-## Limpezas pendentes nos dados já coletados
+## Limpezas e auditorias executadas
 
-- [ ] Revisar `professores_por_setor_2025.csv`, `dominios_professores_turmas_2025.csv` e `dias_por_setor_2025.csv`: esses arquivos foram inferidos do histórico QH 2025 e precisam de validação antes dos experimentos oficiais.
-- [ ] Revisar `auditoria_h12_professores_2025.csv` para decidir quais docentes da aba `CH Docente` entram no universo H12 do modelo.
-- [ ] Filtrar optativas humanísticas que vieram no webscrap (não são do IC).
-- [ ] Separar disciplinas do IC (códigos TCC/TIC...) das de outros departamentos (TEP, GMA etc.) que aparecem no currículo.
-- [ ] Consolidar `preferencias_professores.xlsx` em CSV processado com nomes corrigidos (`fix_names.py`).
+- [x] Extrair e auditar os dois QHs de 2026 em CSVs normalizados, preservando alocações observadas e campos ausentes.
+- [x] Classificar por código as ofertas de 2026 usando as grades versionadas; resultado em `classificacao_curricular_2026.csv`.
+- [x] Vincular PDFs e páginas públicas de turma: 180 vínculos para 178 linhas dos PDFs; duas linhas compactadas foram corretamente expandidas em turmas AA/BA.
+- [x] Auditar vínculos não triviais e divergências de horário: gerado `revisao_vinculos_2026.csv` (19 linhas) com divergência de `CGI00004` documentada.
+- [x] Preparar tabela de revisão curricular para `TCC00368` e `TCC00371`: `revisao_classificacao_curricular_2026.csv` (4 linhas com campo `decisao` para preenchimento).
+- [x] Preparar tabela do universo H12: `universo_h12_2026.csv` (73 docentes candidatos cruzados com carga 2025; campo `incluido_h12` para validação humana).
+- [x] Preparar política de cotutoria: `politica_cotutoria_2026.csv` para as duas turmas com alocação dupla (`TCC00285-A1` e `TCC00354-A1`).
+- [x] Preparar cadastro de salas sem capacidades inventadas: `cadastro_salas_2026.csv` (22 salas com `capacidade_minima_observada`).
+- [x] Preparar tabelas de revisão de recursos, setores, horários fixos, habilitação e prioridades.
+- [x] Criar verificador de prontidão (`scripts/check_readiness_2026.py`) e orquestrador reproduzível (`scripts/run_pipeline_2026.py`).
 
-## Nota sobre o webscrap (coleta de SI)
+## Nota sobre a pipeline reproduzível de 2026
 
-`webscrap/scraper.py` hoje fixa `idcurso=31` e `idcurriculo=3092` (CC, Niterói). Para coletar a grade de SI será preciso **parametrizar curso/currículo** no scraper — tarefa de execução da Fase 2 (`PLANO.md`), fora do escopo da edição de modelagem.
+Execute a pipeline completa com:
+```bash
+python scripts/run_pipeline_2026.py --offline
+```
+Ela executa a cadeia completa de extração, auditoria, construção da instância e geração das tabelas de revisão. A instância `instancia_2026_cc_si.json` permanece marcada com `pronta_para_experimento=false` até que as decisões humanas pendentes sejam validadas via `check_readiness_2026.py`.

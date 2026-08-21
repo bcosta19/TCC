@@ -14,29 +14,35 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
     classes = payload.get("classes", [])
     rooms = payload.get("rooms", [])
     priorities = payload.get("prioridades_professores", {})
+    cotutoria_policy = payload.get("politica_cotutoria", {})
 
     class_rows = []
     meeting_rows = []
     for item in classes:
+        observed_teachers = item.get("professores_observados") or []
+        teacher = item.get("professor") or (observed_teachers[0] if len(observed_teachers) == 1 else "")
+        if not observed_teachers and teacher:
+            observed_teachers = [teacher]
         class_rows.append({
             "id": item.get("id", ""),
             "semestre": item.get("semestre", ""),
             "curso": item.get("curso", ""),
             "periodo": item.get("periodo", ""),
+            "grupos_curriculares": item.get("grupos_curriculares") or [],
             "codigo": item.get("codigo", ""),
             "disciplina": item.get("disciplina", ""),
             "turma": item.get("turma", ""),
             "setor": item.get("setor") or "",
-            "alocacao": item.get("professor") or "",
+            "alocacao": teacher,
+            "professores": ";".join(observed_teachers),
+            "professores_observados": observed_teachers,
             "origem": item.get("origem", ""),
             "capacidade": item.get("capacidade_turma") or "",
             "exige_laboratorio": item.get("exige_laboratorio"),
             "recursos_requeridos": item.get("recursos_requeridos") or [],
             "obrigatoria": item.get("obrigatoria", False),
-            "preferencia": (item.get("preferencias_professores") or {}).get(
-                item.get("professor", "")
-            ),
-            "prioridade": priorities.get(item.get("professor", "")),
+            "preferencia": (item.get("preferencias_professores") or {}).get(teacher),
+            "prioridade": priorities.get(teacher),
         })
         for meeting in item.get("encontros", []):
             required_lab = meeting.get("requer_laboratorio")
@@ -67,10 +73,13 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
         })
     classes_frame = pd.DataFrame(class_rows).fillna("")
     classes_frame.attrs["min_obrigatorias_ano"] = payload.get("min_obrigatorias_ano", 3)
+    classes_frame.attrs["pronta_para_experimento"] = payload.get("pronta_para_experimento", True)
+    classes_frame.attrs["profile"] = payload.get("profile", "")
+    classes_frame.attrs["politica_cotutoria"] = cotutoria_policy
     classes_frame.attrs["professores_ic"] = sorted({
         str(teacher.get("name", ""))
         for teacher in payload.get("teachers", [])
-        if str(teacher.get("name", ""))
+        if str(teacher.get("name", "")) and teacher.get("incluido_h12", True) is not False
     })
     return (
         classes_frame,

@@ -13,6 +13,20 @@ webscrap/uff_cookies.json
 .ipynb_checkpoints/
 webscrap/_probe_turma.html
 
+# Artefatos LaTeX e pacotes exportados
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.toc
+/documento/main.pdf
+/tcc_overleaf.zip
+/saida/
+/formulario_overlay.ps
+
 # Saídas geradas pelos scripts (recriáveis)
 /dados/processados/instancia_*.json
 /dados/processados/solucao_*.json
@@ -21,13 +35,18 @@ webscrap/_probe_turma.html
 
 # Artefatos de ferramentas de IA (sessões, contexto, cache)
 anotacoes/contexto_sessao_*.md
+PROMPT_AGENTE_AUTONOMO_*.md
 .codex/
 .agents/
 .opencode/
 .claude/
 .aider*
 
-# Clones de terceiros (já referenciados como submódulos git; não
-# versionar conteúdo interno)
+# Clones locais de terceiros; as dependências oficiais são documentadas
+# no README, sem incorporar seus repositórios a este projeto.
 optframe/
 pyoptframe-dev/
+
+# Artigos e livros obtidos localmente. O Git mantém apenas a bibliografia e
+# as instruções de obtenção em referencias/README.md.
+/referencias/arquivos/

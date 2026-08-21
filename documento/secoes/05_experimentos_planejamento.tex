@@ -1,0 +1,73 @@
+\section{Experimentos Computacionais}
+\label{sec:experimentos}
+
+Esta seção apresenta as instâncias, o protocolo de execução, os cenários de comparação e os resultados computacionais.
+
+\subsection{Instâncias}
+\label{subsec:instancias}
+
+\pendente{descrever as instâncias definitivas: origem, quantidade de turmas, professores, salas, encontros, grupos curriculares e parâmetros de cada uma.}
+
+A pipeline produziu uma instância de validação a partir do quadro de horários de 2025. O arquivo \texttt{instancia\_2025\_cc\_si.json} contém 154 turmas, das quais 150 foram classificadas como turmas do IC, 58 nomes no universo inicial de professores e 20 salas. Essa instância foi usada para verificar a leitura dos dados e o comportamento dos componentes do solver.
+
+Na instância de validação, capacidades de sala e exigências de laboratório foram inferidas do histórico, as prioridades foram fixadas em $1{,}0$ e os domínios de professor e horário foram derivados dos setores observados em 2025. Esses parâmetros não devem ser confundidos com dados institucionais definitivos.
+
+\pendente{substituir capacidades, recursos, prioridades, setores, habilitações e universo de H12 pelos valores utilizados nos experimentos finais.}
+
+A configuração contém 148 turmas classificadas como obrigatórias. Se os 58 professores forem incluídos em $\mathcal{P}^{\mathrm{H12}}$, a restrição exigirá pelo menos $3\times58=174$ atribuições de obrigatórias. Esse universo, portanto, torna a instância de validação estruturalmente inviável para H12.
+
+\subsection{Protocolo experimental}
+\label{subsec:protocolo}
+
+Para cada combinação de instância e algoritmo, serão realizadas execuções independentes com sementes distintas. As soluções serão comparadas pela quantidade de violações fortes, pelo valor da função objetivo e pela decomposição dos critérios suaves.
+
+\begin{itemize}
+    \item \textbf{Número de execuções:} \pendente{definir.}
+    \item \textbf{Critério de parada ou limite de tempo:} \pendente{definir.}
+    \item \textbf{Sementes:} \pendente{definir ou indicar o procedimento de geração.}
+    \item \textbf{Máquina e ambiente de execução:} \pendente{informar processador, memória, sistema, Python e versões das bibliotecas.}
+    \item \textbf{Parâmetros do SA:} \pendente{informar temperatura inicial, esquema de resfriamento e número de iterações.}
+    \item \textbf{Parâmetros de ILS/VNS:} \pendente{preencher para os métodos efetivamente utilizados.}
+\end{itemize}
+
+O baseline histórico será construído a partir do quadro observado e avaliado pelos mesmos critérios aplicados às soluções geradas. \pendente{descrever a auditoria do baseline e o tratamento de salas ausentes, turmas paralelas e registros duplicados.}
+
+\subsection{Cenários de integração entre CC e SI}
+
+O acoplamento entre as grades será analisado em três cenários:
+\begin{itemize}
+    \item \textbf{E1 (CC $\rightarrow$ SI)}: otimizar CC, congelar suas decisões e, em seguida, otimizar as decisões ainda livres de SI;
+    \item \textbf{E2 (SI $\rightarrow$ CC)}: executar a ordem inversa;
+    \item \textbf{E3 (conjunto)}: otimizar simultaneamente as decisões de ambas as grades.
+\end{itemize}
+
+\pendente{definir o tratamento das turmas compartilhadas em E1 e E2 e as métricas usadas para medir o custo da ordem de planejamento.}
+
+\subsection{Validação inicial da implementação}
+\label{subsec:validacao_inicial}
+
+Antes do protocolo comparativo, foram realizadas execuções determinísticas com semente 2025 para verificar o efeito dos movimentos sobre o avaliador. Esses testes têm função de validação de software e não integram a comparação final entre algoritmos.
+
+\begin{table}[htbp]
+\centering
+\caption{Validação inicial na instância CC/SI 2025}
+\label{tab:resultados_preliminares}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Configuração} & \textbf{Score} & \textbf{Hard} & \textbf{Sala} & \textbf{Curr.} & \textbf{H12} & \textbf{Janelas} & \textbf{Desp. cap.} \\
+\midrule
+Baseline extraído & 51.002.369 & 51 & 13 & 10 & 28 & 28 & 2.172 \\
+SA -- salas & 38.004.258 & 38 & 0 & 10 & 28 & 28 & 4.060 \\
+SA -- salas e horários & 29.004.412 & 29 & 0 & 1 & 28 & 80 & 4.144 \\
+SA -- professores & 35.002.435 & 35 & 13 & 10 & 12 & 59 & 2.172 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O movimento de sala eliminou os conflitos de sala contabilizados na instância de validação sem alterar H12. O movimento de horário reduziu os conflitos curriculares de 10 para 1, mas aumentou janelas e desperdício estimado. O movimento de professor reduziu de 28 para 12 a quantidade de professores abaixo do mínimo, sem alcançar viabilidade para H12. Esses resultados confirmam quais parcelas do avaliador são afetadas por cada movimento, mas não estabelecem superioridade sobre o baseline.
+
+\subsection{Resultados comparativos}
+
+\pendente{inserir tabelas e gráficos das execuções finais, medidas agregadas, análise estatística, comparação com o baseline e análise dos cenários E1--E3.}

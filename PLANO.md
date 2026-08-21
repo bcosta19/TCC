@@ -46,12 +46,14 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 - [ ] Validar a formalização com o orientador (especialmente pesos dos critérios e o que é hard vs. soft).
 
 ### Fase 2 — Dados e instâncias (junho–julho/2026)
-- [ ] Validar a **tabela oficial de setores** e demais itens de `dados/PENDENCIAS.md`; a QH 2025 já permite um proxy histórico, mas ainda falta setor → professores habilitados → matérias → dias oficiais.
+- [ ] Validar a **tabela oficial de setores** e demais itens de `dados/PENDENCIAS.md`; as tabelas de revisão de 2026 (`dados/processados/PENDENCIAS_VALIDACAO_2026.md`) já organizam todas as pendências para validação humana.
+- [x] Extrair os quadros observados de 2026/1 e 2026/2 como baseline anual de horários, professores e salas; auditorias disponíveis em `auditoria_2026.md` e `auditoria_2026_cc_si.md`.
 - [ ] Limpar o webscrap (filtrar humanísticas, separar disciplinas do IC) e consolidar a matriz professor × disciplina de preferências.
-- [ ] Estender o scraper para capturar **vagas e horários das turmas** (as `turma_url` já estão no CSV) — dá tamanhos de turma reais e a grade real como baseline.
-- [ ] Coletar a **grade curricular de SI** (obter idcurso/idcurriculo de SI em Niterói; parametrizar `webscrap/scraper.py`, que hoje fixa curso 31/currículo 3092 de CC) e mapear a **interseção CC∩SI** (disciplinas compartilhadas).
-- [ ] Definir um **formato de instância** (JSON) com: turmas (com paridade $\sigma(c)$ e pertinência por grade CC/SI), professores, setores, salas (capacidade/recursos), horários fixos, optativas, preferências, prioridades, grade curricular por período **das duas grades**.
-- [ ] Gerar 3 níveis de instância: **toy** (validação manual), **real reduzida** (1 semestre, só IC) e **real completa**. O que faltar de dado real, sintetizar de forma plausível e documentar (o orientador liberou: "modelar próximo da realidade", sem compromisso com uso imediato).
+- [x] Estender a coleta para capturar **vagas, inscritos e horários das turmas** por `turma_url`; em 2026, as vagas também são preservadas separadamente por curso em `turmas_2026_raw.csv` e `vagas_turmas_2026.csv`.
+- [x] Coletar as **grades curriculares de CC e SI** e mapear a **interseção CC∩SI** por código (64 códigos); os filtros públicos atuais usam CC `31/3092` e SI `263/3473` (currículo acadêmico `83.01.003`).
+- [x] Definir um **formato de instância** (JSON) com: turmas, professores, salas, horários, vínculos curriculares e atributos de prontidão (`instancia_2026_cc_si.json` gerada pela pipeline).
+- [x] Criar pipeline reproduzível e orquestrador (`scripts/run_pipeline_2026.py` com modos `--offline` e `--refresh-web`) e verificador de prontidão (`scripts/check_readiness_2026.py`).
+
 
 ### Fase 3 — Protótipo com pyoptframe (julho–agosto/2026)
 - [ ] Estruturar `src/` como pacote: `model/` (entidades + leitura de instância), `eval/` (avaliador com decomposição por critério), `moves/` (vizinhanças), `solve/` (metaheurísticas).

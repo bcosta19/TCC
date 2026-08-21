@@ -1,0 +1,41 @@
+{
+  "turmas": 180,
+  "encontros": 329,
+  "docentes_observados": 61,
+  "salas": 22,
+  "turmas_com_vagas": 180,
+  "turmas_obrigatorias": 149,
+  "turmas_com_obrigatoriedade_desconhecida": 4,
+  "codigos_na_intersecao_curricular": 64,
+  "turmas_compartilhadas_por_intersecao": 25,
+  "turmas_com_vagas_cc_e_si": 55,
+  "turmas_com_multiplos_professores": 2,
+  "turmas_sem_grupo_curricular": [
+    "2026-1-TCC00368-A1",
+    "2026-1-TCC00371-A1",
+    "2026-2-TCC00368-A1",
+    "2026-2-TCC00371-A1"
+  ],
+  "encontros_sem_sala": 0,
+  "sobreposicoes_sala": 3,
+  "sobreposicoes_professor": 0,
+  "conflitos_curriculares_observados": 10,
+  "divergencias_horario_pdf_web": [
+    "2026-1-CGI00004-A1"
+  ],
+  "h12": {
+    "obrigatorias_disponiveis": 149,
+    "maximo_docentes_que_podem_receber_tres": 49,
+    "docentes_com_contagem_observada": 58,
+    "calculavel_como_restricao": false,
+    "motivos": [
+      "universo oficial de docentes H12 ainda ausente",
+      "duas turmas do recorte têm alocação docente múltipla"
+    ]
+  },
+  "capacidade": {
+    "vagas_turmas_disponiveis": true,
+    "capacidades_fisicas_salas_disponiveis": false,
+    "capacidade_minima_observada_nao_e_capacidade_fisica": true
+  }
+}

@@ -15,7 +15,6 @@ from pathlib import Path
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup, Tag
-from playwright.sync_api import sync_playwright
 
 BASE_URL     = "https://app.uff.br/graduacao/quadrodehorarios"
 LOGIN_URL    = f"{BASE_URL}/sessions/new"
@@ -54,6 +53,11 @@ HTTP_HEADERS = {
 
 def do_login() -> dict:
     """Abre browser para login manual e salva os cookies."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as exc:
+        raise RuntimeError("playwright é necessário apenas para o login interativo") from exc
+
     print("Abrindo browser para login no idUFF...")
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=False, slow_mo=100)
@@ -178,7 +182,14 @@ TIME_RE = re.compile(r"\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}")
 
 
 def is_session_expired(html: str) -> bool:
-    return 'href="/graduacao/quadrodehorarios/sessions/new">Login' in html
+    """Distingue a página pública de detalhe de uma resposta sem os dados.
+
+    O link ``Login`` também aparece nas páginas públicas completas, portanto
+    ele sozinho não indica sessão expirada.
+    """
+    has_login_link = 'href="/graduacao/quadrodehorarios/sessions/new">Login' in html
+    has_public_details = "Vagas Alocadas" in html and "Horários da Turma" in html
+    return has_login_link and not has_public_details
 
 
 def find_card(soup: BeautifulSoup, titulo: str) -> Tag | None:
@@ -257,12 +268,14 @@ def parse_horario(soup: BeautifulSoup) -> dict:
 
 
 def parse_vagas(soup: BeautifulSoup) -> dict:
+    """Extrai vagas e inscritos totais e discriminados por curso.
+
+    A tabela pública possui as colunas ``Curso``, vagas regular/vestibulando,
+    inscritos regular/vestibulando, excedentes e candidatos. A discriminação é
+    preservada porque ela permite identificar turmas atendendo CC e SI ao mesmo
+    tempo, sem duplicar a oferta física.
     """
-    Soma vagas e inscritos da tabela do card 'Vagas Alocadas'.
-    Colunas: Curso | Vagas | Inscritos(Reg, Vest) | Excedentes | Candidatos(Reg, Vest).
-    Pode haver mais de uma linha (turma ofertada a vários cursos) — soma todas.
-    """
-    vazio = {"vagas": None, "inscritos": None}
+    vazio = {"vagas": None, "inscritos": None, "vagas_por_curso": []}
     card = find_card(soup, "Vagas Alocadas")
     if not isinstance(card, Tag):
         return vazio
@@ -272,17 +285,35 @@ def parse_vagas(soup: BeautifulSoup) -> dict:
     corpo = tabela.find("tbody")
     linhas = corpo.find_all("tr") if isinstance(corpo, Tag) else tabela.find_all("tr")
 
-    total_vagas = 0
-    total_inscr = 0
-    achou = False
+    allocations = []
     for linha in linhas:
-        cels = [c.get_text(strip=True) for c in linha.find_all(["td", "th"])]
-        # linha de dados começa com o nome do curso e tem a vaga (int) na 2ª coluna
-        if len(cels) >= 2 and cels[1].isdigit():
-            total_vagas += int(cels[1])
-            total_inscr += sum(int(c) for c in cels[2:4] if c.isdigit())
-            achou = True
-    return {"vagas": total_vagas, "inscritos": total_inscr} if achou else vazio
+        cells = [cell.get_text(" ", strip=True) for cell in linha.find_all(["td", "th"])]
+        if len(cells) < 5 or not all(value.isdigit() for value in cells[1:5]):
+            continue
+        course_match = re.match(r"0*(\d+)\s*-\s*(.+)", cells[0])
+        course_code = course_match.group(1) if course_match else ""
+        course_name = course_match.group(2).strip() if course_match else cells[0]
+        vacancies_regular, vacancies_entrance, enrolled_regular, enrolled_entrance = map(
+            int, cells[1:5]
+        )
+        allocations.append({
+            "codigo_curso": course_code,
+            "curso": course_name,
+            "vagas_regular": vacancies_regular,
+            "vagas_vestibulando": vacancies_entrance,
+            "vagas": vacancies_regular + vacancies_entrance,
+            "inscritos_regular": enrolled_regular,
+            "inscritos_vestibulando": enrolled_entrance,
+            "inscritos": enrolled_regular + enrolled_entrance,
+        })
+
+    if not allocations:
+        return vazio
+    return {
+        "vagas": sum(item["vagas"] for item in allocations),
+        "inscritos": sum(item["inscritos"] for item in allocations),
+        "vagas_por_curso": allocations,
+    }
 
 
 def fetch_turma_details(turma_url: str, session: requests.Session):
@@ -377,8 +408,13 @@ def last_page_number(soup: BeautifulSoup) -> int:
     return max_page
 
 
-def fetch_semester(code: str, label: str, session: requests.Session) -> list[dict]:
-    params = {**SEARCH_PARAMS, "q[anosemestre_eq]": code}
+def fetch_semester(
+    code: str,
+    label: str,
+    session: requests.Session,
+    search_params: dict | None = None,
+) -> list[dict]:
+    params = {**(search_params or SEARCH_PARAMS), "q[anosemestre_eq]": code}
     resp = session.get(f"{BASE_URL}/", params=params, headers=HTTP_HEADERS, timeout=30)
     resp.raise_for_status()
 
