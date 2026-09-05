@@ -1,0 +1,11 @@
+turma_id,grupo,fonte_pdf,pagina_pdf,horario_pdf,horario_web,horarios_conferem
+2026-1-TCC00332-A1,SI-P1,dados/brutos/QH-2026-1.pdf,2,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-1-TCC00332-B1,SI-P1,dados/brutos/QH-2026-1.pdf,2,quinta 20:00-22:00;terca 20:00-22:00,Ter 20:00-22:00; Qui 20:00-22:00,True
+2026-1-TCC00336-Z1,SI-P6,dados/brutos/QH-2026-1.pdf,1,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-1-TCC00338-A1,SI-P6,dados/brutos/QH-2026-1.pdf,4,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-1-TCC00354-A1,SI-P1,dados/brutos/QH-2026-1.pdf,2,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-1-TCC00354-B1,SI-P1,dados/brutos/QH-2026-1.pdf,2,quinta 20:00-22:00;terca 20:00-22:00,Ter 20:00-22:00; Qui 20:00-22:00,True
+2026-2-TCC00332-A1,SI-P1,dados/brutos/QH-2026-2.pdf,3,quinta 20:00-22:00;terca 20:00-22:00,Ter 20:00-22:00; Qui 20:00-22:00,True
+2026-2-TCC00332-B1,SI-P1,dados/brutos/QH-2026-2.pdf,3,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-2-TCC00354-A1,SI-P1,dados/brutos/QH-2026-2.pdf,3,quinta 18:00-20:00;terca 18:00-20:00,Ter 18:00-20:00; Qui 18:00-20:00,True
+2026-2-TCC00354-B1,SI-P1,dados/brutos/QH-2026-2.pdf,3,quinta 20:00-22:00;terca 20:00-22:00,Ter 20:00-22:00; Qui 20:00-22:00,True

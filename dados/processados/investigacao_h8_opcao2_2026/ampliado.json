@@ -1,0 +1,412 @@
+[
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P1",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00296-A1",
+      "2026-1-TCC00308-A1",
+      "2026-1-TCC00346-AA",
+      "web:2026-1:GAN00167:A1",
+      "web:2026-1:GGM00137:A9"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P2",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-1:GAN00140:B1",
+      "2026-1-TCC00301-AA",
+      "web:2026-1:TET00347:A1",
+      "2026-1-TCC00347-A1",
+      "web:2026-1:GMA00154:C3"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P3",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00286-A1",
+      "web:2026-1:GAN00166:A1",
+      "2026-1-TCC00348-A1",
+      "2026-1-TCC00328-A1",
+      "web:2026-1:GFI00158:A5",
+      "web:2026-1:GMA00155:M2"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P4",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00287-A1",
+      "2026-1-TCC00292-A1",
+      "2026-1-TCC00304-A1",
+      "2026-1-TCC00306-A1",
+      "2026-1-TCC00316-A1",
+      "web:2026-1:GET00177:C1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P5",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00226-A1",
+      "2026-1-TCC00288-A1",
+      "2026-1-TCC00312-A1",
+      "2026-1-TCC00313-A1",
+      "2026-1-TCC00349-A1",
+      "2026-1-TCC00285-A1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P6",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00284-A1",
+      "2026-1-TCC00291-A1",
+      "2026-1-TCC00293-A1",
+      "2026-1-TCC00305-A1",
+      "2026-1-TCC00307-B1A1",
+      "2026-1-TCC00314-A1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P7",
+    "ausentes": [
+      "TCC00351"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "CC-P8",
+    "ausentes": [
+      "TCC00352"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P1",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-CGI00004-A1",
+      "2026-1-TCC00332-A1",
+      "2026-1-TCC00354-B1",
+      "2026-1-TCC00355-EA",
+      "2026-1-TCC00366-A1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P2",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-1:STA00267:P1",
+      "web:2026-1:GSI00433:A1",
+      "2026-1-TCC00356-A1",
+      "web:2026-1:GAN00144:C1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P3",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-1:SDV00143:P1",
+      "2026-1-TCC00331-A1",
+      "2026-1-TCC00358-A1",
+      "web:2026-1:GET00116:C2"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P4",
+    "ausentes": [
+      "GCI00116"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P5",
+    "ausentes": [
+      "GCI00126"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P6",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-1-TCC00338-A1",
+      "2026-1-TCC00360-A1",
+      "2026-1-TCC00361-A1",
+      "2026-1-TCC00336-A1"
+    ]
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P7",
+    "ausentes": [
+      "TCC00364"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-1",
+    "grupo": "SI-P8",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-1:CGI00003:A1",
+      "web:2026-1:STA00191:P1",
+      "2026-1-TCC00222-A1",
+      "2026-1-TCC00324-A1",
+      "2026-1-TCC00365-A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P1",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:GAN00167:B2",
+      "2026-2-TCC00296-A1",
+      "2026-2-TCC00308-A1",
+      "2026-2-TCC00346-AA",
+      "web:2026-2:GGM00137:A9"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P2",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:GAN00140:B2",
+      "2026-2-TCC00301-AA",
+      "2026-2-TCC00347-A1",
+      "web:2026-2:TET00347:A1",
+      "web:2026-2:GMA00154:A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P3",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:GAN00166:A2",
+      "2026-2-TCC00286-A1",
+      "2026-2-TCC00328-A1",
+      "2026-2-TCC00348-A1",
+      "web:2026-2:GFI00158:A5",
+      "web:2026-2:GMA00155:M2"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P4",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-2-TCC00287-A1",
+      "2026-2-TCC00292-A1",
+      "2026-2-TCC00304-A1",
+      "2026-2-TCC00306-A1",
+      "2026-2-TCC00316-A1",
+      "web:2026-2:GET00177:C1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P5",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-2-TCC00226-A1",
+      "2026-2-TCC00288-A1",
+      "2026-2-TCC00312-A1",
+      "2026-2-TCC00313-A1",
+      "2026-2-TCC00349-A1",
+      "2026-2-TCC00285-A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P6",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-2-TCC00284-A1",
+      "2026-2-TCC00291-A1",
+      "2026-2-TCC00293-A1",
+      "2026-2-TCC00307-A1",
+      "2026-2-TCC00314-A1",
+      "2026-2-TCC00305-A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P7",
+    "ausentes": [
+      "TCC00351"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "CC-P8",
+    "ausentes": [
+      "TCC00352"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P1",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:CGI00004:A1",
+      "2026-2-TCC00332-A1",
+      "2026-2-TCC00354-A1",
+      "2026-2-TCC00355-E-A",
+      "2026-2-TCC00366-A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P2",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:STA00267:P1",
+      "web:2026-2:GSI00433:A1",
+      "2026-2-TCC00356-A1",
+      "web:2026-2:GAN00144:B2"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P3",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:SDV00143:P1",
+      "2026-2-TCC00331-A1",
+      "2026-2-TCC00358-A1",
+      "web:2026-2:GET00116:C1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P4",
+    "ausentes": [
+      "GCI00116"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P5",
+    "ausentes": [
+      "GCI00126"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P6",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "2026-2-TCC00336-A1",
+      "2026-2-TCC00338-A1",
+      "2026-2-TCC00360-A1",
+      "2026-2-TCC00361-A1"
+    ]
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P7",
+    "ausentes": [
+      "TCC00364"
+    ],
+    "horario_desconhecido": [],
+    "status": "incompleto",
+    "testemunha": []
+  },
+  {
+    "semestre": "2026-2",
+    "grupo": "SI-P8",
+    "ausentes": [],
+    "horario_desconhecido": [],
+    "status": "viavel",
+    "testemunha": [
+      "web:2026-2:CGI00003:A1",
+      "web:2026-2:STA00191:P1",
+      "2026-2-TCC00222-A1",
+      "2026-2-TCC00324-A1",
+      "2026-2-TCC00365-A1"
+    ]
+  }
+]

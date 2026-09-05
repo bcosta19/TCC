@@ -15,6 +15,8 @@ Cria os seguintes arquivos de auditoria e revisão para 2026:
 
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -25,6 +27,38 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "dados" / "processados"
 WEBSCRAP = ROOT / "webscrap"
+REVIEW_MANIFEST = DATA / "revisoes_2026_manifest.json"
+REVIEW_SOURCES = (
+    DATA / "turmas_2026_cc_si.csv",
+    DATA / "horarios_2026_cc_si.csv",
+    DATA / "salas_2026_cc_si.csv",
+    DATA / "vagas_turmas_2026.csv",
+    DATA / "curriculos_cc_si.csv",
+    DATA / "turmas_2025.csv",
+    DATA / "preferencias_2025.csv",
+    DATA / "dias_por_setor_2025.csv",
+    DATA / "carga_docente_2025.csv",
+    WEBSCRAP / "turmas_2026_raw.csv",
+)
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_review_manifest() -> None:
+    missing = [str(path.relative_to(ROOT)) for path in REVIEW_SOURCES if not path.exists()]
+    if missing:
+        raise FileNotFoundError("Fontes ausentes para o manifesto de revisao: " + ", ".join(missing))
+    payload = {
+        "schema_version": 1,
+        "descricao": "Hashes das fontes usadas para gerar as tabelas de revisao humana de 2026.",
+        "sources": {
+            str(path.relative_to(ROOT)): file_sha256(path)
+            for path in REVIEW_SOURCES
+        },
+    }
+    REVIEW_MANIFEST.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def build_curricular_review() -> None:
@@ -124,8 +158,10 @@ def build_h12_universe() -> None:
         docente = str(row.get("Docente", "")).strip()
         if not alias or alias in {"SOMA", "CHECK", "CH AVG", "~ Turmas 4h"}:
             continue
-        cargo = str(row.get("Cargo / Afastamento", "")).strip()
-        observacao_carga = str(row.get("Observação", "")).strip()
+        cargo = str(row.get("a. Cargo / Afast.", row.get("Cargo / Afastamento", ""))).strip()
+        observacao_carga = str(
+            row.get("z. Saúde / 20H / Subst. / Outros", row.get("Observação", ""))
+        ).strip()
         afastamento = cargo or observacao_carga
         carga_lookup[alias] = {
             "docente_completo": docente,
@@ -282,17 +318,23 @@ def build_sectors_review() -> None:
     turmas25 = pd.read_csv(DATA / "turmas_2025.csv", dtype=str).fillna("") if (DATA / "turmas_2025.csv").exists() else pd.DataFrame()
     dias25 = pd.read_csv(DATA / "dias_por_setor_2025.csv", dtype=str).fillna("") if (DATA / "dias_por_setor_2025.csv").exists() else pd.DataFrame()
 
-    setor_hist_map = {}
+    setores_por_codigo: dict[str, set[str]] = defaultdict(set)
     if not turmas25.empty and "codigo" in turmas25 and "setor" in turmas25:
         for _, r in turmas25.iterrows():
             if r["codigo"] and r["setor"]:
-                setor_hist_map[r["codigo"]] = r["setor"]
+                setores_por_codigo[r["codigo"]].add(r["setor"])
+    setor_hist_map = {
+        code: next(iter(sectors))
+        for code, sectors in setores_por_codigo.items()
+        if len(sectors) == 1
+    }
 
     days_hist_map = {}
-    if not dias25.empty and "setor" in dias25 and "dias_observados" in dias25:
+    day_column = "dias" if "dias" in dias25 else "dias_observados"
+    if not dias25.empty and "setor" in dias25 and day_column in dias25:
         for _, r in dias25.iterrows():
-            if r["setor"] and r["dias_observados"]:
-                days_hist_map.setdefault(r["setor"], set()).update(r["dias_observados"].split(";"))
+            if r["setor"] and r[day_column]:
+                days_hist_map.setdefault(r["setor"], set()).update(r[day_column].split(";"))
 
     h = meetings.merge(classes[["id", "disciplina", "origem"]], left_on="turma_id", right_on="id", how="left")
     rows = []
@@ -324,7 +366,9 @@ def build_teacher_qualification_review() -> None:
     freq_map: dict[tuple[str, str], str] = {}
     if not pref25.empty:
         for _, r in pref25.iterrows():
-            freq_map[(r.get("codigo", ""), r.get("docente", ""))] = str(r.get("total_alocacoes", ""))
+            freq_map[(r.get("codigo", ""), r.get("professor", r.get("docente", "")))] = str(
+                r.get("contagem", r.get("total_alocacoes", ""))
+            )
 
     setor_hist_map = {}
     if not turmas25.empty and "codigo" in turmas25 and "setor" in turmas25:
@@ -379,8 +423,8 @@ def build_teacher_priorities_review() -> None:
     total_allocations: dict[str, int] = defaultdict(int)
     if not pref25.empty:
         for _, r in pref25.iterrows():
-            doc = str(r.get("docente", ""))
-            count = int(float(r.get("total_alocacoes", 0) or 0))
+            doc = str(r.get("professor", r.get("docente", "")))
+            count = int(float(r.get("contagem", r.get("total_alocacoes", 0)) or 0))
             total_allocations[doc] += count
 
     obs26_teachers = set()
@@ -450,7 +494,18 @@ def build_external_classes_review() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Gera tabelas ou somente o manifesto de revisao de 2026")
+    parser.add_argument(
+        "--manifest-only",
+        action="store_true",
+        help="Atualiza apenas os hashes das fontes, sem reescrever os CSVs de decisao",
+    )
+    args = parser.parse_args()
     DATA.mkdir(parents=True, exist_ok=True)
+    if args.manifest_only:
+        write_review_manifest()
+        print(REVIEW_MANIFEST)
+        return
     build_curricular_review()
     build_h12_universe()
     build_cotutoria_policy()
@@ -461,6 +516,7 @@ def main() -> None:
     build_teacher_qualification_review()
     build_teacher_priorities_review()
     build_external_classes_review()
+    write_review_manifest()
     print("Tabelas de revisão geradas em dados/processados/")
 
 

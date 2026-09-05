@@ -232,11 +232,13 @@ def check_external_classes() -> list[str]:
     return pendencias
 
 
-def update_instance_readiness(is_ready: bool) -> None:
+def update_instance_readiness(profile: str, is_ready: bool) -> None:
     if not INSTANCE_PATH.exists():
         return
     payload = json.loads(INSTANCE_PATH.read_text(encoding="utf-8"))
-    payload["pronta_para_experimento"] = bool(is_ready)
+    payload.setdefault("readiness_profiles", {})[profile] = bool(is_ready)
+    if profile == "completo" or not is_ready:
+        payload["pronta_para_experimento"] = bool(is_ready)
     INSTANCE_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -261,7 +263,7 @@ def check_profile(profile: str) -> tuple[bool, list[str]]:
         pendencias.extend(check_external_classes())
 
     is_ready = len(pendencias) == 0
-    update_instance_readiness(is_ready)
+    update_instance_readiness(profile, is_ready)
     return is_ready, pendencias
 
 

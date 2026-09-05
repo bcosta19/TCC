@@ -1,0 +1,55 @@
+{
+  "id": "sintetica_2026_v1",
+  "status": "nao_oficial",
+  "descricao": "Benchmark reprodutivel derivado dos dados observados de 2025 e 2026; nao substitui validacao institucional.",
+  "capacidade_sala": "maximo_observado_2025_2026",
+  "laboratorio_por_prefixo_l": true,
+  "uso_estrito_de_laboratorio": true,
+  "prioridade_docente_neutra": 1.0,
+  "h12_minimo": 3,
+  "h12_universo_sintetico": "40_docentes_observados_selecionados_por_carga_e_matching",
+  "h12_universo_tamanho": 40,
+  "cotutoria_h12": "fracionada",
+  "classificacoes_sinteticas": {
+    "TCC00368": {
+      "obrigatoria": true,
+      "grupos_curriculares": ["SI-P7"]
+    },
+    "TCC00371": {
+      "obrigatoria": false,
+      "grupos_curriculares": []
+    }
+  },
+  "horarios": {
+    "modo": "obrigatorias_e_externas_fixas_optativas_flexiveis",
+    "maximo_padroes_por_turma": 12
+  },
+  "professores": {
+    "maximo_candidatos_por_turma": 12,
+    "dominio": "setor_historico_2025_mais_professor_observado"
+  },
+  "objetivo": {
+    "penalidade_hard": 1000000,
+    "pesos_soft": "unitarios_provisorios"
+  },
+  "experimento": {
+    "seeds": [101, 202, 303, 404, 505],
+    "maximo_candidatos_guloso": 6,
+    "algoritmos": {
+      "sa": {
+        "avaliacoes": 1500,
+        "temperatura_inicial": 1000000.0,
+        "resfriamento": 0.997
+      },
+      "ils": {
+        "avaliacoes": 1500,
+        "forca_perturbacao": 3,
+        "tentativas_busca_local": 30
+      },
+      "vns": {
+        "avaliacoes": 1500,
+        "tentativas_busca_local": 30
+      }
+    }
+  }
+}

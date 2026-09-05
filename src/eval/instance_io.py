@@ -20,9 +20,12 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
     meeting_rows = []
     for item in classes:
         observed_teachers = item.get("professores_observados") or []
-        teacher = item.get("professor") or (observed_teachers[0] if len(observed_teachers) == 1 else "")
-        if not observed_teachers and teacher:
-            observed_teachers = [teacher]
+        assigned_teachers = item.get("professores_alocados")
+        if not isinstance(assigned_teachers, list):
+            teacher = item.get("professor") or (observed_teachers[0] if len(observed_teachers) == 1 else "")
+            assigned_teachers = [teacher] if teacher else list(observed_teachers)
+        assigned_teachers = [str(value).strip() for value in assigned_teachers if str(value).strip()]
+        teacher = assigned_teachers[0] if len(assigned_teachers) == 1 else ""
         class_rows.append({
             "id": item.get("id", ""),
             "semestre": item.get("semestre", ""),
@@ -34,7 +37,8 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
             "turma": item.get("turma", ""),
             "setor": item.get("setor") or "",
             "alocacao": teacher,
-            "professores": ";".join(observed_teachers),
+            "professores": ";".join(assigned_teachers),
+            "professores_alocados": assigned_teachers,
             "professores_observados": observed_teachers,
             "origem": item.get("origem", ""),
             "capacidade": item.get("capacidade_turma") or "",
@@ -67,7 +71,7 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
     for room in rooms:
         room_rows.append({
             "id": room.get("id", ""),
-            "capacidade_estimada": room.get("capacidade_estimada", ""),
+            "capacidade_estimada": room.get("capacidade_estimada", room.get("capacity", "")),
             "laboratorio": room.get("laboratorio", False),
             "predio": room.get("predio", ""),
         })
@@ -76,10 +80,17 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
     classes_frame.attrs["pronta_para_experimento"] = payload.get("pronta_para_experimento", True)
     classes_frame.attrs["profile"] = payload.get("profile", "")
     classes_frame.attrs["politica_cotutoria"] = cotutoria_policy
+    teachers = payload.get("teachers", [])
+    has_explicit_h12 = any(teacher.get("incluido_h12") is not None for teacher in teachers)
     classes_frame.attrs["professores_ic"] = sorted({
         str(teacher.get("name", ""))
-        for teacher in payload.get("teachers", [])
-        if str(teacher.get("name", "")) and teacher.get("incluido_h12", True) is not False
+        for teacher in teachers
+        if str(teacher.get("name", ""))
+        and (
+            teacher.get("incluido_h12") is True
+            if has_explicit_h12
+            else teacher.get("incluido_h12", True) is not False
+        )
     })
     return (
         classes_frame,

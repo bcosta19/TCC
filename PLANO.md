@@ -39,6 +39,35 @@ Recomendação: tratar como **problema em estágios acoplados** no protótipo (h
 
 ## Fases
 
+### Atualização técnica — 04/09/2026
+
+Os checklists abaixo preservam o planejamento original; itens amplos podem
+conter partes já implementadas. A situação verificada nesta rodada está em
+`anotacoes/validacao_prototipo_2026_09_04.md`:
+
+- [x] Núcleo integrado com movimentos de professor, horário e sala e buscas
+  SA, ILS e VNS de referência em Python.
+- [x] Adaptador BasicSA nativo com validação estrutural e conferência entre
+  avaliadores no piloto sintético.
+- [x] Diagnóstico das dez sobreposições curriculares, com horários confrontados
+  com a coleta web local e escolhas alternativas por grupo.
+- [x] Executor do piloto com parâmetros, hashes, métricas e soluções preservadas.
+- [x] 05/09/2026: checagem paralela de H8 por trajetória, com grade esperada
+  independente, filtro de vagas por curso, testemunhas e estados inconclusivos.
+  Implementada em `src/eval/trajectories.py`; não substitui H8 no objetivo.
+- [ ] Definir o tratamento de turmas alternativas em H8. O contador atual
+  mede sobreposições entre ofertas; escolhas sem choque não garantem vagas
+  para todos. Nenhum horário foi flexibilizado nesta rodada.
+- [ ] Controlar ou documentar no protocolo definitivo a aleatoriedade interna
+  do OptFrame e definir orçamento comparável entre os métodos.
+- [ ] Aplicar as revisões institucionais ao JSON definitivo e validar os dados
+  e hipóteses que serão usados no estudo final.
+- [ ] Executar experimentos finais, concluir resultados e discussão, revisar
+  monografia, preparar artigo e defesa.
+
+O cronograma mensal original deve ser replanejado a partir dessas entregas;
+o piloto técnico não encerra a fase de experimentos acadêmicos.
+
 ### Fase 1 — Formalização do problema (junho/2026)
 - [ ] Escrever o **modelo matemático** (conjuntos, parâmetros, variáveis de decisão, restrições, função objetivo ponderada) em `anotacoes/` ou já em LaTeX — vira a seção de modelagem da monografia e do artigo.
 - [ ] Definir a grade de horários da UFF como conjunto discreto de slots (dia × faixa horária, incluindo 11–13h e noite 18h).

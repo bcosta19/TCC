@@ -5,6 +5,7 @@ openpyxl
 numpy
 plotext
 rich
+optframe==5.1.0
 
 # Necessário apenas para o login interativo do scraper:
 playwright

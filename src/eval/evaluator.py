@@ -74,16 +74,20 @@ class QHEvaluator:
 
     @staticmethod
     def _teachers_for_class(row) -> list[str]:
-        if "professores_observados" in row and isinstance(row["professores_observados"], (list, set, tuple)):
-            names = [str(p).strip() for p in row["professores_observados"] if str(p).strip()]
-            if names:
-                return names
-        if "professores" in row and str(row["professores"]).strip():
-            names = [str(p).strip() for p in str(row["professores"]).split(";") if str(p).strip()]
+        if "professores_alocados" in row and isinstance(row["professores_alocados"], (list, set, tuple)):
+            names = [str(p).strip() for p in row["professores_alocados"] if str(p).strip()]
             if names:
                 return names
         if "alocacao" in row and str(row["alocacao"]).strip():
             return [str(row["alocacao"]).strip()]
+        if "professores" in row and str(row["professores"]).strip():
+            names = [str(p).strip() for p in str(row["professores"]).split(";") if str(p).strip()]
+            if names:
+                return names
+        if "professores_observados" in row and isinstance(row["professores_observados"], (list, set, tuple)):
+            names = [str(p).strip() for p in row["professores_observados"] if str(p).strip()]
+            if names:
+                return names
         return []
 
     @staticmethod
@@ -135,6 +139,7 @@ class QHEvaluator:
         else:
             h["requer_laboratorio"] = h["requer_laboratorio"].map(self._as_bool)
 
+        annual_violations, annual_deficit = self._annual_load_metrics(t)
         hard = {
             "conflitos_sala": self._room_conflicts(h),
             "conflitos_professor": self._teacher_conflicts(h),
@@ -142,7 +147,7 @@ class QHEvaluator:
             "capacidade_insuficiente": self._capacity_violations(h),
             "recursos_incompativeis": self._resource_violations(h),
             "descanso_insuficiente": self._rest_violations(h, min_rest_hours),
-            "carga_anual_insuficiente": self._annual_load_violations(t),
+            "carga_anual_insuficiente": annual_violations,
         }
         soft = {
             "dias_trabalhados": self._working_days(h),
@@ -167,6 +172,7 @@ class QHEvaluator:
             "salas": int(h["sala"].replace("", pd.NA).dropna().nunique()),
             "laboratorios": sorted(room for room in self.room_capacity if is_lab_room(room)),
             "min_obrigatorias_ano": self.min_obrigatorias_ano,
+            "deficit_carga_anual": annual_deficit,
         }
         return Evaluation(hard, soft, metadata)
 
@@ -255,8 +261,11 @@ class QHEvaluator:
         for (_, _), group in valid.groupby(["semestre", "professor"]):
             daily = group.groupby("dia").agg(first=("inicio_min", "min"), last=("fim_min", "max"))
             ordered = sorted(daily.iterrows(), key=lambda item: DAY_ORDER.get(item[0], 99))
-            for (_, current), (_, following) in zip(ordered, ordered[1:]):
-                if following["first"] + 24 * 60 - current["last"] < min_rest_hours * 60:
+            for (current_day, current), (following_day, following) in zip(ordered, ordered[1:]):
+                day_gap = DAY_ORDER.get(following_day, 99) - DAY_ORDER.get(current_day, 99)
+                if day_gap <= 0:
+                    continue
+                if following["first"] + day_gap * 24 * 60 - current["last"] < min_rest_hours * 60:
                     count += 1
         return count
 
@@ -303,8 +312,8 @@ class QHEvaluator:
                 total += len(impar_profs & par_profs)
         return total
 
-    def _annual_load_violations(self, t: pd.DataFrame) -> int | None:
-        """Conta professores do IC abaixo do mínimo anual de obrigatórias."""
+    def _annual_load_metrics(self, t: pd.DataFrame) -> tuple[int | None, float | None]:
+        """Retorna docentes abaixo do mínimo e o total de créditos faltantes."""
         if "origem" in t.columns:
             internal = t[t["origem"].astype(str).eq("IC")].copy()
         else:
@@ -315,7 +324,7 @@ class QHEvaluator:
         elif "ch_ob" in internal.columns:
             internal["is_ob"] = pd.to_numeric(internal["ch_ob"], errors="coerce").fillna(0).gt(0)
         else:
-            return 0
+            return 0, 0.0
 
         obligatory_classes = internal[internal["is_ob"]].copy()
         has_multiple_teachers = any(len(profs) > 1 for profs in obligatory_classes["professores_lista"])
@@ -335,7 +344,7 @@ class QHEvaluator:
                 policy_name = str(policy_name or "").strip()
                 if not policy_name:
                     # Sem política definida para a cotutoria, H12 fica indisponível
-                    return None
+                    return None, None
                 if policy_name == "integral_para_cada_docente":
                     for p in profs:
                         teacher_counts[p] += 1.0
@@ -348,22 +357,30 @@ class QHEvaluator:
                     if resp and resp in profs:
                         teacher_counts[resp] += 1.0
                     else:
-                        return None
+                        return None, None
                 elif policy_name == "nao_contabilizar_em_h12":
                     pass
                 else:
-                    return None
+                    return None, None
 
         teacher_universe = self.turmas.attrs.get("professores_ic", [])
         if teacher_universe:
             universe_set = set(teacher_universe)
             for teacher in universe_set:
                 teacher_counts.setdefault(teacher, 0.0)
-            return sum(1 for teacher in universe_set if teacher_counts[teacher] < self.min_obrigatorias_ano)
+            violations = sum(1 for teacher in universe_set if teacher_counts[teacher] < self.min_obrigatorias_ano)
+            deficit = sum(max(0.0, self.min_obrigatorias_ano - teacher_counts[teacher]) for teacher in universe_set)
+            return violations, float(deficit)
 
         if not teacher_counts:
-            return 0
-        return sum(1 for count in teacher_counts.values() if count < self.min_obrigatorias_ano)
+            return 0, 0.0
+        violations = sum(1 for count in teacher_counts.values() if count < self.min_obrigatorias_ano)
+        deficit = sum(max(0.0, self.min_obrigatorias_ano - count) for count in teacher_counts.values())
+        return violations, float(deficit)
+
+    def _annual_load_violations(self, t: pd.DataFrame) -> int | None:
+        """Compatibilidade para chamadas que consultam somente a violação H12."""
+        return self._annual_load_metrics(t)[0]
 
     def _preference_score(self, t: pd.DataFrame) -> float | None:
         """Retorna bônus negativo de preferência quando a instância o fornece."""

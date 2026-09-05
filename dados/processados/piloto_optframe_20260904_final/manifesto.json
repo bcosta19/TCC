@@ -1,0 +1,53 @@
+{
+  "executado_em": "2026-09-04T22:51:07.874147-03:00",
+  "commit": "eb29f5c4914c46059d178ecbd510116148d1ab71",
+  "worktree": "com alteracoes nao commitadas",
+  "python": "3.14.7",
+  "sistema": "Linux-7.1.9-arch1-2-x86_64-with-glibc2.44",
+  "optframe": "5.1.0",
+  "optframe_binario_sha256": "16c780244e06fe943c8bff627b77eabef6a4071cc19b8f323aa1005372b4e18a",
+  "instancia_sha256": "4c758cf2b612fd29be48239a1cf95e1aaf252e5a68132a348546efcde981e629",
+  "configuracao_sha256": "e2c56bca8b89cfa4156e401a40526ffacf16bb04886e6a69fc45d3e9a1c4aced",
+  "fontes_sha256": {
+    "src/__init__.py": "2be0b056a23259e223363ab6d131ef332520176f16375c5dee3c9ce52be8f929",
+    "src/eval/__init__.py": "5caf040f4b35371bdf4cfc6087830d940269ab383097ad4f0ef5a5bbe95dc52b",
+    "src/eval/evaluator.py": "e2a5f556645d3ccb0399185400adfdb99bb719840815dccb59bafe7401a45fdc",
+    "src/eval/instance_io.py": "0832c836e836b0fee5fc372c3a69024cc9c6c864b86a4e2122c70252167fb00b",
+    "src/eval/preferences.py": "30b72cce6b7aaca7498748a4ef23b16010ecaa9b36a4b5a58c836f473bc256a9",
+    "src/eval/resources.py": "97805dfc9cc85f6213be59ccb5fdffa46c4305433cb5174ca3e310a548b9ca8d",
+    "src/eval/rooms.py": "043f5fd8060cdc49b3803b84f37f865b0e6bbfa991ecec8743d5e95092b005cf",
+    "src/model/__init__.py": "17df9b380f81302bd8c6002e7014e3d8a9b2b0e405a9e4e8c8b83b1fe3dff1ff",
+    "src/model/curricula.py": "8ea1b2e88b077d59873da3fa73e927e3958a6622486c2c0883eee36c1de057b4",
+    "src/solve/__init__.py": "7eeb15339166d4a948003db1b378b0934fce7e7cd7ada4b9666e22b6b6c8c333",
+    "src/solve/direct_objective.py": "287c94657ed09f789fb8eef2580d2fe34021d1502319f01d8b3fe731916b7baf",
+    "src/solve/integrated.py": "082a4fcf176c1341dbb7162c7c44a8b8b37865948a7ae7658bf33472db22c2b0",
+    "src/solve/optframe_adapter.py": "a36fb09e3df78ca4d8238ce93a9114c80eb2784bd0f73d6ee5b9841531ad9dbd",
+    "src/solve/room_sa.py": "abd03fff268d77b563a697490dca5b54d8dc7e8e54cf6971cb061586a9cca69d",
+    "src/solve/schedule_sa.py": "aa6d9ed21fbfaae7015cad5c5263baf6c7b037beeba1ab7e70cc027d637f0e08",
+    "src/solve/teacher_sa.py": "b345389bed1da3626f3a81348dc567c5049742db245717a7e34e9d3fc59edebf",
+    "src/solve/validation.py": "f5203cc2d71d74930800abc6c9e872d30c53d0208bdf9eda3eb24372cb09d106",
+    "scripts/benchmark_optframe_sa_2026.py": "f964c386fd060b083bbf4aba94a4ffb340f38fa167da7d5973fe819ee6d4d440",
+    "scripts/run_synthetic_experiments_2026.py": "3f346bb92371fa771a1284dc62d9298505de292f7a6320ea12277c3739035fb1"
+  },
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "nativo": {
+    "seconds": 10.0,
+    "alpha": 0.98,
+    "iter_max": 100,
+    "t0": 100000000.0,
+    "greedy_start": false
+  },
+  "referencia": {
+    "avaliacoes": 1500,
+    "temperatura_inicial": 1000000.0,
+    "resfriamento": 0.997
+  },
+  "limite_reproducibilidade": "Semente controla vizinhanca Python; RNG interno nativo nao configurado. Parada por tempo varia entre execucoes.",
+  "perfil": "sintetica_2026_v1"
+}

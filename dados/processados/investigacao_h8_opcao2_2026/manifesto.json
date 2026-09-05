@@ -1,0 +1,9 @@
+{
+  "dados/processados/instancia_sintetica_2026_v1.json": "4c758cf2b612fd29be48239a1cf95e1aaf252e5a68132a348546efcde981e629",
+  "dados/processados/curriculos_cc_si.csv": "8f4ffdde90e07b0346571fb33a33057141eef254a4f155978a3d9539380684c6",
+  "webscrap/turmas_2026_raw.csv": "2d2277aedbcd7f5c3d0f10c341bf682f6649d3cb117261504a1b0326ef6a0735",
+  "scripts/investigate_h8_option2_2026.py": "277799cf4da9fc21fa867f3620b0603766ba15b81de472be92a72351b9d70579",
+  "scripts/diagnose_curriculum_conflicts_2026.py": "241d35c9e1f75ab81c278d1d0381f9f564bac1e1c210e820e11a0b4c9875a0ac",
+  "scripts/match_qh_web_2026.py": "ee947a96a7a497fe4124c6c35a7c0db8b6dd59d22e5390c6483f7164f2bc069b",
+  "src/solve/direct_objective.py": "287c94657ed09f789fb8eef2580d2fe34021d1502319f01d8b3fe731916b7baf"
+}

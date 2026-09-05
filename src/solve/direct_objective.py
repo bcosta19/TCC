@@ -22,13 +22,18 @@ def overlaps(start_a: int, end_a: int, start_b: int, end_b: int) -> bool:
 
 
 def teachers_for_item(item: dict) -> list[str]:
-    explicit = item.get("professores_observados")
+    explicit = item.get("professores_alocados")
     if isinstance(explicit, (list, set, tuple)):
         names = [str(p).strip() for p in explicit if str(p).strip()]
         if names:
             return names
     single = str(item.get("professor", "") or "").strip()
-    return [single] if single else []
+    if single:
+        return [single]
+    observed = item.get("professores_observados")
+    if isinstance(observed, (list, set, tuple)):
+        return [str(p).strip() for p in observed if str(p).strip()]
+    return []
 
 
 def groups_for_item(item: dict) -> list[str]:
@@ -50,7 +55,7 @@ def groups_for_item(item: dict) -> list[str]:
 def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     classes = payload.get("classes", [])
     rooms = {
-        str(item.get("id")): item.get("capacidade_estimada")
+        str(item.get("id")): item.get("capacidade_estimada", item.get("capacity"))
         for item in payload.get("rooms", [])
     }
     policy_map = payload.get("politica_cotutoria", {})
@@ -66,10 +71,17 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     teacher_days = set()
     teacher_day_slots: dict[tuple[str, str, str], list[tuple[int, int]]] = defaultdict(list)
 
+    teacher_records = payload.get("teachers", [])
+    has_explicit_h12 = any(teacher.get("incluido_h12") is not None for teacher in teacher_records)
     ic_teachers: set[str] = {
         str(teacher.get("name", ""))
-        for teacher in payload.get("teachers", [])
-        if str(teacher.get("name", "")) and teacher.get("incluido_h12", True) is not False
+        for teacher in teacher_records
+        if str(teacher.get("name", ""))
+        and (
+            teacher.get("incluido_h12") is True
+            if has_explicit_h12
+            else teacher.get("incluido_h12", True) is not False
+        )
     }
     obligatory_classes = []
     preference_bonus = 0.0
@@ -80,14 +92,11 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         code = str(item.get("codigo", ""))
         is_internal = item.get("origem") == "IC" or code.startswith("TCC")
         class_teachers = teachers_for_item(item)
-        for t in class_teachers:
-            if is_internal:
-                ic_teachers.add(t)
 
         if is_internal and bool(item.get("obrigatoria", False)):
             obligatory_classes.append(item)
 
-        assigned_teacher = str(item.get("professor", "") or "")
+        assigned_teacher = class_teachers[0] if len(class_teachers) == 1 else ""
         if is_internal and assigned_teacher:
             preference = (item.get("preferencias_professores") or {}).get(assigned_teacher)
             priority = priorities.get(assigned_teacher)
@@ -129,10 +138,10 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
                     resource_violations += 1
                 room_capacity = _number(rooms.get(room))
                 if room_capacity is not None and class_capacity is not None:
-                    if class_capacity > room_capacity:
-                        room_capacity_violations += 1
                     class_room = (class_id, room)
                     if class_room not in seen_class_rooms:
+                        if class_capacity > room_capacity:
+                            room_capacity_violations += 1
                         capacity_waste += max(0.0, room_capacity - class_capacity)
                         seen_class_rooms.add(class_room)
 
@@ -217,7 +226,10 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         for current_day, next_day in zip(days, days[1:]):
             current_end = daily_bounds[(semester, teacher, current_day)][1]
             next_start = daily_bounds[(semester, teacher, next_day)][0]
-            if next_start + 24 * 60 - current_end < min_rest_hours * 60:
+            day_gap = DAY_ORDER.get(next_day, 99) - DAY_ORDER.get(current_day, 99)
+            if day_gap <= 0:
+                continue
+            if next_start + day_gap * 24 * 60 - current_end < min_rest_hours * 60:
                 rest_violations += 1
 
     # Rotation across semesters of the same year
@@ -294,6 +306,10 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
             h12_violations = sum(1 for t in ic_teachers if teacher_counts[t] < min_h12)
         elif teacher_counts:
             h12_violations = sum(1 for count in teacher_counts.values() if count < min_h12)
+    h12_deficit = None
+    if h12_available:
+        universe = ic_teachers if ic_teachers else set(teacher_counts)
+        h12_deficit = float(sum(max(0.0, min_h12 - teacher_counts[t]) for t in universe))
 
     hard = {
         "conflitos_sala": room_conflicts,
@@ -302,7 +318,7 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         "capacidade_insuficiente": room_capacity_violations,
         "recursos_incompativeis": resource_violations,
         "descanso_insuficiente": rest_violations,
-        "carga_anual_insuficiente": h12_violations if h12_available else 0,
+        "carga_anual_insuficiente": h12_violations if h12_available else None,
     }
     soft = {
         "dias_trabalhados": len(teacher_days),
@@ -313,10 +329,16 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     if preference_observations:
         soft["preferencia_priorizada"] = preference_bonus
 
-    hard_count = sum(hard.values())
+    hard_count = sum(value for value in hard.values() if value is not None)
     soft_count = sum(soft.values())
     score = hard_count * 1_000_000 + soft_count
-    return {"score": score, "hard_violations": hard_count, "hard": hard, "soft": soft}
+    return {
+        "score": score,
+        "hard_violations": hard_count,
+        "hard": hard,
+        "soft": soft,
+        "guidance": {"deficit_carga_anual": h12_deficit},
+    }
 
 
 def _number(value):

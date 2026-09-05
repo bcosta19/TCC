@@ -1,0 +1,2498 @@
+{
+  "modo": "diagnostico_paralelo_h8_opcao2",
+  "elegibilidade": "proxy_vagas_ofertadas_positivas_por_curso",
+  "max_nos_por_grupo": 100000,
+  "resumo": {
+    "trajetoria_encontrada": 22,
+    "sem_trajetoria": 0,
+    "dados_incompletos": 10
+  },
+  "grupos": [
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P1",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00167",
+        "GGM00137",
+        "TCC00296",
+        "TCC00308",
+        "TCC00346"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "TCC00296",
+          "turma_id": "2026-1-TCC00296-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00308",
+          "turma_id": "2026-1-TCC00308-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00346",
+          "turma_id": "2026-1-TCC00346-AA",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GAN00167",
+          "turma_id": "web:2026-1:GAN00167:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GGM00137",
+          "turma_id": "web:2026-1:GGM00137:A9",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P2",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00140",
+        "GMA00154",
+        "TCC00301",
+        "TCC00347",
+        "TET00347"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "GAN00140",
+          "turma_id": "web:2026-1:GAN00140:B1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00301",
+          "turma_id": "2026-1-TCC00301-AA",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TET00347",
+          "turma_id": "web:2026-1:TET00347:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00347",
+          "turma_id": "2026-1-TCC00347-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GMA00154",
+          "turma_id": "web:2026-1:GMA00154:C3",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P3",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00166",
+        "GFI00158",
+        "GMA00155",
+        "TCC00286",
+        "TCC00328",
+        "TCC00348"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 8,
+      "trajetoria": [
+        {
+          "codigo": "TCC00286",
+          "turma_id": "2026-1-TCC00286-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GAN00166",
+          "turma_id": "web:2026-1:GAN00166:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00348",
+          "turma_id": "2026-1-TCC00348-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00328",
+          "turma_id": "2026-1-TCC00328-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GFI00158",
+          "turma_id": "web:2026-1:GFI00158:A5",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "sabado",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GMA00155",
+          "turma_id": "web:2026-1:GMA00155:M2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P4",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GET00177",
+        "TCC00287",
+        "TCC00292",
+        "TCC00304",
+        "TCC00306",
+        "TCC00316"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 8,
+      "trajetoria": [
+        {
+          "codigo": "TCC00287",
+          "turma_id": "2026-1-TCC00287-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00292",
+          "turma_id": "2026-1-TCC00292-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00304",
+          "turma_id": "2026-1-TCC00304-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00306",
+          "turma_id": "2026-1-TCC00306-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00316",
+          "turma_id": "2026-1-TCC00316-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GET00177",
+          "turma_id": "web:2026-1:GET00177:C1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P5",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00226",
+        "TCC00285",
+        "TCC00288",
+        "TCC00312",
+        "TCC00313",
+        "TCC00349"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 6,
+      "trajetoria": [
+        {
+          "codigo": "TCC00226",
+          "turma_id": "2026-1-TCC00226-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00288",
+          "turma_id": "2026-1-TCC00288-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00312",
+          "turma_id": "2026-1-TCC00312-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00313",
+          "turma_id": "2026-1-TCC00313-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00349",
+          "turma_id": "2026-1-TCC00349-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00285",
+          "turma_id": "2026-1-TCC00285-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P6",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00284",
+        "TCC00291",
+        "TCC00293",
+        "TCC00305",
+        "TCC00307",
+        "TCC00314"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 6,
+      "trajetoria": [
+        {
+          "codigo": "TCC00284",
+          "turma_id": "2026-1-TCC00284-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00291",
+          "turma_id": "2026-1-TCC00291-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00293",
+          "turma_id": "2026-1-TCC00293-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00305",
+          "turma_id": "2026-1-TCC00305-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00307",
+          "turma_id": "2026-1-TCC00307-B1A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00314",
+          "turma_id": "2026-1-TCC00314-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P7",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "TCC00289",
+        "TCC00297",
+        "TCC00298",
+        "TCC00315",
+        "TCC00318",
+        "TCC00344",
+        "TCC00351"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00351"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00351"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "CC-P8",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "TCC00290",
+        "TCC00352"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00352"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00352"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P1",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "CGI00004",
+        "TCC00332",
+        "TCC00354",
+        "TCC00355",
+        "TCC00366"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 6,
+      "trajetoria": [
+        {
+          "codigo": "CGI00004",
+          "turma_id": "2026-1-CGI00004-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "sexta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00332",
+          "turma_id": "2026-1-TCC00332-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00354",
+          "turma_id": "2026-1-TCC00354-B1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00355",
+          "turma_id": "2026-1-TCC00355-EA",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00366",
+          "turma_id": "2026-1-TCC00366-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P2",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00144",
+        "GSI00433",
+        "STA00267",
+        "TCC00356"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "STA00267",
+          "turma_id": "web:2026-1:STA00267:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GSI00433",
+          "turma_id": "web:2026-1:GSI00433:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00356",
+          "turma_id": "2026-1-TCC00356-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GAN00144",
+          "turma_id": "web:2026-1:GAN00144:C1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P3",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GET00116",
+        "SDV00143",
+        "TCC00331",
+        "TCC00358"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "SDV00143",
+          "turma_id": "web:2026-1:SDV00143:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00331",
+          "turma_id": "2026-1-TCC00331-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00358",
+          "turma_id": "2026-1-TCC00358-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GET00116",
+          "turma_id": "web:2026-1:GET00116:C2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P4",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "GCI00116",
+        "STA00168",
+        "TCC00334",
+        "TCC00357",
+        "TCC00359"
+      ],
+      "disciplinas_ausentes": [
+        "GCI00116"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "GCI00116"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P5",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "GCI00126",
+        "TCC00225",
+        "TCC00335",
+        "TCC00337",
+        "TCC00362"
+      ],
+      "disciplinas_ausentes": [
+        "GCI00126"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "GCI00126"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P6",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00336",
+        "TCC00338",
+        "TCC00360",
+        "TCC00361"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "TCC00338",
+          "turma_id": "2026-1-TCC00338-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00360",
+          "turma_id": "2026-1-TCC00360-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00361",
+          "turma_id": "2026-1-TCC00361-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00336",
+          "turma_id": "2026-1-TCC00336-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P7",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "CGI00002",
+        "TCC00330",
+        "TCC00341",
+        "TCC00363",
+        "TCC00364"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00364"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00364"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-1",
+      "grupo": "SI-P8",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "CGI00003",
+        "STA00191",
+        "TCC00222",
+        "TCC00324",
+        "TCC00365"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "CGI00003",
+          "turma_id": "web:2026-1:CGI00003:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "sabado",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ]
+        },
+        {
+          "codigo": "STA00191",
+          "turma_id": "web:2026-1:STA00191:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00222",
+          "turma_id": "2026-1-TCC00222-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00324",
+          "turma_id": "2026-1-TCC00324-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00365",
+          "turma_id": "2026-1-TCC00365-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P1",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00167",
+        "GGM00137",
+        "TCC00296",
+        "TCC00308",
+        "TCC00346"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "GAN00167",
+          "turma_id": "web:2026-2:GAN00167:B2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00296",
+          "turma_id": "2026-2-TCC00296-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00308",
+          "turma_id": "2026-2-TCC00308-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00346",
+          "turma_id": "2026-2-TCC00346-AA",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GGM00137",
+          "turma_id": "web:2026-2:GGM00137:A9",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P2",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00140",
+        "GMA00154",
+        "TCC00301",
+        "TCC00347",
+        "TET00347"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "GAN00140",
+          "turma_id": "web:2026-2:GAN00140:B2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00301",
+          "turma_id": "2026-2-TCC00301-AA",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00347",
+          "turma_id": "2026-2-TCC00347-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TET00347",
+          "turma_id": "web:2026-2:TET00347:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GMA00154",
+          "turma_id": "web:2026-2:GMA00154:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P3",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00166",
+        "GFI00158",
+        "GMA00155",
+        "TCC00286",
+        "TCC00328",
+        "TCC00348"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 8,
+      "trajetoria": [
+        {
+          "codigo": "GAN00166",
+          "turma_id": "web:2026-2:GAN00166:A2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00286",
+          "turma_id": "2026-2-TCC00286-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00328",
+          "turma_id": "2026-2-TCC00328-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00348",
+          "turma_id": "2026-2-TCC00348-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GFI00158",
+          "turma_id": "web:2026-2:GFI00158:A5",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "sabado",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GMA00155",
+          "turma_id": "web:2026-2:GMA00155:M2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P4",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GET00177",
+        "TCC00287",
+        "TCC00292",
+        "TCC00304",
+        "TCC00306",
+        "TCC00316"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 8,
+      "trajetoria": [
+        {
+          "codigo": "TCC00287",
+          "turma_id": "2026-2-TCC00287-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00292",
+          "turma_id": "2026-2-TCC00292-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00304",
+          "turma_id": "2026-2-TCC00304-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00306",
+          "turma_id": "2026-2-TCC00306-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00316",
+          "turma_id": "2026-2-TCC00316-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GET00177",
+          "turma_id": "web:2026-2:GET00177:C1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P5",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00226",
+        "TCC00285",
+        "TCC00288",
+        "TCC00312",
+        "TCC00313",
+        "TCC00349"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 6,
+      "trajetoria": [
+        {
+          "codigo": "TCC00226",
+          "turma_id": "2026-2-TCC00226-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00288",
+          "turma_id": "2026-2-TCC00288-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00312",
+          "turma_id": "2026-2-TCC00312-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00313",
+          "turma_id": "2026-2-TCC00313-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00349",
+          "turma_id": "2026-2-TCC00349-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00285",
+          "turma_id": "2026-2-TCC00285-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P6",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00284",
+        "TCC00291",
+        "TCC00293",
+        "TCC00305",
+        "TCC00307",
+        "TCC00314"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 6,
+      "trajetoria": [
+        {
+          "codigo": "TCC00284",
+          "turma_id": "2026-2-TCC00284-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00291",
+          "turma_id": "2026-2-TCC00291-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00293",
+          "turma_id": "2026-2-TCC00293-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00307",
+          "turma_id": "2026-2-TCC00307-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "07:00",
+              "fim": "09:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "07:00",
+              "fim": "09:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00314",
+          "turma_id": "2026-2-TCC00314-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00305",
+          "turma_id": "2026-2-TCC00305-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "09:00",
+              "fim": "11:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "09:00",
+              "fim": "11:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P7",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "TCC00289",
+        "TCC00297",
+        "TCC00298",
+        "TCC00315",
+        "TCC00318",
+        "TCC00344",
+        "TCC00351"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00351"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00351"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "CC-P8",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "TCC00290",
+        "TCC00352"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00352"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00352"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P1",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "CGI00004",
+        "TCC00332",
+        "TCC00354",
+        "TCC00355",
+        "TCC00366"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "CGI00004",
+          "turma_id": "web:2026-2:CGI00004:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "sexta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00332",
+          "turma_id": "2026-2-TCC00332-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00354",
+          "turma_id": "2026-2-TCC00354-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00355",
+          "turma_id": "2026-2-TCC00355-E-A",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00366",
+          "turma_id": "2026-2-TCC00366-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P2",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GAN00144",
+        "GSI00433",
+        "STA00267",
+        "TCC00356"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "STA00267",
+          "turma_id": "web:2026-2:STA00267:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GSI00433",
+          "turma_id": "web:2026-2:GSI00433:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00356",
+          "turma_id": "2026-2-TCC00356-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GAN00144",
+          "turma_id": "web:2026-2:GAN00144:B2",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P3",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "GET00116",
+        "SDV00143",
+        "TCC00331",
+        "TCC00358"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "SDV00143",
+          "turma_id": "web:2026-2:SDV00143:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00331",
+          "turma_id": "2026-2-TCC00331-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00358",
+          "turma_id": "2026-2-TCC00358-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "GET00116",
+          "turma_id": "web:2026-2:GET00116:C1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "11:00",
+              "fim": "13:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "11:00",
+              "fim": "13:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P4",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "GCI00116",
+        "STA00168",
+        "TCC00334",
+        "TCC00357",
+        "TCC00359"
+      ],
+      "disciplinas_ausentes": [
+        "GCI00116"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "GCI00116"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P5",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "GCI00126",
+        "TCC00225",
+        "TCC00335",
+        "TCC00337",
+        "TCC00362"
+      ],
+      "disciplinas_ausentes": [
+        "GCI00126"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "GCI00126"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P6",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "TCC00336",
+        "TCC00338",
+        "TCC00360",
+        "TCC00361"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 4,
+      "trajetoria": [
+        {
+          "codigo": "TCC00336",
+          "turma_id": "2026-2-TCC00336-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00338",
+          "turma_id": "2026-2-TCC00338-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "20:00",
+              "fim": "22:00"
+            },
+            {
+              "dia": "terca",
+              "inicio": "20:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00360",
+          "turma_id": "2026-2-TCC00360-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00361",
+          "turma_id": "2026-2-TCC00361-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "sexta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P7",
+      "status": "dados_incompletos",
+      "motivo": "cobertura_ou_dados_insuficientes",
+      "disciplinas_esperadas": [
+        "CGI00002",
+        "TCC00330",
+        "TCC00341",
+        "TCC00363",
+        "TCC00364"
+      ],
+      "disciplinas_ausentes": [
+        "TCC00364"
+      ],
+      "disciplinas_sem_turma_utilizavel": [
+        "TCC00364"
+      ],
+      "pendencias": [],
+      "nos_explorados": 0,
+      "trajetoria": []
+    },
+    {
+      "semestre": "2026-2",
+      "grupo": "SI-P8",
+      "status": "trajetoria_encontrada",
+      "motivo": "testemunha_verificada",
+      "disciplinas_esperadas": [
+        "CGI00003",
+        "STA00191",
+        "TCC00222",
+        "TCC00324",
+        "TCC00365"
+      ],
+      "disciplinas_ausentes": [],
+      "disciplinas_sem_turma_utilizavel": [],
+      "pendencias": [],
+      "nos_explorados": 5,
+      "trajetoria": [
+        {
+          "codigo": "CGI00003",
+          "turma_id": "web:2026-2:CGI00003:A1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "sabado",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ]
+        },
+        {
+          "codigo": "STA00191",
+          "turma_id": "web:2026-2:STA00191:P1",
+          "origem": "complemento",
+          "encontros": [
+            {
+              "dia": "terca",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00222",
+          "turma_id": "2026-2-TCC00222-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quinta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00324",
+          "turma_id": "2026-2-TCC00324-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "sexta",
+              "inicio": "18:00",
+              "fim": "22:00"
+            }
+          ]
+        },
+        {
+          "codigo": "TCC00365",
+          "turma_id": "2026-2-TCC00365-A1",
+          "origem": "instancia",
+          "encontros": [
+            {
+              "dia": "quarta",
+              "inicio": "18:00",
+              "fim": "20:00"
+            },
+            {
+              "dia": "segunda",
+              "inicio": "18:00",
+              "fim": "20:00"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "avaliacao_atual": {
+    "score": 27003758.716666665,
+    "hard_violations": 27,
+    "hard": {
+      "conflitos_sala": 3,
+      "conflitos_professor": 0,
+      "conflitos_curriculares": 10,
+      "capacidade_insuficiente": 0,
+      "recursos_incompativeis": 0,
+      "descanso_insuficiente": 0,
+      "carga_anual_insuficiente": 14
+    },
+    "soft": {
+      "dias_trabalhados": 233,
+      "janelas": 46,
+      "desperdicio_capacidade": 3521.0,
+      "rodizio_semestre": 38,
+      "preferencia_priorizada": -79.28333333333335
+    },
+    "guidance": {
+      "deficit_carga_anual": 14.0
+    }
+  },
+  "fontes_sha256": {
+    "dados/processados/instancia_sintetica_2026_v1.json": "4c758cf2b612fd29be48239a1cf95e1aaf252e5a68132a348546efcde981e629",
+    "/home/brspike/Projects/TCC/dados/grade_cc.md": "6cde68b961a11901c62d4627862167aa58a80f944254d9eb45826dbb993d9813",
+    "/home/brspike/Projects/TCC/dados/grade_si.md": "72459419648f0a82269cea4a68a46a08ae98e3d835a2934779653a2d005e33c0",
+    "/home/brspike/Projects/TCC/scripts/check_h8_trajectories_2026.py": "6e81593ebb9172fdfd625b4b086bf35a4c7f05a2ea8b78627591686bff3c08c4",
+    "/home/brspike/Projects/TCC/src/eval/trajectories.py": "1d505159faf91fc26efd536bed3da65857045b4e95c0a9d12c60927240fa8524",
+    "/home/brspike/Projects/TCC/src/model/curricula.py": "8ea1b2e88b077d59873da3fa73e927e3958a6622486c2c0883eee36c1de057b4",
+    "/home/brspike/Projects/TCC/src/solve/direct_objective.py": "287c94657ed09f789fb8eef2580d2fe34021d1502319f01d8b3fe731916b7baf",
+    "/home/brspike/Projects/TCC/scripts/match_qh_web_2026.py": "ee947a96a7a497fe4124c6c35a7c0db8b6dd59d22e5390c6483f7164f2bc069b",
+    "webscrap/turmas_2026_raw.csv": "2d2277aedbcd7f5c3d0f10c341bf682f6649d3cb117261504a1b0326ef6a0735"
+  }
+}

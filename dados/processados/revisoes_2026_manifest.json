@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "descricao": "Hashes das fontes usadas para gerar as tabelas de revisao humana de 2026.",
+  "sources": {
+    "dados/processados/turmas_2026_cc_si.csv": "9dac61c5a55c6664e0f692a914480ebd7f233d17331e8a0cb47c83ca43625adf",
+    "dados/processados/horarios_2026_cc_si.csv": "e1870cb0c552c2f0c392acfcd980ed8b66f69edda68cccc2cb83fbc82e5b3bd6",
+    "dados/processados/salas_2026_cc_si.csv": "eee9acfb04a1c35e83f4ff4bfdf40deae87123c0fc2ce75eb620788355f176c0",
+    "dados/processados/vagas_turmas_2026.csv": "6f2bd2b85dc65abd36c30969081ef9ef77e857e0e1ab43cff65e19c8eaa93ee6",
+    "dados/processados/curriculos_cc_si.csv": "8f4ffdde90e07b0346571fb33a33057141eef254a4f155978a3d9539380684c6",
+    "dados/processados/turmas_2025.csv": "7960c2be711182d14a1c30a70e339808356dd9f4b5643e3d27249ea4035ebbbd",
+    "dados/processados/preferencias_2025.csv": "e4a0ca18d0e4e3f1c9bebc19ffdbbea31cf693166b6167631916bfb789be83a8",
+    "dados/processados/dias_por_setor_2025.csv": "df7bca43752a723ad464e1943ac350f586fd527ee32899491ea67dd929a65800",
+    "dados/processados/carga_docente_2025.csv": "0b81a3d5f5fe8ec0b40b71ca7a84fb1af65e999a8e124c3e1bccad1a75af73bd",
+    "webscrap/turmas_2026_raw.csv": "2d2277aedbcd7f5c3d0f10c341bf682f6649d3cb117261504a1b0326ef6a0735"
+  }
+}

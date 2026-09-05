@@ -146,6 +146,7 @@ class EvaluatorTests(unittest.TestCase):
         ]
         result = evaluate(classes, meetings)
         self.assertEqual(result.hard["carga_anual_insuficiente"], 1)
+        self.assertEqual(result.metadata["deficit_carga_anual"], 1.0)
 
     def test_annual_load_includes_unassigned_teacher(self):
         classes = [
@@ -241,6 +242,23 @@ class EvaluatorTests(unittest.TestCase):
         ]
         result = evaluate(classes, meetings)
         self.assertEqual(result.hard["conflitos_professor"], 0)
+
+    def test_non_consecutive_days_do_not_create_false_rest_violation(self):
+        classes = [class_row("a", "2026-1", "TCC00001", "A", "31", "CC-P1", "Ana")]
+        meetings = [
+            meeting("a", "2026-1", day="segunda", start="20:00", end="22:00"),
+            meeting("a", "2026-1", day="quarta", start="07:00", end="09:00", room="304"),
+        ]
+        result = evaluate(classes, meetings)
+        self.assertEqual(result.hard["descanso_insuficiente"], 0)
+
+    def test_current_assignment_precedes_observed_teacher(self):
+        classes = [class_row("a", "2026-1", "TCC00001", "A", "31", "CC-P1", "Ana")]
+        classes[0]["professores_observados"] = ["Bruno"]
+        classes[0]["professores_alocados"] = ["Ana"]
+        result = evaluate(classes, [meeting("a", "2026-1")])
+        self.assertEqual(result.metadata["professores"], 1)
+        self.assertEqual(QHEvaluator._teachers_for_class(classes[0]), ["Ana"])
 
     def test_co_teaching_conflict_for_both_teachers(self):
         classes = [
