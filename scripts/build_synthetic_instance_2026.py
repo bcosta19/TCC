@@ -315,11 +315,20 @@ def build(config_path: Path, input_path: Path) -> dict:
             for meeting in item.get("encontros", [])
         ]
         item["padrao_horario_observado"] = copy.deepcopy(current_pattern)
-        flexible = (
-            item.get("origem") == "IC"
-            and item.get("obrigatoria") is False
-            and not str(item.get("setor", "")).startswith("PROJ.FINAL")
-        )
+        servico_fixos = set(config.get("servico_codigos_fixos") or [])
+        hp_flex = "obrigatorias_flexiveis" in str((config.get("horarios") or {}).get("modo", ""))
+        if hp_flex:
+            flexible = (
+                item.get("origem") == "IC"
+                and item.get("codigo") not in servico_fixos
+                and not str(item.get("setor", "")).startswith("PROJ.FINAL")
+            )
+        else:
+            flexible = (
+                item.get("origem") == "IC"
+                and item.get("obrigatoria") is False
+                and not str(item.get("setor", "")).startswith("PROJ.FINAL")
+            )
         domain = build_schedule_domain(
             item,
             slots,

@@ -304,7 +304,11 @@ def write_report(config: dict, instance: dict, rows: list[dict], baseline: dict,
     )
     lines += [
         "",
-        f"Os conflitos curriculares nao diminuem neste perfil porque as {mandatory} turmas obrigatorias permanecem com horario fixo; somente optativas recebem dominio de horario sintetico. Essa limitacao e intencional e separa o teste de professores/salas da futura validacao dos horarios institucionais.",
+        (
+            f"Os conflitos curriculares nao diminuem neste perfil porque as {mandatory} turmas obrigatorias permanecem com horario fixo; somente optativas recebem dominio de horario sintetico. Essa limitacao e intencional e separa o teste de professores/salas da futura validacao dos horarios institucionais."
+            if flexible < mandatory
+            else f"Neste perfil, {flexible} turmas tem horario flexivel (incluindo obrigatorias do IC dentro do setor); por isso os conflitos curriculares podem diminuir com remanejamento de horarios, ao custo de piora nos criterios soft."
+        ),
         "",
         f"A melhor busca ({global_algorithm.upper()}) altera as metricas conforme a tabela acima. Como o comparador prioriza qualquer reducao hard, uma melhora hard pode aceitar piora nos criterios soft; o resultado evidencia um trade-off e nao demonstra superioridade geral de um algoritmo.",
     ]
