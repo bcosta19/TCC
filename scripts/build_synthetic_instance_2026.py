@@ -212,6 +212,8 @@ def validate(payload: dict) -> list[str]:
         if not item.get("encontros"):
             errors.append(f"{item['id']}: turma sem encontro")
         for meeting in item.get("encontros", []):
+            if meeting.get("sala") is None and item.get("origem") != "IC":
+                continue
             if meeting.get("sala") not in room_ids:
                 errors.append(f"{item['id']}: sala inexistente {meeting.get('sala')}")
         if not item.get("dominio_horarios"):
@@ -258,6 +260,11 @@ def build(config_path: Path, input_path: Path) -> dict:
             lab_rows.append({"codigo": item["codigo"], "sala": meeting.get("sala", "")})
     lab_evidence = lab_evidence_by_code(lab_rows)
 
+    reviewed_fixed = {}
+    if config["horarios"]["modo"] == "revisao_horarios_fixos_2026":
+        for row in read_csv(DATA / "revisao_horarios_fixos_2026.csv"):
+            if row.get("validado", "").strip().lower() == "sim" and row.get("horario_fixo") in {"sim", "nao"}:
+                reviewed_fixed[row["turma_id"]] = row["horario_fixo"] == "sim"
     classification = config["classificacoes_sinteticas"]
     observed_names = set()
     mandatory_counts: Counter = Counter()
@@ -317,7 +324,9 @@ def build(config_path: Path, input_path: Path) -> dict:
         item["padrao_horario_observado"] = copy.deepcopy(current_pattern)
         servico_fixos = set(config.get("servico_codigos_fixos") or [])
         hp_flex = "obrigatorias_flexiveis" in str((config.get("horarios") or {}).get("modo", ""))
-        if hp_flex:
+        if reviewed_fixed:
+            flexible = reviewed_fixed.get(item["id"]) is False
+        elif hp_flex:
             flexible = (
                 item.get("origem") == "IC"
                 and item.get("codigo") not in servico_fixos
@@ -339,6 +348,13 @@ def build(config_path: Path, input_path: Path) -> dict:
         item["horario_fixo"] = not flexible or len(domain) <= 1
         item["horario_dominio_fonte"] = config["horarios"]["modo"]
         item["sala_fixa"] = item.get("origem") != "IC"
+
+    if config.get("turmas_externas_referencia"):
+        from scripts.build_official_instance_2026 import external_class  # import local evita ciclo
+
+        for row in read_csv(DATA / "revisao_turmas_externas_2026.csv"):
+            if row.get("tratamento_no_modelo") == "fixar_horario_e_sala" and row.get("vinculada_ao_pdf") != "True":
+                payload["classes"].append(external_class(row))
 
     all_names = sorted({
         teacher
@@ -426,6 +442,7 @@ def build(config_path: Path, input_path: Path) -> dict:
             "cotutoria_h12": config["cotutoria_h12"],
             "horarios": config["horarios"]["modo"],
             "habilitacao": config["professores"]["dominio"],
+            "turmas_externas_referencia": bool(config.get("turmas_externas_referencia")),
         },
         "h12_matching": {
             "docentes": len(h12_set),

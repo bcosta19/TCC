@@ -370,10 +370,15 @@ def write_report(config: dict, instance: dict, rows: list[dict], baseline: dict,
 
 
 def main() -> None:
+    global OUTPUT_DIR, RUNS_CSV, REPORT
     parser = argparse.ArgumentParser(description="Executa o benchmark sintetico multi-seed de 2026")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--instance", type=Path, default=DEFAULT_INSTANCE)
+    parser.add_argument("--saida", type=Path, default=OUTPUT_DIR, help="Pasta das soluções JSON")
+    parser.add_argument("--csv", type=Path, default=RUNS_CSV, help="CSV com uma linha por execução")
+    parser.add_argument("--relatorio", type=Path, default=REPORT, help="Relatório Markdown")
     args = parser.parse_args()
+    OUTPUT_DIR, RUNS_CSV, REPORT = args.saida.resolve(), args.csv.resolve(), args.relatorio.resolve()
     config_path = args.config.resolve()
     instance_path = args.instance.resolve()
     config = json.loads(config_path.read_text(encoding="utf-8"))

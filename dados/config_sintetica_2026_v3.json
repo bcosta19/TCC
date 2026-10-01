@@ -1,0 +1,62 @@
+{
+  "classificacoes_sinteticas": {
+    "TCC00368": {
+      "obrigatoria": false,
+      "grupos_curriculares": []
+    },
+    "TCC00371": {
+      "obrigatoria": false,
+      "grupos_curriculares": []
+    }
+  },
+  "h12_minimo": 3,
+  "h12_universo_sintetico": "40_docentes_observados_selecionados_por_carga_e_matching_proxy_de_permanentes",
+  "h12_universo_tamanho": 40,
+  "capacidade_sala": "maximo_observado_2025_2026",
+  "cotutoria_h12": "integral_para_cada_docente",
+  "descricao": "Exploratorio alinhado as decisoes de 30/09/2026: horarios fixos pela tabela de revisao (externas e turmas do IC com vagas para outros cursos), turmas externas obrigatorias de referencia em H8, TCC00368 optativa, cotutoria integral. Setores, habilitacao, salas, laboratorio, prioridades e universo H12 continuam proxies. Nao oficial.",
+  "experimento": {
+    "algoritmos": {
+      "ils": {
+        "avaliacoes": 1500,
+        "forca_perturbacao": 3,
+        "tentativas_busca_local": 30
+      },
+      "sa": {
+        "avaliacoes": 1500,
+        "resfriamento": 0.997,
+        "temperatura_inicial": 1000000.0
+      },
+      "vns": {
+        "avaliacoes": 1500,
+        "tentativas_busca_local": 30
+      }
+    },
+    "maximo_candidatos_guloso": 6,
+    "seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ]
+  },
+  "horarios": {
+    "modo": "revisao_horarios_fixos_2026",
+    "maximo_padroes_por_turma": 12
+  },
+  "id": "sintetica_2026_v3",
+  "laboratorio_por_prefixo_l": true,
+  "uso_estrito_de_laboratorio": true,
+  "objetivo": {
+    "penalidade_hard": 1000000,
+    "pesos_soft": "unitarios_provisorios"
+  },
+  "prioridade_docente_neutra": 1.0,
+  "professores": {
+    "dominio": "setor_historico_2025_mais_professor_observado",
+    "maximo_candidatos_por_turma": 12
+  },
+  "status": "nao_oficial_exploratorio_decisoes_2026_09_30",
+  "turmas_externas_referencia": true
+}

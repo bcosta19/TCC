@@ -137,6 +137,21 @@ e `dados/processados/resultados_experimento_sintetico_2026.csv`. Esses
 resultados são explicitamente não oficiais; a instância institucional de 2026
 continua bloqueada enquanto houver validações humanas pendentes.
 
+### Perfil v3 e apresentação
+
+O perfil `sintetica_2026_v3` aplica as decisões de 30/09/2026 (horários fixos
+pela tabela de revisão, turmas externas de referência em H8, `TCC00368`
+optativa, cotutoria integral) e mantém as demais estimativas.
+
+```bash
+python scripts/build_synthetic_instance_2026.py --config dados/config_sintetica_2026_v3.json --output dados/processados/instancia_sintetica_2026_v3.json
+python scripts/run_synthetic_experiments_2026.py --config dados/config_sintetica_2026_v3.json --instance dados/processados/instancia_sintetica_2026_v3.json --saida dados/processados/experimento_sintetico_2026_v3 --csv dados/processados/resultados_experimento_sintetico_2026_v3.csv --relatorio dados/processados/relatorio_experimento_sintetico_2026_v3.md
+python scripts/report_synthetic_presentation_2026.py
+```
+
+A apresentação comparando v1, v2_hp e v3 é gerada em
+`saida/apresentacao_experimento_sintetico_v3.pdf` (não versionada).
+
 ### Piloto nativo e diagnóstico curricular
 
 ```bash
