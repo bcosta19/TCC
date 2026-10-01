@@ -6,11 +6,11 @@ import pandas as pd
 from scripts.prefill_external_references_2026 import ALTERNATIVE, REFERENCE, prefill
 
 
-def offer(code, turma, schedule, vacancies, course="31", treatment=""):
+def offer(code, turma, schedule, vacancies, course="31", treatment="", enrolled=0):
     return {
         "semestre": "2026-1", "codigo": code, "turma": turma, "horarios": schedule,
         "periodo_curricular": "", "tratamento_no_modelo": treatment,
-        "vagas_por_curso": json.dumps([{"codigo_curso": course, "vagas": vacancies, "inscritos": 0}]),
+        "vagas_por_curso": json.dumps([{"codigo_curso": course, "vagas": vacancies, "inscritos": enrolled}]),
     }
 
 
@@ -37,6 +37,15 @@ class PrefillExternalReferencesTests(unittest.TestCase):
         self.assertEqual(self.treatments(result)["GMA2-B1"], REFERENCE)
         self.assertEqual(self.treatments(result)["GMA2-A1"], ALTERNATIVE)
         self.assertEqual(set(result.loc[result["tratamento_no_modelo"].eq(REFERENCE), "periodo_curricular"]), {"CC-P3"})
+
+    def test_enrollment_beats_offered_vacancies(self):
+        table = pd.DataFrame([
+            offer("GMA1", "A1", "Seg 07:00-09:00", 60, enrolled=10),
+            offer("GMA1", "B1", "Ter 07:00-09:00", 40, enrolled=30),
+        ])
+        result = prefill(table, {"GMA1": ["CC-P1"]})
+        self.assertEqual(self.treatments(result)["GMA1-B1"], REFERENCE)
+        self.assertEqual(result.loc[result["turma"].eq("B1"), "inscritos_curso_pct"].item(), "75")
 
     def test_keeps_human_decisions(self):
         table = pd.DataFrame([

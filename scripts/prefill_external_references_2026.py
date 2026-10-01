@@ -3,9 +3,12 @@
 Regra decidida em 30/09/2026 (opção 1 de
 ``anotacoes/decisoes_modelagem_2026_09_30.md``): para cada disciplina externa
 obrigatória de um período de CC ou SI, fixa-se em H8 uma única turma de
-referência por semestre, a de mais vagas ofertadas para o curso (desempate por
-inscritos e pelo nome da turma) entre as que não chocam com as referências já
-escolhidas para o mesmo período. As demais turmas da mesma disciplina ficam
+referência por semestre, a com mais alunos do curso inscritos (desempate por
+vagas e pelo nome da turma) entre as que não chocam com as referências já
+escolhidas para o mesmo período. Os inscritos vêm da página pública da turma
+("Vagas Alocadas"), já coletada em ``vagas_por_curso``. A coluna
+``inscritos_curso_pct`` registra a fração dos inscritos do curso na turma de
+referência: valores baixos indicam alunos espalhados entre várias turmas. As demais turmas da mesma disciplina ficam
 como ``alternativa_nao_modelada``.
 
 Só linhas com ``tratamento_no_modelo`` vazio são alteradas, salvo com
@@ -29,7 +32,7 @@ INSTANCE = DATA / "instancia_2026_cc_si.json"
 COURSE_CODES = {"CC": "31", "SI": "83"}
 REFERENCE = "fixar_horario_e_sala"
 ALTERNATIVE = "alternativa_nao_modelada"
-CRITERION = "turma de referência: mais vagas para o curso sem choque com as demais referências do período (regra de 30/09/2026)"
+CRITERION = "turma de referência: mais inscritos do curso sem choque com as demais referências do período (regra de 30/09/2026)"
 MEETING_RE = re.compile(r"(Seg|Ter|Qua|Qui|Sex|Sab)\s+(\d{2}:\d{2})-(\d{2}:\d{2})")
 
 
@@ -77,8 +80,9 @@ def prefill(table: pd.DataFrame, groups: dict[str, list[str]], overwrite: bool =
     chocarem, fica a de mais vagas e o choque é registrado no critério.
     """
     table = table.copy()
-    if "criterio_referencia" not in table.columns:
-        table["criterio_referencia"] = ""
+    for column in ("criterio_referencia", "inscritos_curso_pct"):
+        if column not in table.columns:
+            table[column] = ""
     editable = table["tratamento_no_modelo"].str.strip().eq("") | overwrite
 
     codes_by_group: dict[str, list[str]] = {}
@@ -102,8 +106,8 @@ def prefill(table: pd.DataFrame, groups: dict[str, list[str]], overwrite: bool =
                 ranked = sorted(
                     offered,
                     key=lambda index: (
-                        -course_offer(table.at[index, "vagas_por_curso"], course_code)[0],
                         -course_offer(table.at[index, "vagas_por_curso"], course_code)[1],
+                        -course_offer(table.at[index, "vagas_por_curso"], course_code)[0],
                         table.at[index, "turma"],
                     ),
                 )
@@ -116,7 +120,10 @@ def prefill(table: pd.DataFrame, groups: dict[str, list[str]], overwrite: bool =
                 reference = (compatible or ranked)[0]
                 chosen.append(reference)
                 criterion = CRITERION if compatible else CRITERION + "; choca com outra referência do período"
+                enrolled = sum(course_offer(table.at[index, "vagas_por_curso"], course_code)[1] for index in offered)
+                share = course_offer(table.at[reference, "vagas_por_curso"], course_code)[1] / enrolled if enrolled else 0.0
                 if editable[reference]:
+                    table.at[reference, "inscritos_curso_pct"] = f"{100 * share:.0f}"
                     current = [value for value in table.at[reference, "periodo_curricular"].split(";") if value]
                     table.at[reference, "periodo_curricular"] = ";".join(sorted(set(current) | {group}))
                     table.at[reference, "tratamento_no_modelo"] = REFERENCE

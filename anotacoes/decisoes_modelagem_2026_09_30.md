@@ -45,8 +45,12 @@ e as notas abertas de [`modelo_matematico.md`](modelo_matematico.md).
 - As 21 disciplinas obrigatórias de outros departamentos das grades de CC/SI
   (Cálculo, Física, Estatística etc.) entram em H8 como ocupação fixa.
 - Como cada uma tem várias turmas abertas a CC/SI, fixa-se **uma turma de
-  referência por disciplina, semestre e período**: a de mais vagas para o
-  curso que não choque com as demais referências do período. As outras ficam
+  referência por disciplina, semestre e período**: a com mais alunos do curso
+  inscritos (página pública da turma, "Vagas Alocadas") que não choque com as
+  demais referências do período. A coluna `inscritos_curso_pct` mostra a
+  concentração: em 28 das 38 referências ela passa de 50%; em Física
+  (`GFI00158`), Cálculo II (`GMA00155`) e `GET00177` os alunos estão
+  espalhados (21–38%) e a referência é fraca. As outras ficam
   como `alternativa_nao_modelada`.
 - A escolha da turma de referência é uma hipótese a validar com a
   coordenação; o pré-preenchimento é feito por
