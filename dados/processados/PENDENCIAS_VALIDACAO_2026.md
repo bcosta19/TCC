@@ -54,8 +54,8 @@ Este documento descreve detalhadamente os **12 itens de validação humana** nec
 
 - **Arquivo**: `dados/processados/politica_cotutoria_2026.csv`
 - **Turmas afetadas**:
-  - `2026-2-TCC00285-A1` (Compiladores, Martinhon e Raquel)
-  - `2026-2-TCC00354-A1` (Desenvolvimento Web, Martinhon e Raquel)
+  - `2026-2-TCC00285-A1` (Análise e Projeto de Algoritmos, Martinhon e Raquel)
+  - `2026-2-TCC00354-A1` (Fundamentos Matemáticos para Computação, Martinhon e Raquel)
 - **Colunas a preencher**: `politica_h12`, `professor_responsavel` (se aplicável)
 - **Valores aceitos para `politica_h12`**:
   1. `integral_para_cada_docente`: cada professor da cotutoria recebe +1 na contagem de turmas de H12.

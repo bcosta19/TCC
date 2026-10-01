@@ -1,5 +1,9 @@
 # Hipóteses provisórias — 07/09/2026
 
+> **Atualização 30/09/2026:** HP1 e HP2 foram decididas — ver
+> [`decisoes_modelagem_2026_09_30.md`](decisoes_modelagem_2026_09_30.md).
+> O texto abaixo preserva o registro original.
+>
 > Acordadas com o aluno, **pendentes de validação do orientador**.
 > Não são diretrizes confirmadas. Valem para testes no perfil sintético;
 > a instância institucional segue com `pronta_para_experimento=false`.

@@ -221,7 +221,7 @@ z_{c,m,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r
 
 **Viabilidade:** exige $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano — condição estrutural do IC, e não uma incógnita: a oferta de obrigatórias é fixada pelas grades de CC e SI, que obrigam a ofertar todas as suas obrigatórias todo ano, independentemente de quem as ministra. Obrigatória não é o recurso escasso; o gargalo é o tempo do professor. No quadro de 2023–2025 o IC ofertou ~134 turmas de graduação/ano, ~117 delas de suas ~45 disciplinas de oferta regular, contra um corpo permanente da ordem de 40 professores (os que reaparecem em ≥4 dos 6 semestres coletados) — cerca de 3 obrigatórias/professor/ano, o próprio piso de H12. Por isso **H12 fica hard, sem folga de contingência**. **Interação com O1/O5:** obrigar 3 obrigatórias por professor consome a folga usada para atender preferências (O1) e rodízio (O5) — tensão real entre departamento e professores, sem termo novo em $`Z`$ (por ser hard).
 
-> **Nota:** H8, H10 e H11 podem ser relaxadas para *soft* (penalização) caso tornem instâncias inviáveis — decisão a tomar com o orientador. A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
+> **Nota (decidido em 30/09/2026):** H8 e H11 permanecem *hard*; H10 pode ser relaxada para *soft* (penalização), com peso a definir. Ver [`decisoes_modelagem_2026_09_30.md`](decisoes_modelagem_2026_09_30.md). A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
 
 ---
 
@@ -320,5 +320,6 @@ CC e SI disputam professores, salas e slots compartilhados — é a materializa�
 - [ ] Definir $`\mathcal{G}`$ (grupos curriculares por período, **para as duas grades**) a partir da grade de cada curso, **incluindo as disciplinas de outros departamentos** que cada período cursa → necessário para H8.
 - [ ] Receber a **grade de SI por período** → define $`\mathcal{G}^{\text{SI}}`$ e $`\mathcal{C}^{\text{SI}}`$ — e mapear a **interseção CC∩SI** (quais turmas são compartilhadas; o tamanho dela condiciona os experimentos E1/E2 da Seção 9).
 - [ ] Confirmar com o orientador se alguma disciplina de $`\mathcal{C}^{\text{out}}`$ ocorre em **sala do IC** (se sim, entra em H7 com sala fixa $`\bar r_c`$).
-- [ ] Decidir hard × soft de H8, H10, H11 e calibrar pesos $`w_\bullet`$ com o orientador; $`w^{\text{CC}}/w^{\text{SI}}`$ só será necessário se H8 for relaxada.
+- [x] Decidir hard × soft de H8, H10, H11 (30/09/2026: H8 e H11 hard, H10 relaxável).
+- [ ] Calibrar pesos $`w_\bullet`$ com o orientador; $`w^{\text{CC}}/w^{\text{SI}}`$ só será necessário se H8 for relaxada.
 - [ ] **H12** (mínimo ≥ 3, já confirmado) fica **hard sem folga**: a oferta de obrigatórias é fixada pelas grades, não é o recurso escasso (ver Viabilidade em H12). Resta confirmar com o orientador o número real de professores permanentes ($`|\mathcal{P}|`$) e a lista de obrigatórias por período para fechar $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|`$.

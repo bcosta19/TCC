@@ -17,6 +17,7 @@ específica. Um resultado sintético não libera a instância institucional.
 | Relembrar as diretrizes do orientador | [Orientação](anotacoes/orientacao.md) |
 | Consultar restrições e função objetivo | [Modelo matemático](anotacoes/modelo_matematico.md) |
 | Ver o protótipo validado e seus limites | [Validação de 04/09/2026](anotacoes/validacao_prototipo_2026_09_04.md) |
+| Consultar as decisões de modelagem mais recentes | [Decisões de 30/09/2026](anotacoes/decisoes_modelagem_2026_09_30.md) |
 | Entender a discussão das turmas alternativas em H8 | [Investigação da opção 2](anotacoes/investigacao_h8_opcao2_2026_09_05.md) |
 | Preencher ou conferir dados institucionais | [Tabelas de revisão](#tabelas-de-revisão-humana) |
 | Consultar números dos experimentos | [Resultados e diagnósticos](#resultados-e-diagnósticos) |
