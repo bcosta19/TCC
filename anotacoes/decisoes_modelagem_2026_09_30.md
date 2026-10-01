@@ -40,6 +40,21 @@ e as notas abertas de [`modelo_matematico.md`](modelo_matematico.md).
   regra adotada no trabalho, não como norma institucional.
 - Falta a lista oficial de permanentes (`universo_h12_2026.csv`).
 
+## Disciplinas externas obrigatórias em H8 — decidido (opção 1)
+
+- As 21 disciplinas obrigatórias de outros departamentos das grades de CC/SI
+  (Cálculo, Física, Estatística etc.) entram em H8 como ocupação fixa.
+- Como cada uma tem várias turmas abertas a CC/SI, fixa-se **uma turma de
+  referência por disciplina, semestre e período**: a de mais vagas para o
+  curso que não choque com as demais referências do período. As outras ficam
+  como `alternativa_nao_modelada`.
+- A escolha da turma de referência é uma hipótese a validar com a
+  coordenação; o pré-preenchimento é feito por
+  `scripts/prefill_external_references_2026.py` e não sobrescreve decisões
+  humanas.
+- Os experimentos exploratórios v1 e v2 foram rodados **sem** essas
+  ocupações; seus números de H8 não são comparáveis aos da instância oficial.
+
 ## Cenários E1–E3 — mantidos
 
 O escopo experimental mantém E1 (CC antes de SI), E2 (SI antes de CC) e E3
@@ -68,8 +83,10 @@ As tabelas de revisão são aplicadas ao JSON por
 
 ## Ainda em aberto
 
-- Preencher `revisao_horarios_fixos_2026.csv` conforme a regra decidida
-  (externas e serviço fixas; demais turmas do IC flexíveis) e confirmar a
-  lista de disciplinas-serviço (no perfil v2 só `TCC00319`).
+- Conferir e validar `revisao_horarios_fixos_2026.csv`, já pré-preenchida
+  pela regra (179 turmas do IC flexíveis, 1 externa fixa), e confirmar se há
+  disciplinas-serviço no recorte CC/SI (`TCC00319` não aparece nele).
+- Tratamento das 76 ofertas restantes de `revisao_turmas_externas_2026.csv`
+  (65 optativas de outros departamentos e 11 turmas do IC ausentes do PDF).
 - Pesos dos critérios soft, incluindo a penalidade de H10.
 - Dados institucionais listados em [`../dados/PENDENCIAS.md`](../dados/PENDENCIAS.md).

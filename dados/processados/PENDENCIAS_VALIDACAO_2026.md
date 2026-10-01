@@ -154,7 +154,8 @@ Este documento descreve detalhadamente os **12 itens de validação humana** nec
 - **Arquivo**: `dados/processados/revisao_turmas_externas_2026.csv`
 - **População**: 248 ofertas públicas não vinculadas ao PDF do IC ou de departamentos externos.
 - **Colunas a preencher**: `tratamento_no_modelo`
-- **Valores aceitos**: `fixar_horario_e_sala`, `ignorar_fora_do_ic`, `reserva_vagas`
+- **Valores aceitos**: `fixar_horario_e_sala`, `alternativa_nao_modelada`, `ignorar_fora_do_ic`, `reserva_vagas`
+- **Pré-preenchimento**: `python scripts/prefill_external_references_2026.py` marca uma turma de referência por disciplina externa obrigatória, semestre e período (mais vagas para o curso, sem choque com as outras referências do período); as demais turmas da disciplina ficam como `alternativa_nao_modelada`. Só `fixar_horario_e_sala` entra na instância, como ocupação fixa em H8.
 - **Impacto no modelo**:
   - Define o tratamento de turmas compartilhadas com outros cursos da UFF.
 
