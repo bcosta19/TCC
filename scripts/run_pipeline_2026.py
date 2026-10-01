@@ -184,6 +184,10 @@ def main() -> None:
         else:
             run_step(step_name, cmd)
 
+    run_step(
+        "Construção da Instância Oficial",
+        [python_bin, str(ROOT / "scripts" / "build_official_instance_2026.py")],
+    )
     print("\n[Pipeline 2026] Processamento finalizado.")
 
 

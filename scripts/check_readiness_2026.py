@@ -27,8 +27,8 @@ VALID_POLITICA_COTUTORIA = {
 VALID_BOOLEAN_CHOICES = {"sim", "nao", "não", "true", "false", "1", "0"}
 
 
-def check_curricular_classification() -> list[str]:
-    path = DATA / "revisao_classificacao_curricular_2026.csv"
+def check_curricular_classification(data: Path = DATA) -> list[str]:
+    path = data / "revisao_classificacao_curricular_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -42,8 +42,8 @@ def check_curricular_classification() -> list[str]:
     return pendencias
 
 
-def check_cotutoria_policy() -> list[str]:
-    path = DATA / "politica_cotutoria_2026.csv"
+def check_cotutoria_policy(data: Path = DATA) -> list[str]:
+    path = data / "politica_cotutoria_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -70,8 +70,8 @@ def check_cotutoria_policy() -> list[str]:
     return pendencias
 
 
-def check_h12_universe() -> list[str]:
-    path = DATA / "universo_h12_2026.csv"
+def check_h12_universe(data: Path = DATA) -> list[str]:
+    path = data / "universo_h12_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -103,8 +103,8 @@ def check_h12_universe() -> list[str]:
     return pendencias
 
 
-def check_rooms_registry() -> list[str]:
-    path = DATA / "cadastro_salas_2026.csv"
+def check_rooms_registry(data: Path = DATA) -> list[str]:
+    path = data / "cadastro_salas_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -126,8 +126,8 @@ def check_rooms_registry() -> list[str]:
     return pendencias
 
 
-def check_resources_review() -> list[str]:
-    path = DATA / "revisao_recursos_disciplinas_2026.csv"
+def check_resources_review(data: Path = DATA) -> list[str]:
+    path = data / "revisao_recursos_disciplinas_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -144,8 +144,8 @@ def check_resources_review() -> list[str]:
     return pendencias
 
 
-def check_fixed_schedules() -> list[str]:
-    path = DATA / "revisao_horarios_fixos_2026.csv"
+def check_fixed_schedules(data: Path = DATA) -> list[str]:
+    path = data / "revisao_horarios_fixos_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -162,8 +162,8 @@ def check_fixed_schedules() -> list[str]:
     return pendencias
 
 
-def check_sectors_review() -> list[str]:
-    path = DATA / "revisao_setores_2026.csv"
+def check_sectors_review(data: Path = DATA) -> list[str]:
+    path = data / "revisao_setores_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -178,8 +178,8 @@ def check_sectors_review() -> list[str]:
     return pendencias
 
 
-def check_teacher_qualifications() -> list[str]:
-    path = DATA / "revisao_habilitacao_docente_2026.csv"
+def check_teacher_qualifications(data: Path = DATA) -> list[str]:
+    path = data / "revisao_habilitacao_docente_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -196,8 +196,8 @@ def check_teacher_qualifications() -> list[str]:
     return pendencias
 
 
-def check_teacher_priorities() -> list[str]:
-    path = DATA / "revisao_prioridades_docentes_2026.csv"
+def check_teacher_priorities(data: Path = DATA) -> list[str]:
+    path = data / "revisao_prioridades_docentes_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -219,8 +219,8 @@ def check_teacher_priorities() -> list[str]:
     return pendencias
 
 
-def check_external_classes() -> list[str]:
-    path = DATA / "revisao_turmas_externas_2026.csv"
+def check_external_classes(data: Path = DATA) -> list[str]:
+    path = data / "revisao_turmas_externas_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
     df = pd.read_csv(path, dtype=str).fillna("")
@@ -242,28 +242,29 @@ def update_instance_readiness(profile: str, is_ready: bool) -> None:
     INSTANCE_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def check_profile(profile: str) -> tuple[bool, list[str]]:
+def check_profile(profile: str, data: Path = DATA, update_instance: bool = True) -> tuple[bool, list[str]]:
     pendencias = []
     if profile in {"baseline", "professores", "salas", "completo"}:
-        pendencias.extend(check_curricular_classification())
-        pendencias.extend(check_cotutoria_policy())
-        pendencias.extend(check_fixed_schedules())
+        pendencias.extend(check_curricular_classification(data))
+        pendencias.extend(check_cotutoria_policy(data))
+        pendencias.extend(check_fixed_schedules(data))
 
     if profile in {"professores", "completo"}:
-        pendencias.extend(check_h12_universe())
-        pendencias.extend(check_sectors_review())
-        pendencias.extend(check_teacher_qualifications())
-        pendencias.extend(check_teacher_priorities())
+        pendencias.extend(check_h12_universe(data))
+        pendencias.extend(check_sectors_review(data))
+        pendencias.extend(check_teacher_qualifications(data))
+        pendencias.extend(check_teacher_priorities(data))
 
     if profile in {"salas", "completo"}:
-        pendencias.extend(check_rooms_registry())
-        pendencias.extend(check_resources_review())
+        pendencias.extend(check_rooms_registry(data))
+        pendencias.extend(check_resources_review(data))
 
     if profile in {"completo"}:
-        pendencias.extend(check_external_classes())
+        pendencias.extend(check_external_classes(data))
 
     is_ready = len(pendencias) == 0
-    update_instance_readiness(profile, is_ready)
+    if update_instance:
+        update_instance_readiness(profile, is_ready)
     return is_ready, pendencias
 
 

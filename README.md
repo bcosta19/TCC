@@ -97,6 +97,17 @@ O resultado permanece marcado como não pronto enquanto houver decisões
 humanas pendentes. O relatório operacional está em
 [`dados/processados/PENDENCIAS_VALIDACAO_2026.md`](dados/processados/PENDENCIAS_VALIDACAO_2026.md).
 
+O último passo da pipeline aplica as tabelas de revisão e gera
+`dados/processados/instancia_oficial_2026.json`, no formato consumido pelo
+solver. Só entram linhas preenchidas (e com `validado=sim`, quando a tabela
+tem essa coluna); o que faltar fica listado em `pendencias_aplicacao`, sem
+proxies, e a instância só é marcada como pronta quando não há pendências nem
+erros de validação:
+
+```bash
+python scripts/build_official_instance_2026.py
+```
+
 ## Testes
 
 ```bash

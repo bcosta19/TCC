@@ -60,12 +60,16 @@ O escopo experimental mantém E1 (CC antes de SI), E2 (SI antes de CC) e E3
   Martinhon e Raquel no PDF e na coleta web.
 - Política de H12: `integral_para_cada_docente` (cada professor recebe +1).
 
+## Aplicação à instância oficial
+
+As tabelas de revisão são aplicadas ao JSON por
+`scripts/build_official_instance_2026.py`, último passo da pipeline, que gera
+`dados/processados/instancia_oficial_2026.json` sem proxies.
+
 ## Ainda em aberto
 
-- Aplicar as decisões das tabelas de revisão ao JSON da instância oficial:
-  `build_instance_2026_cc_si.py` ainda não lê
-  `revisao_classificacao_curricular_2026.csv` nem
-  `politica_cotutoria_2026.csv` (hoje só o perfil sintético recebe a política
-  de cotutoria, via configuração).
+- Preencher `revisao_horarios_fixos_2026.csv` conforme a regra decidida
+  (externas e serviço fixas; demais turmas do IC flexíveis) e confirmar a
+  lista de disciplinas-serviço (no perfil v2 só `TCC00319`).
 - Pesos dos critérios soft, incluindo a penalidade de H10.
 - Dados institucionais listados em [`../dados/PENDENCIAS.md`](../dados/PENDENCIAS.md).

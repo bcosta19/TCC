@@ -116,7 +116,8 @@ Este documento descreve detalhadamente os **12 itens de validação humana** nec
 
 - **Arquivo**: `dados/processados/revisao_setores_2026.csv`
 - **População**: 99 disciplinas de 2026.
-- **Colunas a preencher**: `setor_oficial`, `validado`
+- **Colunas a preencher**: `setor_oficial`, `validado` e, opcionalmente, `dias_oficiais` (dias do setor separados por `;`, ex.: `terca;quinta`). Crie a coluna `dias_oficiais` quando a tabela oficial de setores chegar.
+- **Uso no construtor oficial**: turmas com `horario_fixo = nao` recebem domínio de horários nos `dias_oficiais`; sem eles, usam os padrões de dias observados para o setor em 2025.
 - **Evidências nos dados**:
   - Mapeia o setor histórico de 2025 e os dias da semana observados em 2026 e 2025.
 - **Impacto no modelo**:
@@ -181,5 +182,9 @@ Após o preenchimento dos arquivos CSV acima:
    ```bash
    python scripts/check_readiness_2026.py --profile completo
    ```
-2. Caso todas as decisões tenham sido registradas, o verificador atualizará automaticamente `"pronta_para_experimento": true` no arquivo `dados/processados/instancia_2026_cc_si.json`.
-3. Os solvers e avaliadores poderão ser executados normalmente.
+2. Gere a instância oficial aplicando as revisões:
+   ```bash
+   python scripts/build_official_instance_2026.py
+   ```
+   O comando lista as pendências restantes por categoria. Linhas sem `validado = sim` não são aplicadas.
+3. Quando não houver pendências nem erros de validação, `dados/processados/instancia_oficial_2026.json` sai com `"pronta_para_experimento": true` e pode ser usada pelos solvers e avaliadores.

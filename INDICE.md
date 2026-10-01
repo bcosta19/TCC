@@ -147,6 +147,7 @@ Ela ainda não substitui H8 no score do solver.
 |---|---|
 | Rodar a pipeline de 2026 | [run_pipeline_2026.py](scripts/run_pipeline_2026.py) |
 | Conferir prontidão institucional | [check_readiness_2026.py](scripts/check_readiness_2026.py) |
+| Gerar a instância oficial a partir das revisões | [build_official_instance_2026.py](scripts/build_official_instance_2026.py) |
 | Gerar o perfil sintético | [build_synthetic_instance_2026.py](scripts/build_synthetic_instance_2026.py) |
 | Executar SA/ILS/VNS de referência | [run_synthetic_experiments_2026.py](scripts/run_synthetic_experiments_2026.py) |
 | Executar o piloto SA nativo | [benchmark_optframe_sa_2026.py](scripts/benchmark_optframe_sa_2026.py) |
