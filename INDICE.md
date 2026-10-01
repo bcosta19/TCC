@@ -38,6 +38,7 @@ específica. Um resultado sintético não libera a instância institucional.
 | [tests/](tests/) | Testes automatizados |
 | [prototipos/](prototipos/) | Exemplos de estudo: mochila e alocação de salas toy |
 | [documento/](documento/) | Fonte LaTeX do texto do TCC |
+| [artigo/](artigo/) | Artigo do TCC no modelo oficial do curso, pronto para o Overleaf |
 | [modelo_artigo/](modelo_artigo/) | Pacote original do modelo LaTeX |
 | [referencias/](referencias/) | Bibliografia e orientações para obter os materiais |
 
@@ -170,6 +171,7 @@ revisão; para o uso normal, prefira a pipeline que preserva revisões existente
 | [documento/README.md](documento/README.md) | Compilação e organização das fontes |
 | [documento/main.tex](documento/main.tex) | Arquivo principal do texto |
 | [documento/secoes/](documento/secoes/) | Introdução, fundamentação, modelagem, solução, experimentos e conclusão |
+| [artigo/README.md](artigo/README.md) | Artigo no modelo do curso: compilação no Overleaf e lista de pendências |
 | [modelo_artigo/](modelo_artigo/) | Modelo LaTeX original, separado do texto em desenvolvimento |
 | [anotacoes/literatura.md](anotacoes/literatura.md) | Notas da revisão bibliográfica |
 | [referencias/referencias.bib](referencias/referencias.bib) | Bibliografia canônica usada pelo texto |

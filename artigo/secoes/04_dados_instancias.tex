@@ -1,0 +1,107 @@
+% =====================================================================
+% 2.4 DADOS E INSTÂNCIAS
+% =====================================================================
+\subsection{Dados e instâncias}
+\label{subsec:dados}
+
+\subsubsection{Fontes e pipeline de dados}
+
+A instância foi construída a partir de quatro fontes. A primeira são os quadros de horários do IC de 2026/1 e 2026/2, em PDF, com turmas, professores, horários e salas. A segunda são as páginas públicas do Quadro de Horários da UFF, coletadas automaticamente, que informam vagas e inscritos por curso. A terceira são as grades curriculares de CC e SI, organizadas por período. A quarta é o histórico coletado de 2023/1 a 2025/2, junto com a planilha do quadro de 2025, usados como evidência indireta de preferências, setores e habilitações.
+
+A Figura~\ref{fig:pipeline} resume o fluxo. A pipeline extrai e normaliza os registros, unifica grafias de nomes de docentes, vincula as linhas dos PDFs às páginas públicas e classifica cada oferta segundo as grades. Em seguida, audita a alocação observada e gera a instância em JSON. As decisões que dependem de validação humana, como capacidades físicas, setores e habilitações, são registradas em tabelas de revisão próprias, acompanhadas dos \textit{hashes} das fontes. Enquanto houver decisões pendentes, a instância institucional permanece marcada como não pronta para experimentos, e a pipeline não sobrescreve decisões humanas já registradas.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      node distance=0.45cm,
+      caixa/.style={draw, rounded corners=2pt, align=center, text width=6.0cm,
+                    minimum height=1.0cm, font=\small},
+      seta/.style={-{Stealth[length=2.2mm]}, thick}]
+    \node[caixa] (f) {Fontes: quadros de horários de 2026 (PDF), páginas públicas de oferta, grades de CC e SI e histórico de 2023 a 2025};
+    \node[caixa, below=of f] (e) {Extração, normalização de nomes e vínculo entre PDF e páginas públicas};
+    \node[caixa, below=of e] (a) {Classificação curricular, auditoria e tabelas de revisão humana};
+    \node[caixa, below=of a] (i) {Instância de 2026 em JSON, com controle de prontidão};
+    \node[caixa, right=1.3cm of f] (s) {Perfil sintético: dados observados completados por \textit{proxies} documentadas};
+    \node[caixa, below=of s] (g) {Melhoria gulosa integrada a partir da grade observada};
+    \node[caixa, below=of g] (m) {SA, ILS e VNS de referência em Python e SA nativo do pyoptframe};
+    \node[caixa, below=of m] (v) {Validação estrutural, dupla avaliação, manifestos e relatórios};
+    \draw[seta] (f) -- (e);
+    \draw[seta] (e) -- (a);
+    \draw[seta] (a) -- (i);
+    \draw[seta] (i.east) -- ++(0.65,0) |- (s.west);
+    \draw[seta] (s) -- (g);
+    \draw[seta] (g) -- (m);
+    \draw[seta] (m) -- (v);
+  \end{tikzpicture}
+  \caption{Fluxo de dados e de otimização implementado. Fonte: elaborada pelo autor (2026).}
+  \label{fig:pipeline}
+\end{figure}
+
+\subsubsection{Instância observada de 2026}
+
+O recorte usado pelo solver reúne as turmas vinculadas às grades de CC e SI nos dois semestres de 2026. A Tabela~\ref{tab:instancia} apresenta sua caracterização. Os 178 registros dos PDFs geraram 180 vínculos com as páginas públicas, porque duas linhas compactadas correspondiam, cada uma, a duas turmas distintas. Todas as 180 turmas têm vagas e inscritos conhecidos, e nenhum encontro ficou sem sala. Das 180 turmas, 179 são do IC e apenas uma pertence a outro departamento. As demais disciplinas externas previstas nas grades, como as de Matemática e Física, não constam do recorte, e por isso ainda não participam da verificação de H8.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Caracterização do recorte CC/SI da instância observada de 2026. Fonte: elaborada pelo autor a partir dos quadros de horários de 2026/1 e 2026/2 (2026).}
+  \label{tab:instancia}
+  \small
+  \begin{tabular}{lr}
+    \toprule
+    \textbf{Indicador} & \textbf{Valor} \\
+    \midrule
+    Turmas físicas & 180 \\
+    Encontros semanais & 329 \\
+    Docentes observados & 61 \\
+    Salas observadas & 22 \\
+    Turmas classificadas como obrigatórias & 149 \\
+    Turmas com obrigatoriedade ainda indefinida & 4 \\
+    Códigos na interseção das grades de CC e SI & 64 \\
+    Turmas de 2026 compartilhadas pela interseção curricular & 25 \\
+    Turmas com vagas alocadas simultaneamente a CC e SI & 55 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+A auditoria da alocação observada encontrou três sobreposições candidatas de sala, nenhuma de professor e dez conflitos curriculares segundo o contador de H8. Também foi encontrada uma divergência de horário entre o PDF e a página pública, documentada para revisão. Quanto a H12, as 149 turmas obrigatórias comportam no máximo 49 docentes com três obrigatórias cada, sem contar alocações múltiplas. O cumprimento da regra, portanto, depende de qual universo de docentes ela abrange. A tabela de revisão desse universo lista 73 docentes candidatos, ainda sem a indicação oficial de quem está sujeito à regra.
+
+Permanecem pendentes de validação as capacidades físicas das salas, os recursos exigidos por disciplina, os setores e seus dias, as habilitações docentes, as prioridades, o universo de H12, a política de cotutoria e a lista de horários fixos. As capacidades disponíveis são apenas limites inferiores derivados das vagas observadas. \pendente{atualizar esta seção quando as tabelas de revisão forem validadas e aplicadas à instância definitiva.}
+
+\subsubsection{Perfis sintéticos}
+\label{subsubsec:perfis}
+
+Para desenvolver e testar o solver sem aguardar todas as validações, a instância observada foi completada por \textit{proxies} determinísticas e documentadas, formando um perfil sintético. Turmas, docentes observados, horários e salas continuam vindo dos dados de 2026; apenas os parâmetros ausentes recebem regras reprodutíveis, resumidas na Tabela~\ref{tab:proxies}. Esses valores não substituem os dados oficiais e servem para validar o software e orientar a etapa definitiva.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Regras usadas para completar os parâmetros ainda não validados no perfil sintético. Fonte: elaborada pelo autor (2026).}
+  \label{tab:proxies}
+  \small
+  \begin{tabular}{p{4.2cm}p{10.2cm}}
+    \toprule
+    \textbf{Parâmetro} & \textbf{Regra provisória} \\
+    \midrule
+    Capacidade da sala & Maior demanda observada na sala em 2025 ou 2026 \\
+    Laboratório & Sala cujo identificador começa com a letra L \\
+    Recurso por encontro & Inferido do uso histórico de sala comum ou laboratório \\
+    Preferência docente & Frequência histórica professor--disciplina, normalizada pela maior frequência do código \\
+    Prioridade docente & Valor neutro 1,0 para todos \\
+    Setor e habilitação & Setor histórico da disciplina em 2025; habilitados são os professores do setor, incluindo o observado \\
+    Universo de H12 & 40 docentes observados, selecionados por carga e por viabilidade conjunta \\
+    Cotutoria em H12 & Crédito fracionado entre os professores da turma \\
+    Pesos dos critérios fracos & Unitários \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+O universo sintético de H12 foi verificado por emparelhamento bipartido entre docentes e turmas obrigatórias. Os domínios cobrem conjuntamente os 118 créditos necessários, o que evita considerar viável um conjunto em que cada docente parece ter opções isoladamente, mas todos disputam as mesmas turmas. O perfil contém 64 docentes no cadastro, 150 turmas obrigatórias do IC e 146 turmas com professor móvel. Cada turma tem até 12 professores candidatos e até 12 padrões de horário.
+
+Foram usadas duas variantes, que diferem apenas no tratamento dos horários:
+\begin{itemize}
+  \item \textbf{perfil v1}: obrigatórias e turmas de outros departamentos têm horário fixo, e apenas as optativas do IC são flexíveis, o que resulta em 27 turmas com horário variável;
+  \item \textbf{perfil v2 (exploratório)}: somente as turmas de outros departamentos e as disciplinas de serviço têm horário fixo, e as obrigatórias do IC podem mudar de faixa dentro dos dias do seu setor, o que resulta em 173 turmas com horário variável e sete fixas.
+\end{itemize}
+
+Em ambos os perfis, turmas de projeto final e turmas sem padrão alternativo observado mantêm o horário original. A disciplina de serviço configurada no perfil v2, Estruturas de Dados oferecida a outros cursos, não pertence ao recorte CC/SI; na prática, as sete turmas fixas desse perfil são a única turma externa do recorte e seis turmas do IC sem alternativa de horário.
+
+O perfil v2 materializa duas hipóteses provisórias acordadas pelo autor, ainda pendentes de validação pelo orientador. A primeira restringe H12 aos docentes permanentes do IC, aproximados pelos mesmos 40 docentes do perfil v1. A segunda considera fixos apenas os horários de turmas externas e de serviço. Os domínios de horário de ambos os perfis usam os padrões de dias observados por setor em 2025 e as faixas horárias observadas em 2026. \pendente{registrar a decisão do orientador sobre as hipóteses do perfil v2.}

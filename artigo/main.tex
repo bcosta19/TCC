@@ -1,0 +1,144 @@
+% =====================================================================
+% Artigo de TCC -- Bacharelado em Ciência da Computação -- IC/UFF
+%
+% Estrutura e formatação seguem o modelo oficial do curso
+% (modelo_artigo/ModeloTCC_Artigo_CC_Latex.zip): capa, folha de aprovação,
+% ficha catalográfica, título bilíngue, resumo/abstract, Introdução,
+% Desenvolvimento, Conclusão, Referências, Apêndices e Agradecimentos.
+%
+% Overleaf: compilador pdfLaTeX, documento principal main.tex.
+% Trechos marcados com \pendente{...} aparecem em vermelho no PDF e
+% precisam ser completados ou removidos antes da versão final.
+% =====================================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Codificação, idioma e fontes ------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Página: A4, margens de 2,54 cm, espaçamento 1,5 e recuo de 1,25 cm
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% --- Matemática, tabelas e ilustrações --------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[ruled,vlined,linesnumbered,portuguese]{algorithm2e}
+% Palavras-chave dos algoritmos em português.
+\SetKwInput{KwIn}{Entrada}
+\SetKwInput{KwOut}{Saída}
+\SetKwFor{While}{enquanto}{faça}{fim}
+\SetKwIF{If}{ElseIf}{Else}{se}{então}{senão se}{senão}{fim}
+\SetKw{Return}{retorne}
+
+% --- Legendas: "Figura 1 – ...", legenda de tabela acima -------------
+\usepackage[labelsep=endash]{caption}
+\captionsetup[table]{position=top}
+
+% --- Títulos de seção como no modelo: "1. INTRODUÇÃO" ----------------
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection.}{0.5em}{\MakeUppercase}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection.}{0.5em}{\MakeUppercase}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.2\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{0.3\baselineskip}
+
+% --- Listas de ilustrações e tabelas (Apêndices A e B) ---------------
+\usepackage[titles]{tocloft}
+\renewcommand{\cftfigpresnum}{Figura~}
+\renewcommand{\cftfigaftersnum}{~--}
+\setlength{\cftfignumwidth}{2.7cm}
+\setlength{\cftfigindent}{0pt}
+\renewcommand{\cfttabpresnum}{Tabela~}
+\renewcommand{\cfttabaftersnum}{~--}
+\setlength{\cfttabnumwidth}{2.7cm}
+\setlength{\cfttabindent}{0pt}
+
+% --- Links e citações autor-data (NBR 10520) / referências (NBR 6023) -
+% O hyperref precisa ser carregado ANTES do abntex2cite.
+\usepackage{hyperref}
+\usepackage[alf]{abntex2cite}
+\usepackage{etoolbox}
+\hypersetup{
+  hidelinks,
+  pdftitle={Alocação de professores, horários e salas no Instituto de Computação da UFF},
+  pdfauthor={Bruno Costa dos Passos}
+}
+
+% --- Dados do trabalho -----------------------------------------------
+\newcommand{\autor}{Bruno Costa dos Passos}
+\newcommand{\orientador}{Igor Machado Coelho}
+\newcommand{\titulo}{Alocação de professores, horários e salas no Instituto de Computação da UFF: uma abordagem meta-heurística com PyOptFrame}
+\newcommand{\tituloingles}{Teacher, timeslot and room assignment at the Institute of Computing of UFF: a metaheuristic approach with PyOptFrame}
+\newcommand{\anoentrega}{2026}
+\newcommand{\natureza}{Trabalho de Conclusão de Curso submetido ao Departamento de Ciência da Computação da Universidade Federal Fluminense como requisito parcial para a obtenção do título de Bacharel em Ciência da Computação.}
+
+% --- Utilitários ------------------------------------------------------
+% Marcador de pendência: remover todas as ocorrências na versão final.
+\newcommand{\pendente}[1]{\textcolor{red}{\textbf{[PENDENTE: #1]}}}
+% Títulos pós-textuais (Referências, Apêndices, Agradecimentos).
+\newcommand{\titulopostextual}[1]{%
+  \clearpage
+  \phantomsection
+  \begin{center}\LARGE #1\end{center}
+  \vspace{\baselineskip}}
+% Referências com o mesmo título centralizado do modelo.
+\makeatletter
+\patchcmd{\thebibliographyBkUp}{\section*{\refname}}{\titulopostextual{\refname}}{}%
+  {\PackageWarningNoLine{main}{Nao foi possivel ajustar o titulo das Referencias}}
+\makeatother
+
+\begin{document}
+
+% =====================================================================
+% ELEMENTOS PRÉ-TEXTUAIS
+% =====================================================================
+\input{pretextuais}
+
+% =====================================================================
+% PRIMEIRA PÁGINA DO ARTIGO: títulos, autoria, resumo e abstract
+% =====================================================================
+\input{secoes/00_resumo}
+
+% =====================================================================
+% ELEMENTOS TEXTUAIS
+% =====================================================================
+\input{secoes/01_introducao}
+
+\section{Desenvolvimento}
+\label{sec:desenvolvimento}
+
+Esta seção reúne a fundamentação teórica (Seção~\ref{subsec:fundamentacao}), a caracterização e a modelagem do problema (Seções~\ref{subsec:problema} e \ref{subsec:modelagem}), os dados e as instâncias (Seção~\ref{subsec:dados}), o método de solução (Seção~\ref{subsec:metodo}), o protocolo experimental (Seção~\ref{subsec:protocolo}) e os resultados obtidos até o momento (Seção~\ref{subsec:resultados}).
+
+\input{secoes/02_fundamentacao}
+\input{secoes/03_problema_modelagem}
+\input{secoes/04_dados_instancias}
+\input{secoes/05_metodo}
+\input{secoes/06_experimentos_resultados}
+
+\input{secoes/07_conclusao}
+
+% =====================================================================
+% ELEMENTOS PÓS-TEXTUAIS
+% =====================================================================
+\begin{singlespace}
+\bibliography{referencias}
+\end{singlespace}
+
+\input{postextuais}
+
+\end{document}

@@ -1,0 +1,137 @@
+% =====================================================================
+% 2.2 CARACTERIZAÇÃO DO PROBLEMA e 2.3 MODELAGEM MATEMÁTICA
+% =====================================================================
+\subsection{Caracterização do problema no IC/UFF}
+\label{subsec:problema}
+
+A unidade programada é a \textit{turma}, isto é, a oferta de uma disciplina em um semestre. Cada turma possui um ou mais encontros semanais, cada um com dia, horário de início, horário de término e sala. A sala é decidida por encontro, e não por turma, porque há turmas que alternam uma aula teórica em sala comum e uma aula prática em laboratório. Para cada turma sob responsabilidade do IC, o modelo decide três aspectos acoplados: o professor, o padrão semanal de horário e a sala de cada encontro.
+
+As turmas são classificadas por dois eixos independentes. Quanto à responsabilidade, distinguem-se as turmas do próprio IC, cujas decisões pertencem ao modelo, e as turmas de outros departamentos cursadas pelos alunos de CC e SI, como as de Cálculo. Estas últimas têm professor e horário dados e entram no modelo apenas como ocupação fixa do horário dos alunos. Quanto ao papel curricular, distinguem-se obrigatórias e optativas. Transversalmente, algumas turmas têm horário fixo: todas as de outros departamentos e as disciplinas de serviço do IC, oferecidas a outros cursos com prioridade.
+
+O planejamento é anual. A carga mínima de obrigatórias e o rodízio de professores relacionam as decisões dos semestres ímpar e par, de modo que otimizá-los separadamente perderia essas relações. As restrições de choque, por outro lado, valem separadamente em cada semestre. O modelo considera ainda as grades de CC e SI, que pertencem ao mesmo departamento e seguem as mesmas regras. Uma disciplina presente nas duas grades corresponde a uma única turma, cursada por alunos dos dois cursos.
+
+A Tabela~\ref{tab:papeis} relaciona os papéis institucionais e as regras locais às restrições e aos critérios do modelo apresentado na próxima seção.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Relação entre papéis institucionais, regras locais e componentes do modelo. Fonte: elaborada pelo autor (2026).}
+  \label{tab:papeis}
+  \small
+  \begin{tabular}{p{6.2cm}p{8.2cm}}
+    \toprule
+    \textbf{Papel ou regra} & \textbf{Componentes do modelo} \\
+    \midrule
+    Chefia de departamento & Professor único (H1), carga anual (H12), preferência ponderada pela prioridade (O1) \\
+    Coordenação de curso & Ausência de choque curricular (H8) e capacidade (H10) \\
+    Instituto de Computação (salas) & Sala por encontro (H3), choque de sala (H7), recursos (H9), capacidade (H10) e desperdício (O4) \\
+    Jornada do professor & Descanso entre jornadas (H11), dias com aula (O2) e janelas (O3) \\
+    Disciplinas de serviço e de outros departamentos & Horário fixo (H4) e bloqueio do horário dos alunos (H8) \\
+    Setores do departamento & Dias admissíveis por setor (H5) \\
+    Grades de CC e SI & Grupos curriculares das duas grades em H8 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Modelagem matemática}
+\label{subsec:modelagem}
+
+\subsubsection{Conjuntos, parâmetros e variáveis}
+
+Sejam $\mathcal{C}$ o conjunto de turmas do ano, particionado em turmas do IC ($\mathcal{C}^{\mathrm{IC}}$) e de outros departamentos ($\mathcal{C}^{\mathrm{out}}$), e também em obrigatórias ($\mathcal{C}^{\mathrm{obr}}$) e optativas ($\mathcal{C}^{\mathrm{opt}}$). O subconjunto $\mathcal{C}^{\mathrm{fix}}\supseteq\mathcal{C}^{\mathrm{out}}$ reúne as turmas com horário dado. O semestre de cada turma é $\sigma(c)\in\{\text{ímpar},\text{par}\}$, e $\mathcal{C}_\sigma$ denota as turmas do semestre $\sigma$. Os demais conjuntos são:
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \item $\mathcal{P}$: professores do IC, com $\mathcal{P}^{\mathrm{H12}}\subseteq\mathcal{P}$ sujeitos à carga anual;
+  \item $\mathcal{R}$: salas; $\mathcal{H}$: \textit{slots} semanais (dia $\times$ faixa horária);
+  \item $\mathcal{Q}$: padrões semanais de horário, cada um com \textit{slots} $H_q\subseteq\mathcal{H}$;
+  \item $\mathcal{M}_c$: encontros semanais da turma $c$;
+  \item $\mathcal{G}$: grupos curriculares, cada um associado a uma grade, a um período e a um semestre, com turmas $\mathcal{C}_g\subseteq\mathcal{C}$.
+\end{itemize}
+
+Os domínios são $\mathcal{P}_c\subseteq\mathcal{P}$, professores habilitados para $c$; $\mathcal{Q}_c\subseteq\mathcal{Q}$, padrões admissíveis para $c$, unitário se $c\in\mathcal{C}^{\mathrm{fix}}$; e $\mathcal{R}_{c,m}\subseteq\mathcal{R}$, salas admissíveis para o encontro $m$. Os parâmetros principais são o número de vagas $n_c$, a capacidade $\operatorname{cap}_r$, os indicadores de exigência de laboratório $\rho_{c,m}$ e de sala laboratório $\ell_r$, a preferência $\operatorname{pref}_{p,c}\in[0,1]$, a prioridade $\pi_p\in[0,1]$, o padrão fixo $\bar q_c$ e o descanso mínimo entre jornadas $\operatorname{desc}_{\min}$. O parâmetro $a_{c,m,h,q}\in\{0,1\}$ indica se o encontro $m$ de $c$ ocupa o \textit{slot} $h$ quando o padrão $q$ é escolhido.
+
+As variáveis de decisão são binárias:
+\begin{align}
+  x_{c,p}&=1 \text{ se a turma } c \text{ é atribuída ao professor } p, && c\in\mathcal{C}^{\mathrm{IC}},\ p\in\mathcal{P}_c,\\
+  y_{c,q}&=1 \text{ se a turma } c \text{ recebe o padrão } q, && c\in\mathcal{C},\ q\in\mathcal{Q}_c,\\
+  z_{c,m,r}&=1 \text{ se o encontro } m \text{ de } c \text{ ocorre na sala } r, && c\in\mathcal{C}^{\mathrm{IC}},\ m\in\mathcal{M}_c,\ r\in\mathcal{R}_{c,m}.
+\end{align}
+A ocupação de um \textit{slot} pela turma e pelo encontro é dada por
+\begin{equation}
+  u_{c,h}=\sum_{q\in\mathcal{Q}_c:\,h\in H_q} y_{c,q},
+  \qquad
+  v_{c,m,h}=\sum_{q\in\mathcal{Q}_c} a_{c,m,h,q}\,y_{c,q}.
+\end{equation}
+
+\subsubsection{Restrições fortes}
+
+As restrições estruturais garantem um professor por turma do IC, um padrão de horário por turma, uma sala por encontro e o respeito aos horários fixos:
+\begin{align}
+  \sum_{p\in\mathcal{P}_c} x_{c,p} &= 1, && \forall c\in\mathcal{C}^{\mathrm{IC}}, \tag{H1}\\
+  \sum_{q\in\mathcal{Q}_c} y_{c,q} &= 1, && \forall c\in\mathcal{C}, \tag{H2}\\
+  \sum_{r\in\mathcal{R}_{c,m}} z_{c,m,r} &= 1, && \forall c\in\mathcal{C}^{\mathrm{IC}},\ m\in\mathcal{M}_c, \tag{H3}\\
+  y_{c,\bar q_c} &= 1, && \forall c\in\mathcal{C}^{\mathrm{fix}}. \tag{H4}
+\end{align}
+A restrição de setor (H5) é imposta no domínio: para uma turma do IC com horário variável, $\mathcal{Q}_c$ contém apenas padrões cujos dias pertencem aos dias autorizados para o setor da disciplina.
+
+As restrições de conflito valem para cada semestre $\sigma$. Um professor não ministra duas turmas no mesmo \textit{slot} (H6), uma sala não recebe dois encontros simultâneos (H7) e turmas de um mesmo grupo curricular não se sobrepõem (H8):
+\begin{align}
+  \sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}_\sigma} x_{c,p}\,u_{c,h} &\leq 1, && \forall p\in\mathcal{P},\ h\in\mathcal{H},\ \sigma, \tag{H6}\\
+  \sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}_\sigma}\ \sum_{m\in\mathcal{M}_c} z_{c,m,r}\,v_{c,m,h} &\leq 1, && \forall r\in\mathcal{R},\ h\in\mathcal{H},\ \sigma, \tag{H7}\\
+  \sum_{c\in\mathcal{C}_g} u_{c,h} &\leq 1, && \forall g\in\mathcal{G},\ h\in\mathcal{H}. \tag{H8}
+\end{align}
+Em H8, cada grupo contém apenas turmas do mesmo semestre, e as turmas de outros departamentos também participam, pois bloqueiam o horário dos alunos.
+
+As restrições de recursos e capacidade (H9 e H10) restringem as salas admissíveis. A restrição de descanso (H11) proíbe que um professor lecione em dois \textit{slots} $(h,h')$ de dias consecutivos cujo intervalo seja menor que $\operatorname{desc}_{\min}$. Por fim, a carga anual (H12) exige ao menos três turmas obrigatórias do IC por professor do universo $\mathcal{P}^{\mathrm{H12}}$, somando os dois semestres:
+\begin{align}
+  z_{c,m,r} &= 0 \quad \text{se } \rho_{c,m}=1 \text{ e } \ell_r=0, \tag{H9}\\
+  z_{c,m,r} &= 0 \quad \text{se } n_c>\operatorname{cap}_r, \tag{H10}\\
+  \sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}_\sigma} x_{c,p}\,u_{c,h}
+  +\sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}_\sigma} x_{c,p}\,u_{c,h'} &\leq 1,
+  \quad \forall p,\ \sigma,\ (h,h')\in\mathcal{V}, \tag{H11}\\
+  \sum_{c\in\mathcal{C}^{\mathrm{IC}}\cap\mathcal{C}^{\mathrm{obr}}} x_{c,p} &\geq 3,
+  \quad \forall p\in\mathcal{P}^{\mathrm{H12}}, \tag{H12}
+\end{align}
+em que $\mathcal{V}$ é o conjunto de pares de \textit{slots} que violam o descanso mínimo. No protótipo, a compatibilidade de recursos é estrita: encontros sem exigência de laboratório também não ocupam laboratórios. As expressões H6, H7 e H11 contêm produtos de variáveis binárias apenas para apresentar a lógica de forma compacta; uma versão em programação linear inteira exigiria a linearização usual desses produtos.
+
+\pendente{confirmar com o orientador a classificação final de H8, H10 e H11 como restrições fortes ou fracas, a composição de $\mathcal{P}^{\mathrm{H12}}$ e a fonte do descanso mínimo; a implementação atual usa $\operatorname{desc}_{\min}=11$ horas.}
+
+\subsubsection{Função objetivo}
+
+Os critérios de qualidade compõem a função objetivo
+\begin{equation}
+  \min Z = -w_{\mathrm{pref}}\Phi_{\mathrm{pref}}
+  + w_{\mathrm{dias}}\Phi_{\mathrm{dias}}
+  + w_{\mathrm{jan}}\Phi_{\mathrm{jan}}
+  + w_{\mathrm{cap}}\Phi_{\mathrm{cap}}
+  + w_{\mathrm{rod}}\Phi_{\mathrm{rod}},
+  \label{eq:objetivo}
+\end{equation}
+cujos termos são:
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \item (O1) $\Phi_{\mathrm{pref}}=\sum_{c,p}\pi_p\operatorname{pref}_{p,c}\,x_{c,p}$: preferências atendidas, ponderadas pela prioridade;
+  \item (O2) $\Phi_{\mathrm{dias}}$: número de combinações professor--semestre--dia com pelo menos uma aula;
+  \item (O3) $\Phi_{\mathrm{jan}}$: número de intervalos ociosos de duas horas entre aulas do mesmo professor no mesmo dia;
+  \item (O4) $\Phi_{\mathrm{cap}}=\sum_{c,m,r} z_{c,m,r}(\operatorname{cap}_r-n_c)$: desperdício de capacidade;
+  \item (O5) $\Phi_{\mathrm{rod}}$: número de pares professor--disciplina em que o professor ministra a mesma disciplina nos dois semestres do ano.
+\end{itemize}
+
+\subsubsection{Avaliação implementada}
+\label{subsubsec:avaliacao}
+
+A implementação não usa pesos numéricos para as restrições fortes. Ela compara soluções por uma chave lexicográfica
+\begin{equation}
+  \kappa(s)=\bigl(V_{\mathrm{hard}}(s),\ D_{\mathrm{H12}}(s),\ Z_1(s)\bigr),
+  \label{eq:chave}
+\end{equation}
+em que $V_{\mathrm{hard}}$ soma sete contadores de violação (sala, professor, currículo, capacidade, recursos, descanso e docentes abaixo do mínimo anual) e $Z_1$ é a Equação~\eqref{eq:objetivo} com pesos unitários. O termo intermediário é o déficit de carga anual,
+\begin{equation}
+  D_{\mathrm{H12}}(s)=\sum_{p\in\mathcal{P}^{\mathrm{H12}}}\max\{0,\ 3-L_p(s)\},
+\end{equation}
+em que $L_p(s)$ é o número de obrigatórias do IC atribuídas a $p$ no ano. Turmas com dois professores contribuem com crédito fracionado para cada um. O déficit orienta a busca melhor que a contagem binária de docentes abaixo do mínimo, porque também diferencia soluções que ainda violam H12.
+
+Os relatórios apresentam o \textit{score} $F(s)=10^6\,V_{\mathrm{hard}}(s)+Z_1(s)$. Para a regra de aceitação do SA, que exige um escalar, usa-se a energia $E(s)=10^9\,V_{\mathrm{hard}}(s)+10^6\,D_{\mathrm{H12}}(s)+Z_1(s)$, compatível com a ordem de $\kappa$. As restrições estruturais H1 a H5 são garantidas pela representação e pelos domínios dos movimentos, e uma validação estrutural independente as confere em toda solução retornada.
+
+O contador de H8 merece uma observação. Ele conta sobreposições entre turmas de códigos distintos de um mesmo grupo e semestre, e ignora sobreposições entre seções de um mesmo código, que são alternativas entre si. Assim, duas seções alternativas de disciplinas diferentes que se sobrepõem contam como conflito, mesmo que o aluno possa escolher outra combinação de seções. As consequências dessa escolha são discutidas na Seção~\ref{subsubsec:h8}.
+
+\pendente{definir com o orientador os pesos $w_\bullet$ dos critérios fracos; os experimentos atuais usam pesos unitários provisórios.}

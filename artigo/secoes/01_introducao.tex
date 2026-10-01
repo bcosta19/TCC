@@ -1,0 +1,37 @@
+% =====================================================================
+% 1. INTRODUÇÃO
+% =====================================================================
+\section{Introdução}
+\label{sec:introducao}
+
+A elaboração de quadros de horários e a alocação de salas em instituições de ensino superior são problemas clássicos de otimização combinatória, estudados na literatura de \textit{educational timetabling} \cite{schaerf1999survey}. No caso universitário, esse conjunto de problemas é usualmente chamado de \textit{University Course Timetabling Problem} (UCTP) \cite{lewis2008survey,babaei2015survey}. Mesmo versões simplificadas contêm problemas NP-difíceis como casos particulares. Além disso, essas versões combinam restrições de viabilidade com critérios de qualidade que frequentemente competem entre si.
+
+No Instituto de Computação da Universidade Federal Fluminense (IC/UFF), a cada ano é preciso decidir, para cada turma ofertada nos dois semestres, qual professor a ministra, em que horário ela ocorre e em que sala acontece cada encontro semanal. Conforme as diretrizes levantadas com o orientador, essa decisão envolve três papéis institucionais. A chefia de departamento distribui os encargos docentes. A coordenação de curso representa os alunos, que precisam cursar as disciplinas previstas sem choques de horário e com vagas suficientes. O Instituto administra as salas e recebe pedidos de capacidade e de laboratórios. Esses papéis compartilham recursos, mas avaliam uma mesma grade sob perspectivas diferentes; turmas maiores, por exemplo, reduzem a demanda por professores, mas exigem salas maiores.
+
+Algumas práticas locais tornam o problema mais estruturado. Muitas disciplinas seguem padrões de horário que se repetem a cada semestre ímpar ou par. As disciplinas se agrupam em setores do departamento, e cada setor tende a ocupar os mesmos dias da semana. Disciplinas oferecidas a outros cursos, como Estruturas de Dados, têm horário prioritário. Há ainda uma carga mínima anual de três disciplinas obrigatórias por professor, que acopla os dois semestres, e duas grades curriculares, Ciência da Computação (CC) e Sistemas de Informação (SI), que compartilham professores, salas e parte das turmas. \pendente{inserir a fonte normativa das regras de carga anual, prioridade docente e descanso entre jornadas, se houver documento institucional.}
+
+A combinação dessas regras torna a construção manual da grade trabalhosa e difícil de auditar. Um modelo formal, acompanhado de métodos computacionais de busca, permite gerar alternativas e avaliar a grade praticada com os mesmos critérios aplicados às soluções propostas. O propósito deste trabalho, alinhado à orientação recebida, não é entregar um sistema pronto para uso administrativo. O foco é construir um modelo próximo da realidade observada, com hipóteses e origem dos dados documentadas, que sirva de base para trabalhos futuros. O critério de distância entre salas de aulas consecutivas, previsto na proposta inicial, foi retirado do escopo em comum acordo com o orientador.
+
+\subsection{Objetivos}
+\label{subsec:objetivos}
+
+O objetivo geral deste trabalho é desenvolver e avaliar uma abordagem meta-heurística, implementada com o pyoptframe, para apoiar a alocação anual de professores, horários e salas no IC/UFF. A abordagem considera conflitos de horário, habilitação docente, jornada de trabalho, capacidade e recursos das salas e as preferências dos professores.
+
+Os objetivos específicos são:
+\begin{enumerate}
+  \item formalizar o problema como uma variante do \textit{Curriculum-Based Course Timetabling} (CB-CTT), incorporando a atribuição de professores, o horizonte anual e as regras do IC/UFF;
+  \item construir uma pipeline reprodutível de dados a partir dos quadros de horários de 2026, das páginas públicas de oferta e das grades de CC e SI, com auditoria e controle de prontidão da instância;
+  \item implementar a representação da solução, um avaliador decomposto por critério, movimentos de professor, horário e sala e buscas integradas baseadas em meta-heurísticas, com integração ao pyoptframe;
+  \item comparar as soluções geradas com a alocação observada, avaliada pelos mesmos critérios;
+  \item estudar o efeito da ordem de planejamento das grades de CC e SI sobre a qualidade da solução. \pendente{confirmar se os cenários E1--E3 permanecem no escopo final.}
+\end{enumerate}
+
+\subsection{Contribuições}
+\label{subsec:contribuicoes}
+
+As principais contribuições obtidas até o momento são: (i) uma formulação do problema que integra professores, horários e salas por encontro em horizonte anual, com duas grades curriculares; (ii) uma pipeline que transforma os quadros de horários e as grades em uma instância auditável, separando dados observados, decisões humanas pendentes e hipóteses sintéticas; (iii) um solver com melhoria gulosa, \textit{Simulated Annealing} (SA), \textit{Iterated Local Search} (ILS) e \textit{Variable Neighborhood Search} (VNS), verificado por dois avaliadores e por uma validação estrutural; e (iv) uma primeira evidência empírica, em perfil sintético, de que a busca reduz substancialmente as violações de restrições fortes da grade observada. Também se identificou uma questão de modelagem relevante: a forma de tratar turmas alternativas na restrição de choque curricular.
+
+\subsection{Organização do texto}
+\label{subsec:organizacao}
+
+A Seção~\ref{sec:desenvolvimento} apresenta o desenvolvimento do trabalho. Ela reúne a fundamentação teórica, a caracterização e a modelagem matemática do problema, os dados e as instâncias, o método de solução, o protocolo experimental e os resultados. A Seção~\ref{sec:conclusao} apresenta as conclusões, as limitações e os trabalhos futuros.

@@ -1,0 +1,42 @@
+% =====================================================================
+% Primeira página do artigo: títulos, autoria, resumo e abstract.
+% O resumo deve ser um parágrafo único com objetivo, método, resultados
+% e conclusões. Atualizar após os experimentos definitivos.
+% =====================================================================
+
+\begin{center}
+  \begin{singlespace}
+    {\LARGE \titulo\par}
+    \vspace{0.35cm}
+    {\LARGE\itshape \tituloingles\par}
+  \end{singlespace}
+\end{center}
+
+\vspace{0.4cm}
+\begin{flushright}
+  \autor\footnote{Graduando do Curso de Ciência da Computação -- UFF, e-mail: \pendente{e-mail id.uff do autor}.}\\
+  \orientador\footnote{Orientador -- Instituto de Computação -- UFF, e-mail: \pendente{e-mail do orientador}.}
+\end{flushright}
+
+\vspace{0.4cm}
+\begin{center}
+  \textbf{Resumo}
+\end{center}
+
+\noindent A elaboração anual de quadros de horários universitários exige decidir, de forma coordenada, quem ministra cada turma, em que horário ela ocorre e em que sala acontece cada encontro semanal. Este trabalho aborda esse problema no Instituto de Computação da Universidade Federal Fluminense (IC/UFF). O problema é modelado como uma variante do \textit{Curriculum-Based Course Timetabling}, com atribuição de professores, horizonte anual, grades de Ciência da Computação e Sistemas de Informação, turmas compartilhadas e regras locais, como a carga mínima anual de três disciplinas obrigatórias por docente. Uma pipeline reprodutível extrai, audita e integra os quadros de horários de 2026 e as grades curriculares, resultando em uma instância com 180 turmas, 329 encontros semanais e 22 salas. Sobre essa base, foram implementados um avaliador decomposto por critério, movimentos de professor, horário e sala, uma melhoria gulosa e as meta-heurísticas \textit{Simulated Annealing} (SA), \textit{Iterated Local Search} e \textit{Variable Neighborhood Search}, além da integração com o SA nativo do pyoptframe. Em um perfil sintético que completa os dados institucionais ainda não validados, a melhor execução do SA reduziu de 27 para 10 as violações de restrições fortes do quadro observado. Em um cenário exploratório com horários flexíveis para as obrigatórias, a redução chegou a zero, ao custo de mais janelas e dias de aula para os docentes. Os resultados indicam que a abordagem é viável, mas ainda dependem da validação dos dados e das hipóteses institucionais. \pendente{atualizar com os resultados da instância definitiva.}
+
+\vspace{0.5\baselineskip}
+\noindent\textbf{Palavras-chave:} Timetabling universitário; Meta-heurísticas; Atribuição de professores; Alocação de salas; OptFrame.
+
+\vspace{\baselineskip}
+\begin{center}
+  \textbf{Abstract}
+\end{center}
+
+\noindent Building a university timetable every year requires deciding, in a coordinated way, who teaches each class, when it takes place, and in which room each weekly meeting happens. This work addresses this problem at the Institute of Computing of Fluminense Federal University (IC/UFF). The problem is modeled as a variant of Curriculum-Based Course Timetabling that includes teacher assignment, an annual planning horizon, the Computer Science and Information Systems curricula, shared classes, and local rules such as a minimum annual load of three mandatory courses per teacher. A reproducible pipeline extracts, audits, and integrates the 2026 timetables and curricula, yielding an instance with 180 classes, 329 weekly meetings, and 22 rooms. On top of this data, the work implements an evaluator decomposed by criterion, teacher, timeslot, and room moves, a greedy improvement step, and the Simulated Annealing (SA), Iterated Local Search, and Variable Neighborhood Search metaheuristics, together with an integration with the native SA of pyoptframe. On a synthetic profile that completes the institutional data still under validation, the best SA run reduced the hard constraint violations of the observed timetable from 27 to 10. In an exploratory scenario with flexible schedules for mandatory courses, the reduction reached zero, at the cost of more idle periods and teaching days for the teachers. The results indicate that the approach is feasible, but they still depend on the validation of institutional data and assumptions. \pendente{update with the results of the final instance.}
+
+\vspace{0.5\baselineskip}
+\noindent\textbf{Keywords:} University course timetabling; Metaheuristics; Teacher assignment; Room assignment; OptFrame.
+
+\vspace{\baselineskip}
+\noindent\textbf{Aprovado em: dd/mm/aaaa. Versão Final em: dd/mm/aaaa}

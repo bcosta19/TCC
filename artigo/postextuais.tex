@@ -1,0 +1,83 @@
+% =====================================================================
+% Elementos pós-textuais, na ordem do modelo do curso:
+% Apêndice A (lista de ilustrações), Apêndice B (lista de tabelas),
+% apêndices do autor, Anexos (opcional) e Agradecimentos (opcional).
+% =====================================================================
+
+% ---------------------------------------------------------------------
+\titulopostextual{APÊNDICE A - Lista de ilustrações}
+\begin{singlespace}
+\makeatletter\@starttoc{lof}\makeatother
+\end{singlespace}
+
+% ---------------------------------------------------------------------
+\titulopostextual{APÊNDICE B - Lista de tabelas}
+\begin{singlespace}
+\makeatletter\@starttoc{lot}\makeatother
+\end{singlespace}
+
+% ---------------------------------------------------------------------
+\titulopostextual{APÊNDICE C - Resultados por semente}
+
+A Tabela~\ref{tab:apendice_sementes} apresenta o resultado de cada execução das meta-heurísticas de referência nos perfis sintéticos v1 e v2, com orçamento de 1.500 avaliações. O déficit de H12 é o número de obrigatórias que ainda faltam para que todos os docentes do universo sintético atinjam o mínimo anual.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Violações fortes, déficit de H12 e tempo de cada execução. Fonte: elaborada pelo autor (2026).}
+  \label{tab:apendice_sementes}
+  \small
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    & & \multicolumn{3}{c}{\textbf{Perfil v1}} & \multicolumn{3}{c}{\textbf{Perfil v2}} \\
+    \cmidrule(lr){3-5}\cmidrule(lr){6-8}
+    \textbf{Método} & \textbf{Semente} & \textbf{Hard} & \textbf{Déficit} & \textbf{Tempo (s)} & \textbf{Hard} & \textbf{Déficit} & \textbf{Tempo (s)} \\
+    \midrule
+    SA & 101 & 11 & 1 & 6,5 & 2 & 0 & 5,3 \\
+     & 202 & 10 & 0 & 5,1 & 1 & 0 & 5,1 \\
+     & 303 & 10 & 0 & 5,4 & 1 & 0 & 4,9 \\
+     & 404 & 10 & 0 & 5,6 & 1 & 1 & 5,0 \\
+     & 505 & 11 & 1 & 6,3 & 0 & 0 & 5,7 \\
+    \midrule
+    ILS & 101 & 11 & 1 & 6,9 & 2 & 1 & 5,3 \\
+     & 202 & 11 & 1 & 7,8 & 2 & 1 & 5,5 \\
+     & 303 & 11 & 1 & 8,4 & 3 & 2 & 5,4 \\
+     & 404 & 11 & 2 & 9,0 & 3 & 1 & 5,4 \\
+     & 505 & 12 & 2 & 9,5 & 3 & 2 & 5,6 \\
+    \midrule
+    VNS & 101 & 11 & 1 & 9,4 & 3 & 1 & 5,7 \\
+     & 202 & 11 & 1 & 8,8 & 2 & 1 & 5,7 \\
+     & 303 & 11 & 1 & 8,9 & 2 & 1 & 5,7 \\
+     & 404 & 11 & 1 & 8,9 & 3 & 1 & 5,7 \\
+     & 505 & 12 & 2 & 7,5 & 4 & 1 & 5,4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------
+\titulopostextual{APÊNDICE D - Reprodução dos experimentos}
+
+Os dados, o código e os relatórios deste trabalho estão organizados em um repositório próprio. \pendente{informar o endereço público do repositório, se ele for disponibilizado.} A partir da raiz do repositório, os resultados dos perfis sintéticos podem ser regenerados com os comandos abaixo. Cada execução registra, em um manifesto, os parâmetros, as sementes e os \textit{hashes} da instância, da configuração e do código.
+
+\begin{singlespace}
+\small
+\begin{verbatim}
+python scripts/run_pipeline_2026.py --offline
+python scripts/build_synthetic_instance_2026.py
+python scripts/run_synthetic_experiments_2026.py
+python scripts/benchmark_optframe_sa_2026.py 10
+python -m unittest discover -s tests
+\end{verbatim}
+\end{singlespace}
+
+O perfil v2 usa a configuração \texttt{dados/config\_sintetica\_2026\_v2\_hp.json}, informada aos executores pelas opções \texttt{-{}-config} e \texttt{-{}-instance}. \pendente{conferir os comandos exatos do perfil v2 antes da versão final.}
+
+% ---------------------------------------------------------------------
+% ANEXO A (opcional): documentos de autoria externa. Descomente se usar.
+% \titulopostextual{ANEXO A - Título do anexo}
+
+% ---------------------------------------------------------------------
+\titulopostextual{Agradecimentos}
+
+\pendente{redigir os agradecimentos pessoais ao orientador, à família e a quem colaborou com o trabalho.}
+
+Ferramentas de inteligência artificial generativa foram usadas como apoio à programação, à organização de arquivos, à clarificação textual e à discussão do trabalho, incluindo a proposição de alternativas e a análise de modelagem e de métodos experimentais. Hipóteses provisórias foram identificadas como tais e não foram apresentadas como diretrizes confirmadas. As decisões finais permanecem sob responsabilidade do autor, que revisou todo o conteúdo antes de incorporá-lo ao trabalho. \pendente{revisar esta declaração para que ela descreva com precisão o uso de IA na redação deste artigo, cuja primeira versão foi redigida com apoio de um assistente de IA a partir dos registros do projeto.}

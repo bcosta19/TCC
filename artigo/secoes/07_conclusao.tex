@@ -1,0 +1,29 @@
+% =====================================================================
+% 3. CONCLUSÃO
+% =====================================================================
+\section{Conclusão}
+\label{sec:conclusao}
+
+Este trabalho abordou a alocação anual de professores, horários e salas no IC/UFF por meio de uma abordagem meta-heurística implementada com o pyoptframe. O problema foi formalizado como uma variante do CB-CTT que incorpora a atribuição de professores, o horizonte anual, a sala por encontro, as grades de CC e SI com turmas compartilhadas e regras locais, como setores, horários fixos, descanso entre jornadas e a carga mínima anual de obrigatórias.
+
+Uma pipeline reprodutível transformou os quadros de horários de 2026, as páginas públicas de oferta e as grades curriculares em uma instância auditável, com 180 turmas, 329 encontros semanais e 22 salas. A pipeline separa os dados observados, as decisões institucionais pendentes e as hipóteses sintéticas, o que impede que uma \textit{proxy} seja tratada como dado oficial. Sobre essa base, foram implementados um avaliador decomposto por critério, movimentos de professor, horário e sala, uma melhoria gulosa e as meta-heurísticas SA, ILS e VNS, além da integração com o SA nativo do pyoptframe. As soluções são conferidas por dois avaliadores e por uma validação estrutural.
+
+Os resultados preliminares, obtidos em perfis sintéticos, mostram que a busca reduz substancialmente as violações de restrições fortes da grade observada. Com os horários das obrigatórias fixos, a melhor solução passou de 27 para 10 violações, todas curriculares e impossíveis de corrigir nesse perfil. Com horários flexíveis dentro dos setores, cenário que depende de hipóteses ainda não validadas, o SA obteve uma solução sem violações fortes contabilizadas. Em ambos os casos, a viabilidade custou mais janelas, mais dias de aula e menos preferências atendidas, o que evidencia o conflito entre os papéis institucionais descrito na introdução. O SA foi o método mais eficaz para alcançar a viabilidade, enquanto ILS e VNS preservaram melhor os critérios fracos.
+
+O trabalho também produziu um resultado de modelagem. Os dez conflitos curriculares da grade observada envolvem seções alternativas, e existe, em cada grupo afetado, uma escolha de seções sem choque. A forma de tratar essas alternativas em H8 é, portanto, uma decisão de modelagem que afeta diretamente a viabilidade das instâncias. \pendente{atualizar este parágrafo com a decisão do orientador sobre H8.}
+
+As principais limitações são o uso de \textit{proxies} para parâmetros institucionais, o pequeno número de execuções, a ausência de calibração de parâmetros e a comparação ainda não equivalente entre as implementações de referência e nativa. Além disso, a instância ainda não inclui a maior parte das disciplinas externas das grades. \pendente{revisar as conclusões após os experimentos na instância definitiva.}
+
+\subsection{Trabalhos futuros}
+\label{subsec:trabalhos_futuros}
+
+Como continuidade, destacam-se:
+\begin{itemize}
+  \item aplicar à instância as decisões institucionais registradas nas tabelas de revisão e repetir os experimentos sem \textit{proxies};
+  \item definir a semântica de H8 para turmas alternativas e incluir as disciplinas externas das grades;
+  \item estabelecer um protocolo com orçamento comparável entre as implementações, controle da semente interna do OptFrame, mais execuções e teste estatístico;
+  \item executar os cenários E1, E2 e E3 para medir o efeito da ordem de planejamento das grades de CC e SI;
+  \item implementar avaliação incremental, novas vizinhanças, como a troca de professores e de salas entre turmas, e o fluxo combinado em que o SA busca viabilidade e ILS ou VNS refinam a solução;
+  \item formular um modelo de programação inteira para instâncias reduzidas, a fim de obter limitantes e validar as soluções heurísticas;
+  \item desenvolver uma forma de visualização das grades geradas, para apoiar a discussão com a chefia e as coordenações.
+\end{itemize}

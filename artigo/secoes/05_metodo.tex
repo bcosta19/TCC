@@ -1,0 +1,64 @@
+% =====================================================================
+% 2.5 MÉTODO DE SOLUÇÃO
+% =====================================================================
+\subsection{Método de solução}
+\label{subsec:metodo}
+
+\subsubsection{Representação da solução}
+
+A solução é representada diretamente sobre a estrutura JSON da instância. Cada turma guarda o professor atribuído e a lista de encontros, cada um com dia, início, término e sala. Os dados estáticos, como vagas, grupos curriculares e domínios de professores e horários, ficam na mesma estrutura, mas não são alterados pela busca. Indicadores de horário fixo, professor fixo e sala fixa determinam quais decisões cada turma expõe às vizinhanças. O professor observado no quadro original é preservado em um campo separado da atribuição corrente, o que permite comparar a solução com a grade praticada.
+
+\subsubsection{Estruturas de vizinhança}
+
+Foram implementados três tipos de movimento, correspondentes às três decisões do modelo:
+\begin{enumerate}
+  \item \textbf{professor}: atribui a uma turma do IC outro professor do seu domínio de habilitados; o movimento só se aplica a turmas com um único professor, sem professor fixo e com mais de um candidato;
+  \item \textbf{horário}: substitui o padrão de uma turma com horário variável por outro padrão do seu domínio, com o mesmo número de encontros;
+  \item \textbf{sala}: troca a sala de um encontro por outra sala compatível em capacidade e em exigência de laboratório.
+\end{enumerate}
+
+A cada passo, sorteia-se de maneira uniforme um tipo de movimento entre os disponíveis e, em seguida, a turma, o encontro e o novo valor. Todo movimento devolve uma operação de desfazer que restaura exatamente o estado anterior. Isso evita copiar a solução inteira a cada vizinho avaliado, e a reversibilidade é verificada por testes automatizados para os três tipos. A avaliação, porém, ainda recalcula todos os critérios a cada movimento, sem avaliação incremental.
+
+\subsubsection{Melhoria gulosa integrada}
+
+A busca parte da grade observada, e não de uma solução construída do zero. Uma passagem gulosa percorre as turmas uma vez. Para cada turma, testa até seis professores candidatos, ordenados pela preferência, até seis padrões de horário e até seis salas para cada encontro. Em cada decisão, adota-se o melhor candidato segundo a chave lexicográfica $\kappa$ da Equação~\eqref{eq:chave}, desde que ele melhore a solução corrente. A saída dessa passagem é a solução inicial comum a todas as meta-heurísticas.
+
+\subsubsection{Meta-heurísticas de referência}
+
+As três meta-heurísticas foram implementadas em Python sobre os mesmos movimentos e o mesmo avaliador. Todas recebem a mesma solução inicial e o mesmo orçamento, medido em número de avaliações, e retornam a melhor solução encontrada segundo $\kappa$.
+
+O SA segue o Algoritmo~\ref{alg:sa}. A aceitação usa a regra da Equação~\eqref{eq:metropolis} sobre a energia $E$ definida na Seção~\ref{subsubsec:avaliacao}, e a temperatura decresce geometricamente, $T_{k+1}=\alpha T_k$. Como $E$ multiplica as violações fortes por $10^9$, pioras em restrições fortes são praticamente sempre rejeitadas. Pioras no déficit de H12 só têm probabilidade relevante de aceitação no início da busca, e pioras em critérios fracos são aceitas com mais frequência.
+
+\begin{algorithm}[htbp]
+  \DontPrintSemicolon
+  \KwIn{solução inicial $s_0$, semente, orçamento $N$, temperatura $T_0$ e fator $\alpha$}
+  \KwOut{melhor solução $s^*$ segundo a chave $\kappa$}
+  $s\gets s_0$; \quad $s^*\gets s_0$; \quad $T\gets T_0$\;
+  \While{o número de avaliações for menor que $N$}{
+    sortear um tipo de movimento disponível e um movimento $m$ desse tipo\;
+    aplicar $m$ a $s$, obtendo $s'$, e avaliar $s'$\;
+    $\Delta\gets E(s')-E(s)$\;
+    \eIf{$\Delta\leq 0$ \textbf{ou} $U(0,1)<\exp(-\Delta/T)$}{
+      $s\gets s'$\;
+      \lIf{$\kappa(s)<\kappa(s^*)$}{$s^*\gets s$}
+    }{
+      desfazer $m$\;
+    }
+    $T\gets\alpha T$\;
+  }
+  \Return{$s^*$}\;
+  \caption{\textit{Simulated Annealing} de referência sobre as vizinhanças integradas}
+  \label{alg:sa}
+\end{algorithm}
+
+O ILS aplica à melhor solução uma perturbação de três movimentos aleatórios e, em seguida, uma busca local aleatória de até 30 tentativas, que só aceita movimentos de melhora. O resultado substitui a melhor solução apenas quando é melhor segundo $\kappa$. O VNS ordena as vizinhanças em professor, horário e sala. Na vizinhança $k$, a agitação aplica $k+1$ movimentos aleatórios daquele tipo, seguida da mesma busca local. Se houver melhora, a busca retorna à primeira vizinhança; caso contrário, passa à seguinte.
+
+\subsubsection{Integração com o pyoptframe}
+
+A integração reaproveita a representação, o avaliador e os movimentos já descritos. Um adaptador registra no motor do pyoptframe a solução, o problema, o construtivo e a função de minimização, além de uma classe única de movimento e uma estrutura de vizinhança. A função de minimização retorna a energia $E$. O construtivo executa a mesma melhoria gulosa, de modo que o motor nativo parte da mesma solução inicial das implementações de referência. Cada movimento aplicado devolve o movimento reverso, como exige o framework.
+
+A busca nativa usa o \textit{BasicSimulatedAnnealing} do OptFrame, com fator de resfriamento $\alpha=0{,}98$, 100 iterações por temperatura e temperatura inicial $T_0=10^8$, calibrada para a escala da energia. O critério de parada do motor é o tempo de execução. A semente controla o sorteio de movimentos feito em Python, mas o gerador de números aleatórios interno do motor não é configurado pelo adaptador. Assim, o fluxo é rastreável, mas a repetição exata de uma execução nativa não é garantida. \pendente{investigar o controle da semente interna do OptFrame e incluir ILS e VNS nativos, se houver tempo.}
+
+\subsubsection{Verificação e rastreabilidade}
+
+Três mecanismos verificam as soluções retornadas. Primeiro, um avaliador de referência, baseado em tabelas, e um avaliador direto sobre o JSON, usado durante a busca, devem produzir os mesmos contadores e critérios. Segundo, uma validação estrutural detecta turmas perdidas ou duplicadas, encontros sem sala ou com sala desconhecida, alterações em dados estáticos e mudanças de professor ou horário fora dos domínios ou em turmas fixas. Terceiro, os executores rejeitam qualquer resultado pior que a solução inicial. Cada execução gera um manifesto com os parâmetros, as sementes e os \textit{hashes} da instância, da configuração e do código. A suíte de testes automatizados do projeto contém 94 testes, todos aprovados na versão usada neste texto.

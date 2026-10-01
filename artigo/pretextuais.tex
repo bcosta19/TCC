@@ -1,0 +1,109 @@
+% =====================================================================
+% Elementos pré-textuais, na ordem do modelo do curso:
+% capa (com a natureza do trabalho), folha de aprovação e ficha
+% catalográfica. Essas páginas contam na numeração, mas não a exibem;
+% por isso o artigo começa na página 4, como no modelo.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Capa
+% ---------------------------------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+  \begin{singlespace}
+    UNIVERSIDADE FEDERAL FLUMINENSE\\
+    INSTITUTO DE COMPUTAÇÃO\\
+    DEPARTAMENTO DE CIÊNCIA DA COMPUTAÇÃO
+  \end{singlespace}
+
+  \vspace{2.6cm}
+  \MakeUppercase{\autor}
+
+  \vspace{5.2cm}
+  \begin{singlespace}
+    \MakeUppercase{\titulo}
+  \end{singlespace}
+\end{center}
+
+\vspace{2.2cm}
+\hfill
+\begin{minipage}{0.55\textwidth}
+  \singlespacing
+  \natureza
+\end{minipage}
+
+\vfill
+\begin{center}
+  {\large Niterói\\ \anoentrega}
+\end{center}
+\clearpage
+
+% ---------------------------------------------------------------------
+% Folha de aprovação
+% ---------------------------------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+  \MakeUppercase{\autor}
+
+  \vspace{3.8cm}
+  \begin{singlespace}
+    \MakeUppercase{\titulo}
+  \end{singlespace}
+\end{center}
+
+\vspace{1.4cm}
+\hfill
+\begin{minipage}{0.55\textwidth}
+  \singlespacing
+  \natureza
+\end{minipage}
+
+\vspace{1.6cm}
+\hspace*{1.25cm}Aprovado em \pendente{XX de XXX de XXXX}:
+
+\vspace{1.2cm}
+\begin{singlespace}
+\begin{center}
+  \rule{9cm}{0.4pt}\\
+  \textbf{Prof. Dr. \orientador}\\
+  Orientador -- UFF
+
+  \vspace{1.3cm}
+  \rule{9cm}{0.4pt}\\
+  \textbf{\pendente{nome do membro da banca}}\\
+  \pendente{instituição}
+
+  \vspace{1.3cm}
+  \rule{9cm}{0.4pt}\\
+  \textbf{\pendente{nome do membro da banca}}\\
+  \pendente{instituição}
+\end{center}
+\end{singlespace}
+
+\vfill
+\begin{center}
+  {\large Niterói\\ \anoentrega}
+\end{center}
+\clearpage
+
+% ---------------------------------------------------------------------
+% Ficha catalográfica
+% Gere a ficha em https://bibliotecas.uff.br/bee/fichacatalografica,
+% salve o PDF como "ficha_catalografica.pdf" nesta pasta e troque o bloco
+% abaixo por:
+%   \noindent\includegraphics[width=\textwidth]{ficha_catalografica.pdf}
+% ---------------------------------------------------------------------
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+  \begin{singlespace}
+    \small
+    Inserir aqui a ficha gerada a partir do Sistema de Geração Automática de Fichas Catalográficas,\\
+    disponível no endereço \url{https://bibliotecas.uff.br/bee/fichacatalografica}.\\[0.3cm]
+    \pendente{gerar a ficha catalográfica para a versão final}
+  \end{singlespace}
+\end{center}
+\clearpage
+
+% A partir daqui as páginas exibem numeração (o artigo começa na página 4).
+\pagestyle{plain}

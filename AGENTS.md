@@ -33,13 +33,15 @@ A ideia original era minimizar a distância entre salas de aulas consecutivas. E
 
 ## Escopo de uso dos agentes de IA — política
 
-Os agentes de IA são usados **apenas** para:
+Os agentes de IA podem atuar como uma dupla de trabalho e raciocínio com o aluno, ajudando a avançar o projeto por meio de:
 
 - **Programação**: sugestões de código, refatoração e debugging.
 - **Organização de arquivos**: estrutura de pastas, nomes e `.gitignore`.
 - **Clarificação de textos**: revisão de português e checagem de consistência entre documentos.
+- **Discussão e planejamento**: propor próximos passos, levantar alternativas, explicar trade-offs e comparar vantagens, limitações e riscos.
+- **Apoio à modelagem e aos experimentos**: discutir interpretações das diretrizes do orientador, restrições, função objetivo e métodos experimentais, apresentando justificativas e hipóteses explícitas para avaliação do aluno.
 
-Os agentes **não** decidem: modelagem matemática, interpretação de diretrizes do orientador, formulação de restrições/função objetivo, escolha de métodos experimentais nem a redação substantiva da monografia. Toda saída é revisada e editada pelo aluno antes de ser versionada.
+As decisões finais e a autoria acadêmica permanecem com o aluno. Hipóteses provisórias acordadas com ele podem ser implementadas e testadas antes da avaliação do orientador, mantendo sua identificação e permitindo ajustes posteriores. Não apresentar hipóteses como diretrizes confirmadas, nem inventar dados, fontes ou resultados. A redação substantiva da monografia permanece sob responsabilidade do aluno. Toda saída é revisada e editada pelo aluno antes de ser versionada.
 
 **Restrições adicionais**: nenhum cookie de sessão (`uff_cookies.json`), senha ou dado pessoal é colado em prompts. Logs de sessão de IA (`anotacoes/contexto_sessao_*.md`) **não são versionados** — registre decisões em arquivos do projeto, não em logs. Veja a seção "Uso de inteligência artificial" do `README.md` para a versão pública desta política (que também vai para os agradecimentos da monografia).
 
