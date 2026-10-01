@@ -12,8 +12,18 @@ e as notas abertas de [`modelo_matematico.md`](modelo_matematico.md).
 - **Flexível dentro do setor:** obrigatórias do IC podem trocar de faixa,
   desde que nos dias do setor.
 - **Livre:** optativas do IC (exceto projeto final).
-- É a regra do perfil `sintetica_2026_v2_hp`; o preenchimento de
-  `revisao_horarios_fixos_2026.csv` deve segui-la.
+- **Critério para "oferecida a outros cursos":** turma do IC com ao menos uma
+  vaga alocada, na página pública da turma ("Vagas Alocadas"), para curso
+  que não seja CC (31) nem SI (83) — inclusive IA e Ciência de Dados,
+  Disciplina Isolada e CC de Rio das Ostras (alunos desses cursos em turmas
+  de Niterói). Regra literal, sem mínimo de vagas.
+- Aplicação automática por `scripts/prefill_fixed_schedules_2026.py`, que
+  marca `validado=sim` e registra a evidência em `cursos_externos` e
+  `criterio_horario`: 64 turmas do IC fixas, 115 flexíveis, 1 externa fixa.
+- As vagas vêm da coleta de 15/08/2026; a página pode ter mudado depois (ex.:
+  `2026-2-TCC00354-A1` mostra hoje uma vaga para Matemática que não estava na
+  coleta). Recoletar com `run_pipeline_2026.py --refresh-web` antes do
+  experimento final.
 
 ## Hard × soft — decidido
 
@@ -87,9 +97,8 @@ As tabelas de revisão são aplicadas ao JSON por
 
 ## Ainda em aberto
 
-- Conferir e validar `revisao_horarios_fixos_2026.csv`, já pré-preenchida
-  pela regra (179 turmas do IC flexíveis, 1 externa fixa), e confirmar se há
-  disciplinas-serviço no recorte CC/SI (`TCC00319` não aparece nele).
+- Setor oficial das 115 turmas flexíveis (sem ele o domínio de horários não
+  é gerado).
 - Tratamento das 76 ofertas restantes de `revisao_turmas_externas_2026.csv`
   (65 optativas de outros departamentos e 11 turmas do IC ausentes do PDF).
 - Pesos dos critérios soft, incluindo a penalidade de H10.

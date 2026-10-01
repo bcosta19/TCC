@@ -104,6 +104,7 @@ Este documento descreve detalhadamente os **12 itens de validação humana** nec
 - **População**: 180 turmas CC/SI de 2026.
 - **Colunas a preencher**: `horario_fixo`, `validado`
 - **Valores aceitos**: `sim` ou `nao`
+- **Preenchimento automático**: `python scripts/prefill_fixed_schedules_2026.py` aplica a regra de 30/09/2026 (externas, disciplinas-serviço e turmas do IC com vaga para curso fora de CC/SI ficam fixas) e marca `validado = sim`, com a evidência em `cursos_externos` e `criterio_horario`. Validações manuais são preservadas.
 - **Evidências nos dados**:
   - Disciplinas externas (ex.: Física, Cálculo, Administração) têm horários definidos por outros departamentos e devem ser marcadas como `horario_fixo = sim`.
   - Disciplinas do IC têm flexibilidade para otimização pelo solver (`horario_fixo = nao`), salvo determinação em contrário da coordenação.
