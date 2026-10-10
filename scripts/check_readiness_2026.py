@@ -70,7 +70,13 @@ def check_cotutoria_policy(data: Path = DATA) -> list[str]:
     return pendencias
 
 
-def check_h12_universe(data: Path = DATA) -> list[str]:
+# Modo de H12 na instância oficial. Relaxada para soft em 10/10/2026
+# (anotacoes/hipoteses_provisorias_2026_10_10.md): no QH observado de 2026,
+# 33 de 61 docentes ficam abaixo de 3 obrigatórias de CC/SI.
+H12_MODO_OFICIAL = "soft"
+
+
+def check_h12_universe(data: Path = DATA, h12_modo: str = H12_MODO_OFICIAL) -> list[str]:
     path = data / "universo_h12_2026.csv"
     if not path.exists():
         return [f"Arquivo ausente: {path}"]
@@ -94,8 +100,8 @@ def check_h12_universe(data: Path = DATA) -> list[str]:
     if empty_count > 0:
         pendencias.append(f"universo_h12_2026.csv: {empty_count} docentes com campo 'incluido_h12' vazio")
 
-    # Condição estrutural: máximo 49 docentes com 3 obrigatórias
-    if included_count > 49:
+    # Condição estrutural (só com H12 hard): máximo 49 docentes com 3 obrigatórias
+    if h12_modo == "hard" and included_count > 49:
         pendencias.append(
             f"universo_h12_2026.csv: {included_count} docentes marcados como 'sim', mas 149 obrigatórias "
             "comportam no máximo 49 docentes recebendo três obrigatórias"

@@ -12,6 +12,11 @@ DAY_ORDER = {"segunda": 0, "terca": 1, "quarta": 2, "quinta": 3, "sexta": 4, "sa
 YEAR_RE = re.compile(r"^(\d{4})-")
 
 
+def h12_is_soft(payload: dict) -> bool:
+    """H12 é hard por padrão; ``h12_modo=soft`` a relaxa (decisão de 10/10/2026 para a instância oficial)."""
+    return str(payload.get("h12_modo", "hard")).strip().lower() == "soft"
+
+
 def minutes(value: str) -> int:
     hour, minute = str(value).split(":")
     return int(hour) * 60 + int(minute)
@@ -318,8 +323,15 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         "capacidade_insuficiente": room_capacity_violations,
         "recursos_incompativeis": resource_violations,
         "descanso_insuficiente": rest_violations,
-        "carga_anual_insuficiente": h12_violations if h12_available else None,
     }
+    # Com ``h12_modo=soft`` a contagem de H12 sai das violações hard; o déficit
+    # continua guiando a busca como segundo nível lexicográfico (``guidance``).
+    relaxed = {}
+    h12_value = h12_violations if h12_available else None
+    if h12_is_soft(payload):
+        relaxed["carga_anual_insuficiente"] = h12_value
+    else:
+        hard["carga_anual_insuficiente"] = h12_value
     soft = {
         "dias_trabalhados": len(teacher_days),
         "janelas": windows,
@@ -337,6 +349,7 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         "hard_violations": hard_count,
         "hard": hard,
         "soft": soft,
+        "relaxadas": relaxed,
         "guidance": {"deficit_carga_anual": h12_deficit},
     }
 

@@ -43,6 +43,13 @@ class CheckReadiness2026Tests(unittest.TestCase):
         self.assertEqual(len(pendencias), 2)
         self.assertTrue(any("professor_responsavel" in p for p in pendencias))
 
+    def test_teacher_limit_only_applies_to_hard_h12(self):
+        pd.DataFrame([{"nome_normalizado": f"D{i}", "incluido_h12": "sim"} for i in range(50)]).to_csv(
+            self.data / "universo_h12_2026.csv", index=False
+        )
+        self.assertTrue(any("49" in p for p in check_h12_universe(self.data, h12_modo="hard")))
+        self.assertEqual(check_h12_universe(self.data, h12_modo="soft"), [])
+
     def test_h12_universe_detects_unmarked_teachers(self):
         pendencias = check_h12_universe(self.data)
         self.assertTrue(any("incluido_h12" in p for p in pendencias))

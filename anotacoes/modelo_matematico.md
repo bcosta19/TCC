@@ -221,6 +221,14 @@ z_{c,m,r}=1 \;\Rightarrow\; n_c \le \text{cap}_r
 
 **Viabilidade:** exige $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|\ge 3\,|\mathcal{P}|`$ no ano — condição estrutural do IC, e não uma incógnita: a oferta de obrigatórias é fixada pelas grades de CC e SI, que obrigam a ofertar todas as suas obrigatórias todo ano, independentemente de quem as ministra. Obrigatória não é o recurso escasso; o gargalo é o tempo do professor. No quadro de 2023–2025 o IC ofertou ~134 turmas de graduação/ano, ~117 delas de suas ~45 disciplinas de oferta regular, contra um corpo permanente da ordem de 40 professores (os que reaparecem em ≥4 dos 6 semestres coletados) — cerca de 3 obrigatórias/professor/ano, o próprio piso de H12. Por isso **H12 fica hard, sem folga de contingência**. **Interação com O1/O5:** obrigar 3 obrigatórias por professor consome a folga usada para atender preferências (O1) e rodízio (O5) — tensão real entre departamento e professores, sem termo novo em $`Z`$ (por ser hard).
 
+> **Nota (decidido em 10/10/2026): H12 relaxada para *soft* na instância oficial de 2026.** No QH observado de 2026, 33 dos 61 docentes ministraram menos de 3 obrigatórias de CC/SI no ano. Com H12 hard, nem o horário real seria viável no recorte CC/SI. Há docentes permanentes sem nenhuma turma de CC/SI em 2026 (Christiano Braga, associado; Leandro Santiago, adjunto), e a carga docente de 2025 registra abatimentos e isenções de carga horária (59 de 71 docentes, a maioria por credenciamento na pós). Isso sugere exceções institucionais à regra. O mínimo de 3 continua sendo a meta, mas o descumprimento passa a ser penalizado pelo déficit
+>
+> ```math
+> \Phi_{\text{H12}} = \sum_{p\in\mathcal{P}} \max\Bigl(0,\ 3 - \sum_{c\,\in\,\mathcal{C}^{\text{IC}}\cap\,\mathcal{C}^{\text{obr}}} x_{c,p}\Bigr)
+> ```
+>
+> que é otimizado como **segundo nível lexicográfico**: (violações hard, $`\Phi_{\text{H12}}`$, demais critérios soft). Entre soluções com o mesmo número de violações hard, a busca prefere a de menor déficit antes de olhar janelas, dias e preferências. A condição de viabilidade acima deixa de bloquear a instância. O matching docente×obrigatória passa a dar o piso de $`\Phi_{\text{H12}}`$ (`h12_cobertura` na instância). Implementação: `h12_modo` no payload (padrão `hard`, para reproduzir os experimentos anteriores; `soft` na instância oficial). Ver [`hipoteses_provisorias_2026_10_10.md`](hipoteses_provisorias_2026_10_10.md).
+
 > **Nota (decidido em 30/09/2026):** H8 e H11 permanecem *hard*; H10 pode ser relaxada para *soft* (penalização), com peso a definir. Ver [`decisoes_modelagem_2026_09_30.md`](decisoes_modelagem_2026_09_30.md). A capacidade (H10), em particular, encarna o conflito chefia × coordenação × instituto (turma grande × vaga × sala).
 
 ---
@@ -322,4 +330,4 @@ CC e SI disputam professores, salas e slots compartilhados — é a materializa�
 - [ ] Confirmar com o orientador se alguma disciplina de $`\mathcal{C}^{\text{out}}`$ ocorre em **sala do IC** (se sim, entra em H7 com sala fixa $`\bar r_c`$).
 - [x] Decidir hard × soft de H8, H10, H11 (30/09/2026: H8 e H11 hard, H10 relaxável).
 - [ ] Calibrar pesos $`w_\bullet`$ com o orientador; $`w^{\text{CC}}/w^{\text{SI}}`$ só será necessário se H8 for relaxada.
-- [ ] **H12** (mínimo ≥ 3, já confirmado) fica **hard sem folga**: a oferta de obrigatórias é fixada pelas grades, não é o recurso escasso (ver Viabilidade em H12). Resta confirmar com o orientador o número real de professores permanentes ($`|\mathcal{P}|`$) e a lista de obrigatórias por período para fechar $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|`$.
+- [x] **H12** relaxada para *soft* em 10/10/2026 (déficit como segundo nível lexicográfico; ver nota em H12). Registro original: (mínimo ≥ 3, já confirmado) ficaria **hard sem folga**: a oferta de obrigatórias é fixada pelas grades, não é o recurso escasso (ver Viabilidade em H12). Resta confirmar com o orientador o número real de professores permanentes ($`|\mathcal{P}|`$) e a lista de obrigatórias por período para fechar $`|\mathcal{C}^{\text{IC}}\cap\mathcal{C}^{\text{obr}}|`$.

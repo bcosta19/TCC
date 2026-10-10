@@ -105,6 +105,53 @@ Não são inferências. São escolhas de escopo do aluno, a comunicar ao orienta
   `ignorar_fora_do_ic`: são optativas que alunos de CC/SI podem cursar e não
   entram em H8 nem nas salas do IC.
 
+## Decisão do aluno em 10/10/2026: H12 relaxada para soft
+
+H12 (mínimo de 3 obrigatórias por ano) deixa de ser hard na instância oficial
+de 2026. O mínimo continua sendo a meta, mas uma solução com docente abaixo
+de 3 passa a ser viável, penalizada pelo déficit (turmas faltantes).
+
+**Motivação (evidências levantadas em 10/10/2026):**
+
+- No QH observado de 2026, **33 dos 61 docentes** deram menos de 3
+  obrigatórias de CC/SI no ano (distribuição: 3 com 0, 10 com 1, 20 com 2).
+  Com H12 hard no recorte CC/SI, o próprio horário real seria inviável.
+- 15 docentes da carga 2025 não têm turma de CC/SI em 2026. Dois deles são
+  permanentes confirmados: Christiano Braga (associado) e Leandro Santiago
+  (adjunto). A hipótese do aluno é que sejam exceções, com carga fora do
+  recorte (outros cursos, CEDERJ, pós) ou abatimentos.
+- A carga docente de 2025 prevê abatimentos de carga horária ("CH mínima
+  semanal de 12h, salvo abatimentos para 8h ou cargos que permitam isenção").
+  59 dos 71 docentes têm algum abatimento, 45 deles por credenciamento na pós.
+  **Cuidado:** os abatimentos são de carga horária semanal, não da regra das 3
+  obrigatórias. Indicam que o departamento admite exceções, mas não provam que
+  elas valem para H12.
+
+**Como fica no modelo e no código:**
+
+- Objetivo lexicográfico: (violações hard, déficit de H12, demais soft). O
+  déficit já era o segundo nível; a mudança é que a contagem de docentes
+  abaixo de 3 sai das violações hard e vai para `relaxadas` (objetivo direto)
+  ou para `metadata` (avaliador).
+- Na prática, o solver continua tentando cumprir H12 antes de otimizar
+  janelas, dias e preferências. Só deixa de descartar soluções por isso.
+- Parâmetro `h12_modo` no payload: padrão `hard`, para que os experimentos
+  v1–v3 e de 2025 continuem reproduzíveis; `soft` na instância oficial,
+  configurado em `H12_MODO_OFICIAL` (`scripts/check_readiness_2026.py`).
+  Voltar atrás exige trocar só essa constante.
+- O limite de 49 docentes no verificador e o erro de "H12 inviável" na
+  validação só valem com H12 hard. Com soft, a instância registra
+  `h12_cobertura`, cujo `piso_deficit` é o mínimo de turmas faltantes que
+  nenhuma solução consegue evitar.
+- A lista de permanentes (`universo_h12_2026.csv`) continua necessária para
+  calcular o déficit.
+
+**A levar ao orientador:** a diretriz de 23/06/2026 trata H12 como "restrição
+do departamento, não preferência". O relaxamento é decisão do aluno, motivada
+pelos dados acima, e precisa ser comunicada a ele. Fica em aberto se as
+exceções devem ser modeladas por docente (abatimento do mínimo) em vez do
+relaxamento geral.
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e

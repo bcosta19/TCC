@@ -51,6 +51,7 @@ class QHEvaluator:
         self.turmas = turmas.copy()
         self.horarios = horarios.copy()
         self.min_obrigatorias_ano = int(self.turmas.attrs.get("min_obrigatorias_ano", 3))
+        self.h12_soft = str(self.turmas.attrs.get("h12_modo", "hard")).strip().lower() == "soft"
         self.politica_cotutoria = self.turmas.attrs.get("politica_cotutoria", {})
         self.room_capacity = {}
         if rooms is not None and not rooms.empty and "id" in rooms and "capacidade_estimada" in rooms:
@@ -147,8 +148,11 @@ class QHEvaluator:
             "capacidade_insuficiente": self._capacity_violations(h),
             "recursos_incompativeis": self._resource_violations(h),
             "descanso_insuficiente": self._rest_violations(h, min_rest_hours),
-            "carga_anual_insuficiente": annual_violations,
         }
+        # Com ``h12_modo=soft`` a contagem de H12 vai para os metadados e deixa
+        # de contar como violação hard; o déficit continua em ``metadata``.
+        if not self.h12_soft:
+            hard["carga_anual_insuficiente"] = annual_violations
         soft = {
             "dias_trabalhados": self._working_days(h),
             "janelas": self._windows(h),
@@ -173,7 +177,10 @@ class QHEvaluator:
             "laboratorios": sorted(room for room in self.room_capacity if is_lab_room(room)),
             "min_obrigatorias_ano": self.min_obrigatorias_ano,
             "deficit_carga_anual": annual_deficit,
+            "h12_modo": "soft" if self.h12_soft else "hard",
         }
+        if self.h12_soft:
+            metadata["carga_anual_insuficiente"] = annual_violations
         return Evaluation(hard, soft, metadata)
 
     def _room_conflicts(self, h: pd.DataFrame) -> int:

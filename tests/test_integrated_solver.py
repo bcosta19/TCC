@@ -143,6 +143,19 @@ class IntegratedSolverTests(unittest.TestCase):
         self.assertEqual(result["hard"]["carga_anual_insuficiente"], 1)
         self.assertEqual(result["guidance"]["deficit_carga_anual"], 2.0)
 
+    def test_soft_h12_leaves_hard_count_but_keeps_deficit_guidance(self):
+        payload = toy_payload()
+        payload["teachers"] = []
+        payload["min_obrigatorias_ano"] = 3
+        payload["classes"][1]["obrigatoria"] = False
+        hard_result = evaluate(payload)
+        payload["h12_modo"] = "soft"
+        soft_result = evaluate(payload)
+        self.assertNotIn("carga_anual_insuficiente", soft_result["hard"])
+        self.assertEqual(soft_result["relaxadas"], {"carga_anual_insuficiente": 1})
+        self.assertEqual(soft_result["hard_violations"], hard_result["hard_violations"] - 1)
+        self.assertEqual(soft_result["guidance"]["deficit_carga_anual"], 2.0)
+
     def test_search_rejects_unavailable_h12(self):
         result = evaluate(toy_payload())
         result["guidance"]["deficit_carga_anual"] = None

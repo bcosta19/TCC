@@ -77,6 +77,7 @@ def load_instance_json(path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd
         })
     classes_frame = pd.DataFrame(class_rows).fillna("")
     classes_frame.attrs["min_obrigatorias_ano"] = payload.get("min_obrigatorias_ano", 3)
+    classes_frame.attrs["h12_modo"] = payload.get("h12_modo", "hard")
     classes_frame.attrs["pronta_para_experimento"] = payload.get("pronta_para_experimento", True)
     classes_frame.attrs["profile"] = payload.get("profile", "")
     classes_frame.attrs["politica_cotutoria"] = cotutoria_policy

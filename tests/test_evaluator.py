@@ -164,6 +164,26 @@ class EvaluatorTests(unittest.TestCase):
         ).evaluate()
         self.assertEqual(result.hard["carga_anual_insuficiente"], 1)
 
+    def test_soft_h12_moves_annual_load_to_metadata(self):
+        classes = [
+            class_row("a", "2025-1", "TCC00001", "A", "31", "CC-P1", "Ana"),
+            class_row("b", "2025-1", "TCC00002", "B", "31", "CC-P1", "Ana"),
+            class_row("c", "2025-2", "TCC00003", "C", "31", "CC-P2", "Ana"),
+        ]
+        for row in classes:
+            row["obrigatoria"] = True
+        class_frame = pd.DataFrame(classes)
+        class_frame.attrs["professores_ic"] = ["Ana", "Bruno"]
+        class_frame.attrs["h12_modo"] = "soft"
+        result = QHEvaluator(
+            class_frame,
+            pd.DataFrame([meeting("a", "2025-1"), meeting("b", "2025-1", room="304"), meeting("c", "2025-2")]),
+        ).evaluate()
+        self.assertNotIn("carga_anual_insuficiente", result.hard)
+        self.assertEqual(result.metadata["carga_anual_insuficiente"], 1)
+        self.assertEqual(result.metadata["deficit_carga_anual"], 3.0)
+        self.assertEqual(result.metadata["h12_modo"], "soft")
+
     def test_weighted_preference_is_a_bonus(self):
         classes = [class_row("a", "2025-1", "TCC00001", "A", "31", "CC-P1", "Ana")]
         classes[0]["preferencia"] = 0.75

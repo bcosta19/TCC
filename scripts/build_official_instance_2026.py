@@ -45,7 +45,7 @@ from scripts.build_synthetic_instance_2026 import (  # noqa: E402
     minutes,
     pattern_signature,
 )
-from scripts.check_readiness_2026 import check_profile  # noqa: E402
+from scripts.check_readiness_2026 import H12_MODO_OFICIAL, check_profile  # noqa: E402
 from src.eval.resources import resources_from_requirement  # noqa: E402
 from src.eval.rooms import is_lab_room  # noqa: E402
 
@@ -228,12 +228,23 @@ def validate(payload: dict) -> list[str]:
     for room in payload.get("rooms", []):
         if room.get("capacity") is None:
             errors.append(f"sala {room['id']}: sem capacidade física")
-    h12_teachers = {t["name"] for t in payload.get("teachers", []) if t.get("incluido_h12") is True}
-    if h12_teachers:
-        matched, required = h12_matching(payload.get("classes", []), h12_teachers, int(payload["min_obrigatorias_ano"]))
-        if matched != required:
-            errors.append(f"H12 inviável: o matching cobre {matched} de {required} créditos necessários")
+    coverage = h12_coverage(payload)
+    if coverage and payload.get("h12_modo", "hard") == "hard" and coverage["cobertos"] != coverage["necessarios"]:
+        errors.append(f"H12 inviável: o matching cobre {coverage['cobertos']} de {coverage['necessarios']} créditos necessários")
     return errors
+
+
+def h12_coverage(payload: dict) -> dict | None:
+    """Cobertura máxima de H12 pelo matching docente×obrigatória.
+
+    Com H12 soft, ``necessarios - cobertos`` é o piso do déficit: nenhuma
+    solução consegue menos turmas faltantes do que isso.
+    """
+    h12_teachers = {t["name"] for t in payload.get("teachers", []) if t.get("incluido_h12") is True}
+    if not h12_teachers:
+        return None
+    matched, required = h12_matching(payload.get("classes", []), h12_teachers, int(payload["min_obrigatorias_ano"]))
+    return {"cobertos": matched, "necessarios": required, "piso_deficit": required - matched}
 
 
 def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_patterns: int = MAX_PATTERNS) -> dict:
@@ -424,6 +435,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
     payload["prioridades_professores"] = {name: value for name, value in priorities.items() if name in names}
     payload["politica_cotutoria"] = cotutoria
     payload["min_obrigatorias_ano"] = MIN_OBRIGATORIAS_ANO
+    payload["h12_modo"] = H12_MODO_OFICIAL
     payload["schema_version"] = "0.3-oficial"
     payload["profile"] = "oficial_2026"
 
@@ -433,6 +445,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
     payload["pendencias_aplicacao"] = pending.summary()
     payload["pendencias_verificador"] = len(readiness_pending)
     payload["erros_validacao"] = errors
+    payload["h12_cobertura"] = h12_coverage(payload)
     payload["manifesto_oficial"] = {
         "base": str(base_path.relative_to(ROOT)) if base_path.is_relative_to(ROOT) else str(base_path),
         "base_sha256": sha256(base_path),

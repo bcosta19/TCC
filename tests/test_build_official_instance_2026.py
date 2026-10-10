@@ -165,6 +165,16 @@ class BuildOfficialInstance2026Tests(unittest.TestCase):
         manifest = self.build(tables)["manifesto_oficial"]
         self.assertEqual(manifest["hipoteses_provisorias"], {"cadastro_salas_2026.csv:criterio_capacidade": 2})
 
+    def test_official_instance_relaxes_h12_and_reports_deficit_floor(self):
+        tables = complete_tables()
+        tables["universo_h12_2026.csv"][0]["incluido_h12"] = "sim"
+        payload = self.build(tables)
+        self.assertEqual(payload["h12_modo"], "soft")
+        self.assertEqual(payload["erros_validacao"], [])
+        self.assertTrue(payload["pronta_para_experimento"])
+        self.assertEqual(payload["h12_cobertura"]["necessarios"], 3)
+        self.assertGreater(payload["h12_cobertura"]["piso_deficit"], 0)
+
     def test_rooms_receive_official_capacity_and_resources(self):
         rooms = {room["id"]: room for room in self.build(complete_tables())["rooms"]}
         self.assertEqual(rooms["202"]["capacity"], 60)
