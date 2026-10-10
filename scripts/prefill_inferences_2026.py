@@ -102,6 +102,7 @@ SETOR_POR_AFINIDADE: dict[str, tuple[str, str, str]] = {
     "TCC00271": ("LING.TEOR.", "media", "tópicos em linguagens de programação; o tema Lógica Nebulosa é próximo de IA"),
     "TCC00280": ("GER.SIST.TI", "media", "mesmo perfil de Computação e Sociedade (TCC00290)"),
     "TCC00371": ("IA", "baixa", "assunto de IA; perfil próximo de Computação e Sociedade (GER.SIST.TI)"),
+    "TCC00357": ("ENG.SOFT.", "alta", "POO, mesmo setor de TCC00328; na planilha 2025 aparece 2× em ENG.SOFT. e 1× em ALG.CPX. (turma X1)"),
 }
 
 

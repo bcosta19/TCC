@@ -41,8 +41,8 @@ de hipótese.
 
 ## HP5 — Setor por planilha de 2025 ou por afinidade de assunto
 
-- **70 linhas:** setor da planilha QH 2025 (`setor_historico_2025`).
-- **29 linhas sem setor em 2025:** setor de disciplinas do mesmo assunto,
+- **68 linhas:** setor da planilha QH 2025 (`setor_historico_2025`), só quando o código tem um único setor em 2025.
+- **31 linhas sem setor único em 2025:** setor de disciplinas do mesmo assunto. Inclui `TCC00357` (POO I), que na planilha aparece 2× em ENG.SOFT. e 1× em ALG.CPX. e ficou em ENG.SOFT. O setor é
   escolhido só entre os 13 setores de 2025, porque o domínio de horários usa
   os padrões de dias observados para o setor em 2025.
   Exemplos: Tópicos em BD → `B.D.`, Metaheurísticas e PLI → `ALG.CPX.`
@@ -181,8 +181,11 @@ O contador de H8 (decisão de 30/09) não considera turmas paralelas e acusa
 332-B1 × 354-A1. As duas são fixas pela regra literal de 30/09: 332-B1 tem 5
 vagas para Engenharia de Telecomunicações, e 354-A1 tem 1 vaga para Farmácia.
 
-Decisão: manter. As 2 sobreposições são um piso estrutural conhecido, que é
-um artefato do contador e não um choque real para o aluno. Os resultados
+Decisão: manter. As sobreposições são um piso estrutural conhecido, que é
+um artefato do contador e não um choque real para o aluno. Depois da recoleta
+de 10/10, a 354-B1 também ficou fixa (1 vaga para Matemática), e a outra
+metade do espelho (332-A1 × 354-B1, 20–22) entrou no piso: são 4
+sobreposições. Os resultados
 devem relatar as violações hard acima desse piso. Alternativas descartadas:
 - tornar 354-A1 flexível contraria a regra literal de 30/09 (sem mínimo de
   vagas);
@@ -273,6 +276,36 @@ na soma:
 - Efeito no guloso: nenhum. O excesso continua 0, porque só compensa quando
   reduz violações hard ou o déficit de H12.
 
+## Recoleta das vagas (10/10/2026)
+
+A coleta pública de 15/08 foi refeita (`webscrap/scrape_2026.py`, 431
+turmas). Horários: nenhuma mudança. Inscritos mudaram em 170 turmas, vagas em
+58, e o conjunto de cursos com vaga em 34. Turmas: 6 novas (5 seções de
+`CGI00002` e `TCC00241-Z1`) e 2 removidas (`CGI00002-A1` e `TCC00243-Z1`).
+
+A pipeline recusa tabelas de revisão quando as fontes mudam, e a opção
+`--refresh-review-templates` apagaria as decisões. Criou-se
+`scripts/refresh_review_evidence_2026.py`, que gera as tabelas numa cópia
+temporária e leva para as reais só as colunas de evidência, casando linhas
+por chave. As decisões não mudaram em nenhuma linha (conferido tabela a
+tabela). Depois foram reaplicadas as regras, nesta ordem:
+`prefill_fixed_schedules_2026.py`,
+`prefill_external_references_2026.py --sobrescrever` e
+`prefill_inferences_2026.py`.
+
+Efeitos:
+- 5 turmas do IC passaram a fixas (64 → 69), todas por 1 vaga para outro
+  curso, aplicando a regra literal de 30/09: `TCC00298-A1`, `TCC00314-A1`,
+  `TCC00328-A1`, `TCC00354-B1` e `TCC00360-A1` (2026/2). Restam 107 turmas
+  flexíveis na instância. **A regra sem mínimo de vagas é sensível**: 1 aluno
+  de outro curso fixa a turma inteira.
+- 2 turmas de referência mudaram: `CGI00002` (A1, removida → F1) e
+  `GSI00433` (B1 → A1), pelos inscritos atualizados.
+- Piso de H8: 2 → 4 (o espelho TCC00332 × TCC00354 inteiro). Piso do déficit
+  de H12: 29 (não mudou).
+- Referência da normalização: o desperdício passou de 2290 para 2229; os
+  demais termos não mudaram.
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e
@@ -283,14 +316,17 @@ Agora `build_review_tables_2026.py --atualizar-evidencias` recalcula só essas
 colunas, e a pipeline executa esse passo sempre que preserva as tabelas. Nomes
 sem histórico ficam vazios, e não com zero.
 
-## Efeito na instância oficial (10/10/2026)
+## Efeito na instância oficial (10/10/2026, após a recoleta)
 
 - **`pronta_para_experimento = true`.** O verificador não tem pendências e a
   validação estrutural não tem erros (era 1133 pendências no início do dia).
-- 217 turmas, 112 com horário flexível e 177 com professor a escolher.
-- H12 soft: 62 docentes no universo, piso do déficit = 29.
-- Piso estrutural de H8 = 2 (par TCC00332 × TCC00354, artefato do contador).
-- Horário real de 2026 avaliado no modelo: 15 violações hard (12 de H8 e 3 de
-  sala) e déficit de H12 = 48. Uma passagem gulosa de 9 s chega a 3 hard
-  (H8) e déficit 34.
-- Preferências professor×disciplina não nulas: 257.
+- 217 turmas, 107 com horário flexível e 177 com professor a escolher.
+- H12 soft (62 docentes no universo, piso do déficit = 29) e H10 soft
+  (excesso de capacidade como terceiro nível). Critérios soft normalizados
+  pelo horário observado.
+- Piso estrutural de H8 = 4 (espelho TCC00332 × TCC00354, artefato do
+  contador).
+- Horário real de 2026 avaliado no modelo: 15 violações hard, déficit de H12
+  = 48 e excesso de capacidade = 0. Um guloso de uma passada chega a 5 hard
+  (todas de H8, 1 acima do piso), déficit 33, excesso 0 e total soft 2,26
+  (o horário real vale 3).

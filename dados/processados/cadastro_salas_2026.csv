@@ -1,6 +1,6 @@
 sala,laboratorio_observado,capacidade_minima_observada,capacidade_fisica,recursos_oficiais,fonte,validado,criterio_capacidade
 202,False,61,61,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
-204,False,63,63,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
+204,False,61,61,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 206,False,70,70,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 213,False,68,68,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 215,False,75,75,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
@@ -8,7 +8,7 @@ sala,laboratorio_observado,capacidade_minima_observada,capacidade_fisica,recurso
 302,False,62,62,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 304,False,24,24,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 306,False,50,50,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
-308,False,52,52,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
+308,False,50,50,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 313,False,52,52,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 315,False,15,15,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 317,False,47,47,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
@@ -18,6 +18,6 @@ sala,laboratorio_observado,capacidade_minima_observada,capacidade_fisica,recurso
 L302,True,62,62,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 L303,True,47,47,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 L304,True,62,62,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
-L305,True,50,50,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
+L305,True,49,49,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 L306,True,62,62,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026
 L307,True,49,49,,salas_2026_cc_si.csv; capacidade mínima observada calculada pelo maior número de vagas das turmas alocadas,sim,HP3 10/10/2026: maior número de vagas entre as turmas alocadas na sala em 2026

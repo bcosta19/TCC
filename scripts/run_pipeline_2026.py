@@ -97,7 +97,12 @@ def validate_review_coverage() -> None:
         print("ERRO: tabelas de revisao obsoletas; nenhuma decisao foi sobrescrita.", file=sys.stderr)
         for error in errors:
             print(f"  - {error}", file=sys.stderr)
-        print("Revise as fontes e use --refresh-review-templates somente com confirmacao humana.", file=sys.stderr)
+        print(
+            "Para atualizar só a evidência e preservar as decisões, rode "
+            "scripts/refresh_review_evidence_2026.py e reaplique os prefill_*.py. "
+            "--refresh-review-templates apaga as decisões; use só com confirmação humana.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
 
