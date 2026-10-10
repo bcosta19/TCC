@@ -54,7 +54,7 @@ busca.
   verificar, e 10 de avaliação (101 a 1010), usadas nos resultados do texto.
 - **Análise:** comparação lexicográfica por semente e Wilcoxon pareado
   bilateral exato por nível (hard, déficit, soft). Os resultados são relatados
-  em relação aos pisos estruturais (hard 4, déficit 29) e ao horário real
+  em relação aos pisos estruturais (hard 4, déficit 28; lidos da instância) e ao horário real
   (soft normalizado = 3).
 - Os cenários E1–E3 (CC antes de SI, SI antes de CC e conjunto) ainda
   precisam ser ligados ao executor. A instância atual corresponde ao E3.
