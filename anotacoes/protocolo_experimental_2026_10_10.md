@@ -58,3 +58,43 @@ busca.
   (soft normalizado = 3).
 - Os cenários E1–E3 (CC antes de SI, SI antes de CC e conjunto) ainda
   precisam ser ligados ao executor. A instância atual corresponde ao E3.
+
+## Verificação inicial (sementes de calibração 11, 22, 33)
+
+Resultados em `dados/processados/experimento_oficial_2026/verificacao_inicial`
+(20 mil avaliações) e `.../verificacao_100k` (100 mil). Pisos lidos da
+instância: hard 4 (espelho TCC00332 × TCC00354) e déficit de H12 28. Esse
+piso foi corrigido nesta verificação: o matching creditava 1/k às turmas com
+dois docentes, mas a política decidida é a integral.
+
+| Orçamento | Algoritmo | Hard | Déficit | Excesso | Soft (mediana) |
+|---|---|---|---|---|---|
+| 20 mil | sa2 | 4 | 28 | 0 | 2,343 |
+| 20 mil | VNS | 4 | 31 | 0 | 2,059 |
+| 20 mil | ILS | 5 | 32 | 0 | 2,206 |
+| 20 mil | SA de v1–v3 | 4 | 29 | **52** | 2,002 |
+| 100 mil | sa2 | 4 | 28 | 0 | **1,863** |
+| 100 mil | VNS | 4 | 30 | 0 | 1,941 |
+| 100 mil | ILS | 4 | 31 | 0 | 2,045 |
+
+Horário real: hard 15, déficit 48, soft 3,000. Partida gulosa: hard 5,
+déficit 33, soft 2,264.
+
+- O `sa2` vence ILS e VNS nas 3 sementes, pela comparação lexicográfica, nos
+  dois orçamentos. Com 100 mil avaliações também tem o melhor soft mediano.
+  Com 3 sementes nenhum Wilcoxon é significativo (o menor p possível é 0,25);
+  isso fica para as 10 sementes de avaliação.
+- Com 20 mil avaliações, o soft do `sa2` ficou pior que o da partida: a fase 2
+  teve só 16 mil avaliações. Com 100 mil, ele recupera.
+- O SA de v1–v3 superlota salas (excesso mediano de 52 alunos), como a
+  análise da calibração previa. Não serve mais de referência.
+- Calibração medida: piora mediana de 1 turma no déficit (T de 1,44 a 0,22) e
+  de 0,013–0,018 no soft (T de cerca de 0,02 a 0,003). Na fase 2 são aceitos
+  cerca de 18% dos movimentos.
+- **Em todos os algoritmos**, janelas (46 → 16–27), rodízio e preferência
+  melhoram, mas dias trabalhados piora (233 → 242–259). É efeito dos pesos
+  iguais depois da normalização: 1 janela (1/46) vale cerca de 5× um dia
+  (1/233). Se dias trabalhados importar mais, ajustar `PESOS_SOFT_OFICIAL`.
+- Tempo: cerca de 11 min por execução de 100 mil avaliações com 9 processos
+  em paralelo. O protocolo completo (3 algoritmos × 10 sementes) leva cerca de
+  40 min por cenário.
