@@ -11,13 +11,13 @@
 Consulte o relatório operacional detalhado em:
 `dados/processados/PENDENCIAS_VALIDACAO_2026.md`
 
-- [ ] **Tabela oficial de setores/áreas** do departamento — setor → professores habilitados → matérias → dias oficiais (`revisao_setores_2026.csv` e `revisao_habilitacao_docente_2026.csv`).
+- [ ] **Tabela oficial de setores/áreas** do departamento — setor → professores habilitados → matérias → dias oficiais (`revisao_setores_2026.csv` e `revisao_habilitacao_docente_2026.csv`). *Provisório:* setores preenchidos por HP5 (planilha 2025 + afinidade de assunto), ver `anotacoes/hipoteses_provisorias_2026_10_10.md`; habilitação preenchida por HP6 (já deu a disciplina em 2025 ou 2026).
 - [ ] **Lista de matérias externas com horários fixos** — `revisao_horarios_fixos_2026.csv` e `revisao_turmas_externas_2026.csv`.
 - [x] **Baseline anual observado de horários, professores e salas em 2026** — extraído de `QH-2026-1.pdf` e `QH-2026-2.pdf`; ver `dados/processados/auditoria_2026.md`.
 - [ ] **Grade de horários fixos permitidos** por semestre par e ímpar — `revisao_horarios_fixos_2026.csv`.
-- [ ] **Salas do IC**: identificação, capacidade física oficial, recursos (laboratório, projetor etc.) — `cadastro_salas_2026.csv` e `revisao_recursos_disciplinas_2026.csv`.
+- [ ] **Salas do IC**: identificação, capacidade física oficial, recursos (laboratório, projetor etc.) — `cadastro_salas_2026.csv` e `revisao_recursos_disciplinas_2026.csv`. *Provisório:* capacidade por HP3 (maior número de vagas observado) e laboratório por HP4 (sala "L" observada).
 - [ ] **Optativas pretendidas** por professor (horário livre).
-- [ ] **Lista de prioridade dos professores** (idade/antiguidade) — `revisao_prioridades_docentes_2026.csv`.
+- [x] ~~**Lista de prioridade dos professores**~~ (idade/antiguidade) — retirada do escopo em 10/10/2026 (prioridade uniforme 1); ver `anotacoes/hipoteses_provisorias_2026_10_10.md`.
 - [x] **Vagas/tamanho das turmas de 2026** — extraídas das páginas públicas de detalhe e preservadas por curso em `webscrap/turmas_2026_raw.csv`; as 180 turmas vinculadas ao recorte CC/SI têm vagas e inscritos conhecidos.
 - [x] **Grade curricular por período de CC e SI** — fontes em `dados/grade_cc.md` e `dados/grade_si.md`, normalizadas em `curriculos_cc_si.csv`.
 - [x] **Identificadores de SI no Quadro de Horários** — filtro interno `idcurso=263`, `idcurriculo=3473`, currículo acadêmico `83.01.003`.

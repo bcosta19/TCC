@@ -147,6 +147,24 @@ class BuildOfficialInstance2026Tests(unittest.TestCase):
         item = self.classes(self.build(complete_tables()))["2026-1-TCC00002-A1"]
         self.assertEqual([m["requer_laboratorio"] for m in item["encontros"]], [True, False])
 
+    def test_lab_and_common_rows_of_same_code_count_as_alternating(self):
+        tables = complete_tables()
+        tables["revisao_recursos_disciplinas_2026.csv"][1:2] = [
+            {"codigo": "TCC00002", "usou_sala_comum": "False", "usou_laboratorio": "True",
+             "alternou_tipo_de_sala": "False", "requer_laboratorio": "sim", "recursos_requeridos": "", "validado": "sim"},
+            {"codigo": "TCC00002", "usou_sala_comum": "True", "usou_laboratorio": "False",
+             "alternou_tipo_de_sala": "False", "requer_laboratorio": "sim", "recursos_requeridos": "", "validado": "sim"},
+        ]
+        item = self.classes(self.build(tables))["2026-1-TCC00002-A1"]
+        self.assertEqual([m["requer_laboratorio"] for m in item["encontros"]], [True, False])
+
+    def test_manifest_counts_provisional_hypotheses(self):
+        tables = complete_tables()
+        for row in tables["cadastro_salas_2026.csv"]:
+            row["criterio_capacidade"] = "HP3 teste"
+        manifest = self.build(tables)["manifesto_oficial"]
+        self.assertEqual(manifest["hipoteses_provisorias"], {"cadastro_salas_2026.csv:criterio_capacidade": 2})
+
     def test_rooms_receive_official_capacity_and_resources(self):
         rooms = {room["id"]: room for room in self.build(complete_tables())["rooms"]}
         self.assertEqual(rooms["202"]["capacity"], 60)

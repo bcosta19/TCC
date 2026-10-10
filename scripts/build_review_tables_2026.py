@@ -61,6 +61,60 @@ def write_review_manifest() -> None:
     REVIEW_MANIFEST.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def read_preferences(data: Path = DATA) -> pd.DataFrame:
+    path = data / "preferencias_2025.csv"
+    return pd.read_csv(path, dtype=str).fillna("") if path.exists() else pd.DataFrame()
+
+
+def historical_counts(pref25: pd.DataFrame) -> tuple[dict[tuple[str, str], int], set[str]]:
+    """Turmas por (código, professor) em 2023–2025 e o conjunto de professores com histórico.
+
+    ``preferencias_2025.csv`` já traz o professor pelo nome curto da planilha
+    (o mesmo das tabelas de revisão).
+    """
+    counts: dict[tuple[str, str], int] = defaultdict(int)
+    for _, r in pref25.iterrows():
+        teacher = str(r.get("professor", r.get("docente", ""))).strip()
+        code = str(r.get("codigo", "")).strip()
+        if code and teacher:
+            counts[(code, teacher)] += int(float(r.get("contagem", r.get("total_alocacoes", 0)) or 0))
+    return dict(counts), {teacher for _, teacher in counts}
+
+
+def frequency_value(counts: dict[tuple[str, str], int], known: set[str], code: str, teacher: str) -> str:
+    """Frequência do par; vazio quando o nome do professor não aparece no histórico (não dá para afirmar zero)."""
+    return str(counts.get((code, teacher), 0)) if teacher in known else ""
+
+
+def teacher_total(counts: dict[tuple[str, str], int], known: set[str], teacher: str) -> str:
+    return str(sum(value for (_, name), value in counts.items() if name == teacher)) if teacher in known else ""
+
+
+def refresh_historical_counts(data: Path = DATA) -> dict[str, int]:
+    """Recalcula só as colunas de frequência histórica das tabelas existentes.
+
+    As tabelas de revisão são preservadas pela pipeline para não perder
+    decisões; sem este passo, essas colunas de evidência ficam congeladas na
+    versão de quando a tabela foi gerada.
+    """
+    counts, known = historical_counts(read_preferences(data))
+    filled = {}
+    for name, column, values in (
+        ("revisao_habilitacao_docente_2026.csv", "frequencia_historica_2023_2025",
+         lambda table: [frequency_value(counts, known, c, d) for c, d in zip(table["codigo"], table["docente"])]),
+        ("revisao_prioridades_docentes_2026.csv", "ocorrencias_2023_2025",
+         lambda table: [teacher_total(counts, known, t) for t in table["nome_normalizado"]]),
+    ):
+        path = data / name
+        if not path.exists():
+            continue
+        table = pd.read_csv(path, dtype=str).fillna("")
+        table[column] = values(table)
+        table.to_csv(path, index=False)
+        filled[name] = int(table[column].ne("").sum())
+    return filled
+
+
 def build_curricular_review() -> None:
     rows = [
         {
@@ -361,14 +415,7 @@ def build_sectors_review() -> None:
 def build_teacher_qualification_review() -> None:
     classes = pd.read_csv(DATA / "turmas_2026_cc_si.csv", dtype=str).fillna("")
     turmas25 = pd.read_csv(DATA / "turmas_2025.csv", dtype=str).fillna("") if (DATA / "turmas_2025.csv").exists() else pd.DataFrame()
-    pref25 = pd.read_csv(DATA / "preferencias_2025.csv", dtype=str).fillna("") if (DATA / "preferencias_2025.csv").exists() else pd.DataFrame()
-
-    freq_map: dict[tuple[str, str], str] = {}
-    if not pref25.empty:
-        for _, r in pref25.iterrows():
-            freq_map[(r.get("codigo", ""), r.get("professor", r.get("docente", "")))] = str(
-                r.get("contagem", r.get("total_alocacoes", ""))
-            )
+    counts, known = historical_counts(read_preferences(DATA))
 
     setor_hist_map = {}
     if not turmas25.empty and "codigo" in turmas25 and "setor" in turmas25:
@@ -398,7 +445,7 @@ def build_teacher_qualification_review() -> None:
     rows = []
     for code, disc, prof, obs26 in sorted(pairs):
         setor = setor_hist_map.get(code, "")
-        freq = freq_map.get((code, prof), "")
+        freq = frequency_value(counts, known, code, prof)
         rows.append({
             "codigo": code,
             "disciplina": disc,
@@ -418,14 +465,7 @@ def build_teacher_qualification_review() -> None:
 def build_teacher_priorities_review() -> None:
     classes = pd.read_csv(DATA / "turmas_2026_cc_si.csv", dtype=str).fillna("")
     carga25 = pd.read_csv(DATA / "carga_docente_2025.csv", dtype=str).fillna("") if (DATA / "carga_docente_2025.csv").exists() else pd.DataFrame()
-    pref25 = pd.read_csv(DATA / "preferencias_2025.csv", dtype=str).fillna("") if (DATA / "preferencias_2025.csv").exists() else pd.DataFrame()
-
-    total_allocations: dict[str, int] = defaultdict(int)
-    if not pref25.empty:
-        for _, r in pref25.iterrows():
-            doc = str(r.get("professor", r.get("docente", "")))
-            count = int(float(r.get("contagem", r.get("total_alocacoes", 0)) or 0))
-            total_allocations[doc] += count
+    counts, known = historical_counts(read_preferences(DATA))
 
     obs26_teachers = set()
     for row in classes.itertuples():
@@ -444,7 +484,7 @@ def build_teacher_priorities_review() -> None:
     rows = []
     for t in all_teachers:
         full = docente_full.get(t, t)
-        allocs = total_allocations.get(t, "")
+        allocs = teacher_total(counts, known, t)
         rows.append({
             "docente": full,
             "nome_normalizado": t,
@@ -500,8 +540,17 @@ def main() -> None:
         action="store_true",
         help="Atualiza apenas os hashes das fontes, sem reescrever os CSVs de decisao",
     )
+    parser.add_argument(
+        "--atualizar-evidencias",
+        action="store_true",
+        help="Recalcula só as colunas de frequência histórica das tabelas existentes, sem tocar nas decisões",
+    )
     args = parser.parse_args()
     DATA.mkdir(parents=True, exist_ok=True)
+    if args.atualizar_evidencias:
+        for name, count in refresh_historical_counts().items():
+            print(f"{name}: {count} linhas com frequência histórica")
+        return
     if args.manifest_only:
         write_review_manifest()
         print(REVIEW_MANIFEST)

@@ -95,6 +95,18 @@ def validated_rows(frame: pd.DataFrame) -> pd.DataFrame:
     return frame[frame["validado"].map(yes_no).eq(True)]
 
 
+def provisional_hypotheses(data: Path) -> dict[str, int]:
+    """Conta, por tabela e coluna ``criterio*``, as linhas preenchidas por hipótese provisória (``HP...``)."""
+    counts = {}
+    for name in REVIEW_FILES:
+        frame = read_table(data, name)
+        for column in (c for c in frame.columns if c.startswith("criterio")):
+            count = int(frame[column].str.startswith("HP").sum())
+            if count:
+                counts[f"{name}:{column}"] = count
+    return counts
+
+
 def split_values(value: object, separator: str = ";") -> list[str]:
     return [item.strip() for item in str(value or "").split(separator) if item.strip()]
 
@@ -268,13 +280,22 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
     resources_table = validated_rows(read_table(data, "revisao_recursos_disciplinas_2026.csv"))
     lab_required = {}
     extra_resources = {}
-    alternated = {}
+    room_kinds: dict[str, set[str]] = defaultdict(set)
     for _, row in resources_table.iterrows():
         decision = yes_no(row["requer_laboratorio"])
         if decision is not None:
-            lab_required[row["codigo"]] = decision
-            extra_resources[row["codigo"]] = split_values(row.get("recursos_requeridos", ""))
-            alternated[row["codigo"]] = yes_no(row.get("alternou_tipo_de_sala")) is True
+            code = row["codigo"]
+            lab_required[code] = decision
+            extra_resources[code] = split_values(row.get("recursos_requeridos", ""))
+            if yes_no(row.get("alternou_tipo_de_sala")) is True:
+                room_kinds[code] |= {"laboratorio", "comum"}
+            if yes_no(row.get("usou_laboratorio")) is True:
+                room_kinds[code].add("laboratorio")
+            if yes_no(row.get("usou_sala_comum")) is True:
+                room_kinds[code].add("comum")
+    # Linhas do mesmo código com nomes diferentes contam juntas: se uma usou só
+    # laboratório e outra só sala comum, a disciplina alternou tipo de sala.
+    alternated = {code: kinds == {"laboratorio", "comum"} for code, kinds in room_kinds.items()}
     rooms_table = validated_rows(read_table(data, "cadastro_salas_2026.csv"))
     room_capacity = {}
     room_resources = {}
@@ -335,7 +356,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
             meeting["id"] = f"E{index}"
             meeting["sala_observada_id"] = meeting.get("sala")
             if code in lab_required:
-                needs_lab = lab_required[code] and (not alternated[code] or is_lab_room(meeting.get("sala") or ""))
+                needs_lab = lab_required[code] and (not alternated.get(code, False) or is_lab_room(meeting.get("sala") or ""))
                 meeting["requer_laboratorio"] = needs_lab
                 meeting["recursos_requeridos"] = (resources_from_requirement(needs_lab) or []) + extra_resources[code]
                 meeting["recurso_fonte"] = "revisao_recursos_disciplinas_2026.csv"
@@ -417,6 +438,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
         "base_sha256": sha256(base_path),
         "revisoes": {name: sha256(data / name) for name in REVIEW_FILES},
         "decisoes": "anotacoes/decisoes_modelagem_2026_09_30.md",
+        "hipoteses_provisorias": provisional_hypotheses(data),
     }
     return payload
 

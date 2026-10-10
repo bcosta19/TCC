@@ -169,6 +169,10 @@ def main() -> None:
         )
     else:
         print("[Pipeline 2026] Tabelas de revisão existentes serão preservadas.")
+        steps.insert(
+            -1,
+            ("Atualização das Evidências Históricas", [python_bin, str(ROOT / "scripts" / "build_review_tables_2026.py"), "--atualizar-evidencias"]),
+        )
 
     for step_name, cmd in steps:
         if step_name == "Verificação de Prontidão":

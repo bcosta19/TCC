@@ -1,236 +1,236 @@
-codigo,disciplina,docente,setor_historico,frequencia_historica_2023_2025,observado_2026,habilitado,fonte,validado
-CGI00004,SEMINÁRIOS EM SISTEMAS DE INFORMAÇÃO,Raphael Guerra,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-GCI00116,ÉTICA,ChristianoGCI,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-GCI00126,REPRESENTAÇÃO DA INFORMAÇÃO,ChristianoGCI,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00194,BIOLOGIA COMPUTACIONAL (OPTATIVA),Helena,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00195,METAHEURÍSTICAS Pós: Inteligência Computacional,Satoru,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00196,PROGRAMAÇÃO LINEAR INTEIRA - OTIMIZAÇÃO COMBINATÓRIA (GRAD. E PÓS),Yuri,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00200,MINERAÇÃO DE DADOS (GRAD. E PÓS),Marcos Bedo,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00202,"Pós: Jogos Digitais / TCC00202 VISUALIZAÇÃO, SIMULAÇÃO E JOGOS DIGITAIS",Esteban,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00203,ANÁLISE / PROCESSAMENTO DE IMAGENS (GRAD. E PÓS),Aura,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00205,LINGUAGENS DE PROGRAMAÇÃO EM LÓGICA Pós: Lógica,Mario,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00212,Ementa Variável II / EMPREENDEDORISMO,Daniela,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SISTEMAS DE INFORMAÇÃO,Jose Raphael,GER.SIST.TI,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SI,Marcelo Fornazin,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00225,ENGENHARIA DE SOFTWARE,Rebeca,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00226,DESENVOLVIMENTO WEB,Carlos Ribeiro,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00230,TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO Pós: Criptografia,Kowada,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00230,Ementa Variável II -  TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO,Raphael Machado,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00234,TÓPICOS EM ARQUITETURAS DE COMPUTADORES I (GRAD. E PÓS),Lucia,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00237,TÓPICOS EM AUTOMAÇÃO I - ROBÓTICA E VEÍCULOS AUTÔNOMOS (GRAD. E PÓS),Esteban,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00241,TÓPICOS EM COMPUTAÇÃO I - GRAFOS E SUAS APLICAÇÕES,Andre Renato,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00241,TÓPICOS EM COMPUTAÇÃO I Pós: Visão Computacional,Leandro Fernandes,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00242,TÓPICOS EM COMPUTAÇÃO II,Martinhon,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00242,Ementa Variável I / Graduação - Introdução à programação funcional - TCC0024X TÓPICOS EM COMPUTAÇÃO X,Mauricio,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00242,TÓPICOS EM COMPUTAÇÃO II - ÁLGEBRA LINEAR COMPUTACIONAL (GRAD. E PÓS),Pedro,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00243,TÓPICOS EM COMPUTAÇÃO III - ALGORITMOS E COMPLEXIDADE DE PROBLEMAS (GRAD. E PÓS),Luis Felipe,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00243,Pós: Algebra Linear Computacional / Graduação: TCC0025X TÓPICOS EM COMPUTACAO III,Pedro,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00244,Pós: Bancos de Dados Distribuídos / TCC0024X TÓPICOS EM BANCO DE DADOS X,Daniel,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00244,TÓPICOS EM BANCO DE DADOS I Pós: eScience,Vanessa,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00245,TÓPICOS EM BANCO DE DADOS II - RASTREABILIDADE E GOVERNANÇA DE DADOS (GRAD. E PÓS),Daniel,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00245,Pós: eScience / TCC0024X TÓPICOS EM BANCO DE DADOS X,Vanessa,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00250,Pós: Controle de Versão / Graduação: TCC0025X TÓPICOS EM ENGENHARIA DE SOFWARE X,Leo Murta,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00250,TÓPICOS EM ENGENHARIA DE SOFWARE I Pós: Game Analytics,Troy,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00251,TÓPICOS EM ENGENHARIA DE SOFWARE II Pós: Controle de Versão,Leo Murta,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00251,Pós: Game Analytics (TAs em CC I) / TCC0025X TÓPICOS EM ENGENHARIA DE SOFWARE X,Troy,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00252,TÓPICOS EM ENG DE SOFTWARE III - IA GENERATIVA (GRAD. E PÓS),Vania,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00253,TÓPICOS ESPECIAIS EM SISTEMAS DE PROGRAMAÇÃO I,Marcelo Fornazin,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00253,Graduação - Lógica Nebulosa - TCC0025X TÓPICOS ESPECIAIS EM SISTEMAS DE PROGRAMAÇÃO X,Patrick,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00259,TÓPICOS EM IA I - APRENDIZADO PROFUNDO (GRAD. E PÓS),Anselmo,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00259,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL I Aprendizado Profundo,Luiz Bez,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00259,Pós: Aprendizado de Máquina / Graduação: TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Mariza,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00260,Pós: Inteligência Artificial Verde (TAs em CC II)  - Graduação: Inteligência Artificial Verde - TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Leandro Santiago,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00260,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL II Pós: Aprendizado de Máquina,Taiane,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00261,Graduação - Introdução ao Aprendizado Profundo - TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Anselmo,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00265,TÓPICOS EM INTERFACE HOMEM MÁQUINA (GRAD. E PÓS),Luciana,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00271,TÓPICOS EM LINGUAGEM DE PROGRAMAÇÃO I,Patrick,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00271,TÓPICOSS EM LINGUAGEM DE PROGRAMAÇÃO I - LÓGICA NEBULOSA (GRAD. E PÓS),Patrick,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00280,COMPUTAÇÃO E MEIO AMBIENTE,Jose Raphael,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00284,ALGORITMOS EM GRAFOS,Fabio,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00284,ALGORITMOS EM GRAFOS,Luis Felipe,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Fabio,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Loana,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Luis Felipe,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Martinhon,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Raquel,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00286,ARQUITETURAS DE COMPUTADORES,Cristina Boeres,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00286,ARQUITETURAS DE COMPUTADORES,Leandro Santiago,ARQ.SO.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00286,ARQUITETURAS DE COMPUTADORES,Vinod,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00287,BANCO DE DADOS I,Luiz Andre,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00287,BANCO DE DADOS I,Rodrigo,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00287,BANCO DE DADOS I,Vanessa,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00288,BANCO DE DADOS II,Luiz Andre,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00288,BANCO DE DADOS II,Rodrigo,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00289,COMPILADORES,Bruno,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00289,COMPILADORES,Christiano,LING.TEOR.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00289,COMPILADORES,Flavia Bernardini,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00290,COMPUTAÇÃO E SOCIEDADE,Jose Raphael,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00291,COMPUTAÇÃO GRÁFICA,Aura,COMP.VIS.JOGOS,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00291,COMPUTAÇÃO GRÁFICA,Esteban,COMP.VIS.JOGOS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00291,COMPUTAÇÃO GRÁFICA,Marcos Lage,COMP.VIS.JOGOS,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00292,ENGENHARIA DE SOFTWARE I,Leo Murta,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00293,ENGENHARIA DE SOFTWARE II,Leo Murta,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00293,ENGENHARIA DE SOFTWARE II,Troy,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,Aline Nascimento,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,Vinod,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00297,INTELIGÊNCIA ARTIFICIAL,Aline Paes,IA,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00297,INTELIGÊNCIA ARTIFICIAL,Flavia Bernardini,IA,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00297,INTELIGÊNCIA ARTIFICIAL,Mariza,IA,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00297,INTELIGÊNCIA ARTIFICIAL,Taiane,IA,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00298,INTERFACE HOMEM-MÁQUINA,Daniela,IHC,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00298,INTERFACE HOMEM MAQUINA,Luciana,IHC,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00300,LABORATÓRIO DE DISPOSITIVOS MÓVEIS,Leandro Santiago,ARQ.SO.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00301,LAB. DE PROGRAMAÇÃO DE JOGOS,Esteban,COMP.VIS.JOGOS,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00301,LABORATÓRIO DE PROGRAMAÇÃO DE JOGOS,Esteban,COMP.VIS.JOGOS,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00304,LINGUAGENS DE PROGRAMAÇÃO,Bruno,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00304,LINGUAGENS DE PROGRAMAÇÃO,Christiano,LING.TEOR.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Bruno,LING.TEOR.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Kowada,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Luis Felipe,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Mario,LING.TEOR.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00306,MÉTODOS NUMÉRICOS,Andre Brabo,COMP.NUM.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00306,METODOS NUMERICOS,Luiz Bez,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00306,METODOS NUMERICOS,Pedro,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00306,METODOS NUMERICOS,Ricardo,COMP.NUM.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00307,PROGRAMAÇÃO CIENTÍFICA,Andre Brabo,COMP.NUM.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00307,PROGRAMAÇÃO CIENTÍFICA,Ricardo,COMP.NUM.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Anselmo,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Igor Machado,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Luiz Bez,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Mario,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Viterbo,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00311,PROJETO FINAL II,Troy,PROJ.FINAL.II,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00311,PROJETO FINAL II,_Simone_,PROJ.FINAL.II,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00312,PROJETO DE SOFTWARE,Troy,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00312,PROJETO DE SOFTWARE,Vania,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00313,REDES DE COMPUTADORES I,Celio,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00314,REDES DE COMPUTADORES II,Celio,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00314,REDES DE COMPUTADORES II,Igor Moraes,REDES,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00315,SISTEMAS DISTRIBUÍDOS,Flavia Delicato,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00316,SISTEMAS OPERACIONAIS,Aline Nascimento,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00316,SISTEMAS OPERACIONAIS,Cristina Boeres,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00318,PESQUISA OPERACIONAL,Satoru,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00318,PESQUISA OPERACIONAL,Yuri,ALG.CPX.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00319,ESTRUTURAS DE DADOS,Andre Renato,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00319,ESTRUTURAS DE DADOS,Martinhon,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00319,ESTRUTURAS DE DADOS,Taiane,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Luiz Andre,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Rodrigo,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Vanessa,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,Luciana,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,Marcelo Fornazin,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Ana Carolina,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Aura,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Helena,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Luiz Bez,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Pedro,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00325,MÉTODOS NUMÉRICOS,Ricardo,COMP.NUM.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Aline Nascimento,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Andre Silveira,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Christiano,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Dante,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Gyslla,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,John,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Jose Raphael,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Kowada,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Lauro,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Loana,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Luis Felipe,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mario,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mariza,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Martinhon,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mauricio,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Vanessa,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Viterbo,PROG.BAS.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROG. ORIENTADA A OBJETOS,Anselmo,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROG. ORIENTADA A OBJETOS,Carlos Ribeiro,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Carlos Ribeiro,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,FECHADA,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Flavia Bernardini,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Rebeca,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00330,MODELAGEM DE PROCESSO DE NEGÓCIOS,Flavio Seixas,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00330,MODELAGEM DE PROCESSOS DE NEGÓCIOS,Flavio Seixas,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00330,MODELAGEM DE PROCESSO DE NEGÓCIOS,Rodrigo,GER.SIST.TI,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00331,ESTRUTURAS DE DADOS PARA SISTEMAS DE INFORMAÇÃO,Andre Renato,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00331,ESTRUTURAS DE DADOS PARA SI,Igor Machado,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00331,ESTRUTURAS DE DADOS PARA SI,Raphael Machado,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00331,ESTRUTURAS DE DADOS PARA SI,Taiane,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Leo Cruz,GER.SIST.TI,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Mariza,GER.SIST.TI,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Rodrigo,GER.SIST.TI,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00334,PRINCIPIO DE BANCO DE DADOS,Daniel,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00334,PRINCÍPIOS DE BANCO DE DADOS,Daniel,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00334,PRINCIPIO DE BANCO DE DADOS,Marcos Bedo,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00335,PROJETO DE BANCO DE DADOS PARA SI,Daniel,B.D.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00335,PROJETO DE BANCO DE DADOS,Marcos Bedo,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00335,PROJETO DE BANCO DE DADOS PARA SI,Marcos Bedo,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00336,BANCO DE DADOS NÃO CONVENCIONAIS,Daniel,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,Daniel,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,Marcos Bedo,B.D.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,Daniela,IHC,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,Luciana,IHC,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00338,PROJETO DE SOFTWARE,Joao Pimentel,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00338,PROJETO DE SOFTWARE,Paulo Pires,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00341,SEGURANÇA DA INFORMAÇÃO,Igor Moraes,REDES,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00341,SEGURANÇA DA INFORMAÇÃO,Raphael Machado,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00344,LAB. DE PROGRAMAÇÃO PARALELA,Lucia,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00344,LABORATÓRIO DE PROGRAMAÇÃO PARALELA I,Lucia,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00346,LAB. DE RESOLUÇÃO DE PROBLEMAS,Andre Renato,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Kowada,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leandro Fernandes,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mario,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mauricio,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00347,PROGRAMAÇÃO ESTRUTURADA,Aline Nascimento,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00347,PROGRAMAÇÃO ESTRUTURADA,Aline Paes,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00347,PROGRAMAÇÃO ESTRUTURADA,Cristina Boeres,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00347,PROGRAMAÇÃO ESTRUTURADA,Rosseti,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00347,PROGRAMAÇÃO ESTRUTURADA,Yuri,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,FECHADA,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Kowada,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Rosseti,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Vanessa,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00349,AVALIAÇÃO DE DESEMPENHO,Guto,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00350,Pós: Computação Quântica / TCC00350 INTRODUÇÃO À COMPUTAÇÃO QUÂNTICA,Kowada,,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Martinhon,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Raquel,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Thiago,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Andre Silveira,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leandro Fernandes,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leo Cruz,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mauricio,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Miguel,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,Patrick,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Andre Renato,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Heleno,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00357,PROG. ORIENTADA A OBJETOS I,Igor Machado,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Mauricio,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00358,SISTEMAS COMPUTACIONAIS,Aline Nascimento,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00358,SISTEMAS COMPUTACIONAIS,Cristina Boeres,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00358,SISTEMAS COMPUTACIONAIS,Raphael Guerra,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00359,REDES DE COMPUTADORES,Flavio Seixas,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00359,REDES DE COMPUTADORES,Igor Moraes,REDES,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00360,VISUALIZAÇÃO DE DADOS,Marcos Lage,COMP.VIS.JOGOS,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Heleno,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Paulo Pires,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Viterbo,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00362,SISTEMAS DISTRIBUÍDOS PARA SISTEMAS DE INFORMAÇÃO,Flavia Delicato,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00362,SISTEMAS DISTRIBUÍDOS PARA SI,Raphael Guerra,ARQ.SO.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Joao Pimentel,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Rebeca,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Troy,ENG.SOFT.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00365,QUALIDADE E TESTE DE SOFTWARE,Vania,ENG.SOFT.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Andre Renato,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Heleno,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leandro Fernandes,ESTR.PROG.,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leo Cruz,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Yuri,ESTR.PROG.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00368,P.O. PARA S.I. (WEB AVANC.),Andre Renato,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00368,PESQUISA OPERACIONAL PARA SISTEMAS DE INFORMAÇÃO,Yuri,ALG.CPX.,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TCC00371,ÉTICA EM INT. ARTIFICIAL E CIÊNCIA DE DADOS,Mariza,,,True,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10001,Pós: Análise e Síntese de Algoritmos,Fabio,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10001,Pós: Análise e Síntese de Algoritmos,Luis Felipe,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10002,Pós: Estrutura de Dados e Algoritmos,Igor Machado,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10002,Pós: Estrutura de Dados e Algoritmos,Luiz Andre,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10003,Pós: Sistemas de Computação,Leandro Santiago,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10003,Pós: Sistemas de Computação,Lucia,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
-TIC10005,Pós: Tratamento de Incertezas,Guto,PGC-OB-BAS,,False,,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,
+codigo,disciplina,docente,setor_historico,frequencia_historica_2023_2025,observado_2026,habilitado,fonte,validado,criterio_habilitacao
+CGI00004,SEMINÁRIOS EM SISTEMAS DE INFORMAÇÃO,Raphael Guerra,,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+GCI00116,ÉTICA,ChristianoGCI,,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+GCI00126,REPRESENTAÇÃO DA INFORMAÇÃO,ChristianoGCI,,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+TCC00194,BIOLOGIA COMPUTACIONAL (OPTATIVA),Helena,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00195,METAHEURÍSTICAS Pós: Inteligência Computacional,Satoru,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00196,PROGRAMAÇÃO LINEAR INTEIRA - OTIMIZAÇÃO COMBINATÓRIA (GRAD. E PÓS),Yuri,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00200,MINERAÇÃO DE DADOS (GRAD. E PÓS),Marcos Bedo,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00202,"Pós: Jogos Digitais / TCC00202 VISUALIZAÇÃO, SIMULAÇÃO E JOGOS DIGITAIS",Esteban,,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00203,ANÁLISE / PROCESSAMENTO DE IMAGENS (GRAD. E PÓS),Aura,,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00205,LINGUAGENS DE PROGRAMAÇÃO EM LÓGICA Pós: Lógica,Mario,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00212,Ementa Variável II / EMPREENDEDORISMO,Daniela,,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SISTEMAS DE INFORMAÇÃO,Jose Raphael,GER.SIST.TI,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00222,COMPUTAÇÃO E SOCIEDADE PARA SI,Marcelo Fornazin,GER.SIST.TI,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00225,ENGENHARIA DE SOFTWARE,Rebeca,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00226,DESENVOLVIMENTO WEB,Carlos Ribeiro,ENG.SOFT.,8,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00230,TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO Pós: Criptografia,Kowada,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00230,Ementa Variável II -  TÓPICOS ESPECIAIS EM SEGURANÇA DA INFORMAÇÃO,Raphael Machado,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00234,TÓPICOS EM ARQUITETURAS DE COMPUTADORES I (GRAD. E PÓS),Lucia,,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00237,TÓPICOS EM AUTOMAÇÃO I - ROBÓTICA E VEÍCULOS AUTÔNOMOS (GRAD. E PÓS),Esteban,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00241,TÓPICOS EM COMPUTAÇÃO I - GRAFOS E SUAS APLICAÇÕES,Andre Renato,,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00241,TÓPICOS EM COMPUTAÇÃO I Pós: Visão Computacional,Leandro Fernandes,,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00242,TÓPICOS EM COMPUTAÇÃO II,Martinhon,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00242,Ementa Variável I / Graduação - Introdução à programação funcional - TCC0024X TÓPICOS EM COMPUTAÇÃO X,Mauricio,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00242,TÓPICOS EM COMPUTAÇÃO II - ÁLGEBRA LINEAR COMPUTACIONAL (GRAD. E PÓS),Pedro,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00243,TÓPICOS EM COMPUTAÇÃO III - ALGORITMOS E COMPLEXIDADE DE PROBLEMAS (GRAD. E PÓS),Luis Felipe,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00243,Pós: Algebra Linear Computacional / Graduação: TCC0025X TÓPICOS EM COMPUTACAO III,Pedro,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00244,Pós: Bancos de Dados Distribuídos / TCC0024X TÓPICOS EM BANCO DE DADOS X,Daniel,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00244,TÓPICOS EM BANCO DE DADOS I Pós: eScience,Vanessa,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00245,TÓPICOS EM BANCO DE DADOS II - RASTREABILIDADE E GOVERNANÇA DE DADOS (GRAD. E PÓS),Daniel,,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00245,Pós: eScience / TCC0024X TÓPICOS EM BANCO DE DADOS X,Vanessa,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00250,Pós: Controle de Versão / Graduação: TCC0025X TÓPICOS EM ENGENHARIA DE SOFWARE X,Leo Murta,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00250,TÓPICOS EM ENGENHARIA DE SOFWARE I Pós: Game Analytics,Troy,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00251,TÓPICOS EM ENGENHARIA DE SOFWARE II Pós: Controle de Versão,Leo Murta,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00251,Pós: Game Analytics (TAs em CC I) / TCC0025X TÓPICOS EM ENGENHARIA DE SOFWARE X,Troy,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00252,TÓPICOS EM ENG DE SOFTWARE III - IA GENERATIVA (GRAD. E PÓS),Vania,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00253,TÓPICOS ESPECIAIS EM SISTEMAS DE PROGRAMAÇÃO I,Marcelo Fornazin,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00253,Graduação - Lógica Nebulosa - TCC0025X TÓPICOS ESPECIAIS EM SISTEMAS DE PROGRAMAÇÃO X,Patrick,,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00259,TÓPICOS EM IA I - APRENDIZADO PROFUNDO (GRAD. E PÓS),Anselmo,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00259,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL I Aprendizado Profundo,Luiz Bez,,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00259,Pós: Aprendizado de Máquina / Graduação: TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Mariza,,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00260,Pós: Inteligência Artificial Verde (TAs em CC II)  - Graduação: Inteligência Artificial Verde - TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Leandro Santiago,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00260,TÓPICOS EM INTELIGÊNCIA ARTIFICIAL II Pós: Aprendizado de Máquina,Taiane,,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00261,Graduação - Introdução ao Aprendizado Profundo - TCC0025X TÓPICOS EM INTELIGÊNCIA ARTIFICIAL X,Anselmo,,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00265,TÓPICOS EM INTERFACE HOMEM MÁQUINA (GRAD. E PÓS),Luciana,,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00271,TÓPICOS EM LINGUAGEM DE PROGRAMAÇÃO I,Patrick,,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00271,TÓPICOSS EM LINGUAGEM DE PROGRAMAÇÃO I - LÓGICA NEBULOSA (GRAD. E PÓS),Patrick,,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00280,COMPUTAÇÃO E MEIO AMBIENTE,Jose Raphael,,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00284,ALGORITMOS EM GRAFOS,Fabio,ALG.CPX.,5,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00284,ALGORITMOS EM GRAFOS,Luis Felipe,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Fabio,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Loana,ALG.CPX.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Luis Felipe,ALG.CPX.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Martinhon,ALG.CPX.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00285,ANÁLISE E PROJETO DE ALGORITMOS,Raquel,ALG.CPX.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00286,ARQUITETURAS DE COMPUTADORES,Cristina Boeres,ARQ.SO.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00286,ARQUITETURAS DE COMPUTADORES,Leandro Santiago,ARQ.SO.,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00286,ARQUITETURAS DE COMPUTADORES,Vinod,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00287,BANCO DE DADOS I,Luiz Andre,B.D.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00287,BANCO DE DADOS I,Rodrigo,B.D.,3,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00287,BANCO DE DADOS I,Vanessa,B.D.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00288,BANCO DE DADOS II,Luiz Andre,B.D.,5,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00288,BANCO DE DADOS II,Rodrigo,B.D.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00289,COMPILADORES,Bruno,LING.TEOR.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00289,COMPILADORES,Christiano,LING.TEOR.,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00289,COMPILADORES,Flavia Bernardini,LING.TEOR.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00290,COMPUTAÇÃO E SOCIEDADE,Jose Raphael,GER.SIST.TI,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00291,COMPUTAÇÃO GRÁFICA,Aura,COMP.VIS.JOGOS,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00291,COMPUTAÇÃO GRÁFICA,Esteban,COMP.VIS.JOGOS,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00291,COMPUTAÇÃO GRÁFICA,Marcos Lage,COMP.VIS.JOGOS,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00292,ENGENHARIA DE SOFTWARE I,Leo Murta,ENG.SOFT.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00293,ENGENHARIA DE SOFTWARE II,Leo Murta,ENG.SOFT.,5,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00293,ENGENHARIA DE SOFTWARE II,Troy,ENG.SOFT.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,Aline Nascimento,ARQ.SO.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00296,FUNDAMENTOS DE ARQUITETURAS DE COMPUTADORES,Vinod,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00297,INTELIGÊNCIA ARTIFICIAL,Aline Paes,IA,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00297,INTELIGÊNCIA ARTIFICIAL,Flavia Bernardini,IA,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00297,INTELIGÊNCIA ARTIFICIAL,Mariza,IA,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00297,INTELIGÊNCIA ARTIFICIAL,Taiane,IA,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00298,INTERFACE HOMEM-MÁQUINA,Daniela,IHC,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00298,INTERFACE HOMEM MAQUINA,Luciana,IHC,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00300,LABORATÓRIO DE DISPOSITIVOS MÓVEIS,Leandro Santiago,ARQ.SO.,10,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00301,LAB. DE PROGRAMAÇÃO DE JOGOS,Esteban,COMP.VIS.JOGOS,12,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00301,LABORATÓRIO DE PROGRAMAÇÃO DE JOGOS,Esteban,COMP.VIS.JOGOS,12,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00304,LINGUAGENS DE PROGRAMAÇÃO,Bruno,LING.TEOR.,5,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00304,LINGUAGENS DE PROGRAMAÇÃO,Christiano,LING.TEOR.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Bruno,LING.TEOR.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Kowada,LING.TEOR.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Luis Felipe,LING.TEOR.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00305,LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO,Mario,LING.TEOR.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00306,MÉTODOS NUMÉRICOS,Andre Brabo,COMP.NUM.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00306,METODOS NUMERICOS,Luiz Bez,COMP.NUM.,,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00306,METODOS NUMERICOS,Pedro,COMP.NUM.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00306,METODOS NUMERICOS,Ricardo,COMP.NUM.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00307,PROGRAMAÇÃO CIENTÍFICA,Andre Brabo,COMP.NUM.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00307,PROGRAMAÇÃO CIENTÍFICA,Ricardo,COMP.NUM.,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Anselmo,ESTR.PROG.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Igor Machado,ESTR.PROG.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Luiz Bez,ESTR.PROG.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Mario,ESTR.PROG.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00308,PROGRAMAÇÃO DE COMPUTADORES I,Viterbo,ESTR.PROG.,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00311,PROJETO FINAL II,Troy,PROJ.FINAL.II,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00311,PROJETO FINAL II,_Simone_,PROJ.FINAL.II,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+TCC00312,PROJETO DE SOFTWARE,Troy,ENG.SOFT.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00312,PROJETO DE SOFTWARE,Vania,ENG.SOFT.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00313,REDES DE COMPUTADORES I,Celio,REDES,5,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00314,REDES DE COMPUTADORES II,Celio,REDES,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00314,REDES DE COMPUTADORES II,Igor Moraes,REDES,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00315,SISTEMAS DISTRIBUÍDOS,Flavia Delicato,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00316,SISTEMAS OPERACIONAIS,Aline Nascimento,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00316,SISTEMAS OPERACIONAIS,Cristina Boeres,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00318,PESQUISA OPERACIONAL,Satoru,ALG.CPX.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00318,PESQUISA OPERACIONAL,Yuri,ALG.CPX.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00319,ESTRUTURAS DE DADOS,Andre Renato,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00319,ESTRUTURAS DE DADOS,Martinhon,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00319,ESTRUTURAS DE DADOS,Taiane,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Luiz Andre,B.D.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Rodrigo,B.D.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00320,INTRODUÇÃO A PROJETO DE BANCO DE DADOS,Vanessa,B.D.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,Luciana,GER.SIST.TI,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00324,GOVERNANÇA EM TECNOLOGIA DA INFORMAÇÃO,Marcelo Fornazin,GER.SIST.TI,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00325,MÉTODOS NUMÉRICOS,Ana Carolina,COMP.NUM.,,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00325,MÉTODOS NUMÉRICOS,Aura,COMP.NUM.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00325,MÉTODOS NUMÉRICOS,Helena,COMP.NUM.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00325,MÉTODOS NUMÉRICOS,Luiz Bez,COMP.NUM.,,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00325,MÉTODOS NUMÉRICOS,Pedro,COMP.NUM.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00325,MÉTODOS NUMÉRICOS,Ricardo,COMP.NUM.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Aline Nascimento,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Andre Silveira,PROG.BAS.,,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Christiano,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Dante,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Gyslla,PROG.BAS.,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,John,PROG.BAS.,,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Jose Raphael,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Kowada,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Lauro,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Loana,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Luis Felipe,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mario,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mariza,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Martinhon,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Mauricio,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Vanessa,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00326,PROGRAMAÇÃO DE COMPUTADORES,Viterbo,PROG.BAS.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00328,PROG. ORIENTADA A OBJETOS,Anselmo,ENG.SOFT.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00328,PROG. ORIENTADA A OBJETOS,Carlos Ribeiro,ENG.SOFT.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Carlos Ribeiro,ENG.SOFT.,3,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,FECHADA,ENG.SOFT.,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Flavia Bernardini,ENG.SOFT.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00328,PROGRAMAÇÃO ORIENTADA A OBJETOS,Rebeca,ENG.SOFT.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00330,MODELAGEM DE PROCESSO DE NEGÓCIOS,Flavio Seixas,GER.SIST.TI,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00330,MODELAGEM DE PROCESSOS DE NEGÓCIOS,Flavio Seixas,GER.SIST.TI,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00330,MODELAGEM DE PROCESSO DE NEGÓCIOS,Rodrigo,GER.SIST.TI,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00331,ESTRUTURAS DE DADOS PARA SISTEMAS DE INFORMAÇÃO,Andre Renato,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00331,ESTRUTURAS DE DADOS PARA SI,Igor Machado,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00331,ESTRUTURAS DE DADOS PARA SI,Raphael Machado,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00331,ESTRUTURAS DE DADOS PARA SI,Taiane,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Leo Cruz,GER.SIST.TI,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Mariza,GER.SIST.TI,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00332,FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO,Rodrigo,GER.SIST.TI,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00334,PRINCIPIO DE BANCO DE DADOS,Daniel,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00334,PRINCÍPIOS DE BANCO DE DADOS,Daniel,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00334,PRINCIPIO DE BANCO DE DADOS,Marcos Bedo,B.D.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00335,PROJETO DE BANCO DE DADOS PARA SI,Daniel,B.D.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00335,PROJETO DE BANCO DE DADOS,Marcos Bedo,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00335,PROJETO DE BANCO DE DADOS PARA SI,Marcos Bedo,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00336,BANCO DE DADOS NÃO CONVENCIONAIS,Daniel,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,Daniel,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00336,BANCOS DE DADOS NÃO CONVENCIONAIS,Marcos Bedo,B.D.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,Daniela,IHC,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00337,INTRODUÇÃO A INTERAÇÃO HUMANO-COMPUTADOR,Luciana,IHC,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00338,PROJETO DE SOFTWARE,Joao Pimentel,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00338,PROJETO DE SOFTWARE,Paulo Pires,ENG.SOFT.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00341,SEGURANÇA DA INFORMAÇÃO,Igor Moraes,REDES,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00341,SEGURANÇA DA INFORMAÇÃO,Raphael Machado,REDES,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00344,LAB. DE PROGRAMAÇÃO PARALELA,Lucia,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00344,LABORATÓRIO DE PROGRAMAÇÃO PARALELA I,Lucia,ARQ.SO.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00346,LAB. DE RESOLUÇÃO DE PROBLEMAS,Andre Renato,ESTR.PROG.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Kowada,ESTR.PROG.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leandro Fernandes,ESTR.PROG.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mario,ESTR.PROG.,10,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00346,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mauricio,ESTR.PROG.,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00347,PROGRAMAÇÃO ESTRUTURADA,Aline Nascimento,ESTR.PROG.,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00347,PROGRAMAÇÃO ESTRUTURADA,Aline Paes,ESTR.PROG.,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00347,PROGRAMAÇÃO ESTRUTURADA,Cristina Boeres,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00347,PROGRAMAÇÃO ESTRUTURADA,Rosseti,ESTR.PROG.,4,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00347,PROGRAMAÇÃO ESTRUTURADA,Yuri,ESTR.PROG.,1,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,FECHADA,ESTR.PROG.,,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: nome fora do cadastro docente (carga 2025 e QH 2026); artefato da planilha 2025
+TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Kowada,ESTR.PROG.,1,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Rosseti,ESTR.PROG.,6,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00348,ESTRUTURAS DE DADOS E SEUS ALGORITMOS,Vanessa,ESTR.PROG.,2,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00349,AVALIAÇÃO DE DESEMPENHO,Guto,REDES,7,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00350,Pós: Computação Quântica / TCC00350 INTRODUÇÃO À COMPUTAÇÃO QUÂNTICA,Kowada,,2,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Martinhon,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Raquel,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00354,FUNDAMENTOS MATEMÁTICOS PARA COMP.,Thiago,ALG.CPX.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Andre Silveira,ESTR.PROG.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leandro Fernandes,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Leo Cruz,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mauricio,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Miguel,ESTR.PROG.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,Patrick,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Andre Renato,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Heleno,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00357,PROG. ORIENTADA A OBJETOS I,Igor Machado,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Mauricio,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00358,SISTEMAS COMPUTACIONAIS,Aline Nascimento,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00358,SISTEMAS COMPUTACIONAIS,Cristina Boeres,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00358,SISTEMAS COMPUTACIONAIS,Raphael Guerra,ARQ.SO.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00359,REDES DE COMPUTADORES,Flavio Seixas,REDES,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00359,REDES DE COMPUTADORES,Igor Moraes,REDES,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00360,VISUALIZAÇÃO DE DADOS,Marcos Lage,COMP.VIS.JOGOS,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Heleno,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Paulo Pires,ENG.SOFT.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Viterbo,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00362,SISTEMAS DISTRIBUÍDOS PARA SISTEMAS DE INFORMAÇÃO,Flavia Delicato,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00362,SISTEMAS DISTRIBUÍDOS PARA SI,Raphael Guerra,ARQ.SO.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Joao Pimentel,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Rebeca,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Troy,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00365,QUALIDADE E TESTE DE SOFTWARE,Vania,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Andre Renato,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Heleno,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leandro Fernandes,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leo Cruz,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Yuri,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00368,P.O. PARA S.I. (WEB AVANC.),Andre Renato,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00368,PESQUISA OPERACIONAL PARA SISTEMAS DE INFORMAÇÃO,Yuri,ALG.CPX.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TCC00371,ÉTICA EM INT. ARTIFICIAL E CIÊNCIA DE DADOS,Mariza,,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
+TIC10001,Pós: Análise e Síntese de Algoritmos,Fabio,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10001,Pós: Análise e Síntese de Algoritmos,Luis Felipe,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10002,Pós: Estrutura de Dados e Algoritmos,Igor Machado,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10002,Pós: Estrutura de Dados e Algoritmos,Luiz Andre,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10003,Pós: Sistemas de Computação,Leandro Santiago,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10003,Pós: Sistemas de Computação,Lucia,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TIC10005,Pós: Tratamento de Incertezas,Guto,PGC-OB-BAS,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
