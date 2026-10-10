@@ -17,6 +17,11 @@ def h12_is_soft(payload: dict) -> bool:
     return str(payload.get("h12_modo", "hard")).strip().lower() == "soft"
 
 
+def h10_is_soft(payload: dict) -> bool:
+    """H10 é hard por padrão; ``h10_modo=soft`` a relaxa (decisão de 10/10/2026 para a instância oficial)."""
+    return str(payload.get("h10_modo", "hard")).strip().lower() == "soft"
+
+
 def soft_total(soft: dict, normalization: dict | None = None) -> float:
     """Soma ponderada dos critérios soft.
 
@@ -91,6 +96,7 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     room_capacity_violations = 0
     resource_violations = 0
     capacity_waste = 0.0
+    capacity_excess = 0.0
     seen_class_rooms = set()
     teacher_days = set()
     teacher_day_slots: dict[tuple[str, str, str], list[tuple[int, int]]] = defaultdict(list)
@@ -166,6 +172,7 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
                     if class_room not in seen_class_rooms:
                         if class_capacity > room_capacity:
                             room_capacity_violations += 1
+                            capacity_excess += class_capacity - room_capacity
                         capacity_waste += max(0.0, room_capacity - class_capacity)
                         seen_class_rooms.add(class_room)
 
@@ -345,7 +352,12 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
     }
     # Com ``h12_modo=soft`` a contagem de H12 sai das violações hard; o déficit
     # continua guiando a busca como segundo nível lexicográfico (``guidance``).
+    # Com ``h10_modo=soft``, o mesmo para H10: o excesso de alunos acima da
+    # capacidade vira o terceiro nível.
     relaxed = {}
+    h10_soft = h10_is_soft(payload)
+    if h10_soft:
+        relaxed["capacidade_insuficiente"] = hard.pop("capacidade_insuficiente")
     h12_value = h12_violations if h12_available else None
     if h12_is_soft(payload):
         relaxed["carga_anual_insuficiente"] = h12_value
@@ -370,7 +382,10 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         "soft": soft,
         "soft_total": soft_count,
         "relaxadas": relaxed,
-        "guidance": {"deficit_carga_anual": h12_deficit},
+        "guidance": {
+            "deficit_carga_anual": h12_deficit,
+            "excesso_capacidade": capacity_excess if h10_soft else 0.0,
+        },
     }
 
 

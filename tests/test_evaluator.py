@@ -184,6 +184,17 @@ class EvaluatorTests(unittest.TestCase):
         self.assertEqual(result.metadata["deficit_carga_anual"], 3.0)
         self.assertEqual(result.metadata["h12_modo"], "soft")
 
+    def test_soft_h10_moves_capacity_to_metadata(self):
+        classes = [class_row("a", "2025-1", "TCC00001", "A", "31", "CC-P1", "Ana")]
+        classes[0]["capacidade"] = 70
+        class_frame = pd.DataFrame(classes)
+        class_frame.attrs["h10_modo"] = "soft"
+        rooms = pd.DataFrame([{"id": "302", "capacidade_estimada": 60}])
+        result = QHEvaluator(class_frame, pd.DataFrame([meeting("a", "2025-1", room="302")]), rooms).evaluate()
+        self.assertNotIn("capacidade_insuficiente", result.hard)
+        self.assertEqual(result.metadata["capacidade_insuficiente"], 1)
+        self.assertEqual(result.metadata["excesso_capacidade"], 10.0)
+
     def test_weighted_preference_is_a_bonus(self):
         classes = [class_row("a", "2025-1", "TCC00001", "A", "31", "CC-P1", "Ana")]
         classes[0]["preferencia"] = 0.75

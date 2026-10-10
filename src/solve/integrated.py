@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from src.eval.rooms import is_lab_room
-from src.solve.direct_objective import evaluate
+from src.solve.direct_objective import evaluate, h10_is_soft
 
 
 MOVE_KINDS = ("teacher", "schedule", "room")
@@ -32,11 +32,17 @@ def soft_value(result: dict) -> float:
     return float(sum(result["soft"].values()))
 
 
-def objective_key(result: dict) -> tuple[float, float, float]:
-    """Compara hard, déficit H12 e, por fim, os demais critérios soft."""
+def capacity_excess(result: dict) -> float:
+    """Alunos acima da capacidade da sala; só é diferente de zero com ``h10_modo=soft``."""
+    return float((result.get("guidance") or {}).get("excesso_capacidade") or 0.0)
+
+
+def objective_key(result: dict) -> tuple[float, float, float, float]:
+    """Compara hard, déficit H12, excesso de capacidade (H10 soft) e, por fim, os demais critérios soft."""
     return (
         float(result["hard_violations"]),
         annual_deficit(result),
+        capacity_excess(result),
         soft_value(result),
     )
 
@@ -49,6 +55,7 @@ def search_energy(result: dict) -> float:
     return (
         float(result["hard_violations"]) * 1_000_000_000
         + deficit * 1_000_000
+        + capacity_excess(result) * 1_000
         + soft_value(result)
     )
 
@@ -83,12 +90,13 @@ def candidate_rooms(item: dict, payload: dict, meeting_index: int) -> list[str]:
         room_is_lab = bool(room.get("laboratorio", is_lab_room(room_id)))
         if required_lab is not None and room_is_lab != bool(required_lab):
             continue
-        if capacity is not None and room_capacity is not None and capacity > room_capacity:
+        if not h10_is_soft(payload) and capacity is not None and room_capacity is not None and capacity > room_capacity:
             continue
         if room_id:
-            waste = room_capacity - capacity if room_capacity is not None and capacity is not None else 0
-            candidates.append((waste, room_id))
-    return [room_id for _waste, room_id in sorted(candidates)]
+            # Com H10 soft, sala pequena demais entra no fim da fila (excesso antes de desperdício).
+            gap = room_capacity - capacity if room_capacity is not None and capacity is not None else 0
+            candidates.append((gap < 0, abs(gap), room_id))
+    return [room_id for _short, _gap, room_id in sorted(candidates)]
 
 
 def _pattern_signature(pattern: Iterable[dict]) -> tuple:

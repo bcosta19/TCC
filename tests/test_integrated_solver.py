@@ -4,6 +4,7 @@ import unittest
 
 from src.solve.direct_objective import evaluate, soft_total, teachers_for_item
 from src.solve.integrated import (
+    candidate_rooms,
     apply_move,
     greedy_improve,
     objective_key,
@@ -172,7 +173,29 @@ class IntegratedSolverTests(unittest.TestCase):
         normalized = evaluate(payload)
         expected = sum(1.0 if value > 0 else -1.0 for value in raw["soft"].values() if value)
         self.assertAlmostEqual(normalized["soft_total"], expected)
-        self.assertEqual(objective_key(normalized)[2], normalized["soft_total"])
+        self.assertEqual(objective_key(normalized)[-1], normalized["soft_total"])
+
+    def test_soft_h10_turns_capacity_into_excess_level(self):
+        payload = {
+            "min_obrigatorias_ano": 0,
+            "teachers": [],
+            "rooms": [{"id": "101", "capacity": 30}, {"id": "102", "capacity": 50}],
+            "classes": [{
+                "id": "c1", "semestre": "2026-1", "codigo": "TCC00001", "origem": "IC",
+                "professor": "Ana", "professores_alocados": ["Ana"], "capacidade_turma": 40,
+                "encontros": [{"dia": "segunda", "inicio": "07:00", "fim": "09:00", "sala": "101"}],
+            }],
+        }
+        hard_result = evaluate(payload)
+        self.assertEqual(hard_result["hard"]["capacidade_insuficiente"], 1)
+        self.assertEqual(candidate_rooms(payload["classes"][0], payload, 0), ["102"])
+        payload["h10_modo"] = "soft"
+        soft_result = evaluate(payload)
+        self.assertNotIn("capacidade_insuficiente", soft_result["hard"])
+        self.assertEqual(soft_result["relaxadas"]["capacidade_insuficiente"], 1)
+        self.assertEqual(soft_result["guidance"]["excesso_capacidade"], 10.0)
+        self.assertEqual(objective_key(soft_result)[2], 10.0)
+        self.assertEqual(candidate_rooms(payload["classes"][0], payload, 0), ["102", "101"])
 
     def test_search_rejects_unavailable_h12(self):
         result = evaluate(toy_payload())

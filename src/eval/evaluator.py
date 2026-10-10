@@ -52,6 +52,7 @@ class QHEvaluator:
         self.horarios = horarios.copy()
         self.min_obrigatorias_ano = int(self.turmas.attrs.get("min_obrigatorias_ano", 3))
         self.h12_soft = str(self.turmas.attrs.get("h12_modo", "hard")).strip().lower() == "soft"
+        self.h10_soft = str(self.turmas.attrs.get("h10_modo", "hard")).strip().lower() == "soft"
         self.politica_cotutoria = self.turmas.attrs.get("politica_cotutoria", {})
         self.room_capacity = {}
         if rooms is not None and not rooms.empty and "id" in rooms and "capacidade_estimada" in rooms:
@@ -153,6 +154,8 @@ class QHEvaluator:
         # de contar como violação hard; o déficit continua em ``metadata``.
         if not self.h12_soft:
             hard["carga_anual_insuficiente"] = annual_violations
+        if self.h10_soft:
+            capacity_violations = hard.pop("capacidade_insuficiente")
         soft = {
             "dias_trabalhados": self._working_days(h),
             "janelas": self._windows(h),
@@ -181,6 +184,10 @@ class QHEvaluator:
         }
         if self.h12_soft:
             metadata["carga_anual_insuficiente"] = annual_violations
+        metadata["h10_modo"] = "soft" if self.h10_soft else "hard"
+        if self.h10_soft:
+            metadata["capacidade_insuficiente"] = capacity_violations
+            metadata["excesso_capacidade"] = self._capacity_excess(h)
         return Evaluation(hard, soft, metadata)
 
     def _room_conflicts(self, h: pd.DataFrame) -> int:
@@ -245,6 +252,11 @@ class QHEvaluator:
         values = h[["turma_id", "capacidade", "sala", "capacidade_sala"]].drop_duplicates()
         values = values.dropna(subset=["capacidade", "capacidade_sala"])
         return int((values["capacidade"] > values["capacidade_sala"]).sum())
+
+    def _capacity_excess(self, h: pd.DataFrame) -> float:
+        values = h[["turma_id", "capacidade", "sala", "capacidade_sala"]].drop_duplicates()
+        values = values.dropna(subset=["capacidade", "capacidade_sala"])
+        return float((values["capacidade"] - values["capacidade_sala"]).clip(lower=0).sum())
 
     def _capacity_waste(self, h: pd.DataFrame) -> float:
         values = h[["turma_id", "capacidade", "sala", "capacidade_sala"]].drop_duplicates()

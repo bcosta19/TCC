@@ -45,7 +45,7 @@ from scripts.build_synthetic_instance_2026 import (  # noqa: E402
     minutes,
     pattern_signature,
 )
-from scripts.check_readiness_2026 import H12_MODO_OFICIAL, check_profile  # noqa: E402
+from scripts.check_readiness_2026 import H10_MODO_OFICIAL, H12_MODO_OFICIAL, check_profile  # noqa: E402
 from src.eval.resources import resources_from_requirement  # noqa: E402
 from src.eval.rooms import is_lab_room  # noqa: E402
 from src.solve.direct_objective import evaluate  # noqa: E402
@@ -454,6 +454,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
     payload["politica_cotutoria"] = cotutoria
     payload["min_obrigatorias_ano"] = MIN_OBRIGATORIAS_ANO
     payload["h12_modo"] = H12_MODO_OFICIAL
+    payload["h10_modo"] = H10_MODO_OFICIAL
     payload["normalizacao_soft"] = soft_normalization(payload)
     payload["schema_version"] = "0.3-oficial"
     payload["profile"] = "oficial_2026"

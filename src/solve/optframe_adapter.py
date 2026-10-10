@@ -7,7 +7,7 @@ mesma representacao e o mesmo avaliador das implementacoes de referencia.
 
 Notas de projeto:
 - A funcao objetivo e o ``search_energy`` de referencia (escalar
-  lexicografico: hard * 1e9 + deficit H12 * 1e6 + soft). Como a escala e
+  lexicografico: hard * 1e9 + deficit H12 * 1e6 + excesso H10 * 1e3 + soft). Como a escala e
   grande, a temperatura inicial (T0) precisa ser calibrada nessa escala.
 - O criterio de parada do OptFrame e TEMPO (segundos), nao orcamento de
   avaliacoes. O contador ``ProblemTimetable.evaluations`` registra quantas

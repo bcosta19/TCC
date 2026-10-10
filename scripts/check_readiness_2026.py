@@ -74,6 +74,10 @@ def check_cotutoria_policy(data: Path = DATA) -> list[str]:
 # (anotacoes/hipoteses_provisorias_2026_10_10.md): no QH observado de 2026,
 # 33 de 61 docentes ficam abaixo de 3 obrigatórias de CC/SI.
 H12_MODO_OFICIAL = "soft"
+# Modo de H10 na instância oficial. Relaxada para soft em 10/10/2026: o excesso
+# de alunos acima da capacidade vira o terceiro nível lexicográfico, abaixo do
+# déficit de H12 (as capacidades da HP3 são limites inferiores).
+H10_MODO_OFICIAL = "soft"
 
 
 def check_h12_universe(data: Path = DATA, h12_modo: str = H12_MODO_OFICIAL) -> list[str]:

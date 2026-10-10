@@ -250,6 +250,29 @@ payload, calculada por `soft_normalization()` em
 - A referência depende da instância: se as vagas forem recoletadas
   (`--refresh-web`), a referência muda junto.
 
+## Decisão de 10/10/2026: H10 soft como terceiro nível lexicográfico
+
+A decisão de 30/09 já permitia relaxar H10 (capacidade) para soft, mas faltava
+o peso. Optou-se por prioridade lexicográfica, como em H12, em vez de um peso
+na soma:
+
+- Medida: excesso = alunos acima da capacidade, somado por (turma, sala)
+  (`guidance.excesso_capacidade`; a contagem de turmas vai para `relaxadas`).
+- Ordem: (hard, déficit de H12, excesso de H10, total soft normalizado).
+- Por que não um peso na soma normalizada: no horário observado o excesso é 0
+  (a HP3 define as capacidades a partir dele), então não há referência para
+  normalizar. Pela régua do desperdício (lugares) com peso 1, tirar uma
+  janela compensaria cerca de 50 alunos sem lugar. Qualquer outro peso seria
+  arbitrário.
+- Por que abaixo de H12: as capacidades da HP3 são limites inferiores, então
+  um excesso pequeno pode nem existir na sala real.
+- Os movimentos de sala passam a propor salas menores que a turma (no fim da
+  fila), o que antes era bloqueado em `candidate_rooms`.
+- Controle: `h10_modo` no payload (padrão `hard`; `H10_MODO_OFICIAL = "soft"`
+  em `check_readiness_2026.py`). Os experimentos anteriores não mudam.
+- Efeito no guloso: nenhum. O excesso continua 0, porque só compensa quando
+  reduz violações hard ou o déficit de H12.
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e
