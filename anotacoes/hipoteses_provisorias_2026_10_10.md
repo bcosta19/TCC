@@ -79,9 +79,11 @@ de hipótese.
   `Gyslla`, ausente da carga 2025 e do QH 2026).
 - Resultado: 177 turmas do IC com professor a escolher, todas com ao menos um
   candidato; 43 delas com um único candidato (professor efetivamente fixo).
-- Limitação: Christiano, Heleno e Leandro Santiago deram disciplinas em 2025,
-  mas não têm turmas de CC/SI em 2026 (podem estar afastados). Eles entram nos
-  domínios. A lista de permanentes de H12 deve ajudar a decidir se saem.
+- Christiano, Heleno e Leandro Santiago deram disciplinas em 2025, mas não
+  têm turmas de CC/SI em 2026. Christiano Braga (professor associado) e
+  Leandro Santiago (professor adjunto) são permanentes, confirmado em
+  10/10/2026 nas páginas do IC/UFF e no Escavador. Eles continuam habilitados.
+  A inclusão deles em H12 fica para a lista de permanentes.
 - **Heleno** (corrigido manualmente em 10/10/2026): professor substituto,
   segundo o Escavador e o ResearchGate. A carga 2025 marca "até 15/01/2026", e
   ele não aparece no QH 2026. Os 3 pares dele (`TCC00357`, `TCC00361`,
