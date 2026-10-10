@@ -8,6 +8,8 @@
 
 ## Checklist de dados a obter (Validação Humana 2026)
 
+> **10/10/2026:** a instância oficial ficou pronta para experimento com as hipóteses HP3–HP7 e as decisões registradas em `anotacoes/hipoteses_provisorias_2026_10_10.md`. Os itens abaixo continuam abertos como dados oficiais; quando chegarem, substituem as inferências.
+
 Consulte o relatório operacional detalhado em:
 `dados/processados/PENDENCIAS_VALIDACAO_2026.md`
 

@@ -3,6 +3,8 @@ import unittest
 import pandas as pd
 
 from scripts.prefill_inferences_2026 import (
+    match_faculty,
+    prefill_h12_universe,
     prefill_external,
     prefill_priorities,
     prefill_qualifications,
@@ -102,13 +104,42 @@ class PrefillPrioritiesTests(unittest.TestCase):
 
 
 class PrefillExternalTests(unittest.TestCase):
-    def test_only_untreated_offers_from_other_departments_are_ignored(self):
+    def test_untreated_offers_are_ignored_by_origin(self):
         result = prefill_external(pd.DataFrame([
             {"codigo": "TEP00006", "tratamento_no_modelo": "", "criterio_referencia": ""},
             {"codigo": "TCC00240", "tratamento_no_modelo": "", "criterio_referencia": ""},
             {"codigo": "GMA00155", "tratamento_no_modelo": "fixar_horario_e_sala", "criterio_referencia": "turma de referência"},
         ]))
-        self.assertEqual(result["tratamento_no_modelo"].tolist(), ["ignorar_fora_do_ic", "", "fixar_horario_e_sala"])
+        self.assertEqual(result["tratamento_no_modelo"].tolist(), ["ignorar_fora_do_ic", "ignorar_fora_do_pdf", "fixar_horario_e_sala"])
+
+
+class PrefillH12UniverseTests(unittest.TestCase):
+    FACULTY = pd.DataFrame([
+        {"nome": "Raphael P. de Oliveira Guerra", "cargo": "Professor Adjunto"},
+        {"nome": "Ricardo Leiderman", "cargo": "Prof. Adjunto"},
+        {"nome": "José Ricardo de Almeida Torreão", "cargo": ""},
+        {"nome": "Igor Machado Coelho", "cargo": "Cargo"},
+        {"nome": "Aura Conci", "cargo": "Profa. Titular"},
+    ])
+
+    def test_matching_handles_aliases_and_ambiguity(self):
+        self.assertEqual(match_faculty("Raphael Guerra", "Raphael Guerra", self.FACULTY), 0)
+        self.assertEqual(match_faculty("RICARDO LEIDERMAN", "Ricardo", self.FACULTY), 1)
+        self.assertIsNone(match_faculty("Thiago", "Thiago", self.FACULTY))
+
+    def test_permanent_cargo_enters_and_absent_name_does_not(self):
+        table = pd.DataFrame([
+            {"docente": "AURA CONCI", "nome_normalizado": "Aura", "incluido_h12": ""},
+            {"docente": "Igor Machado Coelho", "nome_normalizado": "Igor", "incluido_h12": ""},
+            {"docente": "Thiago", "nome_normalizado": "Thiago", "incluido_h12": ""},
+            {"docente": "Heleno Campos", "nome_normalizado": "Heleno", "incluido_h12": "nao"},
+        ])
+        result = prefill_h12_universe(table, self.FACULTY)
+        self.assertEqual(result["incluido_h12"].tolist(), ["sim", "sim", "nao", "nao"])
+        self.assertIn("Profa. Titular", result.loc[0, "criterio_h12"])
+        self.assertIn("cargo não informado", result.loc[1, "criterio_h12"])
+        self.assertIn("ausente", result.loc[2, "criterio_h12"])
+        self.assertEqual(result.loc[3, "criterio_h12"], "")
 
 
 if __name__ == "__main__":

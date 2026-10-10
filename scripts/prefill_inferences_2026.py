@@ -1,4 +1,4 @@
-"""Pré-preenche as tabelas de revisão de 2026 por inferência (HP3–HP6) e decisões de 10/10/2026.
+"""Pré-preenche as tabelas de revisão de 2026 por inferência (HP3–HP7) e decisões de 10/10/2026.
 
 Hipóteses provisórias propostas pelo aluno em 10/10/2026
 (``anotacoes/hipoteses_provisorias_2026_10_10.md``), pendentes de validação do
@@ -19,12 +19,19 @@ orientador:
   ou 2026 (cada linha da tabela é um desses pares). Nomes fora do cadastro
   docente (artefatos da planilha 2025, como "FECHADA") ficam ``nao``.
 
+- HP7 — universo de H12: docente na página de docentes do IC/UFF
+  (``dados/brutos/docentes_ic_2026.csv``) com cargo de carreira permanente
+  (auxiliar, assistente, adjunto, associado, titular) entra em H12; quem não
+  está na página fica fora. A página não é um cadastro completo, então
+  exceções conhecidas são registradas como decisão manual.
+
 Decisões do aluno em 10/10/2026, aplicadas pelo mesmo script:
 
 - prioridade uniforme: todos os docentes com ``prioridade=1`` (a lista
   ordenada de prioridade sai do escopo);
 - optativas de outros departamentos sem tratamento em
-  ``revisao_turmas_externas_2026.csv`` ficam ``ignorar_fora_do_ic``.
+  ``revisao_turmas_externas_2026.csv`` ficam ``ignorar_fora_do_ic``; turmas do
+  IC ausentes do PDF do QH ficam ``ignorar_fora_do_pdf``.
 
 As tabelas têm uma linha por par (código, nome da disciplina), mas o builder
 indexa por código; por isso laboratório e setor são decididos por código e
@@ -39,17 +46,27 @@ começando por ``HP`` ou ``decisão 10/10/2026``. Linhas validadas manualmente
 from __future__ import annotations
 
 import argparse
+import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from src.eval.preferences import normalize_name  # noqa: E402
+
 DATA = ROOT / "dados" / "processados"
 ROOMS = DATA / "cadastro_salas_2026.csv"
 RESOURCES = DATA / "revisao_recursos_disciplinas_2026.csv"
 SECTORS = DATA / "revisao_setores_2026.csv"
 QUALIFICATIONS = DATA / "revisao_habilitacao_docente_2026.csv"
+H12_UNIVERSE = DATA / "universo_h12_2026.csv"
+IC_FACULTY = ROOT / "dados" / "brutos" / "docentes_ic_2026.csv"
+PERMANENT_RE = re.compile(r"^Prof(?:a|essor|essora)?\.?\s+(Auxiliar|Assistente|Adjunt[oa]|Associad[oa]|Titular)\b", re.IGNORECASE)
+NAME_STOPWORDS = {"DE", "DA", "DO", "DOS", "DAS", "E"}
 PRIORITIES = DATA / "revisao_prioridades_docentes_2026.csv"
 EXTERNAL = DATA / "revisao_turmas_externas_2026.csv"
 RULE_DATE = "10/10/2026"
@@ -204,7 +221,12 @@ def prefill_priorities(table: pd.DataFrame, overwrite: bool = False) -> pd.DataF
 
 
 def prefill_external(table: pd.DataFrame, overwrite: bool = False) -> pd.DataFrame:
-    """Marca ``ignorar_fora_do_ic`` nas ofertas de outros departamentos ainda sem tratamento."""
+    """Trata as ofertas da coleta web ainda sem tratamento.
+
+    Outros departamentos → ``ignorar_fora_do_ic``. Turmas do IC que não estão no
+    PDF do QH (seções Z1 de 1–3 vagas, seções extras X1, tópicos abertos depois)
+    → ``ignorar_fora_do_pdf``: a instância parte do planejamento oficial.
+    """
     column = "criterio_referencia"
     table = ensure_column(table, column)
     for index, row in table.iterrows():
@@ -213,9 +235,60 @@ def prefill_external(table: pd.DataFrame, overwrite: bool = False) -> pd.DataFra
         if current and not (owned or overwrite):
             continue
         if str(row["codigo"]).startswith("TCC"):
+            table.at[index, "tratamento_no_modelo"] = "ignorar_fora_do_pdf"
+            table.at[index, column] = f"{DECISION}: turma do IC fora do PDF do QH, que é a base do planejamento"
+        else:
+            table.at[index, "tratamento_no_modelo"] = "ignorar_fora_do_ic"
+            table.at[index, column] = f"{DECISION}: optativa de outro departamento, fora de H8 e das salas do IC"
+    return table
+
+
+def name_tokens(name: str) -> set[str]:
+    return {token for token in normalize_name(name).split() if len(token) > 1 and token not in NAME_STOPWORDS}
+
+
+def match_faculty(full_name: str, alias: str, faculty: pd.DataFrame) -> int | None:
+    """Índice do docente da página do IC com o mesmo nome; ``None`` se não houver um único candidato.
+
+    Casa primeiro o nome completo normalizado; depois, nomes em que um conjunto
+    de palavras contém o outro (ex.: "Raphael Guerra" × "Raphael P. de Oliveira
+    Guerra"), desempatando pela maior sobreposição.
+    """
+    exact = [index for index, name in faculty["nome"].items() if normalize_name(name) == normalize_name(full_name)]
+    if len(exact) == 1:
+        return exact[0]
+    scored = []
+    for index, name in faculty["nome"].items():
+        site = name_tokens(name)
+        for ours in (name_tokens(full_name), name_tokens(alias)):
+            if ours and site and (ours <= site or site <= ours):
+                scored.append((len(ours & site), index))
+                break
+    if not scored:
+        return None
+    best = max(score for score, _ in scored)
+    winners = [index for score, index in scored if score == best]
+    return winners[0] if len(winners) == 1 else None
+
+
+def prefill_h12_universe(table: pd.DataFrame, faculty: pd.DataFrame, overwrite: bool = False) -> pd.DataFrame:
+    column = "criterio_h12"
+    table = ensure_column(table, column)
+    for index, row in table.iterrows():
+        filled = str(row.get("incluido_h12", "")).strip() != ""
+        if filled and not str(row.get(column, "")).startswith("HP") and not overwrite:
             continue
-        table.at[index, "tratamento_no_modelo"] = "ignorar_fora_do_ic"
-        table.at[index, column] = f"{DECISION}: optativa de outro departamento, fora de H8 e das salas do IC"
+        match = match_faculty(row["docente"], row["nome_normalizado"], faculty)
+        if match is None:
+            included, reason = "nao", "ausente da página de docentes do IC/UFF (substituto, outro departamento ou cadastro incompleto)"
+        else:
+            cargo = str(faculty.at[match, "cargo"]).strip()
+            if PERMANENT_RE.match(cargo):
+                included, reason = "sim", f"página de docentes do IC/UFF: {cargo}"
+            else:
+                included, reason = "sim", "listado na página de docentes do IC/UFF, cargo não informado"
+        table.at[index, "incluido_h12"] = included
+        table.at[index, column] = f"HP7 {RULE_DATE}: {reason}"
     return table
 
 
@@ -224,6 +297,7 @@ def main() -> None:
     parser.add_argument("--sobrescrever", action="store_true", help="Reaplica as inferências também em linhas validadas manualmente")
     args = parser.parse_args()
     roster = set(pd.read_csv(PRIORITIES, dtype=str).fillna("")["nome_normalizado"])
+    faculty = pd.read_csv(IC_FACULTY, dtype=str).fillna("")
     for path, prefill, column in (
         (ROOMS, prefill_rooms, "criterio_capacidade"),
         (RESOURCES, prefill_resources, "criterio_laboratorio"),
@@ -231,6 +305,7 @@ def main() -> None:
         (QUALIFICATIONS, lambda table, overwrite: prefill_qualifications(table, roster, overwrite), "criterio_habilitacao"),
         (PRIORITIES, prefill_priorities, "criterio_prioridade"),
         (EXTERNAL, prefill_external, "tratamento_no_modelo"),
+        (H12_UNIVERSE, lambda table, overwrite: prefill_h12_universe(table, faculty, overwrite), "criterio_h12"),
     ):
         table = pd.read_csv(path, dtype=str).fillna("")
         result = prefill(table, overwrite=args.sobrescrever)

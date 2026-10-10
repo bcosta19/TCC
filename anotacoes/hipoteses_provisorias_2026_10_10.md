@@ -8,7 +8,7 @@
 Aplicação: `scripts/prefill_inferences_2026.py`. As linhas preenchidas
 recebem `validado=sim`, e a origem fica nas colunas `criterio_capacidade`,
 `criterio_laboratorio`, `criterio_setor`, `criterio_habilitacao`,
-`criterio_prioridade` e `criterio_referencia`, começando por `HP3`–`HP6` ou
+`criterio_prioridade`, `criterio_referencia` e `criterio_h12`, começando por `HP3`–`HP7` ou
 `decisão 10/10/2026`. O script não altera linhas validadas manualmente
 (critério sem esses prefixos). A instância oficial registra em
 `manifesto_oficial.hipoteses_provisorias` quantas linhas de cada tabela vieram
@@ -172,6 +172,55 @@ permanecia e a disciplina ficava com duas).
 - Sobra 1 par fixa × fixa, só com turmas do IC: `TCC00332-B1` × `TCC00354-A1`
   (SI-P1, 2026/2). Ver a seção seguinte.
 
+## Par TCC00332 × TCC00354 (piso de H8 restante) — mantido
+
+Em SI-P1 de 2026/2, as duas disciplinas têm turmas paralelas em espelho:
+`TCC00332` A1 (ter/qui 20–22) e B1 (18–20); `TCC00354` A1 (18–20) e B1
+(20–22). O aluno combina 332-B1 com 354-B1, ou 332-A1 com 354-A1, sem choque.
+O contador de H8 (decisão de 30/09) não considera turmas paralelas e acusa
+332-B1 × 354-A1. As duas são fixas pela regra literal de 30/09: 332-B1 tem 5
+vagas para Engenharia de Telecomunicações, e 354-A1 tem 1 vaga para Farmácia.
+
+Decisão: manter. As 2 sobreposições são um piso estrutural conhecido, que é
+um artefato do contador e não um choque real para o aluno. Os resultados
+devem relatar as violações hard acima desse piso. Alternativas descartadas:
+- tornar 354-A1 flexível contraria a regra literal de 30/09 (sem mínimo de
+  vagas);
+- mudar o contador de H8 contraria a decisão de 30/09 de mantê-lo.
+
+## HP7 — Universo de H12 pela página de docentes do IC/UFF
+
+- Fonte: `scripts/scrape_ic_docentes_2026.py` coleta nome e cargo das 65
+  páginas listadas em https://www.ic.uff.br/docentes/ e grava
+  `dados/brutos/docentes_ic_2026.csv` (coleta de 10/10/2026). São 61 com
+  cargo, 2 sem cargo na página (Flávio Seixas, Igor Machado Coelho) e 4
+  páginas de ex-docentes (homenagens).
+- Regra: entra em H12 quem está na página com cargo de carreira permanente
+  (auxiliar, assistente, adjunto, associado, titular). Quem não está na página
+  fica fora. Os nomes são casados pelo nome completo normalizado ou pelo
+  conjunto de palavras.
+- Resultado em `universo_h12_2026.csv` (coluna `criterio_h12`): 62 docentes
+  em H12, sendo 61 pela página e o Christiano Braga por decisão manual
+  (associado, ausente da página).
+- **A página não é um cadastro completo.** Dois exemplos: Christiano Braga é
+  associado e não aparece; Plastino era coordenador da pós em 2025 e também
+  não aparece. Fora da página e com turmas em 2026: Andre Silveira, João
+  Pimentel, Mauricio, Miguel e Thiago (substitutos ou contratações recentes?).
+  Fora da página e sem turmas de CC/SI em 2026: Ana Carolina, Dante, Heleno
+  (substituto), John, Plastino e Simone. Com H12 soft, errar aqui só muda
+  quem é penalizado.
+- Piso do déficit de H12 (`h12_cobertura`): 29 turmas. As 148 obrigatórias,
+  com as habilitações atuais, cobrem 143 dos 172 créditos exigidos. Helena
+  está em H12 sem nenhuma obrigatória habilitada (déficit 3 inevitável).
+
+## Turmas do IC ausentes do PDF do QH (10/10/2026)
+
+As 11 turmas do IC que aparecem na coleta web mas não no PDF ficam
+`ignorar_fora_do_pdf` (valor novo): 6 turmas Z1 com 1–3 vagas (arranjos
+individuais), 2 seções extras X1 (`TCC00202`, `TCC00226`) e 2 tópicos
+pequenos (`TCC00240`, `TCC00274`). A instância parte do planejamento oficial
+(o PDF).
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e
@@ -184,13 +233,12 @@ sem histórico ficam vazios, e não com zero.
 
 ## Efeito na instância oficial (10/10/2026)
 
-- Pendências do verificador: 1133 → 12. Restam o universo de H12 e as 11
-  turmas do IC que aparecem na web mas não no PDF do QH (turmas X1/Z1,
-  `TCC00240`, `TCC00274`…).
-- A instância só acusa uma pendência de aplicação: `universo_h12`, ou seja, a
-  lista de permanentes.
-- 115 turmas com domínio gerado pelos padrões de dias do setor em 2025. Em 3
-  delas o domínio tem só o horário observado, então ficam como fixas. Restam
-  112 flexíveis.
-- Preferências professor×disciplina não nulas na instância: 257 (antes da
-  habilitação e da correção, eram 2).
+- **`pronta_para_experimento = true`.** O verificador não tem pendências e a
+  validação estrutural não tem erros (era 1133 pendências no início do dia).
+- 217 turmas, 112 com horário flexível e 177 com professor a escolher.
+- H12 soft: 62 docentes no universo, piso do déficit = 29.
+- Piso estrutural de H8 = 2 (par TCC00332 × TCC00354, artefato do contador).
+- Horário real de 2026 avaliado no modelo: 15 violações hard (12 de H8 e 3 de
+  sala) e déficit de H12 = 48. Uma passagem gulosa de 9 s chega a 3 hard
+  (H8) e déficit 34.
+- Preferências professor×disciplina não nulas: 257.
