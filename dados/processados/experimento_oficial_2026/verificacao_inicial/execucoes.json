@@ -1,0 +1,1741 @@
+{
+ "config": "oficial_2026_v1",
+ "sementes": "calibracao",
+ "avaliacoes": 20000,
+ "guloso": {
+  "avaliacoes": 3186,
+  "objetivo": [
+   5.0,
+   33.0,
+   0.0,
+   2.2635338229806106
+  ]
+ },
+ "execucoes": [
+  {
+   "algorithm": "vns",
+   "seed": 11,
+   "evaluations": 20000,
+   "neighborhoods": [
+    "teacher",
+    "schedule",
+    "room"
+   ],
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 5000002.16007663,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 5000002.108852162,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 5000002.108852162,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000002.099730933,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 5000002.068321779,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 5000002.094755829,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 5000002.078758568,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 5000002.066145577,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 4000002.1616857895,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 4000002.114413665,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 4000002.114413665,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 4000002.0827039564,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 4000002.0827039564,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 4000002.0827039564,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 4000002.107895275,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 4000002.10141866,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 4000002.10141866,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 4000002.10141866,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 4000002.0773973335,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.059332688,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    }
+   ]
+  },
+  {
+   "algorithm": "ils",
+   "seed": 33,
+   "evaluations": 20000,
+   "perturbations": 646,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 5000002.434666261,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 5000002.434666261,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000002.434666261,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 5000002.434666261,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 5000002.39926337,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 5000002.39926337,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 5000002.39926337,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 5000002.39926337,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 5000002.3974688435,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 5000002.390739368,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 5000002.366308448,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 5000002.366308448,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 5000002.346722133,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa2",
+   "seed": 22,
+   "evaluations": 20000,
+   "temperaturas": {
+    "deficit": {
+     "mediana_piora": 1.0,
+     "amostras_piora": 45,
+     "t0": 1.4426950408889634,
+     "tf": 0.21714724095162588
+    },
+    "soft": {
+     "mediana_piora": 0.013458950201884257,
+     "amostras_piora": 107,
+     "t0": 0.01941716071182993,
+     "tf": 0.0029225739024444945
+    }
+   },
+   "fases": {
+    "fase1": 3959,
+    "fase2": 15839
+   },
+   "estatisticas": {
+    "1": {
+     "tentados": 3959,
+     "aceitos": 1108,
+     "pioras_aceitas": {
+      "soft": 369,
+      "deficit": 72
+     }
+    },
+    "2": {
+     "tentados": 15839,
+     "aceitos": 2894,
+     "pioras_aceitas": {
+      "soft": 835
+     }
+    }
+   },
+   "progress": [
+    {
+     "evaluations": 202,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 4000003.6101612784,
+     "hard_violations": 4,
+     "deficit_carga_anual": 38.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 4000003.3323258334,
+     "hard_violations": 4,
+     "deficit_carga_anual": 36.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 4000003.1079017534,
+     "hard_violations": 4,
+     "deficit_carga_anual": 34.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 4000003.0787344435,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000003.1950031477,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.2108273637,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.1273430292,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000003.069454094,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000002.977928722,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.911454471,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.8094381606,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.804503212,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.6860637437,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.6626926046,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.582909086,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000002.5425322354,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000002.525663299,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000002.397769455,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.34252807,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    }
+   ]
+  },
+  {
+   "algorithm": "vns",
+   "seed": 22,
+   "evaluations": 20000,
+   "neighborhoods": [
+    "teacher",
+    "schedule",
+    "room"
+   ],
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 4000002.266674245,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 4000002.2069780426,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 4000002.184126837,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 4000002.1799225067,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 4000002.1799225067,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 4000002.1147051156,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 4000002.321240444,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 4000002.358228485,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 4000002.358228485,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 4000002.358228485,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 4000002.3472174774,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 4000002.3427311606,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 4000002.254689743,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 4000002.2504854123,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 4000002.2504854123,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 4000002.2500367807,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 4000002.2500367807,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 4000002.24583245,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 4000002.24314066,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.24314066,
+     "hard_violations": 4,
+     "deficit_carga_anual": 31.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa2",
+   "seed": 11,
+   "evaluations": 20000,
+   "temperaturas": {
+    "deficit": {
+     "mediana_piora": 1.0,
+     "amostras_piora": 33,
+     "t0": 1.4426950408889634,
+     "tf": 0.21714724095162588
+    },
+    "soft": {
+     "mediana_piora": 0.017945266935845527,
+     "amostras_piora": 95,
+     "t0": 0.02588954761577303,
+     "tf": 0.003896765203259294
+    }
+   },
+   "fases": {
+    "fase1": 3959,
+    "fase2": 15839
+   },
+   "estatisticas": {
+    "1": {
+     "tentados": 3959,
+     "aceitos": 1242,
+     "pioras_aceitas": {
+      "soft": 428,
+      "deficit": 69
+     }
+    },
+    "2": {
+     "tentados": 15839,
+     "aceitos": 3236,
+     "pioras_aceitas": {
+      "soft": 923
+     }
+    }
+   },
+   "progress": [
+    {
+     "evaluations": 202,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 4000003.5357308313,
+     "hard_violations": 4,
+     "deficit_carga_anual": 34.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 4000003.5277401116,
+     "hard_violations": 4,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 4000003.778516419,
+     "hard_violations": 4,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000003.467149179,
+     "hard_violations": 4,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.4499664195,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.4050930953,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000003.1602378325,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000003.0261111944,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.9776058686,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.89849822,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.82677063,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.9152140417,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.8324610037,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.7913710484,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000002.7369240723,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000002.707097085,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000002.5880257525,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.490317838,
+     "hard_violations": 4,
+     "deficit_carga_anual": 28.0
+    }
+   ]
+  },
+  {
+   "algorithm": "ils",
+   "seed": 22,
+   "evaluations": 20000,
+   "perturbations": 646,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 5000002.2266548835,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 5000002.2266548835,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 5000002.2266548835,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000002.2266548835,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 5000002.332301329,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 5000002.332301329,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 5000002.2415119065,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 5000002.2415119065,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 5000002.227334824,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 5000002.227334824,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 5000002.22643756,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 5000002.22643756,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 5000002.223237449,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 5000002.223237449,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 5000002.214161961,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 5000002.266488821,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 5000002.266488821,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 5000002.238553535,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 5000002.20573784,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 5000002.20573784,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa",
+   "seed": 11,
+   "evaluations": 20000,
+   "attempted_moves": 19999,
+   "accepted_moves": 3533,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 4000004.5690523842,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 4000004.8265456688,
+     "hard_violations": 4,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 4000004.635126263,
+     "hard_violations": 4,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 4000005.103157562,
+     "hard_violations": 4,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 4000004.87859302,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000004.2769636936,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.6279909844,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.0146956826,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000002.9179753736,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000002.6421686793,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.5410217424,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.4750625477,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.394552668,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.3275017384,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.2700768844,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.244056247,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000002.224765085,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000002.208614345,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000002.170032021,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.1297108224,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa2",
+   "seed": 33,
+   "evaluations": 20000,
+   "temperaturas": {
+    "deficit": {
+     "mediana_piora": 1.0,
+     "amostras_piora": 24,
+     "t0": 1.4426950408889634,
+     "tf": 0.21714724095162588
+    },
+    "soft": {
+     "mediana_piora": 0.012612991381122818,
+     "amostras_piora": 105,
+     "t0": 0.018196700116321126,
+     "tf": 0.0027388762785574574
+    }
+   },
+   "fases": {
+    "fase1": 3959,
+    "fase2": 15839
+   },
+   "estatisticas": {
+    "1": {
+     "tentados": 3959,
+     "aceitos": 1183,
+     "pioras_aceitas": {
+      "deficit": 75,
+      "soft": 396
+     }
+    },
+    "2": {
+     "tentados": 15839,
+     "aceitos": 2803,
+     "pioras_aceitas": {
+      "soft": 735
+     }
+    }
+   },
+   "progress": [
+    {
+     "evaluations": 202,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 4000003.5408814005,
+     "hard_violations": 4,
+     "deficit_carga_anual": 39.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 4000003.204213183,
+     "hard_violations": 4,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 4000003.237099878,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000003.237099878,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.237099878,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.0889189295,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000002.9529157807,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000002.912000829,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.845720454,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.807890389,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.669545226,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.655334043,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.5348245255,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.468720326,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000002.392756453,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000002.2745615123,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000002.2634511236,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.2206138186,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa",
+   "seed": 33,
+   "evaluations": 20000,
+   "attempted_moves": 19999,
+   "accepted_moves": 3718,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 5000003.935215639,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 5000005.031133119,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 5000005.156121869,
+     "hard_violations": 5,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000004.6596952025,
+     "hard_violations": 5,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 5000004.779538531,
+     "hard_violations": 5,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000004.2008042666,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.6283069025,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.139629621,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000002.6933883065,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000002.4693143107,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.31840827,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.244384044,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.186510558,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.1488254974,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.1308802306,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.067213544,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000001.9629651974,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000001.936047297,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000001.907783502,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000001.852580255,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    }
+   ]
+  },
+  {
+   "algorithm": "sa",
+   "seed": 22,
+   "evaluations": 20000,
+   "attempted_moves": 19999,
+   "accepted_moves": 3495,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1000,
+     "score": 5000003.954462638,
+     "hard_violations": 5,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 2000,
+     "score": 5000005.126522066,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 3000,
+     "score": 5000005.078954604,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000004.835676377,
+     "hard_violations": 5,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 5000,
+     "score": 4000004.5961712315,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 6000,
+     "score": 4000004.108256166,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 7000,
+     "score": 4000003.4303875053,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 8000,
+     "score": 4000003.0866923076,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 9000,
+     "score": 4000002.8589939475,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 10000,
+     "score": 4000002.6816780446,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 11000,
+     "score": 4000002.4692303077,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 12000,
+     "score": 4000002.353970979,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 13000,
+     "score": 4000002.269179593,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 14000,
+     "score": 4000002.229640316,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 15000,
+     "score": 4000002.130083096,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 16000,
+     "score": 4000002.1022338956,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 17000,
+     "score": 4000002.0327349976,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 18000,
+     "score": 4000002.0165842576,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 19000,
+     "score": 4000002.0125465724,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 4000002.001779412,
+     "hard_violations": 4,
+     "deficit_carga_anual": 29.0
+    }
+   ]
+  },
+  {
+   "algorithm": "vns",
+   "seed": 33,
+   "evaluations": 20000,
+   "neighborhoods": [
+    "teacher",
+    "schedule",
+    "room"
+   ],
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 5000002.204647926,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 5000002.202375641,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 5000002.154890348,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000002.133983791,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 5000002.1114913095,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 5000002.1029076185,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 5000002.119783419,
+     "hard_violations": 5,
+     "deficit_carga_anual": 32.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 5000002.122143219,
+     "hard_violations": 5,
+     "deficit_carga_anual": 31.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 5000002.184354326,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 5000002.14188705,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 5000002.124154952,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 5000002.112926648,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 5000002.112373861,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 5000002.051530919,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 5000002.051530919,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 5000002.014901603,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 5000002.005817975,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 5000002.005817975,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 5000002.005817975,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 5000001.999703777,
+     "hard_violations": 5,
+     "deficit_carga_anual": 30.0
+    }
+   ]
+  },
+  {
+   "algorithm": "ils",
+   "seed": 11,
+   "evaluations": 20000,
+   "perturbations": 646,
+   "progress": [
+    {
+     "evaluations": 1,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 1024,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 2016,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 3008,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 4000,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 5023,
+     "score": 5000002.263533823,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 6015,
+     "score": 5000002.258714616,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 7007,
+     "score": 5000002.239381162,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 8030,
+     "score": 5000002.239381162,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 9022,
+     "score": 5000002.208815392,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 10014,
+     "score": 5000002.208815392,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 11006,
+     "score": 5000002.208815392,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 12029,
+     "score": 5000002.208815392,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 13021,
+     "score": 5000002.17052624,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 14013,
+     "score": 5000002.17052624,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 15005,
+     "score": 5000002.107974987,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 16028,
+     "score": 5000002.107974987,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 17020,
+     "score": 5000002.107974987,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 18012,
+     "score": 5000002.107974987,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 19004,
+     "score": 5000002.102446286,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    },
+    {
+     "evaluations": 20000,
+     "score": 5000002.102446286,
+     "hard_violations": 5,
+     "deficit_carga_anual": 33.0
+    }
+   ]
+  }
+ ]
+}

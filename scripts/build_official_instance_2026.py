@@ -261,7 +261,9 @@ def h12_coverage(payload: dict) -> dict | None:
     h12_teachers = {t["name"] for t in payload.get("teachers", []) if t.get("incluido_h12") is True}
     if not h12_teachers:
         return None
-    matched, required = h12_matching(payload.get("classes", []), h12_teachers, int(payload["min_obrigatorias_ano"]))
+    matched, required = h12_matching(
+        payload.get("classes", []), h12_teachers, int(payload["min_obrigatorias_ano"]), payload.get("politica_cotutoria"),
+    )
     return {"cobertos": matched, "necessarios": required, "piso_deficit": required - matched}
 
 

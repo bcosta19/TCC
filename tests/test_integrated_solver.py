@@ -1,9 +1,12 @@
 import copy
+import math
 import random
 import unittest
 
 from src.solve.direct_objective import evaluate, soft_total, teachers_for_item
 from src.solve.integrated import (
+    first_difference,
+    solve_sa2,
     candidate_rooms,
     apply_move,
     greedy_improve,
@@ -196,6 +199,43 @@ class IntegratedSolverTests(unittest.TestCase):
         self.assertEqual(soft_result["guidance"]["excesso_capacidade"], 10.0)
         self.assertEqual(objective_key(soft_result)[2], 10.0)
         self.assertEqual(candidate_rooms(payload["classes"][0], payload, 0), ["102", "101"])
+
+    def test_first_difference_follows_lexicographic_order(self):
+        base = {"hard_violations": 2, "guidance": {"deficit_carga_anual": 5.0, "excesso_capacidade": 0.0}, "soft": {}, "soft_total": 3.0}
+        worse_soft_better_deficit = copy.deepcopy(base)
+        worse_soft_better_deficit["guidance"]["deficit_carga_anual"] = 4.0
+        worse_soft_better_deficit["soft_total"] = 9.0
+        self.assertEqual(first_difference(worse_soft_better_deficit, base), ("deficit", -1.0))
+        only_soft = copy.deepcopy(base)
+        only_soft["soft_total"] = 3.5
+        self.assertEqual(first_difference(only_soft, base), ("soft", 0.5))
+        self.assertEqual(first_difference(base, base), (None, 0.0))
+
+    def test_sa2_never_worsens_hard_or_excess_and_reports_calibration(self):
+        payload = toy_payload()
+        start = evaluate(payload)
+        config = {"avaliacoes": 300, "amostra_calibracao": 40, "aceitacao_inicial": 0.5,
+                  "aceitacao_final": 0.01, "fracao_fase1": 0.2}
+        result = solve_sa2(payload, 7, config)
+        self.assertLessEqual(result.evaluation["hard_violations"], start["hard_violations"])
+        self.assertLessEqual(objective_key(result.evaluation), objective_key(start))
+        temperatures = result.metadata["temperaturas"]
+        for level in ("deficit", "soft"):
+            self.assertGreater(temperatures[level]["t0"], temperatures[level]["tf"])
+            self.assertAlmostEqual(temperatures[level]["t0"] * math.log(2), temperatures[level]["mediana_piora"])
+        self.assertLessEqual(result.metadata["evaluations"], 300)
+        for phase in result.metadata["estatisticas"].values():
+            self.assertNotIn("hard", phase["pioras_aceitas"])
+            self.assertNotIn("excesso", phase["pioras_aceitas"])
+
+    def test_h12_matching_credits_integral_cotutoria_to_each_teacher(self):
+        classes = [{
+            "id": "c1", "origem": "IC", "obrigatoria": True, "professor_fixo": True,
+            "professores_alocados": ["Ana", "Bruno"], "professores_habilitados": [],
+        }]
+        self.assertEqual(h12_matching(classes, {"Ana", "Bruno"}, 1), (0, 2))
+        policy = {"c1": {"politica_h12": "integral_para_cada_docente"}}
+        self.assertEqual(h12_matching(classes, {"Ana", "Bruno"}, 1, policy), (0, 0))
 
     def test_search_rejects_unavailable_h12(self):
         result = evaluate(toy_payload())

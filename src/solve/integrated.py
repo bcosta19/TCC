@@ -520,8 +520,134 @@ def solve_vns(payload: dict, seed: int, config: dict) -> SearchResult:
     })
 
 
+LEVELS = ("hard", "deficit", "excesso", "soft")
+
+
+def level_values(result: dict) -> tuple[float, float, float, float]:
+    """Os quatro níveis lexicográficos da instância oficial, na ordem de prioridade."""
+    return objective_key(result)
+
+
+def first_difference(candidate: dict, current: dict, tolerance: float = 1e-9) -> tuple[str | None, float]:
+    """Primeiro nível em que as soluções diferem e a diferença (positiva = piora)."""
+    for level, new, old in zip(LEVELS, level_values(candidate), level_values(current)):
+        if abs(new - old) > tolerance:
+            return level, new - old
+    return None, 0.0
+
+
+def calibrate_temperatures(payload: dict, rng: random.Random, samples: int, chi0: float, chif: float) -> tuple[dict, int]:
+    """Temperaturas inicial e final por nível, pela piora mediana de movimentos aleatórios.
+
+    T0 aceita uma piora mediana com probabilidade ``chi0`` e Tf com ``chif``:
+    T = mediana / ln(1/chi). Nível sem piora observada usa mediana 1
+    (uma turma de déficit; para o soft, o fallback é irrelevante na prática).
+    """
+    solution = copy.deepcopy(payload)
+    base = evaluate(solution)
+    worse: dict[str, list[float]] = {"deficit": [], "soft": []}
+    used = 1
+    for _ in range(samples):
+        move = propose_move(solution, rng)
+        if move is None:
+            break
+        undo = apply_move(solution, move)
+        candidate = evaluate(solution)
+        used += 1
+        apply_move(solution, undo)
+        for level, new, old in zip(LEVELS, level_values(candidate), level_values(base)):
+            if level in worse and new - old > 1e-9:
+                worse[level].append(new - old)
+    temperatures = {}
+    for level, values in worse.items():
+        values.sort()
+        median = values[len(values) // 2] if values else 1.0
+        temperatures[level] = {
+            "mediana_piora": median,
+            "amostras_piora": len(values),
+            "t0": median / math.log(1 / chi0),
+            "tf": median / math.log(1 / chif),
+        }
+    return temperatures, used
+
+
+def solve_sa2(payload: dict, seed: int, config: dict) -> SearchResult:
+    """SA lexicográfico em duas fases (protocolo da instância oficial, 10/10/2026).
+
+    Um movimento é decidido pelo primeiro nível que muda, na ordem (hard,
+    déficit H12, excesso H10, soft): melhora é aceita; piora só é aceita, com
+    probabilidade exp(-Δ/T), se o nível for recozido na fase. Hard e excesso
+    nunca pioram. Fase 1: recoze o déficit e mantém o soft na temperatura
+    inicial da fase 2. Fase 2: recoze só o soft.
+    """
+    rng = random.Random(seed)
+    budget = int(config["avaliacoes"])
+    temperatures, evaluations = calibrate_temperatures(
+        payload, rng, int(config["amostra_calibracao"]),
+        float(config["aceitacao_inicial"]), float(config["aceitacao_final"]),
+    )
+    current = copy.deepcopy(payload)
+    current_result = evaluate(current)
+    evaluations += 1
+    best, best_result = copy.deepcopy(current), current_result
+    phase1 = int((budget - evaluations) * float(config["fracao_fase1"]))
+    phase2 = max(1, budget - evaluations - phase1)
+    schedules = {
+        1: {"deficit": (temperatures["deficit"]["t0"], temperatures["deficit"]["tf"], phase1),
+            "soft": (temperatures["soft"]["t0"], temperatures["soft"]["t0"], phase1)},
+        2: {"soft": (temperatures["soft"]["t0"], temperatures["soft"]["tf"], phase2)},
+    }
+    stats = {phase: {"tentados": 0, "aceitos": 0, "pioras_aceitas": {}} for phase in (1, 2)}
+    progress = [_progress_entry(evaluations, best_result)]
+    checkpoint = max(1, budget // 20)
+
+    for phase, steps in ((1, phase1), (2, phase2)):
+        for step in range(steps):
+            if evaluations >= budget:
+                break
+            move = propose_move(current, rng)
+            if move is None:
+                break
+            undo = apply_move(current, move)
+            candidate = evaluate(current)
+            evaluations += 1
+            stats[phase]["tentados"] += 1
+            level, delta = first_difference(candidate, current_result)
+            if level is None or delta < 0:
+                accept = True
+            elif level in schedules[phase]:
+                t0, tf, length = schedules[phase][level]
+                temperature = t0 * (tf / t0) ** (step / max(1, length - 1)) if t0 > 0 and tf > 0 else 0.0
+                accept = temperature > 0 and rng.random() < math.exp(-delta / temperature)
+                if accept:
+                    worse = stats[phase]["pioras_aceitas"]
+                    worse[level] = worse.get(level, 0) + 1
+            else:
+                accept = False
+            if accept:
+                stats[phase]["aceitos"] += 1
+                current_result = candidate
+                if is_better(candidate, best_result):
+                    best, best_result = copy.deepcopy(current), candidate
+            else:
+                apply_move(current, undo)
+            if evaluations % checkpoint == 0:
+                progress.append(_progress_entry(evaluations, best_result))
+
+    return SearchResult(best, best_result, {
+        "algorithm": "sa2",
+        "seed": seed,
+        "evaluations": evaluations,
+        "temperaturas": temperatures,
+        "fases": {"fase1": phase1, "fase2": phase2},
+        "estatisticas": stats,
+        "progress": progress,
+    })
+
+
 ALGORITHMS = {
     "sa": solve_sa,
+    "sa2": solve_sa2,
     "ils": solve_ils,
     "vns": solve_vns,
 }

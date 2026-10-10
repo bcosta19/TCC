@@ -154,8 +154,16 @@ def build_schedule_domain(item: dict, slots: dict, patterns: dict, limit: int) -
     return candidates
 
 
-def h12_matching(classes: list[dict], teachers: set[str], minimum: int) -> tuple[int, int]:
-    """Retorna (creditos casados, creditos necessarios) para o universo H12."""
+def h12_matching(
+    classes: list[dict], teachers: set[str], minimum: int, cotutoria: dict | None = None,
+) -> tuple[int, int]:
+    """Retorna (creditos casados, creditos necessarios) para o universo H12.
+
+    Turma de professor fixo com mais de um docente credita 1/k a cada um, salvo
+    quando ``cotutoria`` (``politica_cotutoria`` da instância) indica
+    ``integral_para_cada_docente`` para ela: aí cada um recebe 1, como no avaliador.
+    """
+    cotutoria = cotutoria or {}
     fixed_credits: Counter = Counter()
     movable_classes: dict[str, set[str]] = {}
     for item in classes:
@@ -163,7 +171,8 @@ def h12_matching(classes: list[dict], teachers: set[str], minimum: int) -> tuple
             continue
         assigned = item.get("professores_alocados") or []
         if item.get("professor_fixo", False):
-            share = 1.0 / len(assigned) if assigned else 0.0
+            policy = (cotutoria.get(item.get("id", "")) or {}).get("politica_h12")
+            share = 1.0 if policy == "integral_para_cada_docente" else (1.0 / len(assigned) if assigned else 0.0)
             for teacher in assigned:
                 if teacher in teachers:
                     fixed_credits[teacher] += share

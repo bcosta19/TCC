@@ -1,0 +1,51 @@
+{
+  "id": "oficial_2026_v1",
+  "descricao": "Protocolo da instância oficial de 2026 (decidido em 10/10/2026): partida comum pelo guloso, SA lexicográfico em duas fases (sa2) calibrado por aceitação de 50% (início) e 1% (fim) da piora mediana, ILS e VNS com o mesmo orçamento, 3 sementes de calibração separadas de 10 sementes de avaliação, Wilcoxon pareado exato.",
+  "instancia": "dados/processados/instancia_oficial_2026.json",
+  "maximo_candidatos_guloso": 8,
+  "sementes": {
+    "calibracao": [
+      11,
+      22,
+      33
+    ],
+    "avaliacao": [
+      101,
+      202,
+      303,
+      404,
+      505,
+      606,
+      707,
+      808,
+      909,
+      1010
+    ]
+  },
+  "algoritmos": {
+    "sa2": {
+      "avaliacoes": 100000,
+      "fracao_fase1": 0.2,
+      "aceitacao_inicial": 0.5,
+      "aceitacao_final": 0.01,
+      "amostra_calibracao": 200
+    },
+    "ils": {
+      "avaliacoes": 100000,
+      "forca_perturbacao": 3,
+      "tentativas_busca_local": 30
+    },
+    "vns": {
+      "avaliacoes": 100000,
+      "tentativas_busca_local": 30
+    }
+  },
+  "referencias": {
+    "sa": {
+      "avaliacoes": 100000,
+      "temperatura_inicial": 1000000.0,
+      "resfriamento": 0.997,
+      "nota": "SA de v1–v3 com os parâmetros do v3, só para comparação"
+    }
+  }
+}
