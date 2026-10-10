@@ -47,6 +47,34 @@ class PrefillExternalReferencesTests(unittest.TestCase):
         self.assertEqual(self.treatments(result)["GMA1-B1"], REFERENCE)
         self.assertEqual(result.loc[result["turma"].eq("B1"), "inscritos_curso_pct"].item(), "75")
 
+    def test_avoids_fixed_ic_class_of_the_same_period(self):
+        table = pd.DataFrame([
+            offer("GET1", "F1", "Ter 09:00-11:00", 40, enrolled=30),
+            offer("GET1", "A1", "Seg 09:00-11:00", 40, enrolled=10),
+        ])
+        fixed = {("2026-1", "CC-P4"): ["Ter 09:00-11:00; Qui 09:00-11:00"]}
+        result = prefill(table, {"GET1": ["CC-P4"]}, fixed_ic=fixed)
+        self.assertEqual(self.treatments(result), {"GET1-F1": ALTERNATIVE, "GET1-A1": REFERENCE})
+
+    def test_keeps_clash_with_fixed_ic_when_there_is_no_alternative(self):
+        table = pd.DataFrame([offer("GET1", "F1", "Ter 09:00-11:00", 40, enrolled=30)])
+        fixed = {("2026-1", "CC-P4"): ["Ter 09:00-11:00"]}
+        result = prefill(table, {"GET1": ["CC-P4"]}, fixed_ic=fixed)
+        self.assertEqual(self.treatments(result)["GET1-F1"], REFERENCE)
+        self.assertIn("turma fixa do IC", result.loc[0, "criterio_referencia"])
+
+    def test_overwrite_moves_the_reference_without_leaving_two(self):
+        table = pd.DataFrame([
+            offer("GET1", "F1", "Ter 09:00-11:00", 40, enrolled=30),
+            offer("GET1", "A1", "Seg 09:00-11:00", 40, enrolled=10),
+        ])
+        first = prefill(table, {"GET1": ["CC-P4"]})
+        self.assertEqual(self.treatments(first)["GET1-F1"], REFERENCE)
+        fixed = {("2026-1", "CC-P4"): ["Ter 09:00-11:00"]}
+        second = prefill(first, {"GET1": ["CC-P4"]}, overwrite=True, fixed_ic=fixed)
+        self.assertEqual(self.treatments(second), {"GET1-F1": ALTERNATIVE, "GET1-A1": REFERENCE})
+        self.assertEqual(second.loc[second["turma"].eq("F1"), "periodo_curricular"].item(), "")
+
     def test_keeps_human_decisions(self):
         table = pd.DataFrame([
             offer("GMA1", "A1", "Seg 07:00-09:00", 10, treatment="ignorar_fora_do_ic"),

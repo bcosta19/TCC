@@ -150,6 +150,28 @@ de 3 passa a ser viável, penalizada pelo déficit (turmas faltantes).
 passa a ser soft, revendo a diretriz de 23/06/2026, que a tratava como
 "restrição do departamento, não preferência".
 
+## Extensão da regra das turmas de referência (10/10/2026)
+
+A regra de 30/09 escolhia a turma externa de referência evitando choque só
+com as outras referências do período. Agora ela também evita as turmas do IC
+de horário fixo do período: nenhum dos dois lados pode se mover, então esse
+choque virava um piso estrutural de H8. Aplicação:
+`prefill_external_references_2026.py --sobrescrever`, que agora desfaz as
+escolhas anteriores da regra antes de reaplicá-la (antes, a referência antiga
+permanecia e a disciplina ficava com duas).
+
+- Piso estrutural de H8 na instância oficial: 8 → 2 sobreposições.
+- Referências alteradas (concentração de inscritos do curso):
+  - 2026/1 `GET00177`: F1 → C1 (27% → 23%). F1 chocava com `TCC00306-A1`.
+  - 2026/2 `GMA00155`: N9 → Q1 (23% → 22%). N9 chocava com `TCC00286-B1`.
+  - 2026/2 `GAN00144`: F2 → B2 (48% → 11%). F2 chocava com
+    `TCC00356-A1` (20–22). Na prática, o aluno de SI-P2 pode fazer F2 e
+    `TCC00356-B1` (18–20) sem choque, mas o contador de H8 não considera
+    turmas paralelas (decisão de 30/09). A troca evita esse artefato, ao custo
+    de uma referência pouco representativa.
+- Sobra 1 par fixa × fixa, só com turmas do IC: `TCC00332-B1` × `TCC00354-A1`
+  (SI-P1, 2026/2). Ver a seção seguinte.
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e
