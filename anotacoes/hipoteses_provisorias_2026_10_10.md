@@ -105,7 +105,7 @@ Não são inferências. São escolhas de escopo do aluno, a comunicar ao orienta
   `ignorar_fora_do_ic`: são optativas que alunos de CC/SI podem cursar e não
   entram em H8 nem nas salas do IC.
 
-## Decisão do aluno em 10/10/2026: H12 relaxada para soft
+## Decisão de 10/10/2026: H12 relaxada para soft (confirmada com o orientador)
 
 H12 (mínimo de 3 obrigatórias por ano) deixa de ser hard na instância oficial
 de 2026. O mínimo continua sendo a meta, mas uma solução com docente abaixo
@@ -146,11 +146,9 @@ de 3 passa a ser viável, penalizada pelo déficit (turmas faltantes).
 - A lista de permanentes (`universo_h12_2026.csv`) continua necessária para
   calcular o déficit.
 
-**A levar ao orientador:** a diretriz de 23/06/2026 trata H12 como "restrição
-do departamento, não preferência". O relaxamento é decisão do aluno, motivada
-pelos dados acima, e precisa ser comunicada a ele. Fica em aberto se as
-exceções devem ser modeladas por docente (abatimento do mínimo) em vez do
-relaxamento geral.
+**Confirmado com o orientador** (informado pelo aluno em 10/10/2026): H12
+passa a ser soft, revendo a diretriz de 23/06/2026, que a tratava como
+"restrição do departamento, não preferência".
 
 ## Correção: frequência histórica congelada
 
