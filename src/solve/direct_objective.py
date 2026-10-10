@@ -17,6 +17,25 @@ def h12_is_soft(payload: dict) -> bool:
     return str(payload.get("h12_modo", "hard")).strip().lower() == "soft"
 
 
+def soft_total(soft: dict, normalization: dict | None = None) -> float:
+    """Soma ponderada dos critérios soft.
+
+    Sem ``normalizacao_soft`` no payload, é a soma bruta (peso 1, escalas
+    diferentes), como nos experimentos anteriores. Com ela, cada critério é
+    dividido pelo módulo do seu valor de referência (o horário observado) e
+    multiplicado pelo peso: no horário de referência cada termo vale ±1.
+    """
+    if not normalization:
+        return float(sum(soft.values()))
+    reference = normalization.get("referencia") or {}
+    weights = normalization.get("pesos") or {}
+    total = 0.0
+    for name, value in soft.items():
+        scale = abs(float(reference.get(name) or 0.0)) or 1.0
+        total += float(weights.get(name, 1.0)) * float(value) / scale
+    return total
+
+
 def minutes(value: str) -> int:
     hour, minute = str(value).split(":")
     return int(hour) * 60 + int(minute)
@@ -342,13 +361,14 @@ def evaluate(payload: dict, min_rest_hours: int = 11) -> dict:
         soft["preferencia_priorizada"] = preference_bonus
 
     hard_count = sum(value for value in hard.values() if value is not None)
-    soft_count = sum(soft.values())
+    soft_count = soft_total(soft, payload.get("normalizacao_soft"))
     score = hard_count * 1_000_000 + soft_count
     return {
         "score": score,
         "hard_violations": hard_count,
         "hard": hard,
         "soft": soft,
+        "soft_total": soft_count,
         "relaxadas": relaxed,
         "guidance": {"deficit_carga_anual": h12_deficit},
     }

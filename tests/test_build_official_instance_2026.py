@@ -175,6 +175,12 @@ class BuildOfficialInstance2026Tests(unittest.TestCase):
         self.assertEqual(payload["h12_cobertura"]["necessarios"], 3)
         self.assertGreater(payload["h12_cobertura"]["piso_deficit"], 0)
 
+    def test_soft_normalization_uses_observed_schedule_as_reference(self):
+        payload = self.build(complete_tables())
+        normalization = payload["normalizacao_soft"]
+        self.assertTrue(normalization["referencia"])
+        self.assertTrue(all(weight == 1.0 for weight in normalization["pesos"].values()))
+
     def test_rooms_receive_official_capacity_and_resources(self):
         rooms = {room["id"]: room for room in self.build(complete_tables())["rooms"]}
         self.assertEqual(rooms["202"]["capacity"], 60)

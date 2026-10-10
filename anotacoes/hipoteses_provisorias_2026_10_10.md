@@ -221,6 +221,35 @@ individuais), 2 seções extras X1 (`TCC00202`, `TCC00226`) e 2 tópicos
 pequenos (`TCC00240`, `TCC00274`). A instância parte do planejamento oficial
 (o PDF).
 
+## Decisão de 10/10/2026: critérios soft normalizados pelo horário observado
+
+Antes, os critérios soft eram somados brutos (peso 1), cada um na sua unidade.
+No horário observado de 2026: desperdício de capacidade 2290 lugares, dias
+trabalhados 233, preferência −79, janelas 46, rodízio 38. O desperdício
+dominava: 10 lugares vazios valiam mais que 9 janelas, e atender a disciplina
+preferida de um docente valia no máximo o mesmo que 1 lugar vazio.
+
+Agora, na instância oficial, cada critério é dividido pelo módulo do seu
+valor no horário observado, e todos têm peso 1 (`normalizacao_soft` no
+payload, calculada por `soft_normalization()` em
+`build_official_instance_2026.py`). No horário observado, cada penalidade vale
+1, a preferência vale −1 e o total soft é 3. A ordem lexicográfica continua:
+(hard, déficit de H12, total soft).
+
+- Pesos: `PESOS_SOFT_OFICIAL` no builder (vazio = todos 1). Se o orientador
+  priorizar algum critério, basta ajustar ali.
+- Efeito, num guloso de uma passada: janelas 38 → 33, rodízio 36 → 31,
+  déficit 34 → 33, preferência um pouco melhor; dias trabalhados 233 → 251.
+  Agora os critérios contam em fração do horário observado: 1 janela (1/46)
+  pesa cerca de 5× mais que 1 dia trabalhado (1/233).
+- Sem `normalizacao_soft`, vale a soma bruta. Assim os experimentos v1–v3
+  continuam reproduzíveis.
+- **Recalibrar o SA:** as temperaturas dos configs (ex.: `temperatura_inicial`
+  = 1e6 no v3) foram pensadas para a escala bruta. Com a normalização, as
+  diferenças no nível soft são da ordem de 0,01.
+- A referência depende da instância: se as vagas forem recoletadas
+  (`--refresh-web`), a referência muda junto.
+
 ## Correção: frequência histórica congelada
 
 As colunas `frequencia_historica_2023_2025` (habilitação) e

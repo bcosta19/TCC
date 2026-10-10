@@ -48,12 +48,16 @@ from scripts.build_synthetic_instance_2026 import (  # noqa: E402
 from scripts.check_readiness_2026 import H12_MODO_OFICIAL, check_profile  # noqa: E402
 from src.eval.resources import resources_from_requirement  # noqa: E402
 from src.eval.rooms import is_lab_room  # noqa: E402
+from src.solve.direct_objective import evaluate  # noqa: E402
 
 
 DATA = ROOT / "dados" / "processados"
 DEFAULT_INPUT = DATA / "instancia_2026_cc_si.json"
 DEFAULT_OUTPUT = DATA / "instancia_oficial_2026.json"
 MIN_OBRIGATORIAS_ANO = 3
+# Pesos dos critérios soft após a normalização pelo horário observado
+# (decisão de 10/10/2026: pesos iguais; ajuste aqui se o orientador priorizar algum).
+PESOS_SOFT_OFICIAL: dict[str, float] = {}
 MAX_PATTERNS = 12
 TRUE = {"sim", "true", "1"}
 FALSE = {"nao", "não", "false", "0"}
@@ -232,6 +236,20 @@ def validate(payload: dict) -> list[str]:
     if coverage and payload.get("h12_modo", "hard") == "hard" and coverage["cobertos"] != coverage["necessarios"]:
         errors.append(f"H12 inviável: o matching cobre {coverage['cobertos']} de {coverage['necessarios']} créditos necessários")
     return errors
+
+
+def soft_normalization(payload: dict) -> dict:
+    """Referência de cada critério soft = seu valor no horário observado de 2026.
+
+    Avalia a instância antes de qualquer busca, isto é, com professores,
+    horários e salas observados no PDF do QH.
+    """
+    reference = evaluate({key: value for key, value in payload.items() if key != "normalizacao_soft"})["soft"]
+    return {
+        "referencia": {name: float(value) for name, value in reference.items()},
+        "pesos": {name: float(PESOS_SOFT_OFICIAL.get(name, 1.0)) for name in reference},
+        "fonte": "horário observado de 2026 (PDF do QH), avaliado na construção da instância",
+    }
 
 
 def h12_coverage(payload: dict) -> dict | None:
@@ -436,6 +454,7 @@ def build(base_path: Path, data: Path = DATA, evidence: dict | None = None, max_
     payload["politica_cotutoria"] = cotutoria
     payload["min_obrigatorias_ano"] = MIN_OBRIGATORIAS_ANO
     payload["h12_modo"] = H12_MODO_OFICIAL
+    payload["normalizacao_soft"] = soft_normalization(payload)
     payload["schema_version"] = "0.3-oficial"
     payload["profile"] = "oficial_2026"
 

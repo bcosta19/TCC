@@ -25,12 +25,19 @@ def annual_deficit(result: dict) -> float:
     return float(value) if value is not None else math.inf
 
 
+def soft_value(result: dict) -> float:
+    """Total soft já ponderado pelo avaliador; soma bruta para resultados antigos."""
+    if "soft_total" in result:
+        return float(result["soft_total"])
+    return float(sum(result["soft"].values()))
+
+
 def objective_key(result: dict) -> tuple[float, float, float]:
     """Compara hard, déficit H12 e, por fim, os demais critérios soft."""
     return (
         float(result["hard_violations"]),
         annual_deficit(result),
-        float(sum(result["soft"].values())),
+        soft_value(result),
     )
 
 
@@ -42,7 +49,7 @@ def search_energy(result: dict) -> float:
     return (
         float(result["hard_violations"]) * 1_000_000_000
         + deficit * 1_000_000
-        + float(sum(result["soft"].values()))
+        + soft_value(result)
     )
 
 

@@ -2,7 +2,7 @@ import copy
 import random
 import unittest
 
-from src.solve.direct_objective import evaluate, teachers_for_item
+from src.solve.direct_objective import evaluate, soft_total, teachers_for_item
 from src.solve.integrated import (
     apply_move,
     greedy_improve,
@@ -155,6 +155,24 @@ class IntegratedSolverTests(unittest.TestCase):
         self.assertEqual(soft_result["relaxadas"], {"carga_anual_insuficiente": 1})
         self.assertEqual(soft_result["hard_violations"], hard_result["hard_violations"] - 1)
         self.assertEqual(soft_result["guidance"]["deficit_carga_anual"], 2.0)
+
+    def test_soft_normalization_divides_by_reference_and_applies_weights(self):
+        soft = {"janelas": 10.0, "desperdicio_capacidade": 500.0, "preferencia_priorizada": -4.0}
+        normalization = {
+            "referencia": {"janelas": 20.0, "desperdicio_capacidade": 1000.0, "preferencia_priorizada": -8.0},
+            "pesos": {"janelas": 2.0},
+        }
+        self.assertAlmostEqual(soft_total(soft), 506.0)
+        self.assertAlmostEqual(soft_total(soft, normalization), 2.0 * 0.5 + 0.5 - 0.5)
+
+    def test_objective_uses_normalized_soft_total(self):
+        payload = toy_payload()
+        raw = evaluate(payload)
+        payload["normalizacao_soft"] = {"referencia": dict(raw["soft"]), "pesos": {}}
+        normalized = evaluate(payload)
+        expected = sum(1.0 if value > 0 else -1.0 for value in raw["soft"].values() if value)
+        self.assertAlmostEqual(normalized["soft_total"], expected)
+        self.assertEqual(objective_key(normalized)[2], normalized["soft_total"])
 
     def test_search_rejects_unavailable_h12(self):
         result = evaluate(toy_payload())

@@ -268,6 +268,8 @@ z_{c,m,r}\,(\text{cap}_r - n_c)
 
 > **Pesos $`w_\bullet`$:** calibrar com o orientador. Sugestão de partida já registrada: normalizar cada termo para $`[0,1]`$ e atribuir pesos por importância declarada. Se H8 for relaxada, os pesos por grade $`w^{\text{CC}}/w^{\text{SI}}`$ também precisarão ser definidos.
 
+> **Nota (decidido em 10/10/2026): normalização pelo horário observado.** Na instância oficial de 2026, cada termo é dividido pelo módulo do seu valor no horário observado (PDF do QH): $`Z=\sum_k w_k\,\Phi_k/|\Phi_k^{\text{obs}}|`$, com $`w_k=1`$ para todos. Assim, no horário observado cada penalidade vale 1 e a preferência (bônus) vale −1, e $`Z_{\text{obs}}=3`$. Antes, a soma bruta (peso 1 sobre escalas diferentes) deixava o desperdício de capacidade (≈2290 lugares) dominar os demais termos. Implementação: `normalizacao_soft` na instância (referência, pesos e fonte); sem esse campo, vale a soma bruta dos experimentos anteriores. Ver [`hipoteses_provisorias_2026_10_10.md`](hipoteses_provisorias_2026_10_10.md).
+
 ---
 
 ## 7. Mapa stakeholder → restrição/critério
