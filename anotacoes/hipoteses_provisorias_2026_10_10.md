@@ -82,6 +82,11 @@ de hipótese.
 - Limitação: Christiano, Heleno e Leandro Santiago deram disciplinas em 2025,
   mas não têm turmas de CC/SI em 2026 (podem estar afastados). Eles entram nos
   domínios. A lista de permanentes de H12 deve ajudar a decidir se saem.
+- **Heleno** (corrigido manualmente em 10/10/2026): professor substituto,
+  segundo o Escavador e o ResearchGate. A carga 2025 marca "até 15/01/2026", e
+  ele não aparece no QH 2026. Os 3 pares dele (`TCC00357`, `TCC00361`,
+  `TCC00366`) ficam `habilitado=nao`, e ele fica fora de H12
+  (`universo_h12_2026.csv`).
 
 ## Decisões do aluno em 10/10/2026
 

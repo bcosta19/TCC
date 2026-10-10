@@ -201,7 +201,7 @@ TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Mauricio,ESTR.PROG.,0,True,sim
 TCC00355,LABORATÓRIO DE RESOLUÇÃO DE PROBLEMAS,Miguel,ESTR.PROG.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00356,PROGRAMAÇÃO DE COMPUTADORES II,Patrick,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Andre Renato,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
-TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Heleno,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Heleno,ENG.SOFT.,0,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,"manual 10/10/2026: professor substituto (contrato até 15/01/2026 na carga 2025), sem turmas no IC em 2026"
 TCC00357,PROG. ORIENTADA A OBJETOS I,Igor Machado,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00357,PROGRAMAÇÃO ORIENTADA A OBJETOS I,Mauricio,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
 TCC00358,SISTEMAS COMPUTACIONAIS,Aline Nascimento,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
@@ -210,7 +210,7 @@ TCC00358,SISTEMAS COMPUTACIONAIS,Raphael Guerra,ARQ.SO.,,True,sim,turmas_2026_cc
 TCC00359,REDES DE COMPUTADORES,Flavio Seixas,REDES,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00359,REDES DE COMPUTADORES,Igor Moraes,REDES,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00360,VISUALIZAÇÃO DE DADOS,Marcos Lage,COMP.VIS.JOGOS,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
-TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Heleno,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Heleno,ENG.SOFT.,0,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,"manual 10/10/2026: professor substituto (contrato até 15/01/2026 na carga 2025), sem turmas no IC em 2026"
 TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Paulo Pires,ENG.SOFT.,,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00361,INTRODUÇÃO AO DESENVOLVIMENTO WEB,Viterbo,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00362,SISTEMAS DISTRIBUÍDOS PARA SISTEMAS DE INFORMAÇÃO,Flavia Delicato,ARQ.SO.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
@@ -220,7 +220,7 @@ TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Rebeca,ENG.SOFT.,0,True,sim,t
 TCC00363,GERÊNCIA DE PROJETOS E MANUT DE SOFTWARE,Troy,ENG.SOFT.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
 TCC00365,QUALIDADE E TESTE DE SOFTWARE,Vania,ENG.SOFT.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Andre Renato,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
-TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Heleno,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
+TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Heleno,ESTR.PROG.,0,False,nao,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,"manual 10/10/2026: professor substituto (contrato até 15/01/2026 na carga 2025), sem turmas no IC em 2026"
 TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leandro Fernandes,ESTR.PROG.,0,False,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2025
 TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Leo Cruz,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
 TCC00366,PROGRAMAÇÃO DE COMPUTADORES I,Yuri,ESTR.PROG.,0,True,sim,turmas_2026_cc_si.csv; turmas_2025.csv; preferencias_2025.csv,sim,HP6 10/10/2026: deu a disciplina em 2026
