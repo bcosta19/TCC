@@ -14,7 +14,9 @@ from src.solve.optframe_adapter import (
     NSIntegrated,
     MoveTCC,
     ProblemTimetable,
+    PYOPTFRAME_ALGORITHMS,
     SolutionTimetable,
+    copy_solution_payload,
     solve_sa_optframe,
 )
 
@@ -161,6 +163,59 @@ class TestOptframeAdapter(unittest.TestCase):
         payload["classes"][0]["professores_alocados"] = ["Ana", "Bruno"]
         with self.assertRaisesRegex(ValueError, "H12 indisponivel"):
             solve_sa_optframe(payload, seed=1, seconds=1)
+
+    def test_copia_rapida_isola_o_que_os_movimentos_alteram(self):
+        payload = toy_payload()
+        payload["classes"][0]["dominio_horarios"] = [[
+            {"dia": "sexta", "inicio": "08:00", "fim": "10:00"}]]
+        original = copy.deepcopy(payload)
+        copia = copy.deepcopy(SolutionTimetable(payload)).payload
+        self.assertEqual(copia, original)
+        p = ProblemTimetable(copia, greedy_start=False)
+        for move in (
+            {"kind": "teacher", "class_index": 0, "new_teacher": "Bruno"},
+            {"kind": "room", "class_index": 0, "meeting_index": 0, "new_room": "304"},
+            {"kind": "schedule", "class_index": 0, "pattern_index": 0},
+        ):
+            MoveTCC(move).apply(p, SolutionTimetable(copia))
+        self.assertEqual(payload, original)
+        self.assertNotEqual(copia, original)
+
+
+class TestPyoptframeProtocolo(unittest.TestCase):
+    CONFIG = {
+        "segundos": 1.0,
+        "amostra_calibracao": 20,
+        "aceitacao_inicial": 0.5,
+        "aceitacao_final": 0.01,
+        "iteracoes_por_temperatura": 10,
+        "tentativas_busca_local": 10,
+        "iteracoes_sem_melhora": 10,
+        "nivel_maximo": 2,
+    }
+
+    def test_algoritmos_nunca_pioram_a_partida(self):
+        for name, solve in PYOPTFRAME_ALGORITHMS.items():
+            payload = toy_payload()
+            partida = evaluate(payload)
+            with self.subTest(algoritmo=name):
+                result = solve(payload, 11, self.CONFIG)
+                self.assertLessEqual(objective_key(result.evaluation), objective_key(partida))
+                self.assertEqual(evaluate(result.solution), result.evaluation)
+                self.assertEqual(result.metadata["algorithm"], name)
+                self.assertGreater(result.metadata["evaluations"], 0)
+                self.assertEqual(payload, toy_payload())
+
+    def test_sa_registra_temperaturas(self):
+        result = PYOPTFRAME_ALGORITHMS["sa_pyoptframe"](toy_payload(), 11, self.CONFIG)
+        meta = result.metadata
+        self.assertGreater(meta["t0"], meta["tf"])
+        self.assertTrue(0 < meta["alpha"] < 1)
+
+    def test_rejeita_tempo_invalido(self):
+        for name, solve in PYOPTFRAME_ALGORITHMS.items():
+            with self.subTest(algoritmo=name), self.assertRaises(ValueError):
+                solve(toy_payload(), 1, {**self.CONFIG, "segundos": 0})
 
 
 if __name__ == "__main__":
