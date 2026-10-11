@@ -1,0 +1,89 @@
+{
+ "config": "oficial_2026_v1",
+ "sementes": "calibracao",
+ "avaliacoes": null,
+ "segundos": null,
+ "guloso": {
+  "avaliacoes": 3186,
+  "objetivo": [
+   5.0,
+   33.0,
+   0.0,
+   2.2635338229806106
+  ]
+ },
+ "execucoes": [
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 11,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 66795,
+   "engine_best_energy": 4028000002.629308,
+   "seconds": 650.0,
+   "alpha": 0.9981387438260279,
+   "iter_max": 100,
+   "t0": 0.02588954761577303,
+   "tf": 0.003896765203259294,
+   "avaliacoes_calibracao": 201,
+   "avaliacoes_previstas": 101648,
+   "temperatura_final": 0.007500357319676445
+  },
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 22,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 66847,
+   "engine_best_energy": 4028000002.262026,
+   "seconds": 650.0,
+   "alpha": 0.9979921771049489,
+   "iter_max": 100,
+   "t0": 0.01941716071182993,
+   "tf": 0.0029225739024444945,
+   "avaliacoes_calibracao": 201,
+   "avaliacoes_previstas": 94221,
+   "temperatura_final": 0.0050916551760068485
+  },
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 33,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 66707,
+   "engine_best_energy": 4028000002.0547576,
+   "seconds": 650.0,
+   "alpha": 0.9979874827266638,
+   "iter_max": 100,
+   "t0": 0.018196700116321126,
+   "tf": 0.0027388762785574574,
+   "avaliacoes_calibracao": 201,
+   "avaliacoes_previstas": 94001,
+   "temperatura_final": 0.0047662878287104485
+  },
+  {
+   "algorithm": "ils_pyoptframe",
+   "seed": 11,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 88680,
+   "engine_best_energy": 5029000002.054236,
+   "seconds": 650.0,
+   "reinicios": 4
+  },
+  {
+   "algorithm": "ils_pyoptframe",
+   "seed": 22,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 92002,
+   "engine_best_energy": 4030000001.9666576,
+   "seconds": 650.0,
+   "reinicios": 3
+  },
+  {
+   "algorithm": "ils_pyoptframe",
+   "seed": 33,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 91291,
+   "engine_best_energy": 4030000001.9923043,
+   "seconds": 650.0,
+   "reinicios": 3
+  }
+ ]
+}

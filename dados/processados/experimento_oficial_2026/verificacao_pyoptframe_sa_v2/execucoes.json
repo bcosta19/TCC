@@ -1,0 +1,62 @@
+{
+ "config": "oficial_2026_v1",
+ "sementes": "calibracao",
+ "avaliacoes": null,
+ "segundos": null,
+ "guloso": {
+  "avaliacoes": 3186,
+  "objetivo": [
+   5.0,
+   33.0,
+   0.0,
+   2.2635338229806106
+  ]
+ },
+ "execucoes": [
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 11,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 62344,
+   "engine_best_energy": 4028000001.9540505,
+   "seconds": 650.0,
+   "alpha": 0.9963451924945809,
+   "iter_max": 100,
+   "t0": 0.02588954761577303,
+   "tf": 0.003896765203259294,
+   "avaliacoes_calibracao": 1615,
+   "avaliacoes_previstas": 51719,
+   "temperatura_final": 0.0028047298452908093
+  },
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 22,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 63262,
+   "engine_best_energy": 4029000001.8072553,
+   "seconds": 650.0,
+   "alpha": 0.9963518812778266,
+   "iter_max": 100,
+   "t0": 0.01941716071182993,
+   "tf": 0.0029225739024444945,
+   "avaliacoes_calibracao": 1615,
+   "avaliacoes_previstas": 51814,
+   "temperatura_final": 0.0020437922271671033
+  },
+  {
+   "algorithm": "sa_pyoptframe",
+   "seed": 33,
+   "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+   "evaluations": 62466,
+   "engine_best_energy": 4029000001.6097317,
+   "seconds": 650.0,
+   "alpha": 0.9958351779496069,
+   "iter_max": 100,
+   "t0": 0.018196700116321126,
+   "tf": 0.0027388762785574574,
+   "avaliacoes_calibracao": 1439,
+   "avaliacoes_previstas": 45374,
+   "temperatura_final": 0.001426742149219227
+  }
+ ]
+}

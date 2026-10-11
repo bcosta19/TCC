@@ -2,7 +2,8 @@
 
 Configuração: ``dados/config_oficial_2026.json``. Todos os algoritmos partem
 da mesma solução gulosa (calculada uma vez) e têm o mesmo orçamento de
-avaliações. Saída em ``dados/processados/experimento_oficial_2026/<rótulo>/``:
+avaliações; os do pyoptframe param por tempo (``segundos``), igual à
+duração mediana do ``sa2`` com 100 mil avaliações. Saída em ``dados/processados/experimento_oficial_2026/<rótulo>/``:
 ``resultados.csv`` (uma linha por execução), ``execucoes.json`` (metadados e
 progresso) e ``resumo.md`` (medianas, distância aos pisos e Wilcoxon pareado
 exato contra o ``sa2``).
@@ -12,6 +13,10 @@ Exemplos:
     # verificação curta nas sementes de calibração
     python scripts/run_official_experiments_2026.py --sementes calibracao \\
         --avaliacoes 20000 --algoritmos sa2,ils,vns,sa --rotulo verificacao_inicial
+
+    # só os algoritmos do pyoptframe, com tempo reduzido
+    python scripts/run_official_experiments_2026.py --sementes calibracao \\
+        --segundos 60 --algoritmos sa_pyoptframe,ils_pyoptframe --rotulo verificacao_pyoptframe
 
     # experimento completo nas sementes de avaliação
     python scripts/run_official_experiments_2026.py --sementes avaliacao --rotulo e3_completo
@@ -35,6 +40,12 @@ sys.path.insert(0, str(ROOT))
 from scripts.report_synthetic_presentation_2026 import fixed_curriculum_floor  # noqa: E402
 from src.solve.direct_objective import evaluate  # noqa: E402
 from src.solve.integrated import ALGORITHMS, greedy_improve, objective_key  # noqa: E402
+
+try:
+    from src.solve.optframe_adapter import PYOPTFRAME_ALGORITHMS  # noqa: E402
+except ImportError:  # pyoptframe não instalado: só os algoritmos de referência
+    PYOPTFRAME_ALGORITHMS = {}
+ALGORITHMS = {**ALGORITHMS, **PYOPTFRAME_ALGORITHMS}
 
 CONFIG = ROOT / "dados" / "config_oficial_2026.json"
 OUTPUT = ROOT / "dados" / "processados" / "experimento_oficial_2026"
@@ -146,6 +157,7 @@ def main() -> None:
     parser.add_argument("--sementes", choices=["calibracao", "avaliacao"], default="avaliacao")
     parser.add_argument("--algoritmos", help="Lista separada por vírgula (padrão: os do protocolo)")
     parser.add_argument("--avaliacoes", type=int, help="Sobrescreve o orçamento (verificações curtas)")
+    parser.add_argument("--segundos", type=float, help="Sobrescreve o tempo dos algoritmos do pyoptframe")
     parser.add_argument("--rotulo", required=True)
     parser.add_argument("--processos", type=int, default=6)
     parser.add_argument("--resumir", action="store_true", help="Só refaz o resumo.md a partir do resultados.csv existente")
@@ -181,8 +193,12 @@ def main() -> None:
     tasks = []
     for name in names:
         settings = dict(settings_by_name[name])
-        if args.avaliacoes:
+        if name not in ALGORITHMS:
+            sys.exit(f"Algoritmo indisponível: {name} (o pyoptframe está instalado?)")
+        if args.avaliacoes and "avaliacoes" in settings:
             settings["avaliacoes"] = args.avaliacoes
+        if args.segundos and "segundos" in settings:
+            settings["segundos"] = args.segundos
         tasks += [(name, seed, settings, start) for seed in seeds]
 
     rows, runs = [], []
@@ -203,6 +219,7 @@ def main() -> None:
         writer.writerows(rows)
     (out / "execucoes.json").write_text(json.dumps({
         "config": config["id"], "sementes": args.sementes, "avaliacoes": args.avaliacoes,
+        "segundos": args.segundos,
         "guloso": {"avaliacoes": greedy_metadata.get("evaluations"), "objetivo": list(objective_key(start_result))},
         "execucoes": runs,
     }, ensure_ascii=False, indent=1), encoding="utf-8")

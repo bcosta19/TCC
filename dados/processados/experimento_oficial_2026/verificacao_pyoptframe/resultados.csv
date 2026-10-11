@@ -1,0 +1,7 @@
+algoritmo,semente,hard,conflitos_curriculares,conflitos_sala,conflitos_professor,deficit_carga_anual,excesso_capacidade,soft_total,avaliacoes,segundos,dias_trabalhados,janelas,desperdicio_capacidade,rodizio_semestre,preferencia_priorizada
+ils_pyoptframe,11,5,5,0,0,29.0,0.0,2.054236,88680,650.1,255,24,1698.0,28,-84.08333333333336
+ils_pyoptframe,22,4,4,0,0,30.0,0.0,1.966658,92002,650.1,253,21,1755.0,27,-85.11666666666665
+ils_pyoptframe,33,4,4,0,0,30.0,0.0,1.992304,91291,650.1,250,25,1731.0,26,-86.01666666666665
+sa_pyoptframe,11,4,4,0,0,28.0,0.0,2.629308,66795,650.0,266,19,3166.0,29,-87.91666666666667
+sa_pyoptframe,22,4,4,0,0,28.0,0.0,2.262026,66847,650.0,263,13,2565.0,30,-86.38333333333335
+sa_pyoptframe,33,4,4,0,0,28.0,0.0,2.054758,66707,650.0,258,13,2309.0,27,-85.75

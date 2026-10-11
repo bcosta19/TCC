@@ -25,6 +25,7 @@ Notas de projeto:
 import copy
 import math
 import random
+import time
 from typing import Optional
 
 from optframe import Engine
@@ -35,7 +36,9 @@ from optframe.heuristics import BasicSimulatedAnnealing
 from src.solve.direct_objective import evaluate
 from src.solve.validation import validate_solution
 from src.solve.integrated import (
+    SearchResult,
     apply_move,
+    calibrate_temperatures,
     greedy_improve,
     propose_move,
     search_energy,
@@ -47,11 +50,35 @@ from src.solve.integrated import (
 # ---------------------------------------------------------------------------
 
 
+def copy_solution_payload(payload: dict) -> dict:
+    """Copia só o que os movimentos alteram; o resto do payload é compartilhado.
+
+    ``apply_move`` troca ``professor`` e ``professores_alocados`` da turma e
+    altera os dicionários de ``encontros``. Todo o resto (domínios, cadastros,
+    metadados) é somente leitura durante a busca. O ``deepcopy`` completo
+    custava cerca de 6 avaliações por cópia na instância oficial, e o OptFrame
+    copia a solução a cada passo.
+    """
+    classes = []
+    for item in payload.get("classes", []):
+        copied = dict(item)
+        if "encontros" in item:
+            copied["encontros"] = [dict(meeting) for meeting in item["encontros"]]
+        if isinstance(item.get("professores_alocados"), list):
+            copied["professores_alocados"] = list(item["professores_alocados"])
+        classes.append(copied)
+    return {**payload, "classes": classes}
+
+
 class SolutionTimetable:
     """XSolution: embrulha o payload JSON do TCC."""
 
     def __init__(self, payload: dict):
         self.payload = payload
+
+    def __deepcopy__(self, memo) -> "SolutionTimetable":
+        # O engine copia soluções por ``copy.deepcopy``.
+        return SolutionTimetable(copy_solution_payload(self.payload))
 
     def __str__(self) -> str:
         return f"SolutionTimetable(classes={len(self.payload.get('classes', []))})"
@@ -191,3 +218,147 @@ def solve_sa_optframe(
         "engine_best_energy": getattr(sout, "best_e", None),
     }
     return best_payload, evaluation, metadata
+
+
+# ---------------------------------------------------------------------------
+# Protocolo da instância oficial (SA e ILS nativos do pyoptframe)
+# ---------------------------------------------------------------------------
+
+
+def build_protocol_engine(payload: dict, seed: int) -> ProblemTimetable:
+    """Engine com avaliador, construtivo e a vizinhança integrada (NS 0).
+
+    A partida é o próprio ``payload`` (a solução gulosa comum do protocolo).
+    """
+    # Erros Python dentro de callbacks ctypes nao se propagam com seguranca.
+    search_energy(evaluate(payload))
+    p = ProblemTimetable(payload, greedy_start=False)
+    p.rng.seed(seed)
+    p.engine.setup(p)
+    p.engine.add_ns_class(p, NSIntegrated)
+    return p
+
+
+def _result(p: ProblemTimetable, sout, algorithm: str, seed: int, extra: dict):
+    best_s = getattr(sout, "best_s", None)
+    if best_s is None:
+        raise RuntimeError(f"{algorithm} nao retornou solucao; aumente o limite de tempo")
+    evaluation = evaluate(best_s.payload)
+    metadata = {
+        "algorithm": algorithm,
+        "seed": seed,
+        "seed_scope": "vizinhanca Python; RNG interno do OptFrame nao configurado",
+        "evaluations": p.evaluations,
+        "engine_best_energy": getattr(sout, "best_e", None),
+        **extra,
+    }
+    return SearchResult(best_s.payload, evaluation, metadata)
+
+
+def solve_sa_pyoptframe(payload: dict, seed: int, config: dict):
+    """BasicSA nativo com temperatura calibrada no nível soft.
+
+    T0 e Tf vêm da mesma calibração do ``sa2`` (piora mediana do soft aceita
+    com ``aceitacao_inicial`` e ``aceitacao_final``). Nessa escala, pioras de
+    hard, déficit ou excesso (pesos 10⁹, 10⁶ e 10³ na energia) têm
+    probabilidade de aceitação desprezível. A parada é por tempo; o fator de
+    resfriamento leva T0 a Tf no número de avaliações previsto para o tempo
+    restante. A vazão vem de uma sondagem curta do próprio BasicSA (fração
+    ``fracao_sondagem`` do tempo, a T0 constante, descartada), porque o motor
+    também copia soluções e é mais lento que a calibração. Como a vazão ainda
+    cai ao longo da busca, Tf é planejada para ``fracao_resfriamento`` das
+    avaliações previstas; depois disso o BasicSA segue resfriando abaixo de Tf.
+    """
+    seconds = float(config["segundos"])
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise ValueError("O limite de tempo deve ser positivo e finito")
+    began = time.monotonic()
+    p = build_protocol_engine(payload, seed)
+    temperatures, used = calibrate_temperatures(
+        payload, p.rng, int(config["amostra_calibracao"]),
+        float(config["aceitacao_inicial"]), float(config["aceitacao_final"]),
+    )
+    t0, tf = temperatures["soft"]["t0"], temperatures["soft"]["tf"]
+    iter_max = int(config["iteracoes_por_temperatura"])
+    list_idx = p.engine.create_component_list("[ OptFrame:NS 0 ]", "OptFrame:NS[]")
+    probe_seconds = seconds * float(config["fracao_sondagem"])
+    probe_began = time.monotonic()
+    BasicSimulatedAnnealing(p.engine, 0, 0, list_idx, 0.999999, iter_max, t0).search(probe_seconds)
+    probe_rate = p.evaluations / max(time.monotonic() - probe_began, 1e-9)
+    used += p.evaluations
+    p.evaluations = 0
+    left = seconds - (time.monotonic() - began)
+    if left <= 0:
+        raise ValueError("O limite de tempo acabou na calibração")
+    planned = max(iter_max, int(left * probe_rate * float(config["fracao_resfriamento"])))
+    alpha = (tf / t0) ** (iter_max / planned)
+    sa = BasicSimulatedAnnealing(p.engine, 0, 0, list_idx, alpha, iter_max, t0)
+    sout = sa.search(left)
+    # Temperatura em que a busca parou: mostra se o tempo bastou para chegar a Tf.
+    reached = t0 * alpha ** (p.evaluations // iter_max)
+    p.evaluations += used
+    return _result(p, sout, "sa_pyoptframe", seed, {
+        "seconds": seconds,
+        "alpha": alpha,
+        "iter_max": iter_max,
+        "t0": t0,
+        "tf": tf,
+        "avaliacoes_calibracao": used,
+        "avaliacoes_previstas": planned,
+        "temperatura_final": reached,
+    })
+
+
+def solve_ils_pyoptframe(payload: dict, seed: int, config: dict):
+    """ILSLevels nativo: perturbação LPlus2 e descida aleatória (RDM).
+
+    O nível ``l`` aplica ``l + 2`` movimentos aleatórios; sobe após
+    ``iteracoes_sem_melhora`` iterações sem melhora e volta a zero quando há
+    melhora. O ILSLevels termina ao passar de ``nivel_maximo``; enquanto
+    houver tempo, ele é reiniciado a partir da melhor solução encontrada.
+    O BasicILS do pyoptframe 5.1.0 não é usado: ele encerra o processo com
+    falha de segmentação logo após a primeira busca local.
+    """
+    seconds = float(config["segundos"])
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise ValueError("O limite de tempo deve ser positivo e finito")
+    deadline = time.monotonic() + seconds
+    current = payload
+    evaluations = 0
+    restarts = 0
+    best = None
+    while True:
+        left = deadline - time.monotonic()
+        if left <= 0.5 and best is not None:
+            break
+        p = build_protocol_engine(current, seed + restarts)
+        engine = p.engine
+        ls = engine.build_local_search(
+            "OptFrame:ComponentBuilder:LocalSearch:RDM",
+            f"OptFrame:GeneralEvaluator 0 OptFrame:NS 0 {int(config['tentativas_busca_local'])}",
+        )
+        pert = engine.build_component(
+            "OptFrame:ComponentBuilder:ILS:LevelPert:LPlus2",
+            "OptFrame:GeneralEvaluator:Evaluator 0 OptFrame:NS 0",
+            "OptFrame:ILS:LevelPert",
+        )
+        ils = engine.build_single_obj_search(
+            "OptFrame:ComponentBuilder:SingleObjSearch:ILS:ILSLevels",
+            f"OptFrame:GeneralEvaluator 0 OptFrame:InitialSearch 0 OptFrame:LocalSearch {ls.id} "
+            f"OptFrame:ILS:LevelPert {pert} {int(config['iteracoes_sem_melhora'])} {int(config['nivel_maximo'])}",
+        )
+        if ils.id < 0:
+            raise RuntimeError("Falha ao montar o ILSLevels no engine")
+        sout = engine.run_sos_search(ils, max(left, 0.5))
+        evaluations += p.evaluations
+        best = _result(p, sout, "ils_pyoptframe", seed, {})
+        current = best.solution
+        restarts += 1
+    best.metadata.update({"evaluations": evaluations, "seconds": seconds, "reinicios": restarts - 1})
+    return best
+
+
+PYOPTFRAME_ALGORITHMS = {
+    "sa_pyoptframe": solve_sa_pyoptframe,
+    "ils_pyoptframe": solve_ils_pyoptframe,
+}

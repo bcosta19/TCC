@@ -1,6 +1,6 @@
 {
   "id": "oficial_2026_v1",
-  "descricao": "Protocolo da instância oficial de 2026 (decidido em 10/10/2026): partida comum pelo guloso, SA lexicográfico em duas fases (sa2) calibrado por aceitação de 50% (início) e 1% (fim) da piora mediana, ILS e VNS com o mesmo orçamento, 3 sementes de calibração separadas de 10 sementes de avaliação, Wilcoxon pareado exato.",
+  "descricao": "Protocolo da instância oficial de 2026 (decidido em 10/10/2026): partida comum pelo guloso, SA lexicográfico em duas fases (sa2) calibrado por aceitação de 50% (início) e 1% (fim) da piora mediana, ILS e VNS com o mesmo orçamento, 3 sementes de calibração separadas de 10 sementes de avaliação, Wilcoxon pareado exato. Em 11/10/2026 foram incluídos o BasicSA e o ILSLevels nativos do pyoptframe, com parada por tempo (650 s, a duração mediana do sa2 com 100 mil avaliações na verificação de 10/10).",
   "instancia": "dados/processados/instancia_oficial_2026.json",
   "maximo_candidatos_guloso": 8,
   "sementes": {
@@ -38,6 +38,23 @@
     "vns": {
       "avaliacoes": 100000,
       "tentativas_busca_local": 30
+    },
+    "sa_pyoptframe": {
+      "segundos": 650,
+      "amostra_calibracao": 200,
+      "aceitacao_inicial": 0.5,
+      "aceitacao_final": 0.01,
+      "iteracoes_por_temperatura": 100,
+      "nota": "BasicSA nativo do pyoptframe 5.1.0; T0 e Tf calibrados no nível soft como no sa2; resfriamento planejado pela vazão de uma sondagem do próprio BasicSA (2% do tempo), com Tf atingida em 75% das avaliações previstas; parada por tempo",
+      "fracao_sondagem": 0.02,
+      "fracao_resfriamento": 0.75
+    },
+    "ils_pyoptframe": {
+      "segundos": 650,
+      "tentativas_busca_local": 30,
+      "iteracoes_sem_melhora": 100,
+      "nivel_maximo": 3,
+      "nota": "ILSLevels nativo do pyoptframe 5.1.0 com perturbação LPlus2 e descida aleatória RDM; reiniciado da melhor solução enquanto houver tempo; parada por tempo"
     }
   },
   "referencias": {
