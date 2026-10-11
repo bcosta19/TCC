@@ -98,3 +98,55 @@ déficit 33, soft 2,264.
 - Tempo: cerca de 11 min por execução de 100 mil avaliações com 9 processos
   em paralelo. O protocolo completo (3 algoritmos × 10 sementes) leva cerca de
   40 min por cenário.
+
+## Inclusão do pyoptframe — 11/10/2026
+
+Decidido pelo aluno em 11/10/2026: os experimentos finais também usam
+métodos nativos do pyoptframe 5.1.0, a única versão publicada. Código em
+`src/solve/optframe_adapter.py` e configuração em `dados/config_oficial_2026.json`.
+
+- **`sa_pyoptframe`:** BasicSA nativo. T₀ e T_f são calibrados no nível soft
+  como no `sa2`. Nessa escala, pioras de hard, déficit ou excesso (pesos 10⁹,
+  10⁶ e 10³ na energia) quase nunca são aceitas. O resfriamento é planejado
+  para levar T₀ a T_f no tempo disponível, pela vazão medida na calibração.
+- **`ils_pyoptframe`:** ILSLevels nativo, com perturbação LPlus2 (nível l
+  aplica l + 2 movimentos), descida aleatória RDM (30 tentativas sem melhora),
+  100 iterações sem melhora por nível e nível máximo 3. O ILSLevels termina
+  sozinho ao passar do nível máximo; enquanto houver tempo, é reiniciado a
+  partir da melhor solução.
+- **Orçamento:** parada por tempo, 650 s, a duração mediana do `sa2` com 100
+  mil avaliações na verificação de 10/10. O número de avaliações feitas é
+  registrado.
+- **Fora do estudo:** BasicILS, BasicVNS, RVNS e GVNS do pyoptframe 5.1.0
+  encerram o processo com falha de segmentação no código nativo. O VNS fica só
+  na implementação própria.
+- **Aleatoriedade:** a semente controla a vizinhança em Python; o gerador
+  interno do motor não aceita semente. As execuções não são totalmente
+  reprodutíveis.
+- O motor copia a solução por `deepcopy` a cada passo (38 ms na instância
+  oficial, cerca de 6 avaliações). O adaptador copia só o que os movimentos
+  alteram (0,27 ms).
+
+### Verificação (sementes de calibração 11, 22, 33)
+
+Resultados em `dados/processados/experimento_oficial_2026/verificacao_pyoptframe`,
+executados em outra máquina (4 processos) que a `verificacao_100k`.
+
+| Algoritmo | Hard | Déficit | Soft (mediana) | Avaliações |
+|---|---|---|---|---|
+| `sa2` (próprio) | 4 | 28 | 1,863 | 100 mil |
+| `sa_pyoptframe` | 4 | 28 | 2,262 | cerca de 67 mil |
+| ILS próprio | 4 | 31 | 2,045 | 100 mil |
+| `ils_pyoptframe` | 4 | 30 | 1,992 | cerca de 90 mil |
+| VNS próprio | 4 | 30 | 1,941 | 100 mil |
+
+- Pela comparação lexicográfica por semente, o `sa2` vence o
+  `sa_pyoptframe` nas sementes 11 e 22 (soft melhor com hard e déficit
+  iguais) e perde na 33 (déficit 29 contra 28). O `ils_pyoptframe` vence o ILS
+  próprio nas sementes 22 e 33 e perde na 11 (hard 5).
+- O `sa_pyoptframe` parou com T entre 0,005 e 0,0075, acima de T_f (cerca de
+  0,003): a vazão da calibração (só avaliação) superestima a do motor (que
+  também copia soluções). Ele terminou ainda aceitando pioras do soft, o que
+  explica parte do soft pior. Corrigir a previsão antes das sementes de
+  avaliação.
+- Com 3 sementes nenhuma diferença pode ser significativa.
