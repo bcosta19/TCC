@@ -45,7 +45,9 @@
       "aceitacao_inicial": 0.5,
       "aceitacao_final": 0.01,
       "iteracoes_por_temperatura": 100,
-      "nota": "BasicSA nativo do pyoptframe 5.1.0; T0 e Tf calibrados no nível soft como no sa2; resfriamento planejado pela vazão medida na calibração; parada por tempo"
+      "nota": "BasicSA nativo do pyoptframe 5.1.0; T0 e Tf calibrados no nível soft como no sa2; resfriamento planejado pela vazão de uma sondagem do próprio BasicSA (2% do tempo), com Tf atingida em 75% das avaliações previstas; parada por tempo",
+      "fracao_sondagem": 0.02,
+      "fracao_resfriamento": 0.75
     },
     "ils_pyoptframe": {
       "segundos": 650,

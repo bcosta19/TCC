@@ -263,7 +263,11 @@ def solve_sa_pyoptframe(payload: dict, seed: int, config: dict):
     hard, déficit ou excesso (pesos 10⁹, 10⁶ e 10³ na energia) têm
     probabilidade de aceitação desprezível. A parada é por tempo; o fator de
     resfriamento leva T0 a Tf no número de avaliações previsto para o tempo
-    restante, pela vazão medida na calibração.
+    restante. A vazão vem de uma sondagem curta do próprio BasicSA (fração
+    ``fracao_sondagem`` do tempo, a T0 constante, descartada), porque o motor
+    também copia soluções e é mais lento que a calibração. Como a vazão ainda
+    cai ao longo da busca, Tf é planejada para ``fracao_resfriamento`` das
+    avaliações previstas; depois disso o BasicSA segue resfriando abaixo de Tf.
     """
     seconds = float(config["segundos"])
     if not math.isfinite(seconds) or seconds <= 0:
@@ -274,15 +278,20 @@ def solve_sa_pyoptframe(payload: dict, seed: int, config: dict):
         payload, p.rng, int(config["amostra_calibracao"]),
         float(config["aceitacao_inicial"]), float(config["aceitacao_final"]),
     )
-    elapsed = time.monotonic() - began
-    left = seconds - elapsed
-    if left <= 0:
-        raise ValueError("O limite de tempo acabou na calibração")
     t0, tf = temperatures["soft"]["t0"], temperatures["soft"]["tf"]
     iter_max = int(config["iteracoes_por_temperatura"])
-    planned = max(iter_max, int(left * used / elapsed))
-    alpha = (tf / t0) ** (iter_max / planned)
     list_idx = p.engine.create_component_list("[ OptFrame:NS 0 ]", "OptFrame:NS[]")
+    probe_seconds = seconds * float(config["fracao_sondagem"])
+    probe_began = time.monotonic()
+    BasicSimulatedAnnealing(p.engine, 0, 0, list_idx, 0.999999, iter_max, t0).search(probe_seconds)
+    probe_rate = p.evaluations / max(time.monotonic() - probe_began, 1e-9)
+    used += p.evaluations
+    p.evaluations = 0
+    left = seconds - (time.monotonic() - began)
+    if left <= 0:
+        raise ValueError("O limite de tempo acabou na calibração")
+    planned = max(iter_max, int(left * probe_rate * float(config["fracao_resfriamento"])))
+    alpha = (tf / t0) ** (iter_max / planned)
     sa = BasicSimulatedAnnealing(p.engine, 0, 0, list_idx, alpha, iter_max, t0)
     sout = sa.search(left)
     # Temperatura em que a busca parou: mostra se o tempo bastou para chegar a Tf.

@@ -192,6 +192,8 @@ class TestPyoptframeProtocolo(unittest.TestCase):
         "tentativas_busca_local": 10,
         "iteracoes_sem_melhora": 10,
         "nivel_maximo": 2,
+        "fracao_sondagem": 0.1,
+        "fracao_resfriamento": 0.75,
     }
 
     def test_algoritmos_nunca_pioram_a_partida(self):
