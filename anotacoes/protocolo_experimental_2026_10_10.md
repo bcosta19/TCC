@@ -150,3 +150,24 @@ executados em outra máquina (4 processos) que a `verificacao_100k`.
   explica parte do soft pior. Corrigir a previsão antes das sementes de
   avaliação.
 - Com 3 sementes nenhuma diferença pode ser significativa.
+
+### Correção do resfriamento do `sa_pyoptframe` (11/10/2026)
+
+A vazão passou a ser medida por uma sondagem do próprio BasicSA (2% do tempo,
+a T₀ constante, descartada), e T_f é planejada para 75% das avaliações
+previstas; depois disso o BasicSA segue resfriando abaixo de T_f. Resultados
+em `dados/processados/experimento_oficial_2026/verificacao_pyoptframe_sa_v2`.
+
+| Semente | Hard | Déficit | Soft | Avaliações | T final / T_f |
+|---|---|---|---|---|---|
+| 11 | 4 | 28 | 1,954 | 62 344 | 0,0028 / 0,0039 |
+| 22 | 4 | 29 | 1,807 | 63 262 | 0,0020 / 0,0029 |
+| 33 | 4 | 29 | 1,610 | 62 466 | 0,0014 / 0,0027 |
+
+- Agora a busca termina abaixo de T_f nas três sementes.
+- Soft mediano 1,807, melhor que o do `sa2` (1,863), mas déficit 29 em duas
+  sementes. Pela comparação lexicográfica por semente, o `sa_pyoptframe` vence
+  o `sa2` nas sementes 11 e 33 e perde na 22.
+- No BasicSA o déficit só muda por movimentos que melhoram: não há fase que
+  recoza o déficit, como a fase 1 do `sa2`. Isso pode explicar o déficit 29.
+- Esta é a configuração para as 10 sementes de avaliação.
